@@ -29,7 +29,7 @@ notes/             Analysen, Hypothesen und abgeleitete GEO-Maßnahmen
 
 ## Status
 
-- [x] Deutsche Website: Ist-Zustand als Gutenberg-Rohcode eingepflegt (16 Seiten, Stand siehe Git-History)
+- [x] Deutsche Website: Ist-Zustand als Gutenberg-Rohcode eingepflegt (Content-Seiten + Transportboxen-Übersicht + 10 SafetyBATTbox-Produktdetailseiten, Stand siehe Git-History)
 - [ ] Peec-AI-Daten
 - [ ] Analytics-/Traffic-Daten
 - [ ] Competitor-Daten

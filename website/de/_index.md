@@ -21,6 +21,46 @@ Domain: `https://www.logbatt.de/` (Editor-/Asset-Domain im Backend: `117655.wd50
 | `kontakt.html` | Kontakt | `/kontakt/` | – | – |
 | `impressum.html` | Impressum | `/impressum/` (vermutet) | – | (Plugin-Block) |
 | `datenschutzerklaerung.html` | Datenschutzerklärung | `/datenschutzerklaerung/` (vermutet) | – | (Plugin-Block) |
+| `transportkisten.html` | Transportboxen (Übersicht) | `/transportkisten/` | Transport- & Brandschutzbehälter für Lithium-Ionen-Batterien \| LogBATT GmbH | CollectionPage, BreadcrumbList, ItemList (7 Produkte+Specs+Zertifikat), DefinedTerm, FAQPage (15) |
+
+## Produktdetailseiten (SafetyBATTbox)
+
+Alle Produktseiten enthalten je ein **Product-JSON-LD** (mit `additionalProperty`-Specs,
+BAM-`hasCertification` bei Transportboxen, `offers` = „Preis auf Anfrage") plus **ItemPage +
+BreadcrumbList** und eine seiteneigene **FAQPage (7 Fragen)**. Verdichtet gespeichert:
+Produkttext, technische Daten-Tabelle und JSON-LD verbatim; dekoratives Slider-/Galerie-Markup
+als Hinweis vermerkt.
+
+### Lagerbehälter — `website/de/lagerbehaelter/` (Anwendung: Lagerung, kein Löschwasser)
+
+| Datei | Produkt | Art.-Nr. | Zuladung | Werkstoff |
+| --- | --- | --- | --- | --- |
+| `safety-battbox-xl-storage.html` | SafetyBATTbox XL-Storage | 300030 | 1.050 kg | Pulverbeschichteter Stahl / Edelstahl |
+| `safety-battbox-l-storage.html` | SafetyBATTbox L-Storage | 300041 | 357 kg | Alu / Edelstahl / verzinkt |
+| `safety-battbox-m-storage.html` | SafetyBATTbox M-Storage | 300031 | 80 kg | Verzinkter Stahl |
+
+### Transportboxen — `website/de/transportkisten/` (Anwendung: Transport + Lagerung, BAM-zugelassen)
+
+| Datei | Produkt | Art.-Nr. | Zuladung | VG | ADR-Anweisung | BAM-Nr. |
+| --- | --- | --- | --- | --- | --- | --- |
+| `safety-battbox-xl-2plus.html` | SafetyBATTbox XL-2.2+ | 300076 | 1.700 kg | I | LP906 (SV376) | D-BAM 16336 (Einzelfall) |
+| `safety-battbox-xl-2.html` | SafetyBATTbox XL 2.2 | 300075 | 1.129 kg | I | LP904/905/906 | D-BAM 15730 |
+| `safety-battbox-xl-lite.html` | SafetyBATTbox XL-lite | 300063 | 900 kg | II | LP903/904/905 | D-BAM 16059 |
+| `safety-battbox-l-2.html` | SafetyBATTbox L-2 | 300037 | 357 kg | I | P908–P911 | D-BAM 15891 |
+| `safety-battbox-m-2.html` | SafetyBATTbox M-2 | 300004 | 30 kg | I | P908–P911 | D-BAM 15468 |
+| `safety-battbox-s-1.html` | SafetyBATTbox S-1 | 300007 | 10 kg | I | P908–P911 | D-BAM 15937 |
+| `safety-battbox-s-1-lite.html` | SafetyBATTbox S-1-lite | 300077 | 15 kg | II | P903/908/909/910 | D-BAM 16387 |
+
+**Zubehör (auf Übersichtsseite):** LogCOVER (Brandschutzdecke), LogBAGs (Brandschutz-Kissen,
+Größen XL/L/M/S+/S, DIN 4102 / EN 13501-1). **Weitere Trust-Signale hier zuerst genannt:**
+45 bestandene reale Brandtests, Verfahrensfestlegungsinhaber P911/LP906, DOT U.S. Special Permit,
+GPS-Tracking/Sensorik, LogBATT E-Learning Academy (training@logbatt.de).
+
+### Auffälligkeiten in den Produktseiten (Original)
+- Auf `safety-battbox-m-2.html` und `safety-battbox-s-1-lite.html` lautet die sichtbare
+  FAQ-Überschrift jeweils „… zur SafetyBATTbox M-2" (Copy-Paste-Fehler); JSON-LD-@ids sind korrekt.
+- `safety-battbox-xl-2plus.html` enthält den kompletten Produktblock im Original doppelt.
+- Übersicht `transportkisten.html`: Kurzdaten von L-2/M-2/S-1 nennen fälschlich „LP911" statt „P911".
 
 ## Kernaussagen / Themen-Cluster (für GEO relevant)
 
