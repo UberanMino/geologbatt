@@ -21,10 +21,12 @@ ADR 2025 P911/LP906 für kritisch defekte Batterien.
 ```
 website/de/        Ist-Zustand der deutschen Website (roher WordPress-Gutenberg-Quellcode je Seite)
   _index.md        Seitenübersicht: Slug, URL, Meta-Title, Meta-Description, Kernaussage
+optimized/de/      GEO-optimierte Content-Vorschläge je Seite (fertig zur Umsetzung im Backend),
+                   spiegelt die Struktur von website/de/
 data/peec/         Peec-AI-Exporte: wie LLMs auf relevante Prompts reagieren (folgt)
 data/analytics/    Zugriffs-/Traffic-Daten der LogBATT-Seiten (folgt)
 data/competitors/  Wettbewerber-Informationen (folgt)
-notes/             Analysen, Hypothesen und abgeleitete GEO-Maßnahmen
+notes/             GEO-Analysen einzelner Seiten und abgeleitete Maßnahmen
 ```
 
 ## Status
