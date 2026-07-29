@@ -1,6 +1,6 @@
 # Deutsche Website – Seitenübersicht (Ist-Zustand)
 
-Rohcode aus dem WordPress-Gutenberg-Backend, Stand: 2026-07-28.
+Rohcode aus dem WordPress-Gutenberg-Backend, Stand: 2026-07-29.
 Domain: `https://www.logbatt.de/` (Editor-/Asset-Domain im Backend: `117655.wd50.extern.regiohelden.de`).
 
 | Datei | Seite | URL | Meta-Title | JSON-LD vorhanden |
@@ -22,6 +22,18 @@ Domain: `https://www.logbatt.de/` (Editor-/Asset-Domain im Backend: `117655.wd50
 | `impressum.html` | Impressum | `/impressum/` (vermutet) | – | (Plugin-Block) |
 | `datenschutzerklaerung.html` | Datenschutzerklärung | `/datenschutzerklaerung/` (vermutet) | – | (Plugin-Block) |
 | `transportkisten.html` | Transportboxen (Übersicht) | `/transportkisten/` | Transport- & Brandschutzbehälter für Lithium-Ionen-Batterien \| LogBATT GmbH | CollectionPage, BreadcrumbList, ItemList (7 Produkte+Specs+Zertifikat), DefinedTerm, FAQPage (15) |
+| `logistik.html` | Logistik | `/logistik/` | Lithium-Ionen-Batterielogistik 🔋 \| LogBATT GmbH | WebPage, Service |
+| `recycling.html` | Recycling von Lithium-Ionen-Akkus | `/recycling/` | Europaweites Recycling von Lithium-Ionen-Akkus ♻️ \| LogBATT GmbH | FAQPage (@graph, 11) + FAQPage (7) |
+| `nachhaltigkeit.html` | Klimaschutz und Nachhaltigkeit | `/nachhaltigkeit/` (vermutet) | Klimaschutz und Nachhaltigkeit \| LogBATT GmbH | – |
+| `qualitaetssicherungsprogramm.html` | Qualitätssicherungsprogramm (QSP) | `/qualitaetssicherungsprogramm/` (vermutet) | Qualitätssicherung für Gefahrgutverpackungen⚠️\| BAM | – |
+| `lithium-safety-container.html` | Lithium Safety Container (KIWA / PGS 37-2) | `/lithium-safety-container/` | Sichere Lagerung von Lithiumbatterien \| Lithium Safety Container | CollectionPage/ItemList u. a. – **aber irrtümlich das JSON-LD von `/transportkisten/`** (s. u.) |
+| `automobil-hersteller.html` | Systemlösungen für Automobil-Hersteller | `/automobil-hersteller/` | – | – |
+| `lkw-hersteller.html` | Systemlösungen für LKW-Hersteller | `/lkw-hersteller/` (vermutet) | – | – |
+| `versicherungen.html` | Systemlösungen für Versicherungen | `/versicherungen/` (vermutet) | – | – |
+| `behaeltermiete.html` | Transportbox mieten (Behältermiete, B2B) | `/transportbox-mieten/` (vermutet) | – | FAQPage |
+| `transportkisten/verkauf-von-gefahrgutboxen.html` | Verkauf von Gefahrgutboxen | `/transportkisten/verkauf-von-gefahrgutboxen/` | Sichere Gefahrgut-Transportbehälter kaufen \| LogBATT GmbH | WebPage, Service, FAQPage (5) |
+| `ueber-uns.html` | Über uns | `/ueber-uns/` | – | – |
+| `lexikon.html` | Lexikon (Gefahrgutlogistik / Gefahrgutklassen) | `/lexikon/` (vermutet) | – | – (60 Begriffe A–Z als `<details>`) |
 
 ## Produktdetailseiten (SafetyBATTbox)
 
@@ -81,13 +93,21 @@ GPS-Tracking/Sensorik, LogBATT E-Learning Academy (training@logbatt.de).
 - **Geo/Standort:** Hauptsitz Plochingen; europaweites Netzwerk; weltweite
   Analysefahrten (30+ Länder gelistet).
 
+## Glossar / Lexikon (`lexikon.html`)
+
+60 Fachbegriffe A–Z als `<details>`/`<summary>`-Accordions (Verpackungscodes 4A/4H/50A/50H,
+ADR/RID/IMDG/IATA, BAM/BAM-GGR 024, Gefahrgutklassen 1–9, UN 3090/3091/3480/3481/3551/3552,
+P911/LP906, Thermische Propagation, Batteriepass, LFP-/NMC-Batterien, VdS 3103 u. v. m.).
+Kein JSON-LD im Rohcode – **starke DefinedTerm-/FAQ-Quelle für GEO** (Definitionen liegen
+strukturiert und zitierfähig vor). Es gibt zusätzlich ein separates „Glossar" (`glossar.html`).
+
 ## Wichtige interne Verlinkungen (im Rohcode referenziert, aber noch NICHT eingepflegt)
 
 Diese Seiten werden verlinkt, liegen aber noch nicht als Quellcode vor:
-`/logistik/`, `/transportkisten/`, `/ueber-uns/` (#zertifizierungen, #unternehmen,
-#instagram), `/stellenanzeigen/`, `/2019/logbatt-e-learning-academy-online/`
-(LogBATT Academy), Produkt-Detailseiten `/lagerbehaelter/safety-battbox-{xl,l,m}-storage/`,
-Glossar-Detailseiten (`?page_id=…`).
+`/stellenanzeigen/`, `/2019/logbatt-e-learning-academy-online/` (LogBATT Academy),
+`logbatt-academy.com` (externe Academy-Domain), Glossar-Detailseiten (`?page_id=…`).
+(Inzwischen eingepflegt: `/logistik/`, `/transportkisten/` + Produktdetailseiten,
+`/ueber-uns/`, `/recycling/`, `/lexikon/`.)
 
 ## Offene Punkte / Auffälligkeiten
 
@@ -100,3 +120,12 @@ Glossar-Detailseiten (`?page_id=…`).
   („Verlinkung auf die anderen LP!").
 - `lagerbehaelter.html` enthält einen doppelten Satz-Fragmentfehler
   („…Dokumentation des Lagerkonzepts.rderlich sind. Ergänzend gilt…").
+- **`lithium-safety-container.html`:** Das eingebettete JSON-LD ist NICHT der Container-Content,
+  sondern 1:1 das CollectionPage-/ItemList-Markup von `/transportkisten/` (alle `@id` zeigen auf
+  `…/transportkisten/#…`, gelistet werden die 7 SafetyBATTbox-Transportboxen). Für die KIWA-/PGS-37-2-
+  Container (4FT/10FT/20FT/40FT) fehlt damit passendes strukturiertes Markup → **GEO-Quick-Win**.
+- **`behaeltermiete.html`:** Der Seiteninhalt war im gelieferten Rohcode zweimal identisch
+  enthalten (Doppel-Paste); hier einmalig übernommen.
+- **`automobil-hersteller.html`, `lkw-hersteller.html`, `versicherungen.html`:** identische H1
+  („Unsere ganzheitliche Lösung für Lithiumbatterielogistik – maßgeschneidert für Sie") und
+  weitgehend gleicher Aufbau; kein JSON-LD, keine eigenständigen Meta-Tags im Rohcode geliefert.

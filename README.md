@@ -29,7 +29,10 @@ notes/             Analysen, Hypothesen und abgeleitete GEO-Maßnahmen
 
 ## Status
 
-- [x] Deutsche Website: Ist-Zustand als Gutenberg-Rohcode eingepflegt (Content-Seiten + Transportboxen-Übersicht + 10 SafetyBATTbox-Produktdetailseiten, Stand siehe Git-History)
+- [x] Deutsche Website: Ist-Zustand als Gutenberg-Rohcode eingepflegt (alle relevanten Content-,
+  Service- und Produktseiten inkl. Transportboxen-Übersicht + 10 SafetyBATTbox-Produktdetailseiten,
+  Logistik, Recycling, Nachhaltigkeit, QSP, Lithium Safety Container, Systemlösungen (Automobil/LKW/
+  Versicherungen), Behältermiete, Verkauf, Über uns und Lexikon; ausgenommen Blogs – Stand siehe Git-History)
 - [ ] Peec-AI-Daten
 - [ ] Analytics-/Traffic-Daten
 - [ ] Competitor-Daten
