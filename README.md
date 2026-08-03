@@ -23,9 +23,11 @@ website/de/        Ist-Zustand der deutschen Website (roher WordPress-Gutenberg-
   _index.md        Seitenübersicht: Slug, URL, Meta-Title, Meta-Description, Kernaussage
 optimized/de/      GEO-optimierte Content-Vorschläge je Seite (fertig zur Umsetzung im Backend),
                    spiegelt die Struktur von website/de/
-data/peec/         Peec-AI-Exporte: wie LLMs auf relevante Prompts reagieren (folgt)
+data/peec/         Peec-AI-Exporte: wie LLMs auf relevante Prompts reagieren (Chats + Top-Brands
+                   je Zeitraum, siehe data/peec/README.md)
 data/analytics/    Zugriffs-/Traffic-Daten der LogBATT-Seiten (folgt)
-data/competitors/  Wettbewerber-Informationen (folgt)
+data/competitors/  Wettbewerber-Informationen (folgt; erste Kandidaten aus Peec-Zitaten siehe
+                   notes/geo-analyse-peec-2026-07-27_2026-08-03.md, Abschnitt 4)
 notes/             GEO-Analysen einzelner Seiten und abgeleitete Maßnahmen
 ```
 
@@ -35,7 +37,8 @@ notes/             GEO-Analysen einzelner Seiten und abgeleitete Maßnahmen
   Service- und Produktseiten inkl. Transportboxen-Übersicht + 10 SafetyBATTbox-Produktdetailseiten,
   Logistik, Recycling, Nachhaltigkeit, QSP, Lithium Safety Container, Systemlösungen (Automobil/LKW/
   Versicherungen), Behältermiete, Verkauf, Über uns und Lexikon; ausgenommen Blogs – Stand siehe Git-History)
-- [ ] Peec-AI-Daten
+- [~] Peec-AI-Daten (erste Charge eingepflegt: 3 Chat-Exports + 2 Top-Brands-Snapshots,
+  Zeitraum 27.07.–03.08.2026, siehe data/peec/ und notes/geo-analyse-peec-2026-07-27_2026-08-03.md)
 - [ ] Analytics-/Traffic-Daten
 - [ ] Competitor-Daten
 - [ ] GEO-Analyse & Maßnahmenableitung
