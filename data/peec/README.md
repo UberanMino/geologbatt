@@ -8,6 +8,9 @@ auf relevante Prompts antworten) sowie die daraus abgeleiteten Analysen.
 ```
 data/peec/
   README.md                     diese Datei
+  prompts-master-JJJJ-MM-TT.md  Snapshot ALLER aktiv getrackten Prompts inkl. Metriken,
+                                 gruppiert nach Themen-Cluster (topic_name) – der beste
+                                 Überblick, welche Themen stark/schwach performen
   2026-07-27_2026-08-03/        ein Zeitraum-Ordner pro Export-Batch (Woche)
     chats/                      Chat-Exporte: pro Datei ein getesteter Prompt,
                                  Tag-für-Tag-Antworten aller getrackten Engines
@@ -34,6 +37,19 @@ Exporte vorliegen.
 Jede Export-Datei deckt **einen Prompt über 8 Tage × 4 Engines = 32 Antworten** ab. Die Auswahl der
 hier eingepflegten Prompts ist laut Team **kein vollständiges Set**, sondern bewusst eine Mischung
 aus gut und schlecht performenden Beispielen je Thema.
+
+## Spalten-Glossar (Master-Prompt-Liste)
+
+Zusätzlich zu den oben genannten Spalten enthält `prompts-master-*.md`:
+
+| Spalte | Bedeutung |
+| --- | --- |
+| `topic_name` | Von Peec vergebener Themen-Cluster-Name (z. B. „Vermietung von Gefahrgutboxen") |
+| `volume` | Peec-eigener (relativer, nicht absoluter) Such-/Prompt-Volumenindikator, Skala bisher nur 2–4 beobachtet |
+| `branding` | `branded` (Markenname im Prompt) vs. `non-branded` – bisher ausschließlich Letzteres getrackt |
+| `intent` | `commercial`, `informational` oder `transactional` |
+| `tags` | Freitext-Tags, u. a. `Beste/Empfehlung` für superlativisch formulierte Prompts (siehe Analyse) |
+| `web_search` | Anteil der Antworten mit aktiver Websuche/Grounding statt reinem Trainingswissen |
 
 ## Spalten-Glossar (Top-Brands-Exporte)
 

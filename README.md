@@ -37,8 +37,9 @@ notes/             GEO-Analysen einzelner Seiten und abgeleitete Maßnahmen
   Service- und Produktseiten inkl. Transportboxen-Übersicht + 10 SafetyBATTbox-Produktdetailseiten,
   Logistik, Recycling, Nachhaltigkeit, QSP, Lithium Safety Container, Systemlösungen (Automobil/LKW/
   Versicherungen), Behältermiete, Verkauf, Über uns und Lexikon; ausgenommen Blogs – Stand siehe Git-History)
-- [~] Peec-AI-Daten (erste Charge eingepflegt: 3 Chat-Exports + 2 Top-Brands-Snapshots,
-  Zeitraum 27.07.–03.08.2026, siehe data/peec/ und notes/geo-analyse-peec-2026-07-27_2026-08-03.md)
+- [~] Peec-AI-Daten (eingepflegt: 3 Chat-Exports + 2 Top-Brands-Snapshots für 27.07.–03.08.2026,
+  plus Master-Liste aller 79 aktiv getrackten Prompts über 10 Themen-Cluster (Stand 03.08.2026);
+  siehe data/peec/ und die beiden geo-analyse-peec-*.md-Notizen)
 - [ ] Analytics-/Traffic-Daten
 - [ ] Competitor-Daten
 - [ ] GEO-Analyse & Maßnahmenableitung

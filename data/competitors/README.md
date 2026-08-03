@@ -27,3 +27,13 @@ Zitationshäufigkeit:
 
 DENIOS, Zarges, GelKoh, RETRON, Zieglmeier, Genius, Bauer Südlohn, mts, DellCon, LiBCycle,
 Paul Müller (paulmueller.de), Buncker, RLG – siehe `data/peec/2026-07-27_2026-08-03/top-brands/`.
+
+**Update 2026-08-03 (Master-Prompt-Liste, 79 Prompts):** Die 1-Wochen-Snapshots hatten die
+Bedeutung von **RETRON** und **LiBCycle** deutlich unterschätzt (dort nur 8 % bzw. 0 %
+Visibility). Über den vollen, rollierenden Prompt-Satz ist RETRON mit 61 Erwähnungen der
+zweit-/drittstärkste Wettbewerber überhaupt (nach DENIOS, vor Zarges) und dominiert speziell
+die Themen **Havariefälle** (11/11 Prompts) und **Recycling** (5/6 Prompts) – LiBCycle taucht
+ebenfalls fast ausschließlich im Recycling-Cluster auf. Beide sind spezialisierte
+Recycling-/Havarie-Anbieter und sollten bei einer Recycling-fokussierten GEO-Maßnahme als
+Hauptkonkurrenz behandelt werden, nicht als Nischenspieler. Details:
+`notes/geo-analyse-peec-prompts-master-2026-08-03.md`, Abschnitt 1.
