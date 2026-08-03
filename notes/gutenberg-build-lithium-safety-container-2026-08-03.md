@@ -38,11 +38,25 @@ gegengeprüft.
 - **Ein Tippfehler** in einer H2 („Lithium Safety Containerns" → „Containern") wurde
   stillschweigend korrigiert.
 
+## Korrektur 2026-08-03 (nach Nutzerhinweis)
+
+Erste Fassung hatte für Bilder und die Produktbroschüre nur Platzhalter/TODO-Marker gesetzt,
+obwohl die echten Assets (Cover-Hintergrund, KIWA-Logo, 10FT-/40FT-Containerfotos, allgemeine
+Broschüre, vier größenspezifische Datenblatt-PDFs) bereits im selbst eingepflegten Ist-Zustand
+(`website/de/lithium-safety-container.html`) sowie im ursprünglichen Rohcode-Transkript vorlagen
+– hätte dort abgeglichen werden müssen, statt den Agentur-Text isoliert zu behandeln. Fehler vom
+Nutzer bemerkt und behoben: Alle Medien (inkl. Media-IDs) und PDF-Links sind jetzt aus dem
+Ist-Zustand übernommen, inklusive der vier einzelnen Datenblatt-Buttons (4FT/10FT/20FT/40FT
+LAGERUNG), die im Agentur-Text nicht mehr vorkamen, aber als reale Assets weiter existieren.
+
 ## Noch offen (siehe Header-Kommentar in der Datei selbst)
 
-1. Platzhalter-Link für die Produktbroschüre (`#TODO-PDF-URL-Produktbroschuere-einfuegen`) muss
-   durch die echte PDF-URL ersetzt werden.
-2. FAQ-Blockwahl (`wp:details` vs. vorhandenes Accordion-Plugin) prüfen.
-3. Telefonnummer ist die von der Agentur fest angegebene Nummer (+49 7153 925080), nicht der
+1. Bild-/PDF-URLs liegen teils auf der Backend-Domain (`117655.wd50.extern.regiohelden.de`)
+   statt `logbatt.de` – so bereits im Ist-Zustand, sollte gegen die aktuell gültigen
+   Medien-URLs/IDs geprüft werden.
+2. Ob die vier Datenblatt-PDF-Buttons bewusst von der Agentur gestrichen wurden oder einfach
+   nicht Teil des Textauftrags waren, ist unklar – hier vorsorglich wieder ergänzt.
+3. FAQ-Blockwahl (`wp:details` vs. vorhandenes Accordion-Plugin) prüfen.
+4. Telefonnummer ist die von der Agentur fest angegebene Nummer (+49 7153 925080), nicht der
    sonst sitewide verwendete Platzhalter `[ProxyNumber]` – bewusst unverändert übernommen, da
    es sich um von der Agentur freigegebenen Text handelt.

@@ -6,6 +6,10 @@ Ersetzt:          website/de/lithium-safety-container.html (bisheriger Ist-Zusta
 Text-Quelle:      Agentur Suchhelden GmbH, Datei "logbatt.de_lithiumsafetycontainer_OPTIERW_V01.docx"
                   (Tracked-Changes-Version, Stand 2026-07-27; Autorin It. Datei: Selina),
                   hier aus den Word-Änderungsverfolgungen final aufgelöst (angenommene Fassung).
+Bilder & PDF-Links: aus dem bisherigen Ist-Zustand (website/de/lithium-safety-container.html)
+                  übernommen — die Agentur hat nur Text geliefert, keine Assets. Media-IDs
+                  (wp-image-85492/85495/85498/85510, Cover-Bild id 11982) stammen aus dem
+                  Original-Rohcode und sollten in der WP-Mediathek noch existieren.
 Gutenberg-Code &
 JSON-LD:          Claude, 2026-08-03 (siehe notes/ für Details zur Umsetzung)
 KWSet (Agentur):  lithium safety container, begehbare lithium sicherheitsbehälter,
@@ -17,20 +21,33 @@ Meta-Beschr.:     Lithium-Ionen-Akkus sicher lagern mit zertifizierten Lithium S
                   Löschsystem.
 
 WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
-1. Platzhalter-Link "#TODO-PDF-URL-Produktbroschuere-einfuegen" durch echte PDF-URL ersetzen.
-2. FAQ ist als WordPress-Core-Block "Details" (wp:details) umgesetzt, NICHT als das
+1. Bild-/PDF-URLs zeigen teils auf die Backend-Domain (117655.wd50.extern.regiohelden.de)
+   statt logbatt.de — das war schon im Ist-Zustand so (Cover-Hintergrund, KIWA-Logo, 10FT-/
+   40FT-Bild, allgemeine Broschüre); die vier größenspezifischen Datenblatt-PDFs lagen bereits
+   auf logbatt.de. Bitte prüfen, ob das noch die aktuell gültigen Medien-URLs/IDs sind.
+2. Die vier einzelnen Datenblatt-PDF-Buttons (4FT/10FT/20FT/40FT LAGERUNG) standen NICHT im
+   Agentur-Text, existierten aber im Ist-Zustand als echte Assets — hier wieder ergänzt. Bitte
+   bestätigen, ob das gewünscht ist oder von der Agentur bewusst gestrichen wurde.
+3. FAQ ist als WordPress-Core-Block "Details" (wp:details) umgesetzt, NICHT als das
    Accordion-Plugin, das auf der Live-Seite evtl. bereits verwendet wird – ggf. Fragen/Antworten
    in das bestehende Accordion-Muster übertragen statt diesen Block zu nutzen.
-3. Tel.-Nummer ist die von der Agentur gelieferte feste Nummer (+49 7153 925080), NICHT der
+4. Tel.-Nummer ist die von der Agentur gelieferte feste Nummer (+49 7153 925080), NICHT der
    sonst sitewide verwendete Platzhalter [ProxyNumber] – bewusst so übernommen, bitte prüfen.
-4. Tippfehler "Containerns" -> "Containern" in einer H2 stillschweigend korrigiert.
-5. JSON-LD ist komplett neu aufgebaut (ersetzt den bisherigen Fehler, bei dem hier fälschlich
+5. Tippfehler "Containerns" -> "Containern" in einer H2 stillschweigend korrigiert.
+6. JSON-LD ist komplett neu aufgebaut (ersetzt den bisherigen Fehler, bei dem hier fälschlich
    das JSON-LD von /transportkisten/ eingebettet war) – CollectionPage mit 4 Product-Einträgen
    (4FT/10FT/20FT/40FT), Service, eigenständige Organization für den Hersteller
    "Lithium Safety Containers B.V.", FAQPage (10 Fragen), BreadcrumbList.
 -->
 
 <!-- wp:block {"ref":17205} /-->  (synchronisierter Block: Header)
+
+<!-- wp:cover {"url":"https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2021/02/Hintergrund-Blau.jpg","id":11982,"dimRatio":50,"isDark":false,"align":"full","className":"cover-transportkisten"} -->
+<div class="wp-block-cover alignfull is-light cover-transportkisten"><img class="wp-block-cover__image-background wp-image-11982" alt="" src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2021/02/Hintergrund-Blau.jpg" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-background-dim"></span><div class="wp-block-cover__inner-container">
+<!-- wp:image {"id":85492,"width":"618px","height":"auto","sizeSlug":"full","linkDestination":"none","align":"center"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2026/06/lithium-safety-container-4ft-blauw.png" alt="Blauer Container mit weißen Kanten und Warnsymbolen, geschlossen und eckig" class="wp-image-85492" style="width:618px;height:auto"/></figure>
+<!-- /wp:image --></div></div>
+<!-- /wp:cover -->
 
 <!-- wp:heading {"level":1} -->
 <h1 class="wp-block-heading" id="lithium-safety-container-zertifiziert-brandsicher">Lithium Safety Container – zertifiziert &amp; brandsicher</h1>
@@ -43,6 +60,10 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 <!-- wp:paragraph -->
 <p>Die LogBATT Lithium Safety Container wurden speziell für die professionelle Lagerung, Aufladung und Quarantänehaltung von Lithium-Ionen-Batterien entwickelt. Als <strong>KIWA-zertifizierte Großbehälter</strong> entsprechen sie der Sicherheitsnorm PGS 37-2 und erfüllen damit die Anforderungen von Versicherern, Behörden und Betriebsstättenverordnungen. Die Behälter werden dafür <strong>speziell angefertigt </strong>– für hohe Sicherheit und einheitliche Qualitätsstandards.</p>
 <!-- /wp:paragraph -->
+
+<!-- wp:image {"id":85510,"sizeSlug":"full","linkDestination":"none","align":"center"} -->
+<figure class="wp-block-image aligncenter size-full"><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2026/06/KIWA-Zertifizierung_Logo.jpg" alt="Kiwa Logo schwarz weiss" class="wp-image-85510"/></figure>
+<!-- /wp:image -->
 
 <!-- wp:heading {"level":2} -->
 <h2 class="wp-block-heading" id="was-sind-lithium-safety-container">Was sind Lithium Safety Container?</h2>
@@ -80,9 +101,10 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 <p>Zusammengefasst weisen die Lithium Safety Container von LogBATT folgende zentrale technische Merkmale auf:</p>
 <!-- /wp:paragraph -->
 
+<!-- wp:media-text {"mediaId":85495,"mediaType":"image"} -->
+<div class="wp-block-media-text is-stacked-on-mobile"><figure class="wp-block-media-text__media"><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2026/06/lithium-safety-container-10ft-blauw-1024x1024.png" alt="Blauer und weisser Container mit Doppeltuer und Warnsymbolen, neutral" class="wp-image-85495 size-full"/></figure><div class="wp-block-media-text__content">
 <!-- wp:list -->
-<ul class="wp-block-list">
-<!-- wp:list-item -->
+<ul class="wp-block-list"><!-- wp:list-item -->
 <li>aktives Löschsystem auf Basis von AF-X-Aerosol</li>
 <!-- /wp:list-item -->
 
@@ -104,9 +126,10 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 
 <!-- wp:list-item -->
 <li>von Versicherern zugelassen</li>
-<!-- /wp:list-item -->
-</ul>
+<!-- /wp:list-item --></ul>
 <!-- /wp:list -->
+</div></div>
+<!-- /wp:media-text -->
 
 <!-- wp:paragraph -->
 <p>Die LogBATT Lithium Safety Container entstehen aus unserer exklusiven Vertriebspartnerschaft für die D-A-CH-Region mit Lithium Safety Containers B.V. Somit können wir Ihnen die Container direkt aus einer Hand mit lokaler Beratung, Service und Ersatzteilversorgung anbieten.</p>
@@ -114,7 +137,7 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#TODO-PDF-URL-Produktbroschuere-einfuegen">Produktbroschüre LogBATT Lithium Safety Container</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2026/06/Brochure-Logbatt-v1.1-2026.pdf">Produktbroschüre LogBATT Lithium Safety Container</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 
@@ -208,6 +231,55 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 <figure class="wp-block-table"><table class="wp-block-table"><thead><tr><th>Modell</th><th>Abmessungen (L × B × H)</th><th>Typischer Einsatzbereich</th></tr></thead><tbody><tr><td>4 FT</td><td>Außenmaße: 1.200 × 2.200 × 2.260 mm<br>Innenmaße: 1049 x 2112 x 2062 mm </td><td>Kleinbetriebe, Zweiradhandel, Werkstätten</td></tr><tr><td>10 FT</td><td>Außenmaße: 2990 x 2440 x 2590 mm<br>Innenmaße: 2800 x 2350 x 2390 mm</td><td>mittelgroße Lager, Parkplätze, Flottenbetreiber</td></tr><tr><td>20 FT</td><td>Außenmaße: 6060 x 2440 x 2590 mm<br>Innenmaße: 5890 x 2350 x 2390 mm</td><td>Industrie, Hafen- und Transportunternehmen</td></tr><tr><td>40 FT</td><td>Außenmaße: 12200 x 2440 x 2590 mm<br>Innenmaße: 11950 x 2330 x 2370 mm</td><td>Großlager, Automobilindustrie, Energiespeicher</td></tr></tbody></table></figure>
 <!-- /wp:table -->
 
+<!-- wp:paragraph -->
+<p>Detaillierte technische Datenblätter für alle Containermodelle sind als PDF verfügbar.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:columns -->
+<div class="wp-block-columns">
+<!-- wp:column -->
+<div class="wp-block-column">
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://www.logbatt.de/wp-content/uploads/sites/10112/2026/05/4ft-container-LogBATT.pdf">4FT LAGERUNG</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column">
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://www.logbatt.de/wp-content/uploads/sites/10112/2026/05/10ft-container-LogBATT.pdf">10FT LAGERUNG</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column">
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://www.logbatt.de/wp-content/uploads/sites/10112/2026/05/20ft-container-LogBATT.pdf">20FT LAGERUNG</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column">
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://www.logbatt.de/wp-content/uploads/sites/10112/2026/05/40ft-container-LogBATT.pdf">40FT LAGERUNG</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:column -->
+
+</div>
+<!-- /wp:columns -->
+
 <!-- wp:heading {"level":2} -->
 <h2 class="wp-block-heading" id="wo-werden-lithium-safety-container-regelmaessig-eingesetzt">Wo werden Lithium Safety Container regelmäßig eingesetzt?</h2>
 <!-- /wp:heading -->
@@ -216,9 +288,10 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 <p>Die LogBATT Lithium Safety Container kommen überall dort zum Einsatz, wo Lithium-Ionen-Batterien in <strong>nennenswertem Umfang </strong>gelagert, geladen oder unter Quarantäne gestellt werden müssen. Zu den typischen Anwendern zählen:</p>
 <!-- /wp:paragraph -->
 
+<!-- wp:media-text {"mediaPosition":"right","mediaId":85498,"mediaType":"image"} -->
+<div class="wp-block-media-text has-media-on-the-right is-stacked-on-mobile"><div class="wp-block-media-text__content">
 <!-- wp:list -->
-<ul class="wp-block-list">
-<!-- wp:list-item -->
+<ul class="wp-block-list"><!-- wp:list-item -->
 <li>Zweiradgeschäfte, Vermietbetriebe und Händler für E-Bikes und E-Scooter</li>
 <!-- /wp:list-item -->
 
@@ -240,9 +313,10 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 
 <!-- wp:list-item -->
 <li>Technikgeschäfte, Elektronikhersteller und Servicebetriebe</li>
-<!-- /wp:list-item -->
-</ul>
+<!-- /wp:list-item --></ul>
 <!-- /wp:list -->
+</div><figure class="wp-block-media-text__media"><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2026/06/lithium-safety-container-40ft-blauw-1024x1024.png" alt="Blau weisser Frachtcontainer ohne Gesicht mit Warnsymbolen und Tueren" class="wp-image-85498 size-full"/></figure></div>
+<!-- /wp:media-text -->
 
 <!-- wp:paragraph -->
 <p>Für Unternehmen, die nicht nur die Lagerung, sondern auch den sicheren Transport von Lithiumbatterien sicherstellen müssen, bietet LogBATT ergänzend spezialisierte Gefahrgutlogistik an.</p>
