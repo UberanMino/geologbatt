@@ -124,6 +124,9 @@ Diese Seiten werden verlinkt, liegen aber noch nicht als Quellcode vor:
   sondern 1:1 das CollectionPage-/ItemList-Markup von `/transportkisten/` (alle `@id` zeigen auf
   `…/transportkisten/#…`, gelistet werden die 7 SafetyBATTbox-Transportboxen). Für die KIWA-/PGS-37-2-
   Container (4FT/10FT/20FT/40FT) fehlt damit passendes strukturiertes Markup → **GEO-Quick-Win**.
+  **Update 2026-08-03:** Neuer Content (Agentur-Text) + korrektes JSON-LD liegt fertig zum
+  Einfügen unter `optimized/de/lithium-safety-container.html` bereit; dieser Ist-Zustand-Fehler
+  ist damit gelöst, sobald die Seite im Backend aktualisiert wird.
 - **`behaeltermiete.html`:** Der Seiteninhalt war im gelieferten Rohcode zweimal identisch
   enthalten (Doppel-Paste); hier einmalig übernommen.
 - **`automobil-hersteller.html`, `lkw-hersteller.html`, `versicherungen.html`:** identische H1
