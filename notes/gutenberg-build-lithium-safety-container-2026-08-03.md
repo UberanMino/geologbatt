@@ -49,6 +49,24 @@ Nutzer bemerkt und behoben: Alle Medien (inkl. Media-IDs) und PDF-Links sind jet
 Ist-Zustand übernommen, inklusive der vier einzelnen Datenblatt-Buttons (4FT/10FT/20FT/40FT
 LAGERUNG), die im Agentur-Text nicht mehr vorkamen, aber als reale Assets weiter existieren.
 
+## Zweite Korrektur 2026-08-03 (nach weiterem Nutzerhinweis)
+
+Zwei weitere Fehler waren in der zweiten Fassung noch drin, beide dadurch entstanden, dass ich
+Vorlagen-Bausteine aus anderen Seiten wiederverwendet habe, statt konsequent den für DIESE Seite
+bereits vorliegenden Original-Rohcode auszuwerten:
+
+1. **Doppelter Header:** Ich hatte den generischen synchronisierten Header-Block
+   (`wp:block {"ref":17205}`) aus anderen Templates übernommen UND zusätzlich den echten
+   Cover-Header dieser Seite gebaut – dadurch erschienen zwei Header-Bilder übereinander. Der
+   `ref:17205`-Block existiert im Original-Rohcode dieser Seite gar nicht; der `wp:cover`-Block
+   MIT dem 4FT-Bild IST hier der Seiten-Header. Entfernt.
+2. **Falscher FAQ-Block:** Ich hatte den WordPress-Core-Block `wp:details` verwendet, obwohl der
+   Original-Rohcode dieser Seite (und aller anderen Seiten) das sitewide Plugin
+   `wp:generic/accordion` nutzt (`<div class="wp-block-generic-accordion generic-accordion">`).
+   Jetzt exakt nach diesem Muster umgesetzt – die 5 bereits vorhandenen Fragen behalten ihre
+   ursprünglichen Anker-IDs 1:1, für die 5 neuen Fragen aus dem Agentur-Text wurden nach
+   demselben Namensschema neue Anker generiert.
+
 ## Noch offen (siehe Header-Kommentar in der Datei selbst)
 
 1. Bild-/PDF-URLs liegen teils auf der Backend-Domain (`117655.wd50.extern.regiohelden.de`)
@@ -56,7 +74,8 @@ LAGERUNG), die im Agentur-Text nicht mehr vorkamen, aber als reale Assets weiter
    Medien-URLs/IDs geprüft werden.
 2. Ob die vier Datenblatt-PDF-Buttons bewusst von der Agentur gestrichen wurden oder einfach
    nicht Teil des Textauftrags waren, ist unklar – hier vorsorglich wieder ergänzt.
-3. FAQ-Blockwahl (`wp:details` vs. vorhandenes Accordion-Plugin) prüfen.
-4. Telefonnummer ist die von der Agentur fest angegebene Nummer (+49 7153 925080), nicht der
+3. Telefonnummer ist die von der Agentur fest angegebene Nummer (+49 7153 925080), nicht der
    sonst sitewide verwendete Platzhalter `[ProxyNumber]` – bewusst unverändert übernommen, da
    es sich um von der Agentur freigegebenen Text handelt.
+4. Die 5 neu generierten Accordion-Anker (für die 5 neuen FAQ-Fragen) einmal in der
+   WordPress-Vorschau prüfen.

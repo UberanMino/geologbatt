@@ -6,8 +6,12 @@ Ersetzt:          website/de/lithium-safety-container.html (bisheriger Ist-Zusta
 Text-Quelle:      Agentur Suchhelden GmbH, Datei "logbatt.de_lithiumsafetycontainer_OPTIERW_V01.docx"
                   (Tracked-Changes-Version, Stand 2026-07-27; Autorin It. Datei: Selina),
                   hier aus den Word-Änderungsverfolgungen final aufgelöst (angenommene Fassung).
-Bilder & PDF-Links: aus dem bisherigen Ist-Zustand (website/de/lithium-safety-container.html)
-                  übernommen — die Agentur hat nur Text geliefert, keine Assets. Media-IDs
+Bilder, PDF-Links
+& FAQ-Block:      1:1 aus dem bisherigen Ist-Zustand (website/de/lithium-safety-container.html
+                  bzw. dem Original-Rohcode) übernommen — die Agentur hat nur Text geliefert.
+                  FAQ nutzt das echte sitewide Accordion-Plugin (wp:generic/accordion), NICHT
+                  den WP-Core-Block "Details" (Korrektur nach Rückmeldung vom 2026-08-03: erste
+                  Fassung hatte fälschlich wp:details verwendet). Media-IDs
                   (wp-image-85492/85495/85498/85510, Cover-Bild id 11982) stammen aus dem
                   Original-Rohcode und sollten in der WP-Mediathek noch existieren.
 Gutenberg-Code &
@@ -28,19 +32,17 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 2. Die vier einzelnen Datenblatt-PDF-Buttons (4FT/10FT/20FT/40FT LAGERUNG) standen NICHT im
    Agentur-Text, existierten aber im Ist-Zustand als echte Assets — hier wieder ergänzt. Bitte
    bestätigen, ob das gewünscht ist oder von der Agentur bewusst gestrichen wurde.
-3. FAQ ist als WordPress-Core-Block "Details" (wp:details) umgesetzt, NICHT als das
-   Accordion-Plugin, das auf der Live-Seite evtl. bereits verwendet wird – ggf. Fragen/Antworten
-   in das bestehende Accordion-Muster übertragen statt diesen Block zu nutzen.
-4. Tel.-Nummer ist die von der Agentur gelieferte feste Nummer (+49 7153 925080), NICHT der
+3. Tel.-Nummer ist die von der Agentur gelieferte feste Nummer (+49 7153 925080), NICHT der
    sonst sitewide verwendete Platzhalter [ProxyNumber] – bewusst so übernommen, bitte prüfen.
-5. Tippfehler "Containerns" -> "Containern" in einer H2 stillschweigend korrigiert.
-6. JSON-LD ist komplett neu aufgebaut (ersetzt den bisherigen Fehler, bei dem hier fälschlich
+4. Tippfehler "Containerns" -> "Containern" in einer H2 stillschweigend korrigiert.
+5. JSON-LD ist komplett neu aufgebaut (ersetzt den bisherigen Fehler, bei dem hier fälschlich
    das JSON-LD von /transportkisten/ eingebettet war) – CollectionPage mit 4 Product-Einträgen
    (4FT/10FT/20FT/40FT), Service, eigenständige Organization für den Hersteller
    "Lithium Safety Containers B.V.", FAQPage (10 Fragen), BreadcrumbList.
+6. Die 5 neuen FAQ-Fragen (von der Agentur ergänzt) haben neu generierte Anker nach demselben
+   Namensschema wie die 5 bestehenden — bitte einmal in der Vorschau prüfen, ob das
+   Accordion-Plugin diese sauber verarbeitet.
 -->
-
-<!-- wp:block {"ref":17205} /-->  (synchronisierter Block: Header)
 
 <!-- wp:cover {"url":"https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2021/02/Hintergrund-Blau.jpg","id":11982,"dimRatio":50,"isDark":false,"align":"full","className":"cover-transportkisten"} -->
 <div class="wp-block-cover alignfull is-light cover-transportkisten"><img class="wp-block-cover__image-background wp-image-11982" alt="" src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2021/02/Hintergrund-Blau.jpg" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-background-dim"></span><div class="wp-block-cover__inner-container">
@@ -424,95 +426,65 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 <h2 class="wp-block-heading" id="faq-haeufig-gestellte-fragen-zu-lithium-safety-containern">FAQ – Häufig gestellte Fragen zu Lithium Safety Containern</h2>
 <!-- /wp:heading -->
 
-<!-- wp:details -->
-<details class="wp-block-details"><summary>Was passiert bei einem Lithium-Akku-Brand?</summary>
-
-<!-- wp:paragraph -->
+<!-- wp:generic/accordion {"anchor":"-h3-strong-was-passiert-bei-einem-lithium-akku-brand-strong-h3","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-h3-strong-was-passiert-bei-einem-lithium-akku-brand-strong-h3"><summary class="accordion-title"><h3><strong>Was passiert bei einem Lithium-Akku-Brand?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
 <p>Bei einem Brand einer Lithium-Ionen-Batterie kommt es häufig zum thermischen Durchgehen: Die <strong>Temperatur steigt unkontrolliert an</strong>, Gase werden freigesetzt und können sich entzünden oder explodieren. Ein Lithium-Sicherheitsbehälter verhindert durch seine feuerbeständige Bauweise und das integrierte Löschsystem die Ausbreitung des Brandes auf die Umgebung.</p>
-<!-- /wp:paragraph -->
-</details>
-<!-- /wp:details -->
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
 
-<!-- wp:details -->
-<details class="wp-block-details"><summary>Sind Lithium-Sicherheitsbehälter verpflichtend?</summary>
-
-<!-- wp:paragraph -->
+<!-- wp:generic/accordion {"anchor":"-h3-strong-sind-lithium-sicherheitsbehaelter-pflicht-strong-h3","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-h3-strong-sind-lithium-sicherheitsbehaelter-pflicht-strong-h3"><summary class="accordion-title"><h3><strong>Sind Lithium-Sicherheitsbehälter verpflichtend?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
 <p>Eine gesetzliche Pflicht zur Nutzung von Lithium-Sicherheitsbehältern besteht nicht in jedem Fall pauschal. Allerdings verlangen viele Versicherer und Behörden die <strong>Einhaltung der Normen PGS 37-1 und PGS 37-2 </strong>als Voraussetzung für Betriebsgenehmigungen und Versicherungsschutz. In der Praxis ist der Einsatz zertifizierter Behälter für gewerbliche Betreiber daher nahezu unverzichtbar.</p>
-<!-- /wp:paragraph -->
-</details>
-<!-- /wp:details -->
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
 
-<!-- wp:details -->
-<details class="wp-block-details"><summary>Welche Normen gelten für Lithium Safety Container in Deutschland und der EU?</summary>
-
-<!-- wp:paragraph -->
+<!-- wp:generic/accordion {"anchor":"-h3-strong-welche-normen-gelten-in-deutschland-und-der-eu-strong-h3","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-h3-strong-welche-normen-gelten-in-deutschland-und-der-eu-strong-h3"><summary class="accordion-title"><h3><strong>Welche Normen gelten für Lithium Safety Container in Deutschland und der EU?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
 <p>In Deutschland und der EU gelten für die Lagerung von Gefahrstoffen unter anderem die <strong>TRGS </strong>(Technische Regeln für Gefahrstoffe) sowie die <strong>Betriebssicherheitsverordnung</strong>. Als praxisnahe Orientierung für die Lagerung von Lithiumbatterien hat sich die niederländische PGS 37 etabliert, die auch von deutschen Versicherern und Behörden zunehmend herangezogen wird.</p>
-<!-- /wp:paragraph -->
-</details>
-<!-- /wp:details -->
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
 
-<!-- wp:details -->
-<details class="wp-block-details"><summary>Darf man Akkus in normalen Schränken lagern?</summary>
-
-<!-- wp:paragraph -->
+<!-- wp:generic/accordion {"anchor":"-h3-strong-darf-man-akkus-in-normalen-schraenken-lagern-strong-h3","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-h3-strong-darf-man-akkus-in-normalen-schraenken-lagern-strong-h3"><summary class="accordion-title"><h3><strong>Darf man Akkus in normalen Schränken lagern?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
 <p>Handelsübliche Gefahrstoffschränke sind für die Lagerung von Li-Ionen-Akkus in der Regel nicht ausreichend, da sie weder über aktive Löschsysteme noch über Gasdetektion oder ausreichende thermische Isolierung verfügen. Für die gewerbliche Lagerung von Lithiumbatterien empfiehlt sich der <strong>Einsatz spezifisch zertifizierter Behälter</strong>.</p>
-<!-- /wp:paragraph -->
-</details>
-<!-- /wp:details -->
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
 
-<!-- wp:details -->
-<details class="wp-block-details"><summary>Wie entsorgt man defekte Lithiumbatterien?</summary>
-
-<!-- wp:paragraph -->
+<!-- wp:generic/accordion {"anchor":"-h3-strong-wie-entsorgt-man-defekte-lithiumbatterien-strong-h3","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-h3-strong-wie-entsorgt-man-defekte-lithiumbatterien-strong-h3"><summary class="accordion-title"><h3><strong>Wie entsorgt man defekte Lithiumbatterien?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
 <p>Defekte Lithium-Ionen-Batterien <strong>gelten als Gefahrgut</strong> und müssen entsprechend den geltenden Vorschriften entsorgt werden. Für die sichere Zwischenlagerung vor der Entsorgung eignen sich ebenfalls Lithium-Sicherheitsbehälter, da sie auch beschädigte Akkus sicher aufnehmen. Die fachgerechte Entsorgung und den sicheren Transport von Lithiumbatterien übernimmt die LogBATT GmbH im Rahmen ihrer Gefahrgutlogistik.</p>
-<!-- /wp:paragraph -->
-</details>
-<!-- /wp:details -->
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
 
-<!-- wp:details -->
-<details class="wp-block-details"><summary>Ist LogBATT der Hersteller der Lithium Safety Container?</summary>
-
-<!-- wp:paragraph -->
+<!-- wp:generic/accordion {"anchor":"-h3-strong-ist-logbatt-der-hersteller-der-lithium-safety-container-strong-h3","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-h3-strong-ist-logbatt-der-hersteller-der-lithium-safety-container-strong-h3"><summary class="accordion-title"><h3><strong>Ist LogBATT der Hersteller der Lithium Safety Container?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
 <p>LogBATT ist nicht der Hersteller, sondern exklusiver Vertriebspartner für die D-A-CH-Region. Die Container werden von Lithium Safety Containers B.V. entwickelt und gefertigt. LogBATT übernimmt dabei die vollständige Kundenbetreuung vor Ort – von der individuellen Beratung und Planung über den Vertrieb bis hin zum technischen Service und der Ersatzteilversorgung. So profitieren Kunden von der internationalen Produktqualität und gleichzeitig von einem lokalen Ansprechpartner mit kurzen Wegen.</p>
-<!-- /wp:paragraph -->
-</details>
-<!-- /wp:details -->
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
 
-<!-- wp:details -->
-<details class="wp-block-details"><summary>Was bedeutet die KIWA-Zertifizierung der Container?</summary>
-
-<!-- wp:paragraph -->
+<!-- wp:generic/accordion {"anchor":"-h3-strong-was-bedeutet-die-kiwa-zertifizierung-der-container-strong-h3","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-h3-strong-was-bedeutet-die-kiwa-zertifizierung-der-container-strong-h3"><summary class="accordion-title"><h3><strong>Was bedeutet die KIWA-Zertifizierung der Container?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
 <p>KIWA ist eine international anerkannte, unabhängige Prüf- und Zertifizierungsstelle mit Sitz in den Niederlanden. Die KIWA-Zertifizierung bestätigt, dass die Lithium Safety Container die Anforderungen der Sicherheitsnorm PGS 37-2 vollständig erfüllen – unter anderem in den Bereichen Brandschutz, Gasdetektion, Belüftung und Löschsysteme. Für Unternehmen bietet diese Zertifizierung eine verlässliche Grundlage gegenüber Versicherern, Behörden und Brandschutzbeauftragten und erleichtert die Genehmigung und den Versicherungsschutz am jeweiligen Standort.</p>
-<!-- /wp:paragraph -->
-</details>
-<!-- /wp:details -->
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
 
-<!-- wp:details -->
-<details class="wp-block-details"><summary>Für welche Batteriemengen eignet sich welche Containergröße?</summary>
-
-<!-- wp:paragraph -->
+<!-- wp:generic/accordion {"anchor":"-h3-strong-fuer-welche-batteriemengen-eignet-sich-welche-containergroesse-strong-h3","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-h3-strong-fuer-welche-batteriemengen-eignet-sich-welche-containergroesse-strong-h3"><summary class="accordion-title"><h3><strong>Für welche Batteriemengen eignet sich welche Containergröße?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
 <p>Die Wahl der passenden Containergröße richtet sich nach der Menge und Art der zu lagernden Lithium-Ionen-Batterien sowie dem verfügbaren Platz. Der kompakte 4-FT-Container eignet sich besonders für Kleinbetriebe, Zweiradhändler und Werkstätten mit überschaubarem Lagervolumen. Der 10-FT-Container bietet sich für mittelgroße Lager, Parkplatzbetreiber und Flottenbetreiber an. Die größeren 20-FT- und 40-FT-Modelle sind für Industrieanwendungen, Hafen- und Transportunternehmen sowie Großlager mit hohem Batterieaufkommen konzipiert. LogBATT berät Sie gerne bei der Auswahl der optimalen Größe für Ihren Bedarf.</p>
-<!-- /wp:paragraph -->
-</details>
-<!-- /wp:details -->
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
 
-<!-- wp:details -->
-<details class="wp-block-details"><summary>Wie unterscheidet sich der Lithium Safety Container von einem herkömmlichen Gefahrstoffschrank?</summary>
-
-<!-- wp:paragraph -->
+<!-- wp:generic/accordion {"anchor":"-h3-strong-wie-unterscheidet-sich-der-lithium-safety-container-von-einem-herkoemmlichen-gefahrstoffschrank-strong-h3","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-h3-strong-wie-unterscheidet-sich-der-lithium-safety-container-von-einem-herkoemmlichen-gefahrstoffschrank-strong-h3"><summary class="accordion-title"><h3><strong>Wie unterscheidet sich der Lithium Safety Container von einem herkömmlichen Gefahrstoffschrank?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
 <p>Herkömmliche Gefahrstoffschränke sind in der Regel für die Lagerung kleinerer Mengen an Gefahrstoffen konzipiert und verfügen weder über aktive Löschsysteme noch über eine Gasdetektion oder ausreichende thermische Isolierung. Die LogBATT Lithium Safety Container hingegen sind großformatige, begehbare Behälter mit integriertem AF-X-Aerosol-Löschsystem, aktiver Gasdetektion, Klimaanlage und einer Feuerwiderstandsdauer von mindestens 90 Minuten gemäß EN 1364-1:2015. Sie sind KIWA-zertifiziert, entsprechen der Norm PGS 37-2 und eignen sich für die Lagerung deutlich größerer Batteriemengen unter professionellen Bedingungen.</p>
-<!-- /wp:paragraph -->
-</details>
-<!-- /wp:details -->
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
 
-<!-- wp:details -->
-<details class="wp-block-details"><summary>Kann der Container auch zur Aufladung von Batterien genutzt werden?</summary>
-
-<!-- wp:paragraph -->
+<!-- wp:generic/accordion {"anchor":"-h3-strong-kann-der-container-auch-zur-aufladung-von-batterien-genutzt-werden-strong-h3","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-h3-strong-kann-der-container-auch-zur-aufladung-von-batterien-genutzt-werden-strong-h3"><summary class="accordion-title"><h3><strong>Kann der Container auch zur Aufladung von Batterien genutzt werden?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
 <p>Ja, die Lithium Safety Container sind so konzipiert, dass sie neben der reinen Lagerung und Quarantäne auch das kontrollierte Laden von Lithium-Ionen-Akkus unter sicheren Bedingungen ermöglichen. Dank der integrierten Klimaanlage, der aktiven Gasdetektion und des Löschsystems sind die sicherheitstechnischen Voraussetzungen für den Ladebetrieb erfüllt. So können Unternehmen Lagerung und Aufladung in einem einzigen Behälter zusammenführen, ohne separate Ladeinfrastruktur mit zusätzlichen Schutzmaßnahmen einrichten zu müssen.</p>
-<!-- /wp:paragraph -->
-</details>
-<!-- /wp:details -->
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
 
 
 <!-- wp:html -->
