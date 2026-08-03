@@ -5,15 +5,19 @@ URL:              https://www.logbatt.de/lithium-safety-container/
 Ersetzt:          website/de/lithium-safety-container.html (bisheriger Ist-Zustand)
 Text-Quelle:      Agentur Suchhelden GmbH, Datei "logbatt.de_lithiumsafetycontainer_OPTIERW_V01.docx"
                   (Tracked-Changes-Version, Stand 2026-07-27; Autorin It. Datei: Selina),
-                  hier aus den Word-Änderungsverfolgungen final aufgelöst (angenommene Fassung).
-Bilder, PDF-Links
-& FAQ-Block:      1:1 aus dem bisherigen Ist-Zustand (website/de/lithium-safety-container.html
-                  bzw. dem Original-Rohcode) übernommen — die Agentur hat nur Text geliefert.
-                  FAQ nutzt das echte sitewide Accordion-Plugin (wp:generic/accordion), NICHT
-                  den WP-Core-Block "Details" (Korrektur nach Rückmeldung vom 2026-08-03: erste
-                  Fassung hatte fälschlich wp:details verwendet). Media-IDs
-                  (wp-image-85492/85495/85498/85510, Cover-Bild id 11982) stammen aus dem
-                  Original-Rohcode und sollten in der WP-Mediathek noch existieren.
+                  hier aus den Word-Änderungsverfolgungen final aufgelöst.
+Struktur/Stil:    3. Korrektur (2026-08-03): Jetzt 1:1 nach dem strukturellen Muster des
+                  Original-Rohcodes aufgebaut — inkl. Spacer (40px zwischen den meisten
+                  Abschnitten, 100px vor "Vorteile"), dem sitewide Trenner-Block
+                  (wp:block ref:1070) nach fast jeder H2, der grauen Info-Box
+                  (className "grey-zeile"), der speziellen Listenformatierung für die
+                  Vorteile-Liste (is-style-benefit-list) und dem echten CTA-Block
+                  (wp:rh/cta) statt eines einfachen Buttons. FAQ nutzt weiterhin das
+                  echte Accordion-Plugin (wp:generic/accordion).
+Bilder & PDF-Links: 1:1 aus dem Original-Rohcode übernommen — die Agentur hat nur Text
+                  geliefert. Media-IDs (wp-image-85492/85495/85498/85510, Cover-Bild
+                  id 11982) stammen aus dem Original-Rohcode und sollten in der
+                  WP-Mediathek noch existieren.
 Gutenberg-Code &
 JSON-LD:          Claude, 2026-08-03 (siehe notes/ für Details zur Umsetzung)
 KWSet (Agentur):  lithium safety container, begehbare lithium sicherheitsbehälter,
@@ -24,24 +28,22 @@ Meta-Beschr.:     Lithium-Ionen-Akkus sicher lagern mit zertifizierten Lithium S
                   Containern von LogBATT – KIWA-geprüft, PGS 37-2-konform, mit aktivem
                   Löschsystem.
 
-WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
+WICHTIG – vor dem Einfügen prüfen:
 1. Bild-/PDF-URLs zeigen teils auf die Backend-Domain (117655.wd50.extern.regiohelden.de)
-   statt logbatt.de — das war schon im Ist-Zustand so (Cover-Hintergrund, KIWA-Logo, 10FT-/
-   40FT-Bild, allgemeine Broschüre); die vier größenspezifischen Datenblatt-PDFs lagen bereits
-   auf logbatt.de. Bitte prüfen, ob das noch die aktuell gültigen Medien-URLs/IDs sind.
-2. Die vier einzelnen Datenblatt-PDF-Buttons (4FT/10FT/20FT/40FT LAGERUNG) standen NICHT im
-   Agentur-Text, existierten aber im Ist-Zustand als echte Assets — hier wieder ergänzt. Bitte
-   bestätigen, ob das gewünscht ist oder von der Agentur bewusst gestrichen wurde.
-3. Tel.-Nummer ist die von der Agentur gelieferte feste Nummer (+49 7153 925080), NICHT der
-   sonst sitewide verwendete Platzhalter [ProxyNumber] – bewusst so übernommen, bitte prüfen.
+   statt logbatt.de — das war schon im Ist-Zustand so; bitte auf Gültigkeit prüfen.
+2. Die vier einzelnen Datenblatt-PDF-Buttons standen NICHT im Agentur-Text, existierten
+   aber als echte Assets im Original — bitte bestätigen, ob gewollt.
+3. Tel.-Nummer ist die von der Agentur gelieferte feste Nummer (+49 7153 925080), NICHT
+   der sonst sitewide verwendete Platzhalter [ProxyNumber].
 4. Tippfehler "Containerns" -> "Containern" in einer H2 stillschweigend korrigiert.
-5. JSON-LD ist komplett neu aufgebaut (ersetzt den bisherigen Fehler, bei dem hier fälschlich
-   das JSON-LD von /transportkisten/ eingebettet war) – CollectionPage mit 4 Product-Einträgen
-   (4FT/10FT/20FT/40FT), Service, eigenständige Organization für den Hersteller
-   "Lithium Safety Containers B.V.", FAQPage (10 Fragen), BreadcrumbList.
-6. Die 5 neuen FAQ-Fragen (von der Agentur ergänzt) haben neu generierte Anker nach demselben
-   Namensschema wie die 5 bestehenden — bitte einmal in der Vorschau prüfen, ob das
-   Accordion-Plugin diese sauber verarbeitet.
+5. JSON-LD komplett neu aufgebaut (behebt den dokumentierten Fehler: bisher fälschlich
+   das JSON-LD von /transportkisten/ eingebettet) – CollectionPage, 4 Product-Einträge,
+   Service, Organization (Hersteller), FAQPage, BreadcrumbList.
+6. Die 5 neuen FAQ-Fragen haben neu generierte Anker nach demselben Namensschema wie die
+   5 bestehenden — einmal in der Vorschau prüfen.
+7. wp:rh/cta ist ein custom Theme-/Plugin-Block (sitewide für CTA-Boxen verwendet,
+   ebenso wie wp:block ref:1070 und wp:generic/accordion) — sollte im Block-Editor
+   automatisch erkannt werden, da bereits sitewide im Einsatz.
 -->
 
 <!-- wp:cover {"url":"https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2021/02/Hintergrund-Blau.jpg","id":11982,"dimRatio":50,"isDark":false,"align":"full","className":"cover-transportkisten"} -->
@@ -51,9 +53,19 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 <!-- /wp:image --></div></div>
 <!-- /wp:cover -->
 
+<!-- wp:group {"align":"full","className":"headerzeile-transportkisten"} -->
+<div class="wp-block-group alignfull headerzeile-transportkisten">
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+</div>
+<!-- /wp:group -->
+
 <!-- wp:heading {"level":1} -->
-<h1 class="wp-block-heading" id="lithium-safety-container-zertifiziert-brandsicher">Lithium Safety Container – zertifiziert &amp; brandsicher</h1>
+<h1 class="wp-block-heading">Lithium Safety Container – zertifiziert &amp; brandsicher</h1>
 <!-- /wp:heading -->
+
+<!-- wp:block {"ref":1070} /-->
 
 <!-- wp:paragraph -->
 <p>Wer Lithium-Ionen-Batterien gewerblich lagert, ist für Mitarbeiter, Gebäude und den laufenden Betrieb verantwortlich. Thermisches Durchgehen, Brandgefahr und toxische Gase sind reale Gefahren, die<strong> </strong>ohne geeignete Schutzmaßnahmen wie <strong>Lithium Safety Container</strong> verheerende Folgen<strong> </strong>haben können.</p>
@@ -67,9 +79,15 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 <figure class="wp-block-image aligncenter size-full"><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2026/06/KIWA-Zertifizierung_Logo.jpg" alt="Kiwa Logo schwarz weiss" class="wp-image-85510"/></figure>
 <!-- /wp:image -->
 
-<!-- wp:heading {"level":2} -->
-<h2 class="wp-block-heading" id="was-sind-lithium-safety-container">Was sind Lithium Safety Container?</h2>
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Was sind Lithium Safety Container?</h2>
 <!-- /wp:heading -->
+
+<!-- wp:block {"ref":1070} /-->
 
 <!-- wp:paragraph -->
 <p>Lithium-Sicherheitscontainer sind <strong>großformatige, feuerbeständige Lagerbehälter</strong>, die dafür konzipiert sind, Lithium-Ionen-Batterien sicher aufzubewahren, handzuhaben und aufzuladen. Im Unterschied zu herkömmlichen Gefahrstoffschränken oder Akku-Brandschutzboxen können in diesen begehbaren Lithium-Sicherheitscontainer größerer Mengen an Lithiumbatterien gelagert und per Kran aufgestellt werden. Die verfügbaren <strong>Standardgrößen</strong> umfassen:</p>
@@ -106,7 +124,8 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 <!-- wp:media-text {"mediaId":85495,"mediaType":"image"} -->
 <div class="wp-block-media-text is-stacked-on-mobile"><figure class="wp-block-media-text__media"><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2026/06/lithium-safety-container-10ft-blauw-1024x1024.png" alt="Blauer und weisser Container mit Doppeltuer und Warnsymbolen, neutral" class="wp-image-85495 size-full"/></figure><div class="wp-block-media-text__content">
 <!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
 <li>aktives Löschsystem auf Basis von AF-X-Aerosol</li>
 <!-- /wp:list-item -->
 
@@ -128,7 +147,8 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 
 <!-- wp:list-item -->
 <li>von Versicherern zugelassen</li>
-<!-- /wp:list-item --></ul>
+<!-- /wp:list-item -->
+</ul>
 <!-- /wp:list -->
 </div></div>
 <!-- /wp:media-text -->
@@ -143,16 +163,22 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 
-<!-- wp:heading {"level":2} -->
-<h2 class="wp-block-heading" id="warum-sind-walk-in-container-fuer-lithiumbatterien-notwendig">Warum sind Walk-In Container für Lithiumbatterien notwendig?</h2>
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Warum sind Walk-In Container für Lithiumbatterien notwendig?</h2>
 <!-- /wp:heading -->
+
+<!-- wp:block {"ref":1070} /-->
 
 <!-- wp:paragraph -->
 <p>Die <strong>physikalisch-chemischen Eigenschaften</strong> von Li-Ionen-Zellen machen eine sachgerechte Lagerung und Batterielogistik von Lithium-Ionen-Akkus unabdingbar: Ein sogenanntes thermisches Durchgehen lässt sich durch äußere Einwirkung kaum kontrollieren, sobald es einmal begonnen hat.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading" id="typische-gefahren">Typische Gefahren</h3>
+<h3 class="wp-block-heading">Typische Gefahren</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -184,7 +210,7 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading" id="gesetzliche-anforderungen-normen-pgs-37-2">Gesetzliche Anforderungen &amp; Normen (PGS 37-2)</h3>
+<h3 class="wp-block-heading">Gesetzliche Anforderungen &amp; Normen (PGS 37-2)</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -211,19 +237,23 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 <p>Unsere Sicherheitsbehälter sind <strong>KIWA-zertifiziert</strong> und erfüllen die Anforderungen der Norm PGS 37-2, die europaweit als anerkannter Prüfstandard für Lithium-Batterie-Lagerung gilt. Auf Anfrage prüfen wir gemeinsam mit Ihnen, welche <strong>zusätzlichen nationalen Zulassungen</strong>, etwa eine DIBt-Zulassung, für Ihren Standort relevant sind.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:group {"style":{"color":{"background":"#f2f2f2"}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group has-background" style="background-color:#f2f2f2">
-
+<!-- wp:group {"className":"grey-zeile","layout":{"type":"constrained"}} -->
+<div class="wp-block-group grey-zeile">
 <!-- wp:paragraph -->
 <p>Für Unternehmen sind diese Normen aus mehreren Gründen relevant: Versicherer setzen konforme Lagerlösungen zunehmend als Bedingung für den Versicherungsschutz voraus. Behörden und Brandschutzbeauftragte prüfen die Einhaltung der Anforderungen aus PGS 37-2 bei Betriebsgenehmigungen und Inspektionen. Wer Lithium-Ionen-Akkus unsachgemäß lagert, riskiert nicht nur Schäden, sondern auch den Verlust seiner Betriebsgenehmigung.</p>
 <!-- /wp:paragraph -->
-
 </div>
 <!-- /wp:group -->
 
-<!-- wp:heading {"level":2} -->
-<h2 class="wp-block-heading" id="welche-arten-von-lithium-safety-containern-stehen-zur-verfuegung">Welche Arten von Lithium Safety Containern stehen zur Verfügung?</h2>
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Welche Arten von Lithium Safety Containern stehen zur Verfügung?</h2>
 <!-- /wp:heading -->
+
+<!-- wp:block {"ref":1070} /-->
 
 <!-- wp:paragraph -->
 <p>Die Behälter sind in vier Größen erhältlich: 4 FT, 10 FT, 20 FT und 40 FT – entsprechend den internationalen Standardmaßen von Schiffscontainern. Je nach <strong>Lagervolumen</strong>, <strong>verfügbarer Fläche</strong> und <strong>Einsatzzweck </strong>kann das passende Modell ausgewählt werden. Alle Modelle sind mit denselben Kernsicherheitsfunktionen ausgestattet und entsprechen der Norm PGS 37-2. Standardmäßig wird über die Kurzseite beladen. Für Größen von 10 bis 40 Fuß ist optional auch eine Openside-Variante mit Längsbeladung erhältlich.</p>
@@ -278,13 +308,16 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 <!-- /wp:buttons -->
 </div>
 <!-- /wp:column -->
-
 </div>
 <!-- /wp:columns -->
 
-<!-- wp:heading {"level":2} -->
-<h2 class="wp-block-heading" id="wo-werden-lithium-safety-container-regelmaessig-eingesetzt">Wo werden Lithium Safety Container regelmäßig eingesetzt?</h2>
+<!-- wp:block {"ref":1070} /-->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Wo werden Lithium Safety Container regelmäßig eingesetzt?</h2>
 <!-- /wp:heading -->
+
+<!-- wp:block {"ref":1070} /-->
 
 <!-- wp:paragraph -->
 <p>Die LogBATT Lithium Safety Container kommen überall dort zum Einsatz, wo Lithium-Ionen-Batterien in <strong>nennenswertem Umfang </strong>gelagert, geladen oder unter Quarantäne gestellt werden müssen. Zu den typischen Anwendern zählen:</p>
@@ -293,7 +326,8 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 <!-- wp:media-text {"mediaPosition":"right","mediaId":85498,"mediaType":"image"} -->
 <div class="wp-block-media-text has-media-on-the-right is-stacked-on-mobile"><div class="wp-block-media-text__content">
 <!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
+<ul class="wp-block-list">
+<!-- wp:list-item -->
 <li>Zweiradgeschäfte, Vermietbetriebe und Händler für E-Bikes und E-Scooter</li>
 <!-- /wp:list-item -->
 
@@ -315,7 +349,8 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 
 <!-- wp:list-item -->
 <li>Technikgeschäfte, Elektronikhersteller und Servicebetriebe</li>
-<!-- /wp:list-item --></ul>
+<!-- /wp:list-item -->
+</ul>
 <!-- /wp:list -->
 </div><figure class="wp-block-media-text__media"><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2026/06/lithium-safety-container-40ft-blauw-1024x1024.png" alt="Blau weisser Frachtcontainer ohne Gesicht mit Warnsymbolen und Tueren" class="wp-image-85498 size-full"/></figure></div>
 <!-- /wp:media-text -->
@@ -324,16 +359,22 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 <p>Für Unternehmen, die nicht nur die Lagerung, sondern auch den sicheren Transport von Lithiumbatterien sicherstellen müssen, bietet LogBATT ergänzend spezialisierte Gefahrgutlogistik an.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":2} -->
-<h2 class="wp-block-heading" id="das-sind-die-vorteile-von-lithium-safety-containern">Das sind die Vorteile von Lithium Safety Containern</h2>
+<!-- wp:spacer {"height":"100px"} -->
+<div style="height:100px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Das sind die Vorteile von Lithium Safety Containern</h2>
 <!-- /wp:heading -->
+
+<!-- wp:block {"ref":1070} /-->
 
 <!-- wp:paragraph -->
 <p>Der Einsatz zertifizierter Sicherheitsbehälter für die Lagerung von Lithium-Ionen-Akkus bringt Unternehmen eine Reihe konkreter Vorteile:</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:list -->
-<ul class="wp-block-list">
+<!-- wp:list {"className":"is-style-benefit-list"} -->
+<ul class="wp-block-list is-style-benefit-list">
 <!-- wp:list-item -->
 <li><strong>Brandsicherheit</strong>: Die nachgewiesene Feuerwiderstandsdauer von mindestens 90 Minuten gemäß EN 1364-1:2015 wird im Markt häufig mit der REI 90- beziehungsweise F90-Klassifizierung verglichen und ist damit unmittelbar mit den Anforderungen anderer Anbieter vergleichbar.</li>
 <!-- /wp:list-item -->
@@ -376,9 +417,11 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 </ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":2} -->
-<h2 class="wp-block-heading" id="beratung-auswahl-den-richtigen-lithium-safety-container-finden">Beratung &amp; Auswahl: Den richtigen Lithium Safety Container finden</h2>
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Beratung &amp; Auswahl: Den richtigen Lithium Safety Container finden</h2>
 <!-- /wp:heading -->
+
+<!-- wp:block {"ref":1070} /-->
 
 <!-- wp:paragraph -->
 <p>Die Auswahl des geeigneten Lithium Safety Containers hängt von<strong> verschiedenen Faktoren ab</strong>:</p>
@@ -412,19 +455,27 @@ WICHTIG – vor dem Einfügen prüfen (siehe Chat-Antwort für Details):
 <p>Auf Wunsch besprechen wir mit Ihnen die für Sie passende Vertragsform, ob Kauf oder Miete.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/kontakt/">Jetzt unverbindlich anfragen</a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons -->
-
-<!-- wp:paragraph -->
-<p>Tel.: +49 7153 925080</p>
+<!-- wp:rh/cta -->
+<div class="wp-block-rh-cta"><!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
+<p class="has-text-align-center"><strong>Jetzt unverbindlich anfragen</strong></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":2} -->
-<h2 class="wp-block-heading" id="faq-haeufig-gestellte-fragen-zu-lithium-safety-containern">FAQ – Häufig gestellte Fragen zu Lithium Safety Containern</h2>
+<!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
+<p class="has-text-align-center">Tel.: +49 7153 925080</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:rh/cta -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">FAQ – Häufig gestellte Fragen zu Lithium Safety Containern</h2>
 <!-- /wp:heading -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
 
 <!-- wp:generic/accordion {"anchor":"-h3-strong-was-passiert-bei-einem-lithium-akku-brand-strong-h3","headingLevel":"3"} -->
 <div class="wp-block-generic-accordion generic-accordion"><details id="-h3-strong-was-passiert-bei-einem-lithium-akku-brand-strong-h3"><summary class="accordion-title"><h3><strong>Was passiert bei einem Lithium-Akku-Brand?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->

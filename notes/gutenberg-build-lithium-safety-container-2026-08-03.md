@@ -67,6 +67,30 @@ bereits vorliegenden Original-Rohcode auszuwerten:
    ursprünglichen Anker-IDs 1:1, für die 5 neuen Fragen aus dem Agentur-Text wurden nach
    demselben Namensschema neue Anker generiert.
 
+## Dritte Korrektur 2026-08-03 (nach weiterem Nutzerhinweis: fehlende Abstandshalter)
+
+Die zweite Fassung war strukturell "nackt": kein einziger Spacer, kein Trenner-Block, keine
+graue Info-Box, kein `is-style-benefit-list`, kein `wp:rh/cta` – obwohl das Original-Rohcode-
+Transkript (aus der allerersten Nachricht des Nutzers) all das enthält und ich es beim
+Zusammenbau schlicht ignoriert hatte, statt es als strukturelles Gerüst zu nutzen.
+
+Komplett neu aufgebaut, jetzt 1:1 nach dem originalen Strukturmuster:
+
+- **Header:** `wp:cover` (Hintergrund-Blau.jpg + 4FT-Bild) gefolgt von einer separaten
+  `wp:group.headerzeile-transportkisten`-Box mit `wp:spacer` 40px vor dem H1 (im Original exakt
+  so verschachtelt).
+- **Nach dem H1 und nach fast jeder H2:** `wp:block {"ref":1070}` (sitewide Trenner-Block).
+- **Zwischen den meisten Abschnitten:** `wp:spacer` 40px, vor "Vorteile" sogar 100px (größerer
+  Abstand, genau wie im Original).
+- **Info-Box zu den PGS-37-Normen:** als `wp:group` mit `className="grey-zeile"` (graue
+  Hintergrundbox), nicht als einfacher Absatz.
+- **Vorteile-Liste:** mit `className="is-style-benefit-list"` (eigene Listenformatierung,
+  vermutlich mit Haken-Icons statt Aufzählungspunkten).
+- **Abschluss-CTA:** als `wp:rh/cta`-Block (customes Theme-/Plugin-Element, zentriert), nicht als
+  einfacher Button + Absatz.
+- Zwischen "Vorteile"-Liste und "Beratung & Auswahl"-Überschrift bewusst KEIN Spacer/Trenner –
+  genau wie im Original (nicht jede Sektion hat einen).
+
 ## Noch offen (siehe Header-Kommentar in der Datei selbst)
 
 1. Bild-/PDF-URLs liegen teils auf der Backend-Domain (`117655.wd50.extern.regiohelden.de`)
