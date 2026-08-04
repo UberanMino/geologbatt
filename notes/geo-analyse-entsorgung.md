@@ -1,5 +1,11 @@
 # GEO-Analyse: `/entsorgung/` (Lithium-Ionen-Akku-Entsorgung)
 
+> **ÜBERHOLT (2026-08-03).** Diese erste Analyse entstand vor Vorliegen der Peec-Daten und
+> deckte das Thema **Havariefälle** nicht ab. Maßgeblich ist jetzt
+> `notes/geo-analyse-entsorgung-v2-2026-08-03.md`; der zugehörige Content-Vorschlag in
+> `optimized/de/entsorgung.html` wurde entsprechend ersetzt. Dieses Dokument bleibt als
+> Nachvollzug der ersten Struktur-/JSON-LD-Befunde erhalten.
+
 Stand der Analyse: 2026-07-29. Grundlage: `website/de/entsorgung.html` (Ist-Zustand-Rohcode)
 sowie Quervergleich mit strukturell weiter entwickelten Schwesterseiten (`gefahrgutlogistik.html`,
 `entsorgung-speicherbatterien.html`).
