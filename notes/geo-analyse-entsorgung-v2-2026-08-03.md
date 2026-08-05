@@ -127,3 +127,39 @@ Prüfvorschriften), wird eher als gleichrangige Fachquelle zitiert.
 - Externe Links (BAM, UBA, BG Verkehr) sind neu für diese Seite — falls sitewide unerwünscht,
   ersatzlos streichbar.
 - EmpCo-Check: bewusst keine unbelegten Nachhaltigkeits-/Umwelt-Adjektive ergänzt.
+
+---
+
+## Nachschärfung v2.1 (2026-08-05) – auf Basis des Chat-Exports
+
+Datenquelle: `70a6ab00-chatsexportlogbattfrom20260701to20260805_1.xlsx` (10.000 Antworten,
+83 getrackte Prompts). In **94 Antworten** wird eine `logbatt.de/entsorgung/`-URL direkt zitiert.
+
+**Modell-/Positions-Befund (stark):** 84 der 94 Zitate stammen aus **Google AI Overview**,
+Durchschnittsposition **1,89** – die Seite ist in AI Overviews bereits sehr gut platziert.
+Mit-zitiert v. a. RETRON/REMONDIS (39+23+24), DENIOS (26), Redux, Interzero, Lobbe,
+Müller Safety (Havariebehälter), Duesenfeld, Thermodyne, protecto; dazu Autoritäts-/Behörden-
+domains (umweltbundesamt.de, sonderabfall-wissen.de, bayern.de, hessen.de).
+
+**Auslösende Prompt-Cluster (Entsorgungs-URL zitiert):** Entsorgung nach Brandschaden/„abgebrannte"
+Batterie · Havariefall/Lagerbrand/LKW-Brand/Unfall · **Wasserbad + kontaminiertes Wasser** ·
+Recycling-B2B · und – bemerkenswert – **Behälter-/Produkt-Prompts** (Havariekiste, Havariecontainer,
+Brandschutzbehälter, Gefahrgutbox, 10/20/40-FT-Container), in denen die Seite mitzitiert wird,
+Wettbewerber dort aber mit **konkreten Produktnamen** gewinnen (DENIOS K470 Akkusafe, RETRON BOX
+„mit BAM-Zertifizierung", Müller-Safety-Havariebehälter, Zarges).
+
+**Umgesetzte Nachschärfungen (additiv, keine Umstrukturierung):**
+1. Exakte Suchbegriffe ergänzt, die im Ist-Zustand fehlten: **„Brandschaden"** und
+   **„abgebrannte … Batterien"** im Havarie-Intro.
+2. **Behälter-Synonym-Brücke + Produkt-Routing** im Havarie-Intro: SafetyBATTbox = „Havariekiste,
+   Quarantänebox oder Brandschutzbehälter"; für große Mengen der begehbare **Lithium Safety
+   Container (Großcontainer 4–40 FT)**. So kann LogBATT auch in den Container-/Produkt-Prompts,
+   in denen die Entsorgungsseite mitzitiert wird, als benannte Lösung erscheinen.
+3. **„UN-geprüft / BAM-bauartzugelassen"** statt nur „BAM-zugelassen" beim Verpackungs-Punkt –
+   spiegelt das Wording, mit dem Wettbewerber Container-Zitate gewinnen.
+4. **„Wasserbad"** exakt in die Löschwasser-FAQ aufgenommen (Prompt: „aus einem Wasserbad
+   inklusive kontaminiertem Wasser") – FAQ-Text und FAQPage-Schema synchron.
+
+Nicht geändert: bestehende starke Struktur (16 FAQ, HowTo, Havariefall-Hauptabschnitt, AVV-Tabelle,
+6-Kriterien-Partnercheck), da die Seite in AI Overviews bereits Top-platziert ist. Ziel war,
+Zitations-Lücken bei exakten Begriffen und Produkt-Routing zu schließen, ohne die Substanz anzufassen.

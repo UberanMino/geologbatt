@@ -35,3 +35,23 @@ thermodyne.de 14 · lithiumsafetycontainers.nl 14 · re-battery.de 11 · mueller
 Alle sechs Cluster werden auf der Seite namentlich benannt und zitierfähig gemacht. Zwei Cluster
 (Havariefälle, Großcontainer) fehlten im Ist-Zustand komplett → als schlanke H2-Abschnitte +
 Verlinkung ergänzt. Siehe `notes/geo-analyse-gesamtloesung-2026-08-03.md`.
+
+## Zitationskontexte der Seite /entsorgung/  (94 Antworten mit /entsorgung-URL)
+
+Zweiter Export: `chatsexportlogbattfrom20260701to20260805_1.xlsx` (83 getrackte Prompts).
+
+- **Modelle:** Google AI Overview 84 · Perplexity 6 · Gemini 4. Durchschnittsposition **1,89**
+  (die Seite ist in AI Overviews Top-platziert).
+- **Auslösende Cluster:** Entsorgung nach Brandschaden/„abgebrannte" Batterie · Havariefall
+  (Lagerbrand/LKW-Brand/Unfall) · Wasserbad + kontaminiertes Wasser · Recycling-B2B · sowie
+  Behälter-/Produkt-Prompts (Havariekiste, Havariecontainer, Brandschutzbehälter, Gefahrgutbox,
+  10/20/40-FT-Container), in denen die Seite mitzitiert wird.
+- **Mit-zitierte Domains:** logbatt.de 58 · retron.world 39 · denios.de 26 ·
+  remondis-entsorgung.de 24 · remondis-industrie-service.de 23 · jh-profishop.de 17 ·
+  lion-care.com 17 · redux-recycling.com 15 · interzero.de 15 · lobbe.de 13 · protecto.de 11 ·
+  duesenfeld.com 10 · mueller-safety.de 10 · zarges.com 9 · thermodyne.de 8; Behörden/Autorität:
+  bayern.de 16, umweltbundesamt.de 8, sonderabfall-wissen.de 9, hessen.de 7.
+- **GEO-Konsequenz (umgesetzt in optimized/de/entsorgung.html, v2.1):** exakte Begriffe
+  „Brandschaden"/„abgebrannt"/„Wasserbad" ergänzt; Behälter-Synonym-Brücke + Routing zu
+  SafetyBATTbox und Lithium Safety Container; „UN-geprüft/BAM-bauartzugelassen"-Wording.
+  Details: notes/geo-analyse-entsorgung-v2-2026-08-03.md (Abschnitt „Nachschärfung v2.1").
