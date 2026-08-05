@@ -1,0 +1,589 @@
+<!--
+LogBATT Website – GEO-optimierter Content für /gesamtloesung/ (Gutenberg-Code, einfügefertig)
+Seite:            Gesamtlösung Lithiumbatterien
+URL:              https://www.logbatt.de/gesamtloesung/
+Ersetzt:          website/de/gesamtloesung.html (bisheriger Ist-Zustand)
+Analyse:          notes/geo-analyse-gesamtloesung-2026-08-03.md
+Erstellt:         Claude, 2026-08-03 – nach den vom Kunden gelieferten Schreibrichtlinien
+                  für Produkt-/Hub-Seiten + Websuche.
+
+Meta-Titel:       Gesamtlösung für Lithiumbatterien 🔋 | LogBATT GmbH
+Meta-Beschr.:     Wir sind Ihr Partner mit Know-How für eine ganzheitliche Lithium-Ionen-
+                  Batterielogistik. ✔️ Professionell mit LogBATT ✔️ Weltweite Logistik.
+
+Umgesetzte Richtlinien-Vorgaben:
+1. Regulatorischer Eröffnungsblock (Gefahrgut Klasse 9, UN 3480/3481 bzw. 3090/3091,
+   ADR/RID/IMDG/IATA-DGR, UN-/Bauartzulassung, Verpackungsanweisung nach Zustand).
+2. Thermal-Runaway-Problemblock mit expliziter Kausalkette; jeder Schutzmechanismus der
+   SafetyBATTbox einem Kettenglied zugeordnet; LogBAGs als Brand-Entity.
+3. Produktfamilie als PRODUKT präsentiert: Materialien, Batteriearten, Batteriezustand->Modell-
+   Tabelle, Routing zu Transportboxen/Lagerbehältern/Großcontainern, "auch zur Miete".
+4. Sicherheitsmechanismen mit Funktion (statt Spec-Liste), LogBAGs nach DIN 4102.
+5. FAQ neu: 6 Fragen, jede nennt SafetyBATTbox/LogBATT namentlich, inkl. Synonym-Brücke
+   (Transportbox = Quarantänebox = Havariekiste = Evakuierungsbehälter).
+6. Do/Don't: konkrete Normen/Zahlen (ADR, UN 3480, BAM, 1.700 kg, 45 Brandtests, 9.000+),
+   Service-Floskeln ("Rundum-Sorglos", "aus einer Hand") stark reduziert, Überschriften
+   funktional, Primär-CTA produktbezogen.
+
+WICHTIG – H1-Konflikt (bewusst entschieden):
+Die Richtlinie führt "Die Gesamtlösung für Batterielogistik" als NEGATIVES H1-Beispiel
+(nicht-funktional). Der Kunde hat aber H1 = "Gesamtlösung Lithiumbatterien" explizit vorgegeben.
+=> H1 wie vorgegeben belassen; direkt darunter eine funktionale H2
+   ("Lithium-Ionen-Batterien rechtskonform transportieren, lagern und entsorgen") + regulatorischer
+   Auftakt, die zusammen das funktionale Klassifizierungssignal tragen.
+
+Weiter behoben ggü. Ist-Zustand:
+- Sichtbare Redaktionsnotizen "(Verlinkung auf die anderen LP!)" entfernt und durch echte
+  Links auf /entsorgung/ und /recycling/ ersetzt.
+- Schwache/EmpCo-riskante FAQ "Wie schädlich sind Batterien für die Umwelt?" (Aussage
+  "nicht umweltschädlich") entfernt.
+
+Struktur unverändert: H1 zentriert, Zweispalter-Auftakt, Bild-IDs 16917 & 16926, grey-zeile +
+is-style-flexible-list, rh/cta (cta-stil), zentrierte Supply-Chain-H2-Sektionen,
+wp:generic/accordion-FAQ, ref:1070/16794/1988, Spacer-Höhen.
+
+VOR VERÖFFENTLICHUNG PRÜFEN:
+a) Großcontainer-Zeile in der Tabelle verlinkt /lithium-safety-container/; das Produktfamilien-
+   Bild bleibt bei den vorhandenen IDs – kein neues Bild eingefügt.
+b) Relative Links (/entsorgung/, /recycling/, /entwicklung/, /analysefahrt/) gegen Live-URLs prüfen.
+c) 45 reale Brandtests / 9.000+ Transporte / 1.700 kg sitewide konsistent übernommen.
+-->
+
+<!-- wp:block {"ref":17205} /-->
+
+<!-- wp:spacer {"height":"80px"} -->
+<div style="height:80px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:html -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.logbatt.de/gesamtloesung/#webpage",
+      "url": "https://www.logbatt.de/gesamtloesung/",
+      "name": "Gesamtlösung für Lithium Batterien 🔋 | LogBATT GmbH",
+      "description": "LogBATT bietet die Gesamtlösung für Lithium-Ionen-Batterien über die komplette Supply-Chain: Transport, Lagerung, Entsorgung und Recycling – gefahrgutkonform nach ADR/RID/IMDG/IATA-DGR mit eigenen, BAM-zugelassenen SafetyBATTbox-Behältern.",
+      "inLanguage": "de",
+      "isPartOf": {
+        "@id": "https://www.logbatt.de/#website"
+      },
+      "about": {
+        "@id": "https://www.logbatt.de/gesamtloesung/#service"
+      },
+      "mainEntity": {
+        "@id": "https://www.logbatt.de/gesamtloesung/#service"
+      },
+      "breadcrumb": {
+        "@id": "https://www.logbatt.de/gesamtloesung/#breadcrumb"
+      },
+      "significantLink": [
+        "https://www.logbatt.de/gefahrgutlogistik/",
+        "https://www.logbatt.de/entsorgung/",
+        "https://www.logbatt.de/recycling/",
+        "https://www.logbatt.de/transportkisten/",
+        "https://www.logbatt.de/lagerbehaelter/",
+        "https://www.logbatt.de/lithium-safety-container/",
+        "https://www.logbatt.de/behaeltermiete/",
+        "https://www.logbatt.de/entwicklung/"
+      ],
+      "publisher": {
+        "@id": "https://www.logbatt.de/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.logbatt.de/gesamtloesung/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://www.logbatt.de/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Gesamtlösung Lithiumbatterien",
+          "item": "https://www.logbatt.de/gesamtloesung/"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.logbatt.de/gesamtloesung/#service",
+      "name": "Gesamtlösung Batterielogistik",
+      "description": "LogBATT bietet die Gesamtlösung für Lithium-Ionen-Batterien über die komplette Supply-Chain: Entwicklung, Testing, Produktion, Transport, Lagerung sowie Entsorgungs- und Recyclinglogistik. Lithium-Ionen-Batterien sind Gefahrgut der Klasse 9 (UN 3480/3481; Lithium-Metall UN 3090/3091) und werden nach ADR (Straße), RID (Schiene), IMDG (See) und IATA-DGR (Luftfracht) befördert. Je nach Batteriezustand gelten unterschiedliche Verpackungsanweisungen – von P903 für unbeschädigte über P908 für beschädigte bis P911/LP906 für kritisch defekte Batterien. LogBATT stellt dafür die selbst entwickelten, BAM-bauartzugelassenen SafetyBATTbox-Behälter mit LogBAGs-Brandschutzpolsterung bereit, betreibt ein Milkrun-System, verfügt über die Erlaubnis zum Sammeln, Befördern und Makeln gefährlicher Abfälle (AVV 160121, AVV 160605) und übernimmt die gefahrgut- und abfallrechtliche Dokumentation. Fahrzeuge von Sprinter-Klasse bis LKW sind ADR-ausgestattet und für kritisch defekte Batterien mit mindestens sechsfachem Luftwechsel umgebaut. LogBATT hat über 9.000 Transporte kritisch defekter Batterien durchgeführt und ist seit Mitte 2023 Teil der Lagermax Group.",
+      "serviceType": "Batterielogistik-Gesamtlösung",
+      "provider": {
+        "@id": "https://www.logbatt.de/#organization"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Europa / weltweit"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Leistungsumfang",
+          "value": "Entwicklung, Testing, Produktion, Transport, Lagerung, Entsorgung, Recycling"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Verkehrsträger-Regelwerke",
+          "value": "ADR (Straße), RID (Schiene), IMDG (See), IATA-DGR (Luftfracht)"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Verpackungsanweisungen nach Batteriezustand",
+          "value": "P903 (unbeschädigt), P908 (beschädigt/defekt), P911/LP906 (kritisch defekt)"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Fahrzeugflotte",
+          "value": "Sprinter-Klasse bis LKW, ADR-ausgestattet, 6-facher Luftwechsel für kritisch defekte Batterien"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Genehmigungen",
+          "value": "Sammeln, Befördern, Makeln gefährlicher Abfälle (AVV 160121, AVV 160605); Entsorgungsfachbetrieb (EfB)"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Transporterfahrung",
+          "value": "9.000+ Transporte kritisch defekter Batterien; 45 reale Brandtests"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- /wp:html -->
+
+<!-- wp:heading {"level":1,"style":{"typography":{"textAlign":"center"}},"anchor":"lithium-ionen-batterielogistik"} -->
+<h1 class="wp-block-heading has-text-align-center" id="lithium-ionen-batterielogistik">Gesamtlösung Lithiumbatterien</h1>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"style":{"typography":{"textAlign":"center"}}} -->
+<h2 class="wp-block-heading has-text-align-center">Lithium-Ionen-Batterien rechtskonform transportieren, lagern und entsorgen</h2>
+<!-- /wp:heading -->
+
+<!-- wp:block {"ref":1070} /-->
+
+<!-- wp:columns {"className":"rh-columns-block-4cc6fb20-1340-49de-8059-4e8d7380a9c3","blockId":"4cc6fb20-1340-49de-8059-4e8d7380a9c3","isPredefinedBreakpoint":true,"isPredefinedBreakpointLarge":true} -->
+<div class="wp-block-columns rh-columns-block-4cc6fb20-1340-49de-8059-4e8d7380a9c3"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:paragraph -->
+<p>Lithium-Ionen-Batterien sind <strong><a href="/lexikon/#gefahrgutklasse-9">Gefahrgut der Klasse 9</a></strong>. Für den Transport gelten sie unter <a href="/lexikon/#un-3480">UN 3480</a> und <a href="/lexikon/#un-3481">UN 3481</a> (Lithium-Metall-Batterien unter UN 3090/3091) und unterliegen je nach Verkehrsträger dem <strong>ADR</strong> (Straße), <strong>RID</strong> (Schiene), <strong>IMDG</strong> (See) und <strong>IATA-DGR</strong> (Luftfracht).</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:paragraph -->
+<p>Verpackungen für dieses Gefahrgut brauchen eine <strong>UN- und Bauartzulassung</strong>; welche Verpackungsanweisung greift, hängt vom Batteriezustand ab – von P903 für unbeschädigte über P908 für beschädigte bis <strong><a href="/lexikon/#p911-lp906">P911/LP906</a></strong> für kritisch defekte Batterien. LogBATT bildet diese Anforderungen mit der eigenen, BAM-bauartzugelassenen <strong>SafetyBATTbox</strong>-Familie vollständig ab – und übernimmt Transport, Lagerung und Entsorgung als Gesamtlösung.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:image {"id":16917,"sizeSlug":"full","linkDestination":"none","disableImageForScreenReaders":true} -->
+<figure class="wp-block-image size-full"><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2022/09/gesamtloesung-lkw.jpg" alt="LKW für die Gesamtlösung für die Entsorgung und das Recycling von E-Auto Batterien" class="wp-image-16917"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:group {"align":"full","className":"grey-zeile"} -->
+<div class="wp-block-group alignfull grey-zeile"><!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"style":{"typography":{"textAlign":"center"}}} -->
+<h2 class="wp-block-heading has-text-align-center">Das eigentliche Risiko: der Thermal Runaway</h2>
+<!-- /wp:heading -->
+
+<!-- wp:block {"ref":1070} /-->
+
+<!-- wp:paragraph -->
+<p>Beschädigte, überladene oder tiefentladene Zellen können einen <strong>internen Kurzschluss</strong> auslösen. Die Zelle heizt sich unkontrolliert auf; ab etwa 150–180 °C setzt die Kathode Sauerstoff frei, es entsteht mehr Wärme, als abgeführt werden kann. Die Folge sind Druckaufbau, Flammen und der Austritt <strong>toxischer und ätzender Rauchgase</strong> wie Fluorwasserstoff und Kohlenmonoxid. Springt die Reaktion auf Nachbarzellen über, spricht man von <a href="/lexikon/#thermische-propagation-batteriebrand">thermischer Propagation</a>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Die <strong>SafetyBATTbox</strong> von LogBATT setzt genau an dieser Kette an: Die <strong>thermische Isolation</strong> bremst die Wärmeübertragung und damit die Propagation, ein <strong>Rauchgas-Filtersystem</strong> führt die giftigen Gase kontrolliert ab und baut Druck ab, eine <strong>Auffangwanne</strong> bindet austretenden Elektrolyt und die <strong>LogBAGs</strong>-Polsterung fixiert die Batterie mechanisch. So bleibt ein Zwischenfall im Behälter eingeschlossen, statt sich auszubreiten.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer --></div>
+<!-- /wp:group -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"style":{"typography":{"textAlign":"center"}}} -->
+<h2 class="wp-block-heading has-text-align-center">Leistungen der LogBATT-Gesamtlösung im Überblick</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":3,"style":{"typography":{"textAlign":"center"}},"anchor":"ueberblick"} -->
+<h3 class="wp-block-heading has-text-align-center" id="ueberblick">Von der Entwicklung bis zum Recycling – über die gesamte Batterie-Supply-Chain</h3>
+<!-- /wp:heading -->
+
+<!-- wp:block {"ref":1070} /-->
+
+<!-- wp:group {"align":"full","className":"grey-zeile"} -->
+<div class="wp-block-group alignfull grey-zeile"><!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:list {"className":"is-style-flexible-list"} -->
+<ul class="wp-block-list is-style-flexible-list"><!-- wp:list-item -->
+<li>Spezialist für <a href="/gefahrgutlogistik/">Li-Ionen-Batterietransporte</a> nach ADR, RID, IMDG und IATA-DGR</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Top geschultes Fachpersonal und Gefahrgutexperten</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Erlaubnis zum Sammeln, Befördern und Makeln gefährlicher Abfälle (AVV 160 121, AVV 16 06 05), anerkannter <strong>Entsorgungsfachbetrieb</strong></li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Batterietransporte aller Größen, Staplerservice und Expressservice</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Vollständige <a href="/entsorgung/">Entsorgungs-</a> und <a href="/recycling/">Recyclinglogistik</a> mit lückenloser Dokumentation</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Eigene <a href="/transportkisten/">Transportboxen</a>, <a href="/lagerbehaelter/">Lagerbehälter</a> und begehbare <a href="/lithium-safety-container/">Großcontainer</a> als SafetyBATTbox – selbst entwickelt und produziert</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Milkrun-System mit <a href="/lagerbehaelter/">SafetyBATTbox Storage</a> und/oder <a href="/transportkisten/">SafetyBATTbox</a>-Transportbehältern</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Verpackungsschulungen weltweit über die <a href="/2019/logbatt-e-learning-academy-online/">LogBATT Academy</a></li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>LogBATT Networksolution: Flächendeckung durch exklusive, zertifizierte Logistikpartner</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer --></div>
+<!-- /wp:group -->
+
+<!-- wp:rh/cta {"align":"full","className":"cta-stil"} -->
+<div class="wp-block-rh-cta alignfull cta-stil"><!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"dependencyValueBetween":[]} -->
+<p class="has-text-align-center">Sie brauchen ein Angebot für Ihre Batterielogistik? <br>Tel.: [ProxyNumber] | E-Mail: <a href="mailto:[customer.email]">[customer.email]</a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:rh/cta -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"style":{"typography":{"textAlign":"center"}},"anchor":"produktfamilie"} -->
+<h2 class="wp-block-heading has-text-align-center" id="produktfamilie">Die SafetyBATTbox-Familie: ein Behälter für jeden Batteriezustand</h2>
+<!-- /wp:heading -->
+
+<!-- wp:block {"ref":1070} /-->
+
+<!-- wp:paragraph -->
+<p>LogBATT ist nicht nur Logistikdienstleister, sondern auch <strong>Hersteller</strong>: Die SafetyBATTbox-Behälter werden im eigenen Haus entwickelt und produziert. Je nach Modell bestehen sie aus <strong>Kunststoff, eloxiertem Aluminium, pulverbeschichtetem oder verzinktem Stahl mit einer Innenwanne aus hitzebeständigem Edelstahl</strong>. In ihnen lassen sich <strong>Zellen, Module und komplette Batteriepacks</strong> transportieren und lagern – von Powertool- und E-Bike-Akkus über Industriemodule bis zu Hochvoltbatterien aus E-Fahrzeugen, in jedem Zustand.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Welches Modell Sie brauchen, richtet sich nach dem Batteriezustand und der zugehörigen ADR-Verpackungsanweisung:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="wp-block-table"><thead><tr><th>Batteriezustand</th><th>Verpackungsanweisung</th><th>Passende SafetyBATTbox</th></tr></thead><tbody><tr><td>Unbeschädigt / Prototyp / Kleinserie</td><td>P903</td><td><a href="/transportkisten/">SafetyBATTbox S-1-lite, XL-lite</a></td></tr><tr><td>Beschädigt / defekt</td><td>P908–P910 (SV 376)</td><td><a href="/transportkisten/">SafetyBATTbox S-1, M-2, L-2</a></td></tr><tr><td>Kritisch defekt</td><td><a href="/lexikon/#p911-lp906">P911 / LP906</a></td><td><a href="/transportkisten/">SafetyBATTbox XL-2.2+ (bis 1.700 kg), XL 2.2, L-2, M-2, S-1</a></td></tr><tr><td>Lagerung &amp; Quarantäne</td><td>–</td><td><a href="/lagerbehaelter/">SafetyBATTbox Storage (M / L / XL)</a></td></tr><tr><td>Große Mengen, begehbar</td><td>PGS 37-2</td><td><a href="/lithium-safety-container/">Lithium Safety Container (4–40 FT)</a></td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>Alle Transportboxen sind <strong>BAM-bauartzugelassen</strong> und wurden in bislang <strong>45 realen Brandtests</strong> geprüft. In Verbindung mit unserer Logistik bieten wir sie auch <strong><a href="/behaeltermiete/">zur Miete</a></strong> an.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/transportkisten/">Zu den Transportboxen</a></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"className":"is-style-outline"} -->
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/lagerbehaelter/">Zu den Lagerbehältern</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:group {"align":"full","className":"grey-zeile"} -->
+<div class="wp-block-group alignfull grey-zeile"><!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"style":{"typography":{"textAlign":"center"}}} -->
+<h2 class="wp-block-heading has-text-align-center">Wie die SafetyBATTbox schützt – Mechanismus für Mechanismus</h2>
+<!-- /wp:heading -->
+
+<!-- wp:block {"ref":1070} /-->
+
+<!-- wp:list {"className":"is-style-flexible-list"} -->
+<ul class="wp-block-list is-style-flexible-list"><!-- wp:list-item -->
+<li><strong>Thermische Isolation:</strong> hält die Hitze einer durchgehenden Zelle zurück und verhindert, dass die Reaktion auf Nachbarzellen überspringt.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Rauchgasführung mit Filtersystem:</strong> leitet die austretenden toxischen Gase kontrolliert ab und baut den Druck im Behälter sicher ab.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Auffangwanne:</strong> bindet auslaufenden Elektrolyt und Flüssigkeiten, sodass nichts in die Umgebung gelangt.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Mechanischer Schutz:</strong> die robuste Konstruktion hält Flammen und Projektilen einer berstenden Zelle stand.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>LogBAGs-Brandschutzpolsterung:</strong> wiederverwendbare Kissen aus geprüftem, nicht brennbarem Material nach <strong>DIN 4102</strong>. Sie fixieren die Batterie ohne Schüttgut, absorbieren austretenden Elektrolyt und lassen sich – anders als lose Granulate – nach dem Einsatz entnehmen und mehrfach nutzen.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer --></div>
+<!-- /wp:group -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:columns {"blockId":"01355c30-65e9-4f89-a655-f943f72ad6ea","isPredefinedBreakpoint":true,"isPredefinedBreakpointLarge":true} -->
+<div class="wp-block-columns"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"id":16926,"sizeSlug":"full","linkDestination":"none","disableImageForScreenReaders":true} -->
+<figure class="wp-block-image size-full"><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2022/09/gesamtloesung-lkw-logbatt.jpg" alt="Entsorgungs- und Recyclinglogistik von Lithium-Ionen-Batterien" class="wp-image-16926"/></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"verticalAlignment":"center"} -->
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:heading {"level":3,"className":"u-margin"} -->
+<h3 class="wp-block-heading u-margin" id="entsorgung-recycling">Entsorgungs- und Recyclinglogistik</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Ob eine einzelne Batterie oder mehrere Tonnen – beim Testinstitut, im Produktionswerk oder im Aftersales beim Autohaus: Als <strong>Entsorgungsfachbetrieb</strong> übernimmt LogBATT alle gefahrgut- und abfallrechtlichen Tätigkeiten in der <a href="/entsorgung/">Entsorgungs-</a> und <a href="/recycling/">Recyclinglogistik</a> – mit allen Genehmigungen und der vollständigen Dokumentation.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:rh/cta {"align":"full","className":"cta-stil"} -->
+<div class="wp-block-rh-cta alignfull cta-stil"><!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"dependencyValueBetween":[]} -->
+<p class="has-text-align-center">Wir kennen das Gefahrgut- und Abfallrecht. Stellen Sie uns Ihre Fragen: <br>Tel.: [ProxyNumber] | E-Mail: <a href="mailto:[customer.email]">[customer.email]</a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:rh/cta -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"style":{"typography":{"textAlign":"center"}},"anchor":"entwicklung"} -->
+<h2 class="wp-block-heading has-text-align-center" id="entwicklung">Entwicklung, Testing und Analysefahrten</h2>
+<!-- /wp:heading -->
+
+<!-- wp:block {"ref":1070} /-->
+
+<!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
+<p class="has-text-align-center">Die Gesamtlösung beginnt bereits vor dem Transport: In der eigenen <a href="/entwicklung/">Entwicklungsabteilung</a> entstehen kundenspezifische Transport- und Lagerlösungen, und bei zeitkritischen <a href="/analysefahrt/">Analysefahrten</a> befördert LogBATT Hochvolt-Module und -Speicher weltweit zu den Analysezentren.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"style":{"typography":{"textAlign":"center"}},"anchor":"fahrzeuge"} -->
+<h2 class="wp-block-heading has-text-align-center" id="fahrzeuge">Fahrzeuge</h2>
+<!-- /wp:heading -->
+
+<!-- wp:block {"ref":1070} /-->
+
+<!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
+<p class="has-text-align-center">Alle Fahrzeuge von der Sprinter-Klasse bis zum LKW verfügen über die vollständige <strong>ADR-Ausstattung</strong> und sind für den Transport kritisch defekter Batterien nach den behördlichen Auflagen umgebaut – unter anderem mit einem <strong>mindestens sechsfachen Luftwechsel des Laderaums pro Stunde</strong>, wie ihn das Gefahrgutrecht für gedeckte Fahrzeuge vorschreibt.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"style":{"typography":{"textAlign":"center"}},"anchor":"behaeltermiete"} -->
+<h2 class="wp-block-heading has-text-align-center" id="behaeltermiete">Behältermiete</h2>
+<!-- /wp:heading -->
+
+<!-- wp:block {"ref":1070} /-->
+
+<!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
+<p class="has-text-align-center">Die selbst entwickelten SafetyBATTbox-Behälter sind gefahrgutrechtlich bis zu kritisch defekten Batterien nach P911/LP906 zugelassen und geprüft. In fünf Größen bieten wir sie in Verbindung mit unserer Logistik auch <strong><a href="/behaeltermiete/">zur Miete</a></strong> an – passend zu Ihrem Bedarf.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"style":{"typography":{"textAlign":"center"}},"anchor":"verpackungsschulung"} -->
+<h2 class="wp-block-heading has-text-align-center" id="verpackungsschulung">Verpackungsschulung</h2>
+<!-- /wp:heading -->
+
+<!-- wp:block {"ref":1070} /-->
+
+<!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
+<p class="has-text-align-center">Wie man kritisch defekte Batterien normkonform verpackt, vermittelt LogBATT weltweit und digital über die <a href="/2019/logbatt-e-learning-academy-online/">LogBATT Academy</a> – dem eigenen Schulungszentrum für Ihre Teams und Netzwerkpartner.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"style":{"typography":{"textAlign":"center"}},"anchor":"networksolution"} -->
+<h2 class="wp-block-heading has-text-align-center" id="networksolution">LogBATT Networksolution</h2>
+<!-- /wp:heading -->
+
+<!-- wp:block {"ref":1070} /-->
+
+<!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
+<p class="has-text-align-center">Für eine <strong>flächendeckende und skalierbare Logistik</strong> in Deutschland und europaweit greifen Sie über unser speziell auf Batterielogistik entwickeltes Netzwerk auf <strong>durch die LogBATT GmbH geschulte und zertifizierte Netzwerkpartner</strong> zu – dieselben Standards überall dort, wo Ihre Batterien anfallen.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"style":{"typography":{"textAlign":"center"}},"anchor":"faq"} -->
+<h2 class="wp-block-heading has-text-align-center" id="faq">FAQ – Häufig gestellte Fragen zur Gesamtlösung</h2>
+<!-- /wp:heading -->
+
+<!-- wp:block {"ref":1070} /-->
+
+<!-- wp:generic/accordion {"anchor":"was-umfasst-die-gesamtloesung-von-logbatt-fuer-lithium-ionen-batterien"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="was-umfasst-die-gesamtloesung-von-logbatt-fuer-lithium-ionen-batterien"><summary class="accordion-title">Was umfasst die Gesamtlösung von LogBATT für Lithium-Ionen-Batterien?</summary><div class="accordion-text"><!-- wp:paragraph -->
+<p>LogBATT deckt die komplette Batterie-Supply-Chain ab: Entwicklung, Testing, Produktion, Transport, Lagerung sowie Entsorgungs- und Recyclinglogistik. Für den gefahrgutkonformen Transport nach ADR, RID, IMDG und IATA-DGR stellt LogBATT die eigenen, BAM-zugelassenen SafetyBATTbox-Behälter bereit und übernimmt die gesamte gefahrgut- und abfallrechtliche Dokumentation.</p>
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
+
+<!-- wp:generic/accordion {"anchor":"welche-batteriezustaende-deckt-die-safetybattbox-familie-ab"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="welche-batteriezustaende-deckt-die-safetybattbox-familie-ab"><summary class="accordion-title">Welche Batteriezustände deckt die SafetyBATTbox-Familie ab?</summary><div class="accordion-text"><!-- wp:paragraph -->
+<p>Die SafetyBATTbox-Familie deckt alle Zustände ab: unbeschädigte, beschädigte, defekte und kritisch defekte Lithium-Ionen-Batterien. Je nach Zustand gilt eine andere ADR-Verpackungsanweisung – von P903 für unbeschädigte über P908 für beschädigte bis P911/LP906 für kritisch defekte Batterien. Für jede Anweisung bietet LogBATT ein passendes, BAM-geprüftes Modell.</p>
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
+
+<!-- wp:generic/accordion {"anchor":"was-ist-der-unterschied-zwischen-einer-transportbox-und-einer-quarantaenebox"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="was-ist-der-unterschied-zwischen-einer-transportbox-und-einer-quarantaenebox"><summary class="accordion-title">Was ist der Unterschied zwischen einer Transportbox und einer Quarantänebox?</summary><div class="accordion-text"><!-- wp:paragraph -->
+<p>Funktionell beschreiben beide Begriffe denselben Behältertyp. Die SafetyBATTbox heißt je nach Einsatzphase Quarantänebox (sichere Zwischenlagerung defekter Batterien), Havariekiste (Sofortmaßnahme im Schadensfall), Evakuierungsbehälter (Auslagerung aus dem Gefahrenbereich) oder Transportbox (gesetzeskonformer Weitertransport nach ADR). LogBATT bietet für jeden dieser Zwecke das passende Modell an.</p>
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
+
+<!-- wp:generic/accordion {"anchor":"welche-box-brauche-ich-fuer-eine-kritisch-defekte-e-auto-batterie"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="welche-box-brauche-ich-fuer-eine-kritisch-defekte-e-auto-batterie"><summary class="accordion-title">Welche Box brauche ich für eine kritisch defekte E-Auto-Batterie?</summary><div class="accordion-text"><!-- wp:paragraph -->
+<p>Kritisch defekte Batterien unterliegen der Verpackungsanweisung P911/LP906 und erfordern eine BAM-Verfahrensfestlegung nach SV 376. Geeignet ist die SafetyBATTbox XL-2.2+ – BAM-geprüft, mit Gasmanagementsystem, thermischer Isolation und LogBAGs-Polsterung. Sie nimmt Hochvoltbatterien bis 1.700 kg auf. LogBATT hält die dafür nötige Verfahrensfestlegung und hat über 9.000 solcher Transporte durchgeführt.</p>
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
+
+<!-- wp:generic/accordion {"anchor":"wie-schuetzt-die-safetybattbox-vor-einem-thermal-runaway"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="wie-schuetzt-die-safetybattbox-vor-einem-thermal-runaway"><summary class="accordion-title">Wie schützt die SafetyBATTbox vor einem Thermal Runaway?</summary><div class="accordion-text"><!-- wp:paragraph -->
+<p>Die SafetyBATTbox unterbricht die Schadenskette an jedem Punkt: Die thermische Isolation verhindert die Wärmeübertragung auf Nachbarzellen (thermische Propagation), ein Rauchgas-Filtersystem führt toxische Gase kontrolliert ab und baut Druck ab, eine Auffangwanne bindet austretenden Elektrolyt und die LogBAGs-Polsterung fixiert die Batterie. So bleibt ein Zwischenfall im Behälter eingeschlossen.</p>
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
+
+<!-- wp:generic/accordion {"anchor":"bietet-logbatt-die-behaelter-auch-zur-miete-an"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="bietet-logbatt-die-behaelter-auch-zur-miete-an"><summary class="accordion-title">Bietet LogBATT die Behälter auch zur Miete an?</summary><div class="accordion-text"><!-- wp:paragraph -->
+<p>Ja. In Verbindung mit der LogBATT-Logistik sind die selbst entwickelten SafetyBATTbox-Behälter in fünf Größen auch zur Miete verfügbar – etwa für Rückrufaktionen, Werkstattvorfälle oder kurzfristige Spitzen. Damit lässt sich der Bedarf an geprüften Gefahrgutbehältern flexibel decken, ohne dauerhaft eigene Behälter vorhalten zu müssen.</p>
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:html -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://www.logbatt.de/gesamtloesung/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Was umfasst die Gesamtlösung von LogBATT für Lithium-Ionen-Batterien?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LogBATT deckt die komplette Batterie-Supply-Chain ab: Entwicklung, Testing, Produktion, Transport, Lagerung sowie Entsorgungs- und Recyclinglogistik. Für den gefahrgutkonformen Transport nach ADR, RID, IMDG und IATA-DGR stellt LogBATT die eigenen, BAM-zugelassenen SafetyBATTbox-Behälter bereit und übernimmt die gesamte gefahrgut- und abfallrechtliche Dokumentation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche Batteriezustände deckt die SafetyBATTbox-Familie ab?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die SafetyBATTbox-Familie deckt alle Zustände ab: unbeschädigte, beschädigte, defekte und kritisch defekte Lithium-Ionen-Batterien. Je nach Zustand gilt eine andere ADR-Verpackungsanweisung – von P903 für unbeschädigte über P908 für beschädigte bis P911/LP906 für kritisch defekte Batterien. Für jede Anweisung bietet LogBATT ein passendes, BAM-geprüftes Modell."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist der Unterschied zwischen einer Transportbox und einer Quarantänebox?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Funktionell beschreiben beide Begriffe denselben Behältertyp. Die SafetyBATTbox heißt je nach Einsatzphase Quarantänebox (sichere Zwischenlagerung defekter Batterien), Havariekiste (Sofortmaßnahme im Schadensfall), Evakuierungsbehälter (Auslagerung aus dem Gefahrenbereich) oder Transportbox (gesetzeskonformer Weitertransport nach ADR). LogBATT bietet für jeden dieser Zwecke das passende Modell an."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche Box brauche ich für eine kritisch defekte E-Auto-Batterie?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kritisch defekte Batterien unterliegen der Verpackungsanweisung P911/LP906 und erfordern eine BAM-Verfahrensfestlegung nach SV 376. Geeignet ist die SafetyBATTbox XL-2.2+ – BAM-geprüft, mit Gasmanagementsystem, thermischer Isolation und LogBAGs-Polsterung. Sie nimmt Hochvoltbatterien bis 1.700 kg auf. LogBATT hält die dafür nötige Verfahrensfestlegung und hat über 9.000 solcher Transporte durchgeführt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie schützt die SafetyBATTbox vor einem Thermal Runaway?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die SafetyBATTbox unterbricht die Schadenskette an jedem Punkt: Die thermische Isolation verhindert die Wärmeübertragung auf Nachbarzellen (thermische Propagation), ein Rauchgas-Filtersystem führt toxische Gase kontrolliert ab und baut Druck ab, eine Auffangwanne bindet austretenden Elektrolyt und die LogBAGs-Polsterung fixiert die Batterie. So bleibt ein Zwischenfall im Behälter eingeschlossen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bietet LogBATT die Behälter auch zur Miete an?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. In Verbindung mit der LogBATT-Logistik sind die selbst entwickelten SafetyBATTbox-Behälter in fünf Größen auch zur Miete verfügbar – etwa für Rückrufaktionen, Werkstattvorfälle oder kurzfristige Spitzen. Damit lässt sich der Bedarf an geprüften Gefahrgutbehältern flexibel decken, ohne dauerhaft eigene Behälter vorhalten zu müssen."
+      }
+    }
+  ]
+}
+</script>
+<!-- /wp:html -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:block {"ref":16794} /-->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:block {"ref":1988} /-->
