@@ -1,99 +1,112 @@
 # Strategische Auswertung – Peec-Tracking 01.07.–05.08.2026
 
-Basis: 83 Prompts × 4 Modelle = 10.000 Antworten. Signale: Marken (`mentions`), Domains
-(`sources`), LogBATT-Position (1–6). Caveat: keine Seiten-Ebene (siehe README).
+Basis: 83 Prompts × 4 Modelle = 10.000 Antworten. Caveat: keine Seiten-Ebene (siehe README).
+
+> **Korrektur (2026-08-05):** Die erste Fassung dieser Auswertung vermischte zwei
+> unterschiedliche Signale unter der Bezeichnung „LogBATT kommt vor" – einmal nur die
+> `mentions`-Spalte (Marke im Antworttext genannt, 51,3 %), einmal `sources` **oder**
+> `mentions` (Marke genannt **oder** `logbatt.de` irgendwo als Quelle verlinkt, 65,9 %).
+> Alle Zahlen unten verwenden jetzt durchgängig **eine** Definition: **„mentioned" = die
+> Marke „LogBATT" steht im `mentions`-Feld der Antwort.** Das deckt sich exakt mit dem
+> `position`-Feld (Position existiert nur, wenn LogBATT als Marke erkannt wurde) und ist
+> damit die entscheidungsrelevanteste Metrik: eine LLM-Antwort, die LogBATT tatsächlich
+> als Anbieter nennt, nicht nur eine Antwort, die irgendwo `logbatt.de` verlinkt.
+
+## 0. Zwei unterschiedliche Signale – und eine Überraschung
+
+„Marke genannt" (`mentions`, 51,3 %) und „Domain zitiert" (`sources`, 51,4 %) sind fast
+gleich groß – aber **überwiegend unterschiedliche Zeilen**:
+
+| Segment | Anteil |
+|---|---|
+| Nur `logbatt.de` als Quelle zitiert, Marke NICHT im Text genannt | 1.467 Antworten |
+| Nur „LogBATT" im Text genannt, KEINE `logbatt.de`-Quelle verlinkt | 1.449 Antworten |
+| Beides zugleich | 3.678 Antworten |
+| Mindestens eines von beidem | 6.594 Antworten (65,9 %) |
+
+Das ist selbst ein Befund: In ~1.467 Antworten wird die Domain als Link geführt, ohne dass
+das Modell LogBATT im Fließtext als Anbieter nennt – eine **stille Zitation** ohne
+Empfehlungswert. Umgekehrt nennen ~1.449 Antworten die Marke aus dem Trainingswissen,
+ohne aktiv auf die Website zu verlinken. Für alle folgenden Abschnitte zählt nur die
+strengere, aussagekräftigere Definition (Marke im Text genannt = „mentioned").
 
 ## 1. Kernbefund: LogBATTs Problem ist Abdeckung, nicht Rang
 
-LogBATT wird in **51 % aller Antworten** genannt/zitiert (5.127 / 10.000). **Wo** LogBATT
-vorkommt, steht es fast immer vorne: **Ø-Position 1,5** (Median 1). Das Verbesserungspotenzial
-liegt also nicht darin, besser platziert zu werden, sondern **in mehr Antworten überhaupt
-aufzutauchen** – besonders in den unten genannten schwachen Clustern, Modellen und Sprachen.
+LogBATT wird in **51,3 % aller Antworten** als Marke genannt (5.127 / 10.000). **Wo**
+LogBATT vorkommt, steht es fast immer vorne: **Ø-Position 1,47** über alle Antworten mit
+Nennung. Das Verbesserungspotenzial liegt also nicht darin, besser platziert zu werden,
+sondern **in mehr Antworten überhaupt genannt zu werden**.
 
-## 2. Sichtbarkeit nach Modell – die Google-Oberflächen sind die Schwachstelle
+## 2. Sichtbarkeit nach Modell – Gemini und ChatGPT vorn, Google AI Overview schwach
 
-| Modell | LogBATT-Abdeckung | Ø-Position |
+| Modell | LogBATT-Nennung | Ø-Position |
 |---|---|---|
-| perplexity-ui | **81,0 %** | 1,19 |
-| chatgpt-ui | **72,9 %** | 1,19 |
-| gemini-ui | 61,0 % | 1,80 |
-| google-ai-overview | **48,8 %** | 1,69 |
+| **gemini-ui** | **60,4 %** | 1,80 |
+| **chatgpt-ui** | **57,5 %** | 1,19 |
+| perplexity-ui | 48,2 % | 1,19 |
+| **google-ai-overview** | **38,9 %** | 1,69 |
 
-**Perplexity und ChatGPT sind LogBATTs Heimspiel.** Im **Google-Ökosystem (AI Overview + Gemini)**
-ist die Abdeckung deutlich schwächer – hier steckt der größte Hebel. Google AI Overview zieht
-stark Behörden-/Autoritätsquellen (umweltbundesamt.de, bayern.de, ADAC, Verbraucherzentrale) und
-Marktplätze heran; genau dort fehlt LogBATT häufiger.
+Mit der korrigierten Metrik dreht sich die Modell-Reihenfolge gegenüber einer ersten,
+fehlerhaften Einschätzung: **Perplexity fällt von Platz 1 auf Platz 3** – Perplexity
+verlinkt `logbatt.de` zwar häufig als Quelle, nennt die Marke im sichtbaren Text aber
+seltener namentlich als Gemini/ChatGPT (siehe Abschnitt 0). **Google AI Overview bleibt in
+beiden Betrachtungen die schwächste Oberfläche** – dort dominieren häufiger
+Behörden-/Marktplatz-Domains statt Markenname-Empfehlungen.
 
 ## 3. Sichtbarkeit nach Cluster
 
-Zuordnung per Keyword-Priorität (recycl → havarie/brand/unfall → großcontainer/iso → entsorgung →
-lagerung → behälter → miete → sonstige).
+| Cluster | Prompts | LogBATT-Nennung | Ø-Pos |
+|---|---|---|---|
+| Behälter (Transport/Quarantäne) | 24 | 58,9 % | 1,52 |
+| Großcontainer/ISO | 11 | 58,4 % | 1,44 |
+| Entsorgung (allgemein) | 3 | 52,0 % | 1,53 |
+| Havarie/Brand/Unfall | 21 | 50,0 % | 1,52 |
+| Lagerung/Lagerbehälter | 13 | 49,8 % | 1,41 |
+| Vermietung/Miete | 1 | 40,3 % | 1,00 |
+| Sonstige | 4 | 36,2 % | 1,16 |
+| **Recycling** | 6 | **27,7 %** | 1,20 |
 
-| Cluster | Prompts | LogBATT-Abdeckung | Ø-Pos | Haupt-Wettbewerber |
-|---|---|---|---|---|
-| Behälter (Transport/Quarantäne) | 24 | 72 % | 1,52 | DENIOS, Zarges |
-| Entsorgung (allgemein) | 3 | 68 % | 1,53 | **RETRON** |
-| Havarie/Brand/Unfall | 21 | 68 % | 1,52 | RETRON (Service), DENIOS/Paul Müller (Behälter) |
-| Großcontainer/ISO | 11 | 66 % | 1,44 | DENIOS, Paul Müller, Bauer Südlohn |
-| Lagerung/Lagerbehälter | 13 | 65 % | 1,41 | DENIOS, Zarges |
-| Recycling | 6 | **48 %** | 1,20 | RETRON, LiBCycle, Redux/Duesenfeld (Domains) |
-| Vermietung/Miete | 1 | 49 % | 1,00 | DENIOS |
+**Recycling ist der schwächste Cluster** – thematisch nicht die Aufgabe der
+Entsorgungsseite, sondern der `/recycling/`-Seite.
 
-**Recycling ist der schwächste Cluster** – und thematisch nicht die Aufgabe der Entsorgungsseite,
-sondern der `/recycling/`-Seite. Behälter/Havarie/Großcontainer sind solide, aber mit klaren
-Einzel-Lücken (Abschnitt 5).
+## 4. Sprache: englische Prompts sind praktisch unsichtbar
 
-## 4. Sprache: englische Prompts sind ein blinder Fleck
-
-| Sprache | Prompts | LogBATT-Abdeckung |
+| Sprache | Prompts | LogBATT-Nennung |
 |---|---|---|
-| Deutsch | 79 | **67 %** |
-| Englisch | 4 | **9 %** |
+| Deutsch | 79 | 52 % |
+| Englisch | 4 | **2 %** |
 
-Die vier englischen Prompts (alle Behälter/Storage: „Best transport box…", „What fireproof
-transport boxes…", „Which storage box…", „Best storage container…") laufen fast komplett an
-LogBATT vorbei – dort dominieren **Zarges** und **DENIOS**. Kleiner Datenpunkt (nur 4 Prompts),
-aber eine eindeutige, bislang unbespielte Richtung, falls internationale Sichtbarkeit ein Ziel ist.
+Die vier englischen Prompts (alle Behälter/Storage) laufen fast komplett an LogBATT
+vorbei – dort dominieren **Zarges** und **DENIOS**. Kleiner Datenpunkt (nur 4 Prompts),
+aber eine eindeutige, unbespielte Richtung für internationale Sichtbarkeit.
 
-## 5. Konkrete Chancen – schwächste Prompts (LogBATT-Abdeckung, Ø-Pos)
+## 5. Vertiefende Auswertungen (neu, mit Visualisierung)
 
-Prompts, in denen LogBATT thematisch passt, aber selten vorkommt – nach Priorität:
+Drei zusätzliche Analysen, die über Peecs Standard-Dashboard (Visibility/SoV/Position pro
+Marke) hinausgehen – Details, Zahlen und Diagramme in `vertiefungsanalysen.md`:
 
-**Behälter/Storage (EN + „generische Beste-Behälter"-Fragen):**
-- 3 % – Which storage box is suitable for damaged lithium-ion batteries? *(EN)*
-- 6 % – What fireproof transport boxes are available…? *(EN)*
-- 8 % – Was sind die besten Behälter für Lithium-Ionen-Akkus?
-- 9 % – Best transport box for lithium-ion batteries *(EN)*
-- 16 % – Best storage container for defective batteries *(EN)*
-- 26 % – Bester Lagerbehälter für Lithium Ionen Akkus
-
-**Recycling:**
-- 29 % – Welches Unternehmen ist das beste für Li-Ionen-Akku-Recycling?
-- 35 % – Wie finde ich einen Dienstleister für Batterierecycling im B2B-Bereich?
-- 36 % – Bei wem kann ich am besten Li-Ionen-Akkus recyclen lassen?
-- 44 % – Anbieter für Batterierecycling europaweit
-
-**Havarie/Unfall (behörden-/produktdominiert):**
-- 18 % – Wo kann ich einen nach einem Unfall defekten Akku entsorgen lassen? *(Behörden-Space)*
-- 31 % – Welche Havariebehälter brauche ich für defekte Lithium-Akkus? *(Zarges/DENIOS)*
-- 39 % – Firma für Havariebehälter Vermietung Deutschland *(Paul Müller/Zieglmeier)*
-- 42 % – Spezialist für Lithium-Batterien im Wasserbad und kontaminiertes Löschwasser *(RETRON)*
-
-**Lagerung:**
-- 42 % – Bei welchem Anbieter kann ich am besten Lagerbehälter … kaufen? *(DENIOS)*
-- 51 % – Welcher Gefahrgutcontainer für die Lagerung … ist am besten? *(DENIOS)*
-
-Vollständige Liste mit Werten je Modell: `prompt-metrics.csv`.
+1. **Ko-Okkurrenz/Substitution:** Verdrängt ein Wettbewerber LogBATT aus Antworten, oder
+   taucht LogBATT einfach seltener generell auf? Ergebnis: **kein einziger Wettbewerber
+   zeigt einen negativen Zusammenhang** – LogBATTs Fehlen ist nicht auf einen bestimmten
+   Konkurrenten zurückzuführen, sondern auf grundsätzliche Abwesenheit in bestimmten
+   Fragetypen (siehe 6.).
+2. **Phrasing-Sensitivität:** Bei nahezu identischem Bedarf schwankt die LogBATT-Nennung
+   je nach Formulierung um bis zu **90 Prozentpunkte**. Anbieter-suchende Formulierungen
+   („Wer bietet X an?", „Wo kann ich X mieten?") schneiden systematisch besser ab als
+   Superlativ-/Bedarfsformulierungen („Bester X", „Welche X brauche ich?").
+3. **Antwortformat:** Antworten, die auf **aktiver Websuche** beruhen, nennen LogBATT
+   häufiger (52–55 %) als Antworten aus **reinem Trainingswissen ohne Websuche** (45,6 %,
+   v. a. Gemini/Google AI Overview ohne Grounding).
 
 ## 6. Ableitungen für die GEO-Arbeit
 
-1. **Google-Oberflächen priorisieren.** Der größte Sichtbarkeits-Hebel liegt bei Google AI
-   Overview/Gemini (48–61 %). Autoritative, gut strukturierte, zitierfähige Inhalte
-   (Definitionen, Tabellen, Normbezüge) zahlen dort besonders ein.
-2. **Recycling ist eine eigene Baustelle** – `/recycling/` gezielt aufbauen; die Entsorgungsseite
-   kann Recycling-Prompts nicht gewinnen.
-3. **RETRON ist der Service-Gegner** (Entsorgung/Havarie/Recycling), **DENIOS der Produkt-Gegner**
-   (alle Behälter/Container-Cluster). Siehe `competitors.md`.
-4. **„Beste-Behälter"-Generikfragen und englische Prompts** sind offene Flanken bei Transport-/
-   Lagerboxen – Produktseiten (Transportkisten, Lagerbehälter) entsprechend schärfen.
-5. **Position ist kein Problem** – nicht auf Ranking optimieren, sondern auf Präsenz/Abdeckung.
+1. **Phrasing ist der größte Hebel** (Abschnitt 5.2): Content sollte beide
+   Frageperspektiven bedienen – nicht nur „Wer bietet X an", sondern auch
+   „Bester/geeigneter X für …"-Formulierungen mit klarer Bewertungsaussage beantworten.
+2. **Google-Oberflächen und Trainingswissen-Antworten priorisieren** (Abschnitt 2 + 5.3):
+   Strukturierte, autoritative, zitierfähige Inhalte zahlen dort am meisten ein, wo LogBATT
+   aktuell am schwächsten ist.
+3. **Recycling ist eine eigene Baustelle** – `/recycling/` gezielt aufbauen.
+4. **Kein Wettbewerber „stiehlt" LogBATT gezielt Sichtbarkeit** – die Lücke ist Abwesenheit
+   in bestimmten Fragetypen, nicht Verdrängung durch einen einzelnen Gegner.
+5. **Position ist kein Problem** – nicht auf Ranking optimieren, sondern auf Nennung.

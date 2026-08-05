@@ -36,6 +36,9 @@ bewegen sich bewusst auf **Marken- und Domain-Ebene** (plus LogBATT-Position).
 - `README.md` – dieses Dokument (Datensatz, Schema, Caveats)
 - `findings.md` – **die strategische Auswertung** (Sichtbarkeit, Modelle, Cluster, Chancen)
 - `competitors.md` – Wettbewerber-Leaderboard (Marken + Domains) mit Einordnung
+- `vertiefungsanalysen.md` – drei Analysen über das Standard-Dashboard hinaus:
+  Ko-Okkurrenz/Substitution, Phrasing-Sensitivität, Antwortformat vs. Trainingswissen
+  (Visualisierung dazu: siehe verlinktes Artefakt)
 - `prompt-metrics.csv` – maschinenlesbar: je Prompt Cluster, Sprache, LogBATT-Mention-%,
   LogBATT-Ø-Position, Mention-% je Modell, Top-5-Wettbewerber
 
