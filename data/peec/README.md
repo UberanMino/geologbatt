@@ -7,19 +7,28 @@ auf relevante Prompts antworten) sowie die daraus abgeleiteten Analysen.
 
 ```
 data/peec/
-  README.md                     diese Datei
-  prompts-master-JJJJ-MM-TT.md  Snapshot ALLER aktiv getrackten Prompts inkl. Metriken,
-                                 gruppiert nach Themen-Cluster (topic_name) – der beste
-                                 Überblick, welche Themen stark/schwach performen
-  2026-07-27_2026-08-03/        ein Zeitraum-Ordner pro Export-Batch (Woche)
-    chats/                      Chat-Exporte: pro Datei ein getesteter Prompt,
-                                 Tag-für-Tag-Antworten aller getrackten Engines
-    top-brands/                 Top-Brands-Exporte: Sichtbarkeits-/Wettbewerbsranking
-                                 innerhalb einer von Peec getrackten Themen-/Keyword-Gruppe
+  README.md                              diese Datei
+  prompts-master-JJJJ-MM-TT.md           Snapshot ALLER aktiv getrackten Prompts inkl. Metriken,
+                                          gruppiert nach Themen-Cluster (topic_name)
+  tracked-prompts-2026-07-01_2026-08-05/  ★ KANONISCHER Voll-Datensatz: alle 83 getrackten
+                                          Prompts × 4 Modelle = 10.000 Antworten. Enthält
+                                          README (Schema/Caveats), findings.md (strategische
+                                          Auswertung), competitors.md (Leaderboard),
+                                          prompt-metrics.csv (maschinenlesbar je Prompt)
+  2026-07-27_2026-08-03/                 ein Zeitraum-Ordner pro Export-Batch (Woche)
+    chats/                               Chat-Exporte: pro Datei ein getesteter Prompt
+    top-brands/                          Top-Brands-Exporte: Sichtbarkeits-/Wettbewerbsranking
 ```
 
-Weitere Zeiträume werden als zusätzliche `JJJJ-MM-TT_JJJJ-MM-TT/`-Ordner ergänzt, sobald neue
-Exporte vorliegen.
+**Wichtig:** Der Ordner `tracked-prompts-2026-07-01_2026-08-05/` ist die **kanonische Referenz**
+für Wettbewerbs- und Sichtbarkeitsanalysen – es ist der vollständige Account-Export (nicht
+seiten- oder themengefiltert). Er ersetzt den früheren, nur einen Teil beschreibenden
+`chat-export-*`-Ordner. Weitere Zeiträume kommen als zusätzliche `tracked-prompts-*`-Ordner dazu.
+
+### Caveat: keine Seiten-Ebene
+`sources` enthält nur **Domains** (`logbatt.de`), nie Pfade. Aus diesem Export lässt sich **nicht**
+ableiten, welche einzelne LogBATT-**Seite** zitiert wurde – dafür wäre der Peec-Quellen-/URL-Export
+nötig. Details siehe `tracked-prompts-2026-07-01_2026-08-05/README.md`.
 
 ## Spalten-Glossar (Chat-Exporte)
 

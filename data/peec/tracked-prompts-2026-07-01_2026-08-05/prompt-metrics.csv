@@ -1,0 +1,84 @@
+cluster,sprache,prompt,n_rows,logbatt_mention_pct,logbatt_avg_position,chatgpt_pct,perplexity_pct,gemini_pct,google_aio_pct,top_competitors
+Behälter (Transport/Quarantäne),DE,Anbieter Vermietung von Gefahrgutboxen für Lithium Batterien,125,98,1.06,97,100,100,97,DENIOS:56; Zarges:16; RETRON:8; Zieglmeier:3; GelKoh:3
+Behälter (Transport/Quarantäne),DE,Welche Anbieter verkaufen Gefahrgutboxen für Hochvoltbatterien?,124,98,1.08,100,97,97,100,DENIOS:88; Zarges:86; Paul Müller:33; Bauer Südlohn:28; Genius:23
+Behälter (Transport/Quarantäne),DE,Wer vermietet Gefahrgutboxen für Lithium-Batterien?,124,98,1.07,100,100,94,100,DENIOS:43; RETRON:11; Zieglmeier:5; Zarges:5; Bauer Südlohn:1
+Behälter (Transport/Quarantäne),DE,Welche Firma bietet Gefahrgutboxen für Batterien zur Miete an?,125,97,1.05,100,97,100,91,DENIOS:36; Zieglmeier:10; GelKoh:8; Zarges:6; Paul Müller:6
+Behälter (Transport/Quarantäne),DE,Welche Firma bietet Brandschutzkisten für Batterien zur Miete an?,126,94,1.03,100,97,97,84,DENIOS:26; Zieglmeier:24; Zarges:10; RETRON:6; GelKoh:1
+Behälter (Transport/Quarantäne),DE,Wo kann ich Quarantänekisten für defekte Lithium-Ionen-Batterien mieten?,125,92,1.42,100,100,97,72,DENIOS:97; Zieglmeier:37; RETRON:16; LiBCycle:2; GelKoh:1
+Behälter (Transport/Quarantäne),DE,Wer bietet Transportkisten für Lithium-Ionen-Batterien für Unternehmen an?,124,91,1.83,100,94,77,94,DENIOS:81; Zarges:73; RETRON:49; Genius:28; Bauer Südlohn:16
+Behälter (Transport/Quarantäne),DE,Wer bietet Gefahrgutboxen für Lithium Ionen Batterien an?,127,90,1.68,100,94,90,75,DENIOS:96; Zarges:79; RETRON:34; Bauer Südlohn:30; Genius:20
+Behälter (Transport/Quarantäne),DE,Welche Brandschutzkisten für den Transport von Lithium Batterien für Unternehmen gibt es?,124,85,2.18,94,87,94,68,Zarges:91; DENIOS:63; RETRON:51; Genius:11; Bauer Südlohn:4
+Behälter (Transport/Quarantäne),DE,Wer verkauft Brandschutzbehälter für Lithium Batterien an Unternehmen?,125,78,1.77,100,81,61,71,DENIOS:69; Zarges:51; RETRON:37; Genius:32; Paul Müller:19
+Behälter (Transport/Quarantäne),DE,Anbieter Transportkisten für Lithium-Ionen-Batterien,128,74,1.75,100,100,97,0,DENIOS:62; Zarges:54; Genius:34; RETRON:29; Buncker:14
+Behälter (Transport/Quarantäne),DE,Bei welchem Anbieter kann ich Brandschutzcontainer für defekte Batterien meines Unternehmens kaufen?,125,74,1.76,100,94,42,58,DENIOS:78; Zarges:51; RETRON:36; Bauer Südlohn:29; Genius:4
+Behälter (Transport/Quarantäne),DE,Anbieter Quarantänekiste für defekte Batterien B2B,124,73,1.42,100,100,81,13,DENIOS:81; Zarges:58; RETRON:25; GelKoh:23; Bauer Südlohn:16
+Behälter (Transport/Quarantäne),DE,Bester Anbieter für feuerfeste Quarantänebehälter für Lithium Batterien,127,64,1.79,94,97,59,3,DENIOS:84; Zarges:61; RETRON:31; Bauer Südlohn:11; Genius:10
+Behälter (Transport/Quarantäne),DE,Anbieter Lithium-Ionen-Batterie Quarantänebox,125,60,1.53,100,71,65,3,DENIOS:68; GelKoh:50; Zarges:27; Zieglmeier:16; RETRON:15
+Behälter (Transport/Quarantäne),DE,Welcher Gefahrgutcontainer für den Transport von Lithium Akkus ist am besten?,126,57,2.12,53,81,35,58,DENIOS:64; Zarges:63; RETRON:21; Genius:6; Bauer Südlohn:3
+Behälter (Transport/Quarantäne),DE,Welche Transportboxen für Lithium Batterien gibt es?,124,56,2.21,84,100,42,0,DENIOS:48; Zarges:46; RETRON:12; Genius:8; GelKoh:3
+Behälter (Transport/Quarantäne),DE,Welche Gefahrgutbox brauche ich für den Transport von Lithium-Batterien?,125,54,2.0,32,81,16,87,DENIOS:22; Zarges:21; Genius:1
+Behälter (Transport/Quarantäne),DE,Welcher ist der beste Anbieter für Lithium Ionen Akku Transportboxen?,126,52,2.18,97,25,84,3,DENIOS:64; Zarges:56; Genius:24; RETRON:17; Bauer Südlohn:13
+Behälter (Transport/Quarantäne),DE,Beste Transportbox für Lithium Ionen Batterien,124,50,2.33,100,71,29,0,Zarges:41; DENIOS:37; Genius:16; RETRON:10
+Behälter (Transport/Quarantäne),DE,Beste Quarantänekiste für den Transport von Lithium-Akkus,125,47,2.04,61,69,48,10,DENIOS:77; Zarges:75; Genius:5; RETRON:4; Bauer Südlohn:2
+Behälter (Transport/Quarantäne),DE,"Welche Quarantänebehälter brauche ich, um Lithium-Batterien zu transportieren?",126,34,2.27,23,69,16,29,DENIOS:25; Zarges:19; RETRON:4; Genius:1; Bauer Südlohn:1
+Behälter (Transport/Quarantäne),EN,Best transport box for lithium-ion batteries,32,9,,0,38,0,0,Zarges:17; DENIOS:13; RETRON:1
+Behälter (Transport/Quarantäne),EN,What fireproof transport boxes are available for companies transporting lithium batteries?,32,6,,0,25,0,0,Zarges:24; DENIOS:13; RETRON:9; Genius:2
+Entsorgung (allgemein),DE,Welcher ist der beste Anbieter für Lithium-Ionen-Akku-Entsorgung?,125,78,1.67,56,97,87,71,RETRON:83; RLG:1; LiBCycle:1
+Entsorgung (allgemein),DE,Welcher ist der beste Anbieter für Lithium-Ionen-Batterien Entsorgung?,124,65,1.48,16,90,87,65,RETRON:68; LiBCycle:1
+Entsorgung (allgemein),DE,Bei welchem Unternehmen kann ich am besten Lithium-Ionen-Batterien entsorgen lassen?,128,62,1.41,0,84,91,72,RETRON:45; DENIOS:2; RLG:1
+Großcontainer/ISO,DE,Welche Unternehmen verkaufen PGS 37-2 konforme Großcontainer für Lithium-Akkus?,125,94,1.03,100,90,94,90,DENIOS:37; Paul Müller:11; RETRON:7; Bauer Südlohn:2; Zarges:1
+Großcontainer/ISO,DE,Welche Firma ist spezialisiert auf Lithium-Sicherheitscontainer?,128,88,1.55,100,100,66,88,Paul Müller:66; DENIOS:43; RETRON:38; GelKoh:34; Bauer Südlohn:21
+Großcontainer/ISO,DE,Wer bietet Großcontainer für die Lagerung von Lithiumbatterien an?,125,86,1.43,100,97,81,69,DENIOS:61; RETRON:26; Bauer Südlohn:7; GelKoh:6; LiBCycle:1
+Großcontainer/ISO,DE,Wer bietet kranverladbare Sicherheitscontainer für Lithium-Batterien an?,125,74,1.63,100,100,84,13,DENIOS:63; Paul Müller:53; Bauer Südlohn:31; Zieglmeier:16; RETRON:14
+Großcontainer/ISO,DE,Welche Firmen bieten 10-Fuß-Container für die Lagerung von Lithium-Akkus an?,126,67,1.22,75,81,68,47,DENIOS:70; Paul Müller:27; Bauer Südlohn:4; Genius:1; Zieglmeier:1
+Großcontainer/ISO,DE,Welcher Anbieter verkauft begehbare Quarantänecontainer für beschädigte Lithium-Batterien?,125,66,1.71,97,90,55,22,DENIOS:106; Paul Müller:26; GelKoh:23; RETRON:7; Bauer Südlohn:4
+Großcontainer/ISO,DE,Anbieter 40-Fuß-Container zur Lagerung von Lithium-Batterien,126,60,1.23,97,97,38,10,DENIOS:44; GelKoh:11; Bauer Südlohn:4
+Großcontainer/ISO,DE,Anbieter begehbarer Sicherheitscontainer Lithium-Batterien,126,60,1.45,100,75,68,0,DENIOS:45; Paul Müller:24; GelKoh:11; Bauer Südlohn:9; Zarges:3
+Großcontainer/ISO,DE,Begehbarer Quarantänecontainer Lithium-Ionen-Batterien Anbieter,125,58,1.72,100,58,32,44,DENIOS:98; GelKoh:42; Bauer Südlohn:18; RETRON:14; Paul Müller:5
+Großcontainer/ISO,DE,Wer verkauft 20-Fuß-Container für die Lithium-Batterien-Lagerung?,126,45,1.42,59,81,39,0,DENIOS:54; Bauer Südlohn:15; Genius:1; Paul Müller:1; Buncker:1
+Großcontainer/ISO,DE,Wer bietet begehbare ISO-Container für Hochvoltbatterien an?,125,28,1.59,29,50,29,3,DENIOS:60; Bauer Südlohn:9; GelKoh:1
+Havarie/Brand/Unfall,DE,Wer vermietet Havarieboxen für Lithium-Akkus?,124,97,1.25,100,100,94,94,Paul Müller:59; DENIOS:46; RETRON:24; Zieglmeier:5; Zarges:5
+Havarie/Brand/Unfall,DE,Dienstleister Lithium-Batterie Havariefall Abholung europaweit,124,93,1.05,100,71,100,100,LiBCycle:17; RETRON:8; DellCon:6; DENIOS:1
+Havarie/Brand/Unfall,DE,Wo bekomme ich Havariecontainer für Lithium-Akkus zur Miete?,124,89,1.2,100,100,87,68,DENIOS:60; Paul Müller:23; Zieglmeier:2; RETRON:1
+Havarie/Brand/Unfall,DE,Was ist der beste Havariecontainer für den Transport von Lithium Ionen Batterien?,126,87,1.81,94,94,69,94,DENIOS:66; Paul Müller:50; Zarges:35; Genius:9; RETRON:5
+Havarie/Brand/Unfall,DE,Welche Anbieter entsorgen Lithium-Batterien nach einem Lagerbrand oder LKW-Brand?,125,86,1.39,84,81,91,90,RETRON:62; DellCon:6; DENIOS:6; Paul Müller:2; GelKoh:2
+Havarie/Brand/Unfall,DE,Welcher Dienstleister ist auf die Entsorgung von Lithium-Batterien nach Havariefällen spezialisiert?,127,85,1.45,84,94,88,74,RETRON:91; DellCon:9; DENIOS:2; Paul Müller:2
+Havarie/Brand/Unfall,DE,Wer bietet Havariecontainer für Lithium-Ionen-Batterien für Unternehmen an?,125,85,1.93,90,97,94,58,Paul Müller:100; DENIOS:43; RETRON:15; Zarges:8; Bauer Südlohn:4
+Havarie/Brand/Unfall,DE,Beste Havariecontainer für die Lagerung defekter Batterien,125,82,2.1,100,100,41,87,DENIOS:82; Paul Müller:52; Zarges:44; Bauer Südlohn:10; RETRON:10
+Havarie/Brand/Unfall,DE,Anbieter Transport und Entsorgung abgebrannte Lithium-Batterie,127,80,1.41,81,65,75,100,RETRON:66; DellCon:16; LiBCycle:4; DENIOS:3; Zarges:3
+Havarie/Brand/Unfall,DE,Welche Anbieter verkaufen Havariekisten für Lithium-Batterien?,124,80,2.22,94,94,58,74,Paul Müller:101; DENIOS:97; Zarges:74; RETRON:29; Bauer Südlohn:19
+Havarie/Brand/Unfall,DE,Welche Havariekiste eignet sich für die Lagerung von Lithium-Batterien?,124,73,2.06,97,100,52,42,Zarges:61; Paul Müller:43; DENIOS:25; RETRON:20; Genius:6
+Havarie/Brand/Unfall,DE,Anbieter Lithium-Batterie Entsorgung nach Brandschaden,125,72,1.63,44,68,81,97,RETRON:75; DENIOS:5; DellCon:3
+Havarie/Brand/Unfall,DE,Anbieter Havariefall Lithium Batterie Entsorgung,124,72,1.47,45,68,77,97,RETRON:65; DellCon:4; DENIOS:3; LiBCycle:2; GelKoh:2
+Havarie/Brand/Unfall,DE,Welche Firmen entsorgen E-Auto Batterien nach einem Unfall?,125,63,1.17,68,71,88,26,RETRON:11; LiBCycle:1; RLG:1; DellCon:1
+Havarie/Brand/Unfall,DE,"Welche Havariebehälter gibt es, um defekte Lithium-Batterien zu transportieren?",124,53,1.74,61,94,29,29,Zarges:66; DENIOS:44; Paul Müller:20; Genius:18; RETRON:7
+Havarie/Brand/Unfall,DE,Wer übernimmt die Entsorgung im Havariefall bei Lithium-Batterien?,125,49,1.22,6,77,48,65,RETRON:20; DENIOS:1
+Havarie/Brand/Unfall,DE,Wer entsorgt Lithium-Batterien aus einem Wasserbad inklusive kontaminiertem Wasser?,126,44,1.25,6,66,39,62,RETRON:13
+Havarie/Brand/Unfall,DE,Spezialist für Lithium-Batterien im Wasserbad und kontaminiertes Löschwasser,126,42,1.61,88,53,6,19,RETRON:26; Paul Müller:12; GelKoh:11; Zieglmeier:11; DENIOS:11
+Havarie/Brand/Unfall,DE,Firma für Havariebehälter Vermietung Deutschland,125,39,1.26,0,19,68,71,Paul Müller:57; Zieglmeier:45; DENIOS:3
+Havarie/Brand/Unfall,DE,Welche Havariebehälter brauche ich für defekte Lithium-Akkus?,124,31,1.5,26,81,16,3,Zarges:29; DENIOS:24; Paul Müller:6; RETRON:3
+Havarie/Brand/Unfall,DE,Wo kann ich einen nach einem Unfall defekten Akku entsorgen lassen?,125,18,1.0,0,39,0,32,RETRON:1
+Lagerung/Lagerbehälter,DE,Anbieter für Lagercontainer für Lithium Batterien zur Miete,127,98,1.05,100,100,97,97,DENIOS:24; RETRON:5; LiBCycle:3; Bauer Südlohn:1; Buncker:1
+Lagerung/Lagerbehälter,DE,Wo kann ich Lagerbehälter für defekte Lithium-Batterien mieten?,127,98,1.32,100,100,91,100,DENIOS:53; RETRON:27; Zarges:12; Zieglmeier:8; Bauer Südlohn:1
+Lagerung/Lagerbehälter,DE,Bei welchem Anbieter kann ich am besten Lagerbehälter für Lithium Ionen Akkus mieten?,126,98,1.03,100,100,97,94,DENIOS:25; Zieglmeier:12; RETRON:9; Zarges:1
+Lagerung/Lagerbehälter,DE,Welche Quarantäneboxen für die Lagerung von Lithium-Batterien gibt es?,124,81,1.82,100,100,39,84,DENIOS:64; Zarges:52; RETRON:32; GelKoh:22; Genius:19
+Lagerung/Lagerbehälter,DE,Wer verkauft Lagerboxen für Lithium Ionen Batterien?,124,66,1.83,100,97,68,0,Zarges:67; DENIOS:58; Genius:23; RETRON:20; Zieglmeier:11
+Lagerung/Lagerbehälter,DE,Welche Evakuierungskisten eignen sich für die Lagerung von Lithium-Batterien?,125,64,1.46,100,81,41,35,Zarges:55; DENIOS:30; RETRON:18; Genius:6; Paul Müller:2
+Lagerung/Lagerbehälter,DE,Welche Lagerbox ist für beschädigte Lithium-Ionen-Akkus geeignet?,125,63,1.78,90,90,34,39,Zarges:65; DENIOS:52; Genius:10; RETRON:6; Zieglmeier:5
+Lagerung/Lagerbehälter,DE,Anbieter Lithium-Ionen-Batterie Lagercontainer,125,59,1.39,100,77,58,0,DENIOS:40; Bauer Südlohn:25; RETRON:18; Zarges:7; LiBCycle:4
+Lagerung/Lagerbehälter,DE,Welcher Gefahrgutcontainer für die Lagerung von Lithium Akkus ist am besten?,124,51,1.67,55,74,32,42,DENIOS:69; Zarges:44; Bauer Südlohn:4; RETRON:2; Genius:2
+Lagerung/Lagerbehälter,DE,Bei welchem Anbieter kann ich am besten Lagerbehälter für Lithium Ionen Akkus kaufen?,126,42,1.74,84,84,3,0,DENIOS:73; Zarges:37; Genius:26; RETRON:17; Bauer Südlohn:9
+Lagerung/Lagerbehälter,DE,Bester Lagerbehälter für Lithium Ionen Akkus,125,26,1.8,52,48,3,0,Zarges:42; Genius:13; DENIOS:7; RETRON:4; Bauer Südlohn:1
+Lagerung/Lagerbehälter,EN,Best storage container for defective batteries,32,16,1.5,0,62,0,0,Zarges:15; DENIOS:9; Genius:1
+Lagerung/Lagerbehälter,EN,Which storage box is suitable for damaged lithium-ion batteries?,32,3,,12,0,0,0,Zarges:14; DENIOS:7; RETRON:6
+Recycling,DE,Lithium Batterie Recycling gewerblich Dienstleister,120,74,1.37,93,60,67,77,RETRON:43; LiBCycle:2
+Recycling,DE,Wer bietet Recycling von Lithium-Ionen-Batterien für Unternehmen an?,120,72,1.13,50,87,90,63,RETRON:12; LiBCycle:5; DellCon:1
+Recycling,DE,Anbieter für Batterierecycling europaweit,120,44,1.03,13,63,83,17,LiBCycle:15; RLG:4; RETRON:1
+Recycling,DE,Bei wem kann ich am besten Lithium-Ionen-Akkus recyclen lassen?,124,36,1.08,3,87,13,42,RETRON:3
+Recycling,DE,Wie finde ich einen Dienstleister für Batterierecycling im B2B-Bereich?,120,35,1.16,0,70,60,10,LiBCycle:25; RETRON:18; RLG:1
+Recycling,DE,Welches Unternehmen ist das beste für Lithium-Ionen-Akku Recycling?,126,29,1.23,0,52,35,31,RETRON:14; LiBCycle:1
+Sonstige,DE,Bester Anbieter um beschädigte Lithium Batterien transportieren zu lassen,125,79,1.07,97,97,74,48,RETRON:34; Zarges:19; DENIOS:13; DellCon:12; LiBCycle:4
+Sonstige,DE,Bei welchem Unternehmen kann ich beschädigte Lithium Batterien transportieren lassen?,126,73,1.12,97,66,94,35,RETRON:21; GelKoh:12; Zarges:8; DellCon:7; DENIOS:4
+Sonstige,DE,Bester Transportbehälter für Lithium Ionen Batterien,126,50,1.65,90,81,28,0,DENIOS:36; Zarges:31; Genius:12; GelKoh:3; RETRON:1
+Sonstige,DE,Was sind die besten Behälter für Lithium-Ionen-Akkus?,126,8,1.0,16,16,0,0,Zarges:55; DENIOS:23; RETRON:9; Genius:6
+Vermietung/Miete,DE,Firma für Batterie Container Vermietung Deutschland,124,49,1.0,55,97,45,0,DENIOS:5
