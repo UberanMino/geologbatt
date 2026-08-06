@@ -92,3 +92,18 @@ Teilbereiche. Für GEO bedeutet das zwei Ziele:
 - Buttons zeigten im Ist-Zustand auf die Backend-Domain; die neuen relativen Pfade
   (`/gesamtloesung/`, `/entsorgung/`, `/recycling/`) bitte gegen die Live-URLs prüfen.
 - EmpCo-Check: keine unbelegten Nachhaltigkeits-/Umwelt-Adjektive ergänzt.
+
+---
+
+## Nachschärfung v2 (2026-08-05) – Schreibrichtlinien + Produktverankerung
+
+Gleicher Auslöser wie bei `/gesamtloesung/` (Produktmarken-Befund + Wirkungsketten-Kritik).
+
+Umgesetzt (Struktur unverändert, nur Text):
+- **Produktverankerung:** Auftakt benennt LogBATT als **Hersteller** der eigenen SafetyBATTbox
+  (BAM-zugelassen bis P911/LP906); Behälter-Sektion als Produkt-Aussage mit Synonym-Brücke.
+- **Wirkungsketten:** Die `is-style-flexible-list` von 11 isolierten Bullets auf 7 verknüpfte
+  Aussagen umgeschrieben (Fähigkeit → Funktion → Nutzen), plus Rahmensatz „Als Logistik-
+  dienstleister und Hersteller greift jeder Schritt in den nächsten".
+- **Zulassung an Funktion gekoppelt** in der Behälter-Sektion (BAM-geprüft → schließt Zellen ein
+  → Hitze/Rauchgase eingedämmt).

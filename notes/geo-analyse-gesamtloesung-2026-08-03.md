@@ -82,3 +82,25 @@ Großcontainer) kamen im Ist-Zustand gar nicht vor.
 - EmpCo-Check: riskante „nicht umweltschädlich"-FAQ entfernt; keine neuen unbelegten
   Umwelt-/Nachhaltigkeits-Adjektive.
 - Einleitenden HTML-Kommentar in der Datei vor dem Einpflegen entfernen.
+
+---
+
+## Nachschärfung v3 (2026-08-05) – Schreibrichtlinien + Produktverankerung
+
+Auslöser: (1) Der Produktmarken-Befund aus dem Tracking-Datensatz (LogBATT als *Dienstleister*
+verankert, verliert „Bester X"-Fragen an Produktmarken wie Zarges/DENIOS – siehe
+`data/peec/tracked-prompts-2026-07-01_2026-08-05/vertiefungsanalysen.md` §2b). (2) Kundenkritik:
+Die Schreibrichtlinien wurden nicht eingehalten – Stichpunkte/Sätze standen isoliert, ohne in
+eine **Wirkungskette** (Ursache → Mechanismus → Nutzen) gepackt zu sein.
+
+Umgesetzt (Struktur unverändert, nur Text):
+- **Produktverankerung:** Auftakt benennt LogBATT jetzt explizit als **Hersteller** der eigenen
+  SafetyBATTbox (nicht nur Dienstleister); Links auf `/transportkisten/`, `/lagerbehaelter/`,
+  `/lithium-safety-container/` prominent. Behältermiete-Abschnitt als klare Produkt-Aussage.
+- **Wirkungsketten statt isolierter Bullets:** Die `is-style-flexible-list` von 11 isolierten
+  Feature-Stichpunkten auf 8 verknüpfte Aussagen umgeschrieben (jeweils Fähigkeit → Funktion →
+  Nutzen, „…, damit/sodass Sie …"), plus Rahmensatz „Von der ersten Klassifizierung bis zur
+  dokumentierten Entsorgung greift jeder Schritt in den nächsten".
+- **Zulassung an Funktion gekoppelt:** „Weil sie nach P911/LP906 BAM-geprüft ist, schließt sie …
+  ein, dass Hitze, Rauchgase und ein möglicher Thermal Runaway kontrolliert eingedämmt werden."
+- Synonym-Brücke (Transportbox = Quarantänebox = Havariekiste) beibehalten.
