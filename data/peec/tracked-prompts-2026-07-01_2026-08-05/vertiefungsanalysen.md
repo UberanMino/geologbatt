@@ -98,10 +98,61 @@ einer Anbietersuche.
 | Transportbox | „Anbieter Transportkisten für …" – **72 %** | „Beste Transportbox für …" – **22 %** | **50 pp** |
 
 Bis zu **90 Prozentpunkte Unterschied bei identischem Bedarf** – das ist der stärkste
-Hebel aller drei Analysen. Es ist kein Wettbewerbsproblem (Analyse 1), sondern ein
-**Content-/Antwortmuster-Problem**: Produktseiten und FAQ beantworten aktuell primär die
-Frage „Wer bietet das an?", aber zu selten die Frage „Was ist der/die beste X für meinen
-Fall?" mit einer expliziten, bewertenden Aussage.
+Hebel aller drei Analysen.
+
+### 2b. Gilt das für alle Anbieter oder nur für LogBATT? (Wettbewerbskontext)
+
+Die entscheidende Rückfrage: Ist die Phrasing-Sensitivität eine **LogBATT-Schwäche** oder
+antworten LLMs bei Superlativ-/Bedarfsfragen **generell** ohne konkrete Anbieter? Dazu
+dieselbe Auswertung für die vier größten Wettbewerber. Frageformen gruppiert in
+**anbieter-suchend** (E, F, G, H, I, M, B) vs. **Bedarf/Superlativ** (J, K, L).
+
+| Marke | Anbieter-suchend | Bedarf/Superlativ | Δ (Anbieter − Bedarf) |
+|---|---|---|---|
+| **LogBATT** | 61,4 % | 26,8 % | **+34,6 pp** |
+| RETRON | 18,6 % | 9,2 % | +9,3 pp |
+| Paul Müller | 8,9 % | 7,3 % | +1,6 pp |
+| DENIOS | 31,4 % | 36,2 % | −4,8 pp |
+| **Zarges** | 12,4 % | 39,4 % | **−27,0 pp** |
+
+**Der Effekt ist NICHT universell – und das korrigiert die erste Schlussfolgerung.** LogBATT
+ist die **mit Abstand phrasing-empfindlichste** Marke (+34,6 pp); RETRON zeigt denselben
+Effekt schwächer. **Zarges verhält sich genau umgekehrt** (−27,0 pp): Es wird in
+Superlativ-/Bedarfsfragen *häufiger* genannt als in Anbieterfragen. DENIOS ist praktisch
+neutral.
+
+**Topic-kontrolliert** (die Near-Duplicate-Paare oben, gleiches Thema, Δ = Anbieter − Bedarf):
+
+| Thema | LogBATT | DENIOS | Zarges | RETRON |
+|---|---|---|---|---|
+| Lagerbehälter | **+89,7** | +36,1 | **−24,2** | +18,1 |
+| Gefahrgutbox | +76,2 | +58,0 | +45,4 | +26,8 |
+| Quarantänebehälter | +63,0 | +45,5 | +31,7 | +17,0 |
+| Transportbox | +50,1 | +18,6 | +9,1 | +14,6 |
+
+Hält man das Thema konstant, zeigt sich ein **teils universeller, teils LogBATT-spezifischer**
+Effekt:
+- **Teils universell:** Innerhalb eines Themas sinkt die Anbieternennung bei
+  Bedarfs-/Superlativfragen fast überall – auch DENIOS und RETRON fallen ab. Superlativ-/
+  Bedarfsfragen ziehen generell mehr generische, beratende Antworten ohne konkrete Firma.
+- **LogBATT-spezifisch in der Höhe:** LogBATT fällt **in jedem Thema am stärksten** ab. Und
+  **Zarges** ist die einzige Marke, die den Abfall bricht (bei Lagerbehältern sogar +33,6 %
+  in „Bester" vs. 9,4 % in „Wo mieten").
+
+**Interpretation:** Zarges und DENIOS sind in den Modellen als **Produktmarken** verankert
+(„die beste Transportbox *ist* eine Zarges/DENIOS"). LogBATT und RETRON sind als
+**Dienstleister/Anbieter** verankert – sie werden genannt, wenn nach einem Anbieter gefragt
+wird, aber nicht, wenn nach dem *besten Produkt* gefragt wird. Deshalb kollabiert LogBATT
+bei Produkt-Superlativfragen am stärksten.
+
+**Korrigierte Konsequenz:** Der Hebel ist **nicht** einfach „Content, der ‚Wer bietet X an'
+beantwortet". Der Hebel ist, die **SafetyBATTbox als benennbare Produktmarke** zu etablieren,
+die als „die beste X" empfohlen werden kann – so wie Zarges. Das ist eine
+Produkt-Branding-/Entitäts-Aufgabe (klarer Produktname, Produktentität in Drittquellen/
+Verzeichnissen, Vergleichsinhalte „SafetyBATTbox vs. …"), nicht nur eine Frage der
+FAQ-Formulierung. Solange die SafetyBATTbox nur als *Leistung von LogBATT* und nicht als
+*eigenständiges Produkt* wahrgenommen wird, verliert sie die „Bester X"-Fragen an die
+etablierten Behälter-Produktmarken.
 
 ## 3. Antwortformat – Websuche vs. reines Trainingswissen
 

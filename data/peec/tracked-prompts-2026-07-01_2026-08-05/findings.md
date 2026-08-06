@@ -93,16 +93,23 @@ Marke) hinausgehen – Details, Zahlen und Diagramme in `vertiefungsanalysen.md`
 2. **Phrasing-Sensitivität:** Bei nahezu identischem Bedarf schwankt die LogBATT-Nennung
    je nach Formulierung um bis zu **90 Prozentpunkte**. Anbieter-suchende Formulierungen
    („Wer bietet X an?", „Wo kann ich X mieten?") schneiden systematisch besser ab als
-   Superlativ-/Bedarfsformulierungen („Bester X", „Welche X brauche ich?").
+   Superlativ-/Bedarfsformulierungen („Bester X", „Welche X brauche ich?"). **Im
+   Wettbewerbsvergleich (Abschnitt 2b) ist dieser Effekt LogBATT-spezifisch in der Höhe:**
+   LogBATT fällt bei Produkt-Superlativfragen am stärksten aller Marken ab, während Zarges
+   sich umgekehrt verhält (dort *stärker*) – Zarges/DENIOS sind als Produktmarken verankert,
+   LogBATT als Dienstleister.
 3. **Antwortformat:** Antworten, die auf **aktiver Websuche** beruhen, nennen LogBATT
    häufiger (52–55 %) als Antworten aus **reinem Trainingswissen ohne Websuche** (45,6 %,
    v. a. Gemini/Google AI Overview ohne Grounding).
 
 ## 6. Ableitungen für die GEO-Arbeit
 
-1. **Phrasing ist der größte Hebel** (Abschnitt 5.2): Content sollte beide
-   Frageperspektiven bedienen – nicht nur „Wer bietet X an", sondern auch
-   „Bester/geeigneter X für …"-Formulierungen mit klarer Bewertungsaussage beantworten.
+1. **Die SafetyBATTbox als Produktmarke etablieren** (Abschnitt 5.2 + 2b): Der Phrasing-Hebel
+   ist bei genauerem Hinsehen ein **Entitäts-Problem** – LogBATT ist als *Dienstleister*
+   verankert, nicht als *Produkt*, und verliert deshalb „Bester X"-Fragen an Produktmarken
+   wie Zarges/DENIOS. Konsequenz: die SafetyBATTbox als eigenständige, benennbare Produktmarke
+   aufbauen (klarer Produktname, Vergleichsinhalte „SafetyBATTbox vs. …", Produktentität in
+   Verzeichnissen/Drittquellen) – nicht nur FAQ-Formulierungen anpassen.
 2. **Google-Oberflächen und Trainingswissen-Antworten priorisieren** (Abschnitt 2 + 5.3):
    Strukturierte, autoritative, zitierfähige Inhalte zahlen dort am meisten ein, wo LogBATT
    aktuell am schwächsten ist.
