@@ -23,6 +23,8 @@ website/de/        Ist-Zustand der deutschen Website (roher WordPress-Gutenberg-
   _index.md        Seitenübersicht: Slug, URL, Meta-Title, Meta-Description, Kernaussage
 optimized/de/      GEO-optimierte Content-Vorschläge je Seite (fertig zur Umsetzung im Backend),
                    spiegelt die Struktur von website/de/
+design/            Neuentwürfe einzelner Hauptseiten als eigenständiges, responsives HTML
+                   (Einbau als Custom-HTML-Block im WordPress; siehe design/*/README.md)
 data/peec/         Peec-AI-Exporte: wie LLMs auf relevante Prompts reagieren (Chats + Top-Brands
                    je Zeitraum, siehe data/peec/README.md)
 data/analytics/    Zugriffs-/Traffic-Daten der LogBATT-Seiten (folgt)
