@@ -1,0 +1,11 @@
+# Secrets
+.env
+
+# Run outputs
+runs/*
+!runs/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/

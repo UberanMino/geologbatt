@@ -1,0 +1,12 @@
+# Core (required)
+PyYAML>=6.0
+
+# Provider SDKs — install only the ones you use for a `live` run.
+# The default `mock` profile needs none of these.
+anthropic>=0.40      # generator (or any role)
+openai>=1.40         # judge / scorer / synthesizer
+google-genai>=0.3    # optional: gemini as judge
+
+# Optional: load API keys from .env automatically (otherwise a tiny built-in
+# parser is used).
+python-dotenv>=1.0

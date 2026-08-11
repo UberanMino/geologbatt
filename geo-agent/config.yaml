@@ -1,0 +1,39 @@
+# GEO agent configuration.
+#
+# Default profile is "mock": the whole loop runs offline, no API key needed.
+# Switch to real models by setting `profile: live` (and providing keys in .env),
+# or per run:  python run.py --profile live run --target havarie
+#
+# GUARDRAIL: generator and judge MUST be different model families, otherwise the
+# loop optimises into a shared self-bias blind spot (arXiv:2412.16829). The
+# scorer and synthesizer default to the judge family so the generator never
+# grades or coaches itself.
+
+profile: mock
+
+models:
+  generator:   anthropic:claude-opus-5     # writes/rewrites the candidate content
+  judge:       openai:gpt-4.1              # answers prompts like a grounded engine
+  scorer:      openai:gpt-4o-mini          # extracts the metrics from the answer
+  synthesizer: openai:gpt-4.1              # turns answers into content directives
+  # examples of other families you can drop in:
+  #   google:gemini-2.5-pro
+  # NOTE: verify the exact model IDs against your provider before a live run.
+
+# sources_only  -> judge answers ONLY from the provided documents (recommended:
+#                  maximises sensitivity to the one thing that changes, the candidate)
+# blended       -> judge may also use parametric knowledge (secondary realism check)
+grounding: sources_only
+
+temperature:
+  generator: 0.5
+  judge: 0.2
+  scorer: 0.0
+  synthesizer: 0.3
+
+loop:
+  max_iterations: 6
+  patience: 2          # stop after this many iterations without >min_delta gain
+  target_score: 0.9    # stop early once train mean composite reaches this
+  min_delta: 0.01
+  top_k_competitors: 3
