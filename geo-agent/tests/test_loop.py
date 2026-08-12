@@ -36,11 +36,25 @@ def test_loop_improves_mock():
         result.iterations[0].train.mention_rate
 
 
-def test_self_bias_guard():
+def test_self_bias_guard_raises_without_optin():
     import pytest
     cfg = load_config(os.path.join(HERE, "config.yaml"), profile="live")
     cfg.models["generator"] = "openai:gpt-4.1"
     cfg.models["judge"] = "openai:gpt-4o"
+    cfg.allow_same_family = False  # no opt-in -> must raise
     corpus = load_corpus(HERE)
     with pytest.raises(ValueError):
         Optimizer(corpus, cfg)
+
+
+def test_self_bias_guard_allows_optin_with_warning():
+    import warnings
+    cfg = load_config(os.path.join(HERE, "config.yaml"), profile="live")
+    cfg.models["generator"] = "anthropic:claude-opus-5"
+    cfg.models["judge"] = "anthropic:claude-sonnet-5"
+    cfg.allow_same_family = True  # deliberate single-family run -> warns, no raise
+    corpus = load_corpus(HERE)
+    with warnings.catch_warnings(record=True) as w:
+        warnings.simplefilter("always")
+        Optimizer(corpus, cfg)
+        assert any("single-family" in str(x.message).lower() for x in w)

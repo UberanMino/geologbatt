@@ -32,6 +32,7 @@ class Config:
     temperature: Dict[str, float]
     loop: LoopParams
     profile: str
+    allow_same_family: bool = False  # opt-in for single-provider setups
 
     # -- factories ---------------------------------------------------------- #
     def client(self, role: str) -> LLMClient:
@@ -42,17 +43,26 @@ class Config:
         if gen == "mock" or judge == "mock":
             return
         if gen == judge:
-            raise ValueError(
-                f"Generator and Judge share the model family '{gen}'. This "
-                "re-introduces self-bias (arXiv:2412.16829). Use different "
-                "families, e.g. generator=anthropic:…, judge=openai:… ."
-            )
-        for role in ("scorer", "synthesizer"):
-            if family_of(self.models[role]) == gen:
+            if not self.allow_same_family:
+                raise ValueError(
+                    f"Generator and Judge share the model family '{gen}'. This "
+                    "re-introduces self-bias (arXiv:2412.16829). Use different "
+                    "families (generator=anthropic:…, judge=openai:…), or set "
+                    "allow_same_family: true in config.yaml if you deliberately "
+                    "want a single-provider run."
+                )
+            # single-family opt-in: still warn, and warn harder if identical model
+            if self.models["generator"] == self.models["judge"]:
                 warnings.warn(
-                    f"{role} shares the Generator family '{gen}'; the Generator "
-                    "is effectively grading/coaching itself. Prefer the Judge "
-                    "family for the {role}.".format(role=role)
+                    f"Generator and Judge use the SAME model ({self.models['judge']}). "
+                    "Self-bias is at its worst here — prefer different models per "
+                    "role within the family (e.g. generator=opus, judge=sonnet)."
+                )
+            else:
+                warnings.warn(
+                    f"Single-family run ({gen}): Generator and Judge share a family. "
+                    "Different models per role partly mitigates self-bias, but treat "
+                    "results as a proxy until you can add a second provider."
                 )
 
 
@@ -103,6 +113,7 @@ def load_config(path: Optional[str] = None, profile: Optional[str] = None) -> Co
             top_k_competitors=int(loop.get("top_k_competitors", 3)),
         ),
         profile=prof,
+        allow_same_family=bool(data.get("allow_same_family", False)),
     )
     return cfg
 

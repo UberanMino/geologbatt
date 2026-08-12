@@ -11,14 +11,24 @@
 
 profile: mock
 
+# Single-provider (all-Claude) starter setup: different Claude models per role,
+# which partly mitigates self-bias within one family. Once you have a second
+# provider key (e.g. OpenAI/Gemini), switch the Judge to it and set
+# allow_same_family back to false for the full guardrail.
 models:
-  generator:   anthropic:claude-opus-5     # writes/rewrites the candidate content
-  judge:       openai:gpt-4.1              # answers prompts like a grounded engine
-  scorer:      openai:gpt-4o-mini          # extracts the metrics from the answer
-  synthesizer: openai:gpt-4.1              # turns answers into content directives
-  # examples of other families you can drop in:
-  #   google:gemini-2.5-pro
-  # NOTE: verify the exact model IDs against your provider before a live run.
+  generator:   anthropic:claude-opus-5                 # writes/rewrites the candidate
+  judge:       anthropic:claude-sonnet-5               # answers like a grounded engine
+  scorer:      anthropic:claude-haiku-4-5-20251001     # extracts the metrics (cheap)
+  synthesizer: anthropic:claude-sonnet-5               # turns answers into directives
+  # Recommended once a second key is available (full self-bias guard):
+  #   judge:       openai:gpt-4.1
+  #   scorer:      openai:gpt-4o-mini
+  #   synthesizer: openai:gpt-4.1
+  # NOTE: verify exact model IDs against your provider before a live run.
+
+# Generator and Judge share the 'anthropic' family here, so we opt in explicitly.
+# The loop still warns; treat single-family results as a proxy.
+allow_same_family: true
 
 # sources_only  -> judge answers ONLY from the provided documents (recommended:
 #                  maximises sensitivity to the one thing that changes, the candidate)
