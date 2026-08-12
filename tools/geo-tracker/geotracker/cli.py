@@ -497,6 +497,18 @@ def cmd_import_peec(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_export_html(args: argparse.Namespace) -> int:
+    from .exporter import export_html
+
+    config = load_config()
+    conn = open_db(config.db_path)
+    result = export_html(conn, Path(args.output), fragment=args.fragment)
+    for key, value in result.items():
+        _print(f"  {key:12} {value}")
+    _print("\nDatei im Browser öffnen — kein Server nötig.")
+    return 0
+
+
 def cmd_serve(args: argparse.Namespace) -> int:
     import uvicorn
 
@@ -623,6 +635,14 @@ def build_parser() -> argparse.ArgumentParser:
     p_import.add_argument("--category", default="Peec-Import",
                           help="Kategorie für Prompts, die noch nicht existieren")
     p_import.set_defaults(func=cmd_import_peec)
+
+    p_export = sub.add_parser(
+        "export-html", help="Dashboard als einzelne, eigenständige HTML-Datei exportieren"
+    )
+    p_export.add_argument("output", nargs="?", default="dashboard.html")
+    p_export.add_argument("--fragment", action="store_true",
+                          help="ohne <html>/<head>/<body> — für Umgebungen mit eigenem Seitenrahmen")
+    p_export.set_defaults(func=cmd_export_html)
 
     p_serve = sub.add_parser("serve", help="Dashboard + REST-API starten")
     p_serve.add_argument("--host", default="127.0.0.1")

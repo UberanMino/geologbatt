@@ -21,6 +21,14 @@ python3 -m geotracker import-peec ../../data/peec/2026-07-27_2026-08-03/chats
 python3 -m geotracker serve          # -> http://127.0.0.1:8000/
 ```
 
+**Ohne Python-Umgebung:** `python3 -m geotracker export-html dashboard.html` packt
+Daten und Oberfläche in **eine** Datei. Die lässt sich per Doppelklick öffnen,
+verschicken oder auf ein Laufwerk legen — kein Server, keine Installation, keine
+Netzwerkaufrufe. Alle Filter und Kennzahlen rechnen im Browser. Es ist ein
+**Schnappschuss**: neue Daten holt weiterhin `ingest`/`schedule`, danach neu
+exportieren. `--fragment` erzeugt die Variante ohne eigene Rahmen-Tags für
+Umgebungen, die den Seitenrahmen selbst mitbringen.
+
 Der Import füllt das Dashboard mit **160 echten Läufen** (5 Prompts × 4 Engines
 × 8 Tage) aus den vorhandenen Peec-Exporten — es startet also nicht leer.
 
