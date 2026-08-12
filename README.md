@@ -30,9 +30,10 @@ data/competitors/  Wettbewerber-Informationen (folgt; erste Kandidaten aus Peec-
                    notes/geo-analyse-peec-2026-07-27_2026-08-03.md, Abschnitt 4)
 notes/             GEO-Analysen einzelner Seiten und abgeleitete Maßnahmen
 tools/geo-tracker/ Eigenes GEO-Visibility-Tracking-Tool (Peec-Nachbau): fragt definierte Prompts
-                   regelmäßig gegen ChatGPT/Perplexity/Gemini/Google AI Overview ab und speichert
-                   volle Rohantwort + jede zitierte Quelle (Ebene 1), getrennt vom Auswertungs-
-                   Layer (Ebene 2). Siehe tools/geo-tracker/README.md
+                   regelmäßig gegen ChatGPT/Perplexity/Gemini/Google AI Overview ab, speichert
+                   volle Rohantwort + jede zitierte Quelle (Ebene 1), wertet sie getrennt aus
+                   (Ebene 2) und zeigt alles im Dashboard mit Filtern. Siehe
+                   tools/geo-tracker/README.md
 ```
 
 ## Status
@@ -47,9 +48,9 @@ tools/geo-tracker/ Eigenes GEO-Visibility-Tracking-Tool (Peec-Nachbau): fragt de
 - [ ] Analytics-/Traffic-Daten
 - [ ] Competitor-Daten
 - [ ] GEO-Analyse & Maßnahmenableitung
-- [~] Eigener GEO-Visibility-Tracker (`tools/geo-tracker/`): Ebene 1 (Rohdaten-Ingestion, Engine
-  `chatgpt`) und Ebene 2 (Auswertungs-Layer mit Claude Haiku 4.5) stehen inkl. Schema, Seeds und
-  Tests; offen sind die restlichen drei Engines, Scheduler und Dashboard
+- [x] Eigener GEO-Visibility-Tracker (`tools/geo-tracker/`): vollständig — Rohdaten-Ingestion über
+  alle vier Engines, Auswertungs-Layer mit Claude Haiku 4.5, Scheduler und Dashboard mit REST-API,
+  frei kombinierbaren Filtern und Citation-Achse. Start: `python3 -m geotracker serve`
 
 ## Hinweise zum Website-Quellcode
 

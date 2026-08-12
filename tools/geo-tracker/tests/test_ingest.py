@@ -40,6 +40,7 @@ def _config(tmp_path: Path, *, searchapi_key: str = "", anthropic_key: str = "")
         throttle_seconds=0.0,
         max_runs_per_invocation=10,
         chatgpt_web_search=True,
+        engines_for_scheduler=("chatgpt",),
     )
 
 

@@ -25,7 +25,13 @@ from .classify import Classifier, register_domain
 from .config import Config
 from .db import today, utcnow
 from .searchapi.client import SearchApiClient, SearchApiError, SearchApiResult
-from .searchapi.parsers import EngineNotImplemented, build_params, parse_response
+from .searchapi.parsers import (
+    EngineNotImplemented,
+    build_google_params,
+    build_params,
+    extract_page_token,
+    parse_response,
+)
 
 
 @dataclass
@@ -214,11 +220,48 @@ def ingest_target(
         fetch = client.search
 
     try:
-        params = build_params(
-            target.engine, target.text, web_search=config.chatgpt_web_search
-        )
+        if target.engine == "google_ai_overview":
+            # Zweischritt: erst der klassische google-Call (nur dort sind gl/hl
+            # dokumentiert), dann sofort die Overview mit dem page_token — der
+            # ist unter 1 Minute gültig, also ohne Drosselung dazwischen.
+            google = fetch(
+                build_google_params(
+                    target.text, country=target.country, language=target.language
+                )
+            )
+            page_token = extract_page_token(google.payload)
+            if not page_token:
+                run_id = _insert_run(
+                    conn, target, run_date,
+                    status="deferred",
+                    raw_payload=json.dumps(google.payload, ensure_ascii=False),
+                    request_url=google.request_url,
+                    http_status=google.http_status,
+                    error="Google hat für diese Suche keine AI Overview ausgespielt.",
+                    requested_at=requested_at,
+                    completed_at=utcnow(),
+                )
+                conn.commit()
+                return IngestOutcome(
+                    target=target, run_id=run_id, status="deferred",
+                    message="keine AI Overview ausgespielt",
+                )
+            params = build_params(target.engine, target.text, page_token=page_token)
+        else:
+            params = build_params(
+                target.engine, target.text, web_search=config.chatgpt_web_search
+            )
     except EngineNotImplemented as exc:
         return IngestOutcome(target=target, run_id=None, status="skipped", message=str(exc))
+    except SearchApiError as exc:
+        run_id = _insert_run(
+            conn, target, run_date,
+            status="error", raw_payload=exc.body, http_status=exc.status,
+            error=f"Vorgelagerter google-Call fehlgeschlagen: {exc}",
+            requested_at=requested_at, completed_at=utcnow(),
+        )
+        conn.commit()
+        return IngestOutcome(target=target, run_id=run_id, status="error", message=str(exc))
 
     try:
         result = fetch(params)

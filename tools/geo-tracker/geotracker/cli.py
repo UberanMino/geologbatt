@@ -478,6 +478,54 @@ def cmd_evaluations(args: argparse.Namespace) -> int:
     return 0
 
 
+# ---------------------------------------------------------------------------
+# Schritt 3 — Import, Dashboard, Scheduler
+# ---------------------------------------------------------------------------
+def cmd_import_peec(args: argparse.Namespace) -> int:
+    from .importers.peec import import_directory
+
+    config = load_config()
+    conn = open_db(config.db_path)
+    directory = Path(args.directory)
+    if not directory.is_dir():
+        _print(f"Kein Verzeichnis: {directory}")
+        return 2
+
+    stats = import_directory(conn, build_classifier(conn), directory, category=args.category)
+    for label, value in vars(stats).items():
+        _print(f"  {label:14} {value}")
+    return 0
+
+
+def cmd_serve(args: argparse.Namespace) -> int:
+    import uvicorn
+
+    _print(f"Dashboard: http://{args.host}:{args.port}/")
+    _print(f"API-Doku:  http://{args.host}:{args.port}/docs")
+    uvicorn.run(
+        "geotracker.api.app:app", host=args.host, port=args.port, reload=args.reload,
+        log_level="info",
+    )
+    return 0
+
+
+def cmd_schedule(args: argparse.Namespace) -> int:
+    import logging
+
+    from . import scheduler
+
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
+    config = load_config()
+
+    if args.once:
+        summary = scheduler.run_daily(config, evaluate=not args.no_evaluate)
+        _print(json.dumps(summary, indent=2, ensure_ascii=False))
+        return 0
+
+    scheduler.start(args.cron, evaluate=not args.no_evaluate)
+    return 0
+
+
 def cmd_reclassify(args: argparse.Namespace) -> int:
     config = load_config()
     conn = open_db(config.db_path)
@@ -566,6 +614,27 @@ def build_parser() -> argparse.ArgumentParser:
     p_evals.add_argument("--limit", type=int, default=30)
     p_evals.add_argument("--raw", action="store_true", help="rohe Modellausgabe mit anzeigen")
     p_evals.set_defaults(func=cmd_evaluations)
+
+    # --- Schritt 3 --------------------------------------------------------
+    p_import = sub.add_parser(
+        "import-peec", help="bestehende Peec-Chat-Exporte als historische Läufe importieren"
+    )
+    p_import.add_argument("directory", help="Ordner mit den *.md-Chat-Exporten")
+    p_import.add_argument("--category", default="Peec-Import",
+                          help="Kategorie für Prompts, die noch nicht existieren")
+    p_import.set_defaults(func=cmd_import_peec)
+
+    p_serve = sub.add_parser("serve", help="Dashboard + REST-API starten")
+    p_serve.add_argument("--host", default="127.0.0.1")
+    p_serve.add_argument("--port", type=int, default=8000)
+    p_serve.add_argument("--reload", action="store_true")
+    p_serve.set_defaults(func=cmd_serve)
+
+    p_sched = sub.add_parser("schedule", help="täglichen Lauf starten (Ebene 1 + Ebene 2)")
+    p_sched.add_argument("--cron", default="0 3 * * *", help="5-Feld-Cron, Default 03:00")
+    p_sched.add_argument("--once", action="store_true", help="einmal sofort statt Dauerbetrieb")
+    p_sched.add_argument("--no-evaluate", action="store_true", help="nur Ebene 1")
+    p_sched.set_defaults(func=cmd_schedule)
 
     return parser
 

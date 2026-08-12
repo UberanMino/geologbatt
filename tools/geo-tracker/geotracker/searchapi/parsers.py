@@ -36,7 +36,7 @@ from typing import Any
 
 from ..urls import clean_url, normalize_domain
 
-SUPPORTED_ENGINES = ("chatgpt",)  # Schritt 1: nur ChatGPT ist implementiert
+SUPPORTED_ENGINES = ("chatgpt", "perplexity", "gemini", "google_ai_overview")
 
 
 class EngineNotImplemented(NotImplementedError):
@@ -72,8 +72,22 @@ class ParsedResponse:
 # ---------------------------------------------------------------------------
 # Request-Parameter
 # ---------------------------------------------------------------------------
-def build_params(engine: str, prompt_text: str, *, web_search: bool = True) -> dict[str, str]:
-    """Query-Parameter für einen Lauf. `api_key` setzt der Client (Header)."""
+def build_params(
+    engine: str,
+    prompt_text: str,
+    *,
+    web_search: bool = True,
+    country: str | None = None,
+    language: str | None = None,
+    page_token: str | None = None,
+) -> dict[str, str]:
+    """Query-Parameter für einen Lauf. `api_key` setzt der Client (Header).
+
+    `country`/`language` werden NUR dort gesetzt, wo SearchApi sie dokumentiert
+    — also beim vorgelagerten `google`-Call für die AI Overview. Für die drei
+    übrigen Engines gibt es keinen solchen Parameter (siehe Modul-Docstring);
+    dort werden sie bewusst ignoriert statt geraten.
+    """
     if engine == "chatgpt":
         params = {"engine": "chatgpt", "q": prompt_text}
         if web_search:
@@ -82,10 +96,63 @@ def build_params(engine: str, prompt_text: str, *, web_search: bool = True) -> d
             params["web_search"] = "true"
         return params
 
+    if engine == "perplexity":
+        # `sources` ist der einzige zusätzliche dokumentierte Parameter.
+        # 'web' ist ohnehin der Default; explizit gesetzt bleibt es stabil,
+        # falls SearchApi den Default später ändert.
+        return {"engine": "perplexity", "q": prompt_text, "sources": "web"}
+
+    if engine == "gemini":
+        # Gemini kennt ausschließlich `q`.
+        return {"engine": "gemini", "q": prompt_text}
+
+    if engine == "google_ai_overview":
+        # Zweischritt: der page_token stammt aus einem vorgelagerten
+        # `google`-Call (siehe build_google_params) und ist unter 1 Minute
+        # gültig — beide Requests müssen unmittelbar hintereinander laufen.
+        if not page_token:
+            raise EngineNotImplemented(
+                "google_ai_overview braucht einen page_token aus dem "
+                "vorgelagerten google-Call (ai_overview.page_token)."
+            )
+        return {"engine": "google_ai_overview", "page_token": page_token}
+
     raise EngineNotImplemented(
-        f"Engine '{engine}' ist in Schritt 1 noch nicht implementiert "
-        f"(implementiert: {', '.join(SUPPORTED_ENGINES)})."
+        f"Unbekannte Engine '{engine}' (implementiert: {', '.join(SUPPORTED_ENGINES)})."
     )
+
+
+def build_google_params(
+    prompt_text: str, *, country: str | None = None, language: str | None = None
+) -> dict[str, str]:
+    """Parameter des vorgelagerten `google`-Calls für die AI Overview.
+
+    Das ist die EINZIGE Stelle, an der Land und Sprache echt steuerbar sind:
+    `gl` (Land) und `hl` (Oberflächensprache) sind auf der klassischen
+    google-Engine dokumentiert. Aus der Antwort brauchen wir
+    `ai_overview.page_token`.
+    """
+    params = {"engine": "google", "q": prompt_text}
+    if country:
+        params["gl"] = country.lower()
+    if language:
+        params["hl"] = language.lower()
+    return params
+
+
+def extract_page_token(payload: dict[str, Any]) -> str | None:
+    """`ai_overview.page_token` aus der google-Antwort ziehen.
+
+    Fehlt er, hat Google für diese Suche schlicht keine AI Overview
+    ausgespielt — das ist ein normaler Zustand, kein Fehler, und wird als
+    `deferred` protokolliert.
+    """
+    overview = payload.get("ai_overview")
+    if isinstance(overview, dict):
+        token = overview.get("page_token")
+        if isinstance(token, str) and token:
+            return token
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -199,7 +266,52 @@ def _parse_chatgpt(payload: dict[str, Any]) -> ParsedResponse:
     )
 
 
-_PARSERS = {"chatgpt": _parse_chatgpt}
+def _parse_reference_links_engine(payload: dict[str, Any]) -> ParsedResponse:
+    """Perplexity, Gemini und Google AI Overview.
+
+    Alle drei liefern dieselbe Form: `markdown` + `text_blocks` als Antwort und
+    `reference_links` als Quellenblock. Anders als ChatGPT haben sie kein
+    `web_results` — es gibt also nur `origin = 'cited'`.
+    """
+    metadata = payload.get("search_metadata") or {}
+    response_metadata = payload.get("response_metadata") or {}
+
+    raw_response = payload.get("markdown")
+    if not raw_response:
+        raw_response = _text_blocks_to_markdown(payload.get("text_blocks") or []) or None
+
+    citations = _parse_link_block(payload.get("reference_links") or [], "cited")
+
+    status = "success"
+    note = None
+    if not raw_response:
+        # Bei google_ai_overview der Normalfall, wenn Google keine Overview
+        # ausspielt — protokollieren, nicht verlieren.
+        status = "deferred"
+        note = "Keine Antwort im Payload (weder markdown noch text_blocks)."
+    elif not citations:
+        status = "partial"
+        note = "Antworttext vorhanden, aber keine zitierten Quellen."
+
+    return ParsedResponse(
+        raw_response=raw_response,
+        citations=citations,
+        provider_search_id=metadata.get("id"),
+        provider_model=response_metadata.get("model"),
+        # Diese Engines grounden immer im Web; ein Flag wie bei ChatGPT gibt es
+        # nicht, deshalb bleibt das Feld bewusst leer statt geraten.
+        web_search_performed=None,
+        status=status,
+        note=note,
+    )
+
+
+_PARSERS = {
+    "chatgpt": _parse_chatgpt,
+    "perplexity": _parse_reference_links_engine,
+    "gemini": _parse_reference_links_engine,
+    "google_ai_overview": _parse_reference_links_engine,
+}
 
 
 def parse_response(engine: str, payload: dict[str, Any]) -> ParsedResponse:

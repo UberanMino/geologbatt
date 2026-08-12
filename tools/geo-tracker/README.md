@@ -6,9 +6,23 @@ werden der **volle Antworttext** und **jede einzelne zitierte Quelle** erfasst.
 Darauf setzt eine separate Auswertung auf (Markennennungen, Sentiment,
 Share of Voice) — und, gleichrangig, die Citation-/Source-Analyse.
 
-> **Stand: Schritt 1 + 2 abgeschlossen** — Ebene 1 (Rohdaten-Ingestion, Engine
-> `chatgpt`) und Ebene 2 (Auswertungs-Layer, Claude Haiku 4.5). Offen: die
-> restlichen drei Engines, Scheduler und Dashboard.
+> **Stand: vollständig** — Ebene 1 (alle vier Engines), Ebene 2
+> (Auswertungs-Layer, Claude Haiku 4.5), Scheduler und Dashboard mit
+> REST-API. 39 Tests.
+
+## Schnellstart
+
+```bash
+python3 -m pip install -r requirements.txt
+cp .env.example .env                 # Keys eintragen (optional für den Start)
+python3 -m geotracker init-db
+python3 -m geotracker seed
+python3 -m geotracker import-peec ../../data/peec/2026-07-27_2026-08-03/chats
+python3 -m geotracker serve          # -> http://127.0.0.1:8000/
+```
+
+Der Import füllt das Dashboard mit **160 echten Läufen** (5 Prompts × 4 Engines
+× 8 Tage) aus den vorhandenen Peec-Exporten — es startet also nicht leer.
 
 ---
 
@@ -255,8 +269,11 @@ ohne dass jemand etwas zurücksetzen muss. `--re-run` erzwingt es ad hoc.
 ```bash
 python3 tests/test_ingest.py     # Ebene 1 — ohne pytest lauffähig
 python3 tests/test_evaluate.py   # Ebene 2 — ruft keine API auf
+python3 tests/test_dashboard.py  # Engines 2–4, Peec-Import, Filter, API
 python3 -m pytest tests -q       # falls pytest da ist
 ```
+
+39 Tests, keiner ruft eine externe API auf.
 
 Die Ebene-2-Tests prüfen keine Modellqualität, sondern das, was wir
 verantworten: Markenabgleich, offene Entdeckung, die abgeleiteten Kennzahlen,
@@ -321,15 +338,69 @@ aufgenommen.
 
 ---
 
+## Dashboard (Schritt 3)
+
+`python3 -m geotracker serve` startet REST-API und Oberfläche. Die gesamte
+Filter- und Visualisierungslogik liegt im Frontend; die API liefert nur JSON
+und gibt niemals einen Provider-Key heraus.
+
+### Filter — frei kombinierbar
+
+Zeitraum · Land · Sprache · Kategorie · Engine · Datenquelle · Marke/Wettbewerber ·
+zitierte Domain · zitierte URL · Prompt.
+
+Zwischen Facetten **UND**, innerhalb einer Facette **ODER** (Mehrfachauswahl).
+Die zentrale Zusage: **jede** Kennzahl kommt aus der gefilterten Menge — es gibt
+in `queries.py` bewusst keine zweite, "schnellere" Query, die den Filter umgeht.
+Der Test `test_filters_apply_to_every_metric` hält das fest.
+
+### Ansichten
+
+| Tab | Beantwortet |
+| --- | --- |
+| Übersicht | Visibility, Share of Voice, Ø Position, Sentiment, Problem-Narrativ — je mit Delta zum gleich langen Vorzeitraum, plus Zeitreihen |
+| Prompts | Tabelle je Prompt; Klick öffnet die **volle Antwort-Historie** mit Datum, Marken in Reihenfolge und allen zitierten Quellen |
+| Domains | Domain-Dominanz: welche Quellen prägen die Antworten (Klick filtert alles darauf) |
+| URLs | URL-genaue Zitate — nur eigene Scrapes, Peec liefert keine Pfade |
+| Eigen-Domain-Gap | Prompts **ohne** ein einziges Zitat von logbatt.de/.com, nach Relevanz sortiert = Arbeitsliste |
+| Earned Media | Foren-, Vergleichs- und Referenzseiten, die die Antworten prägen |
+| Marken | Leaderboard mit Nennungen, SoV, Visibility, Ø Position |
+| Kategorie / Land / Engine | dieselben Kennzahlen je Dimension |
+| Neu entdeckt | Marken und Domains, die zuletzt erstmals auftauchten |
+
+### API
+
+`GET /api/{overview,timeseries,domains,urls,gaps,brands,prompts,prompts/{id},discoveries,breakdown/{dim},meta,health}`
+— alle nehmen dieselben Filter-Query-Parameter. Interaktive Doku unter `/docs`.
+
+## Historische Peec-Daten
+
+`import-peec` übernimmt die vorhandenen Chat-Exporte als Ebene-1-Läufe. Die
+Datenlage wird an drei Stellen ehrlich markiert, statt sie zu beschönigen:
+
+- `runs.source = 'peec_import'` — im Dashboard als Facette „Datenquelle"
+  filterbar, damit Peec-Historie und eigene Scrapes nicht unbemerkt verschmelzen.
+- `citations.url_known = 0` — Peec exportiert nur Domains. Es werden **keine
+  URLs erfunden**; die URL-Ansicht blendet diese Zeilen aus.
+- `evaluations.evaluator_version = 'peec-import'` — die Markennennungen stammen
+  aus Peecs Auswertung, nicht von unserem Haiku-Layer. `evaluate --re-run`
+  ersetzt sie später sauber durch eine eigene (neue Zeile, alte bleibt).
+
+## Scheduler
+
+```bash
+python3 -m geotracker schedule                      # täglich 03:00 Europe/Berlin
+python3 -m geotracker schedule --cron "30 4 * * *"
+python3 -m geotracker schedule --once               # einmal sofort
+```
+
+Reihenfolge ist Absicht: erst alle Engines scrapen (Ebene 1), dann auswerten
+(Ebene 2). Fällt Ebene 2 aus, sind die Rohdaten des Tages trotzdem vollständig,
+und der nächste `evaluate`-Lauf holt sie nach.
+
 ## Nächste Schritte
 
-3. **Engines 2–4** (`perplexity`, `gemini`, `google_ai_overview` inkl.
-   `page_token`-Zweischritt — Gültigkeit unter 1 Minute, der Zweischritt muss
-   also unmittelbar hintereinander laufen), **Scheduler** (APScheduler, täglich,
-   konfigurierbar) und **Dashboard** (FastAPI-REST + HTML/JS) mit frei
-   kombinierbaren UND-Filtern und der Citation-Achse.
-
-**Offen aus Schritt 1 und 2:**
+**Offen:**
 - Der **echte Live-Lauf** gegen SearchApi steht noch aus (kein Key vorhanden) —
   ebenso der erste echte Haiku-Aufruf. Beide Pfade sind implementiert und
   getestet, aber bis dahin ungeprüft gegen die reale API.

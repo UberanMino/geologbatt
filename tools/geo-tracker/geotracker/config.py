@@ -14,10 +14,9 @@ from pathlib import Path
 PACKAGE_DIR = Path(__file__).resolve().parent
 PROJECT_DIR = PACKAGE_DIR.parent
 
-# Alle vier Oberflächen, die das Tool abdecken soll. Implementiert ist in
-# Schritt 1 nur `chatgpt` (siehe searchapi/parsers.py).
+# Alle vier Oberflächen, die das Tool abdeckt.
 ENGINES = ("chatgpt", "perplexity", "gemini", "google_ai_overview")
-IMPLEMENTED_ENGINES = ("chatgpt",)
+IMPLEMENTED_ENGINES = ENGINES  # alle vier Oberflächen implementiert
 
 
 def _load_dotenv(path: Path) -> None:
@@ -71,6 +70,9 @@ class Config:
     # ChatGPT-Engine
     chatgpt_web_search: bool
 
+    # Engines, die der Scheduler täglich abarbeitet
+    engines_for_scheduler: tuple[str, ...]
+
     @property
     def has_searchapi_key(self) -> bool:
         return bool(self.searchapi_key)
@@ -100,4 +102,10 @@ def load_config(env_file: Path | None = None) -> Config:
         # reference_links, also keine Citation-Achse.
         chatgpt_web_search=os.environ.get("GEOTRACKER_CHATGPT_WEB_SEARCH", "true").lower()
         not in ("0", "false", "no"),
+        engines_for_scheduler=tuple(
+            e.strip()
+            for e in os.environ.get("GEOTRACKER_SCHEDULER_ENGINES", ",".join(ENGINES)).split(",")
+            if e.strip() in ENGINES
+        )
+        or ENGINES,
     )
