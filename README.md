@@ -29,6 +29,10 @@ data/analytics/    Zugriffs-/Traffic-Daten der LogBATT-Seiten (folgt)
 data/competitors/  Wettbewerber-Informationen (folgt; erste Kandidaten aus Peec-Zitaten siehe
                    notes/geo-analyse-peec-2026-07-27_2026-08-03.md, Abschnitt 4)
 notes/             GEO-Analysen einzelner Seiten und abgeleitete Maßnahmen
+tools/geo-tracker/ Eigenes GEO-Visibility-Tracking-Tool (Peec-Nachbau): fragt definierte Prompts
+                   regelmäßig gegen ChatGPT/Perplexity/Gemini/Google AI Overview ab und speichert
+                   volle Rohantwort + jede zitierte Quelle (Ebene 1), getrennt vom Auswertungs-
+                   Layer (Ebene 2). Siehe tools/geo-tracker/README.md
 ```
 
 ## Status
@@ -43,6 +47,9 @@ notes/             GEO-Analysen einzelner Seiten und abgeleitete Maßnahmen
 - [ ] Analytics-/Traffic-Daten
 - [ ] Competitor-Daten
 - [ ] GEO-Analyse & Maßnahmenableitung
+- [~] Eigener GEO-Visibility-Tracker (`tools/geo-tracker/`): Ebene 1 (Rohdaten-Ingestion) für
+  Engine `chatgpt` steht inkl. Schema, Seeds und Tests; Auswertungs-Layer (Ebene 2), weitere
+  Engines, Scheduler und Dashboard folgen nach Abnahme
 
 ## Hinweise zum Website-Quellcode
 

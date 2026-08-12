@@ -1,0 +1,10 @@
+# Ebene 1 (Schritt 1 — Rohdaten-Ingestion)
+# HTTP läuft über urllib aus der Standardbibliothek, SQLite über sqlite3.
+# Einzige echte Abhängigkeit sind die YAML-Seeds.
+PyYAML>=6.0
+
+# --- Ab Schritt 2/3, hier schon dokumentiert -------------------------------
+# anthropic>=0.40        # Ebene 2: Claude Haiku 4.5, Prompt Caching, Batch API
+# fastapi>=0.115         # Schritt 3: REST-API fürs Dashboard
+# uvicorn[standard]>=0.30
+# apscheduler>=3.10      # täglicher Lauf, Intervall konfigurierbar
