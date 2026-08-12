@@ -6,9 +6,9 @@ werden der **volle Antworttext** und **jede einzelne zitierte Quelle** erfasst.
 Darauf setzt eine separate Auswertung auf (Markennennungen, Sentiment,
 Share of Voice) — und, gleichrangig, die Citation-/Source-Analyse.
 
-> **Stand: Schritt 1 abgeschlossen (Ebene 1, Engine `chatgpt`).**
-> Der Auswertungs-Layer (Ebene 2) und das Dashboard sind bewusst noch **nicht**
-> gebaut — sie kommen erst nach der Abnahme dieses Schritts.
+> **Stand: Schritt 1 + 2 abgeschlossen** — Ebene 1 (Rohdaten-Ingestion, Engine
+> `chatgpt`) und Ebene 2 (Auswertungs-Layer, Claude Haiku 4.5). Offen: die
+> restlichen drei Engines, Scheduler und Dashboard.
 
 ---
 
@@ -32,7 +32,13 @@ Share of Voice) — und, gleichrangig, die Citation-/Source-Analyse.
         ▼
 ┌─────────────────────────────────────────────────────────────────┐
 │ EBENE 2 — Auswertungs-Layer  (Claude Haiku 4.5, wiederholbar)   │
-│   evaluations, brand_mentions — Schritt 2                       │
+│                                                                  │
+│   Modell liefert:  Marken in Reihenfolge, Sentiment,            │
+│                    Problem-Narrativ-Verankerung                 │
+│   Wir rechnen:     mention_rank, logbatt_position,              │
+│                    share_of_voice (deterministisch)             │
+│                                                                  │
+│   geotracker/evaluate/ — liest nur, scrapt nie                  │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -173,12 +179,89 @@ heute schon erfolgreich gelaufen sind (`--force` hebt das auf). Fehlgeschlagene
 Läufe gelten **nicht** als erledigt und werden beim nächsten Aufruf erneut
 versucht.
 
+## Ebene 2 — Auswertungs-Layer
+
+Eigener, jederzeit wiederholbarer Befehl auf **bereits gespeicherten** Läufen.
+Er liest nur `runs.raw_response` und schreibt `evaluations` + `brand_mentions`;
+es wird nie erneut gescrapt.
+
+```bash
+python3 -m geotracker evaluate --since 2026-08-01            # Batch API (Default)
+python3 -m geotracker evaluate --engine chatgpt --limit 20 --sync
+python3 -m geotracker evaluate --re-run --category Recycling # nach Logikänderung
+python3 -m geotracker evaluate --dry-run                     # was liefe, + Cache-Prefix-Größe
+python3 -m geotracker evaluate-collect msgbatch_...          # Batch später einsammeln
+python3 -m geotracker evaluations --run-id 1 --raw           # Ergebnis inkl. Modell-JSON
+```
+
+### Arbeitsteilung Modell ↔ Code
+
+Das ist die zentrale Design-Entscheidung dieses Layers:
+
+| Aufgabe | Wer | Warum |
+| --- | --- | --- |
+| Marken im Text erkennen, **in Reihenfolge** | Modell | braucht Sprachverständnis |
+| Sentiment gegenüber LogBATT | Modell | dito |
+| Problem-Narrativ-Verankerung | Modell | dito |
+| `mention_rank` | Code | folgt zwingend aus der Reihenfolge |
+| `logbatt_position` | Code | = Rang von LogBATT in derselben Liste |
+| `share_of_voice` | Code | reine Arithmetik — ein Modell rechnen zu lassen wäre eine vermeidbare Fehlerquelle |
+
+Widersprechen sich Modell und Ableitung (z. B. `logbatt_mentioned: true`, aber
+LogBATT fehlt in der Markenliste), **gewinnt die Ableitung** und der Widerspruch
+wird protokolliert. Die rohe Modellantwort landet unverändert in
+`evaluations.raw_classifier_output` — inklusive der Felder, die wir überschreiben.
+
+### Markenabgleich und offene Entdeckung
+
+Extrahierte Namen werden normalisiert abgeglichen (Kleinschreibung,
+Umlaute, Rechtsform, Satzzeichen) — „ZARGES", „Zarges GmbH" und
+„Zarges Aluminium" treffen dieselbe Marke. Was **nicht** matcht, wird als neue
+Marke angelegt (`is_known = 0`, `is_competitor = 1`) statt verworfen. Die
+Einstufung als Partner trifft niemand automatisch.
+
+### Wiederholbarkeit
+
+Jeder Auswertungslauf legt eine **neue** `evaluations`-Zeile an und setzt
+`is_current` der vorherigen auf 0 — nichts wird gelöscht, Logikänderungen
+bleiben nachvollziehbar. `EVALUATOR_VERSION` steht in `evaluate/prompt.py`:
+Läufe, die mit der aktuellen Version schon ausgewertet sind, werden
+übersprungen; eine **neue Version macht automatisch alle Läufe wieder fällig**,
+ohne dass jemand etwas zurücksetzen muss. `--re-run` erzwingt es ad hoc.
+
+### Kosten — und ein Befund zum Prompt Caching
+
+- **Batch API ist der Default**, weil der tägliche Lauf keine Echtzeit braucht:
+  **50 % günstiger**, meist unter einer Stunde fertig, garantiert unter 24 h.
+  `--sync` gibt es für Ad-hoc-Prüfungen.
+- **Prompt Caching ist korrekt implementiert** (konstanter Systemprompt mit
+  Cache-Breakpoint, alles Volatile dahinter) — und ein Test hält fest, dass die
+  offene Brand-Entdeckung den Prefix **nicht** verändert, weil neu entdeckte
+  Marken bewusst nicht in den Systemprompt wandern.
+- **Aber:** Claude Haiku 4.5 cached erst ab **4096 Tokens** Prefix. Unser
+  Systemprompt liegt bei ~4.600 Zeichen (**grob geschätzt ~1.400 Tokens**), also
+  darunter — dann passiert schlicht nichts: kein Fehler, nur
+  `cache_creation_input_tokens = 0`. Der Wert ist eine Schätzung; `evaluate`
+  gibt die tatsächlichen Cache-Zähler nach jedem Aufruf aus, sobald ein Key
+  vorliegt, und `--dry-run` zeigt die Prefix-Größe.
+- **Empfehlung:** so lassen. Die Ersparnis wäre klein (~0,4 €/Tag im Vollausbau),
+  und den Prompt nur aufzublähen, um eine Cache-Schwelle zu reißen, wäre der
+  falsche Grund. Sobald echte Antworten vorliegen, gehören ohnehin ein paar
+  Few-Shot-Beispiele in den Systemprompt — das verbessert die Klassifikation
+  **und** schiebt ihn nebenbei über 4096 Tokens.
+
 ## Tests
 
 ```bash
-python3 tests/test_ingest.py     # ohne pytest lauffähig
+python3 tests/test_ingest.py     # Ebene 1 — ohne pytest lauffähig
+python3 tests/test_evaluate.py   # Ebene 2 — ruft keine API auf
 python3 -m pytest tests -q       # falls pytest da ist
 ```
+
+Die Ebene-2-Tests prüfen keine Modellqualität, sondern das, was wir
+verantworten: Markenabgleich, offene Entdeckung, die abgeleiteten Kennzahlen,
+Wiederholbarkeit, Cache-Stabilität des Systemprompts — und dass Ebene 1 den
+Auswertungs-Layer nirgends importiert.
 
 ---
 
@@ -238,14 +321,18 @@ aufgenommen.
 
 ---
 
-## Nächste Schritte (nach Abnahme)
+## Nächste Schritte
 
-2. **Ebene 2** — Auswertung mit Claude Haiku 4.5 als eigener, wiederholbarer
-   Befehl (`evaluate --since ... --re-run`) auf bereits gespeicherten Runs:
-   Brand-Extraktion mit Reihenfolge, Sentiment, `problem_narrative_anchored`,
-   Share of Voice. Konstanter Systemprompt → Prompt Caching; Nachläufe über die
-   Batch API.
 3. **Engines 2–4** (`perplexity`, `gemini`, `google_ai_overview` inkl.
-   `page_token`-Zweischritt), **Scheduler** (APScheduler, täglich,
+   `page_token`-Zweischritt — Gültigkeit unter 1 Minute, der Zweischritt muss
+   also unmittelbar hintereinander laufen), **Scheduler** (APScheduler, täglich,
    konfigurierbar) und **Dashboard** (FastAPI-REST + HTML/JS) mit frei
    kombinierbaren UND-Filtern und der Citation-Achse.
+
+**Offen aus Schritt 1 und 2:**
+- Der **echte Live-Lauf** gegen SearchApi steht noch aus (kein Key vorhanden) —
+  ebenso der erste echte Haiku-Aufruf. Beide Pfade sind implementiert und
+  getestet, aber bis dahin ungeprüft gegen die reale API.
+- **Land als Request-Parameter** (siehe Abschnitt oben) — offene Frage an
+  SearchApi.
+- **Few-Shot-Beispiele im Systemprompt**, sobald echte Antworten vorliegen.

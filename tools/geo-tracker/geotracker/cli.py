@@ -269,6 +269,215 @@ def cmd_domains(args: argparse.Namespace) -> int:
     return 0
 
 
+# ---------------------------------------------------------------------------
+# Ebene 2 — Auswertungs-Layer
+# ---------------------------------------------------------------------------
+# Die Imports stehen bewusst INNERHALB der Befehle: `geotracker ingest` soll
+# laufen, auch wenn das anthropic-SDK gar nicht installiert ist. Ebene 1 darf
+# keine Abhängigkeit auf Ebene 2 haben — auch keine beim Import.
+def _evaluator(config):
+    from .evaluate import EvaluationError, EvaluatorClient
+
+    try:
+        return EvaluatorClient(
+            api_key=config.anthropic_key,
+            max_retries=config.max_retries,
+            timeout=float(config.request_timeout),
+        )
+    except EvaluationError as exc:
+        _print(f"FEHLER: {exc}")
+        return None
+
+
+def _report(result, outcome) -> None:
+    if outcome is None:
+        _print(f"  [!!] run #{result.run_id}: {result.error}")
+        return
+    position = outcome.logbatt_position or "-"
+    _print(
+        f"  [ok] run #{result.run_id}: {outcome.mentions} Marken, "
+        f"LogBATT {'Pos. ' + str(position) if outcome.logbatt_mentioned else 'nicht genannt'}, "
+        f"SoV {outcome.share_of_voice:.0%}, {outcome.sentiment or 'kein Sentiment'}"
+        + (", Problem-Narrativ" if outcome.problem_narrative_anchored else "")
+    )
+    for name in outcome.new_brands:
+        _print(f"       + neue Marke entdeckt: {name}")
+    for warning in outcome.warnings:
+        _print(f"       ~ {warning}")
+    if result.usage:
+        cache_read = result.usage.get("cache_read_input_tokens", 0)
+        cache_write = result.usage.get("cache_creation_input_tokens", 0)
+        if cache_read or cache_write:
+            _print(f"       cache: {cache_read} gelesen / {cache_write} geschrieben")
+
+
+def cmd_evaluate(args: argparse.Namespace) -> int:
+    from .evaluate import EVALUATOR_VERSION, collect_batch, evaluate_sync, select_runs
+    from .evaluate import submit_batch as submit
+    from .evaluate import wait_for_batch
+
+    config = load_config()
+    conn = open_db(config.db_path)
+
+    targets = select_runs(
+        conn,
+        since=args.since,
+        until=args.until,
+        engine=args.engine,
+        category=args.category,
+        country=args.country,
+        prompt_ids=args.prompt_id,
+        run_ids=args.run_id,
+        limit=args.limit,
+        re_run=args.re_run,
+    )
+
+    if not targets:
+        _print(
+            f"Keine auswertbaren Läufe (Version {EVALUATOR_VERSION}). "
+            "Mit --re-run auch bereits ausgewertete Läufe erneut auswerten."
+        )
+        return 0
+
+    _print(f"{len(targets)} Lauf/Läufe zur Auswertung (Version {EVALUATOR_VERSION})")
+    if args.dry_run:
+        from .evaluate import build_system_prompt
+
+        system_prompt = build_system_prompt(conn)
+        for target in targets:
+            _print(f"  run #{target.run_id}  {len(target.raw_response)} Zeichen Rohantwort")
+        # Sichtbar machen, ob der Systemprompt überhaupt cachebar ist:
+        # Claude Haiku 4.5 cached erst ab 4096 Tokens Prefix (siehe README).
+        _print(
+            f"\nSystemprompt (Cache-Prefix): {len(system_prompt)} Zeichen "
+            f"(~{round(len(system_prompt) / 3.3)} Tokens geschätzt, Caching ab 4096)"
+        )
+        return 0
+
+    client = _evaluator(config)
+    if client is None:
+        return 2
+
+    if args.sync:
+        applied, failed = evaluate_sync(conn, client, targets, on_result=_report)
+    else:
+        batch_id = submit(conn, client, targets)
+        _print(f"Batch angelegt: {batch_id} (50 % günstiger als Einzelabrufe)")
+        if args.no_wait:
+            _print(f"Später einsammeln mit: geotracker evaluate-collect {batch_id}")
+            return 0
+        wait_for_batch(
+            client, batch_id,
+            poll_seconds=args.poll_seconds,
+            on_poll=lambda status: _print(f"  Batch-Status: {status}"),
+        )
+        applied, failed = collect_batch(conn, client, batch_id, on_result=_report)
+
+    _print(f"\nFertig: {len(applied)} ausgewertet, {len(failed)} fehlgeschlagen.")
+    return 0
+
+
+def cmd_evaluate_collect(args: argparse.Namespace) -> int:
+    from .evaluate import collect_batch
+
+    config = load_config()
+    conn = open_db(config.db_path)
+    client = _evaluator(config)
+    if client is None:
+        return 2
+
+    status = client.batch_status(args.batch_id)
+    if status != "ended":
+        _print(f"Batch {args.batch_id} ist noch '{status}' — später erneut versuchen.")
+        return 1
+
+    applied, failed = collect_batch(conn, client, args.batch_id, on_result=_report)
+    _print(f"\nFertig: {len(applied)} ausgewertet, {len(failed)} fehlgeschlagen.")
+    return 0
+
+
+def cmd_evaluations(args: argparse.Namespace) -> int:
+    config = load_config()
+    conn = open_db(config.db_path)
+
+    if args.run_id:
+        row = conn.execute(
+            """
+            SELECT e.*, p.text AS prompt_text, r.engine, r.run_date
+              FROM evaluations e
+              JOIN runs r ON r.id = e.run_id
+              JOIN prompts p ON p.id = r.prompt_id
+             WHERE e.run_id = ? AND e.is_current = 1
+            """,
+            (args.run_id,),
+        ).fetchone()
+        if row is None:
+            _print(f"Keine aktuelle Auswertung für run {args.run_id}.")
+            return 1
+
+        _print("=" * 78)
+        _print(f"AUSWERTUNG zu run #{row['run_id']}  ({row['engine']}, {row['run_date']})")
+        _print("=" * 78)
+        _print(f"        Prompt: {row['prompt_text']}")
+        _print(f"       LogBATT: {'genannt' if row['logbatt_mentioned'] else 'NICHT genannt'}"
+               + (f", Position {row['logbatt_position']}" if row["logbatt_position"] else ""))
+        _print(f"     Sentiment: {row['sentiment'] or '–'}")
+        _print(f"Problem-Narrativ: {'ja' if row['problem_narrative_anchored'] else 'nein'}")
+        _print(f"Share of Voice: {row['share_of_voice']:.0%}")
+        _print(f"        Modell: {row['model']}  ·  Version {row['evaluator_version']}")
+
+        mentions = conn.execute(
+            """
+            SELECT m.mention_rank, m.mention_text, b.name, b.is_known, b.is_own_brand, b.is_competitor
+              FROM brand_mentions m JOIN brands b ON b.id = m.brand_id
+             WHERE m.evaluation_id = ?
+             ORDER BY m.mention_rank
+            """,
+            (row["id"],),
+        ).fetchall()
+        _print(f"\n--- MARKEN-NENNUNGEN ({len(mentions)}, Reihenfolge im Antworttext) ---")
+        for mention in mentions:
+            flags = []
+            if mention["is_own_brand"]:
+                flags.append("eigene Marke")
+            elif not mention["is_competitor"]:
+                flags.append("Partner")
+            if not mention["is_known"]:
+                flags.append("NEU")
+            suffix = f"  [{', '.join(flags)}]" if flags else ""
+            _print(f"{mention['mention_rank']:>3}. {mention['name']:<28} „{mention['mention_text']}\"{suffix}")
+
+        if args.raw:
+            _print("\n--- ROHE MODELLAUSGABE ---")
+            _print(row["raw_classifier_output"])
+        return 0
+
+    rows = conn.execute(
+        """
+        SELECT e.run_id, e.logbatt_mentioned, e.logbatt_position, e.sentiment,
+               e.problem_narrative_anchored, e.share_of_voice, e.evaluator_version,
+               r.engine, r.run_date, p.text
+          FROM evaluations e
+          JOIN runs r ON r.id = e.run_id
+          JOIN prompts p ON p.id = r.prompt_id
+         WHERE e.is_current = 1
+         ORDER BY e.run_id DESC
+         LIMIT ?
+        """,
+        (args.limit,),
+    ).fetchall()
+    for row in rows:
+        marker = f"#{row['logbatt_position']}" if row["logbatt_mentioned"] else "–"
+        _print(
+            f"run #{row['run_id']:<4} {row['run_date']} {row['engine']:<10} "
+            f"LogBATT {marker:<3} SoV {row['share_of_voice']:>4.0%} "
+            f"{(row['sentiment'] or '-'):<9}"
+            f"{'PN' if row['problem_narrative_anchored'] else '  '}  {row['text'][:48]}"
+        )
+    _print(f"\n{len(rows)} Auswertungen.")
+    return 0
+
+
 def cmd_reclassify(args: argparse.Namespace) -> int:
     config = load_config()
     conn = open_db(config.db_path)
@@ -317,6 +526,46 @@ def build_parser() -> argparse.ArgumentParser:
         "reclassify-domains",
         help="source_type aller Domains/Citations neu berechnen (ohne erneutes Scrapen)",
     ).set_defaults(func=cmd_reclassify)
+
+    # --- Ebene 2 ----------------------------------------------------------
+    p_eval = sub.add_parser(
+        "evaluate",
+        help="Ebene 2: gespeicherte Rohantworten auswerten (wiederholbar, ohne Scrapen)",
+    )
+    p_eval.add_argument("--since", help="run_date >= YYYY-MM-DD")
+    p_eval.add_argument("--until", help="run_date <= YYYY-MM-DD")
+    p_eval.add_argument("--engine")
+    p_eval.add_argument("--category")
+    p_eval.add_argument("--country")
+    p_eval.add_argument("--prompt-id", type=int, action="append", help="mehrfach möglich")
+    p_eval.add_argument("--run-id", type=int, action="append", help="mehrfach möglich")
+    p_eval.add_argument("--limit", type=int)
+    p_eval.add_argument(
+        "--re-run",
+        action="store_true",
+        help="auch bereits ausgewertete Läufe erneut auswerten (neue evaluations-Zeile)",
+    )
+    p_eval.add_argument(
+        "--sync",
+        action="store_true",
+        help="einzeln und sofort statt über die Batch API (teurer, aber ohne Wartezeit)",
+    )
+    p_eval.add_argument("--no-wait", action="store_true", help="Batch nur anlegen, nicht abwarten")
+    p_eval.add_argument("--poll-seconds", type=int, default=30)
+    p_eval.add_argument("--dry-run", action="store_true")
+    p_eval.set_defaults(func=cmd_evaluate)
+
+    p_collect = sub.add_parser(
+        "evaluate-collect", help="Ergebnisse eines zuvor angelegten Batches einsammeln"
+    )
+    p_collect.add_argument("batch_id")
+    p_collect.set_defaults(func=cmd_evaluate_collect)
+
+    p_evals = sub.add_parser("evaluations", help="Auswertungen anzeigen")
+    p_evals.add_argument("--run-id", type=int, help="Detailansicht eines Laufs")
+    p_evals.add_argument("--limit", type=int, default=30)
+    p_evals.add_argument("--raw", action="store_true", help="rohe Modellausgabe mit anzeigen")
+    p_evals.set_defaults(func=cmd_evaluations)
 
     return parser
 

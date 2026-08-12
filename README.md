@@ -47,9 +47,9 @@ tools/geo-tracker/ Eigenes GEO-Visibility-Tracking-Tool (Peec-Nachbau): fragt de
 - [ ] Analytics-/Traffic-Daten
 - [ ] Competitor-Daten
 - [ ] GEO-Analyse & Maßnahmenableitung
-- [~] Eigener GEO-Visibility-Tracker (`tools/geo-tracker/`): Ebene 1 (Rohdaten-Ingestion) für
-  Engine `chatgpt` steht inkl. Schema, Seeds und Tests; Auswertungs-Layer (Ebene 2), weitere
-  Engines, Scheduler und Dashboard folgen nach Abnahme
+- [~] Eigener GEO-Visibility-Tracker (`tools/geo-tracker/`): Ebene 1 (Rohdaten-Ingestion, Engine
+  `chatgpt`) und Ebene 2 (Auswertungs-Layer mit Claude Haiku 4.5) stehen inkl. Schema, Seeds und
+  Tests; offen sind die restlichen drei Engines, Scheduler und Dashboard
 
 ## Hinweise zum Website-Quellcode
 
