@@ -16,10 +16,17 @@ profile: mock
 # provider key (e.g. OpenAI/Gemini), switch the Judge to it and set
 # allow_same_family back to false for the full guardrail.
 models:
-  generator:   anthropic:claude-opus-5                 # writes/rewrites the candidate
-  judge:       anthropic:claude-sonnet-5               # answers like a grounded engine
-  scorer:      anthropic:claude-haiku-4-5-20251001     # extracts the metrics (cheap)
-  synthesizer: anthropic:claude-sonnet-5               # turns answers into directives
+  # Cost-tuned for a recursive loop: Judge + Scorer run once PER PROMPT per
+  # iteration (the 9x-volume roles), so they get the cheapest model. Haiku as
+  # Judge is also more faithful — real GEO engines run cheap models under the
+  # hood. Generator/Synthesizer run once per iteration, so they get Sonnet.
+  generator:   anthropic:claude-sonnet-5      # 1x/iter — quality where it counts
+  judge:       anthropic:claude-haiku-4-5     # 9x/iter — cheapest + most realistic
+  scorer:      anthropic:claude-haiku-4-5     # 9x/iter — pure JSON extraction
+  synthesizer: anthropic:claude-sonnet-5      # 1x/iter — needs reasoning
+  # Bump generator to anthropic:claude-opus-5 if content quality needs it.
+  # When a 2nd provider key is available, move the Judge to a cheap cross-family
+  # model (e.g. openai:gpt-4o-mini) — cheapest AND full self-bias separation.
   # Recommended once a second key is available (full self-bias guard):
   #   judge:       openai:gpt-4.1
   #   scorer:      openai:gpt-4o-mini
