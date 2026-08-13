@@ -32,6 +32,8 @@ def build_payload(conn: sqlite3.Connection) -> dict:
         {
             "id": row["id"], "text": row["text"], "cat": row["category"],
             "country": row["country"], "lang": row["language"],
+            "branding": row["branding"], "intent": row["intent"],
+            "tags": json.loads(row["tags"] or "[]"),
         }
         for row in conn.execute("SELECT * FROM prompts ORDER BY id")
     ]
@@ -46,8 +48,8 @@ def build_payload(conn: sqlite3.Connection) -> dict:
     ]
 
     domains = {
-        row["domain"]: {"type": row["source_type"], "known": row["is_known"],
-                        "seen": row["first_seen_at"]}
+        row["domain"]: {"type": row["source_type"], "dtype": row["domain_type"],
+                        "known": row["is_known"], "seen": row["first_seen_at"]}
         for row in conn.execute("SELECT * FROM domains")
     }
 
@@ -71,11 +73,12 @@ def build_payload(conn: sqlite3.Connection) -> dict:
             [
                 c["cited_domain"], c["cited_url"], c["source_type"],
                 c["url_known"], c["citation_rank"], c["title"], c["is_known"],
+                c["url_type"],
             ]
             for c in conn.execute(
                 """
                 SELECT cited_domain, cited_url, source_type, url_known,
-                       citation_rank, title, is_known
+                       citation_rank, title, is_known, url_type
                   FROM citations WHERE run_id = ? AND origin = 'cited'
                  ORDER BY citation_rank
                 """,
@@ -133,8 +136,9 @@ def _to_fragment(html: str) -> str:
     return inner.replace("</head>\n<body>\n", "", 1).strip() + "\n"
 
 
-def export_html(conn: sqlite3.Connection, destination: Path, *, fragment: bool = False) -> dict:
-    payload = build_payload(conn)
+def render_dashboard(conn: sqlite3.Connection, payload: dict | None = None) -> str:
+    """Die Vorlage mit eingebettetem Payload — Basis für Export UND Server."""
+    payload = build_payload(conn) if payload is None else payload
     template = TEMPLATE.read_text(encoding="utf-8")
     if PLACEHOLDER not in template:
         raise RuntimeError(f"Platzhalter {PLACEHOLDER} fehlt in {TEMPLATE}")
@@ -143,8 +147,12 @@ def export_html(conn: sqlite3.Connection, destination: Path, *, fragment: bool =
     # Stelle, an der die eingebetteten Daten das umgebende HTML treffen können.
     data = json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
     data = data.replace("</", "<\\/")
+    return template.replace(PLACEHOLDER, data)
 
-    html = template.replace(PLACEHOLDER, data)
+
+def export_html(conn: sqlite3.Connection, destination: Path, *, fragment: bool = False) -> dict:
+    payload = build_payload(conn)
+    html = render_dashboard(conn, payload)
     destination.write_text(_to_fragment(html) if fragment else html, encoding="utf-8")
     return {
         "file": str(destination),

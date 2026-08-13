@@ -497,6 +497,16 @@ def cmd_import_peec(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_retype(args: argparse.Namespace) -> int:
+    from .taxonomy import retype
+
+    config = load_config()
+    conn = open_db(config.db_path)
+    for key, value in retype(conn).items():
+        _print(f"  {key:22} {value}")
+    return 0
+
+
 def cmd_export_html(args: argparse.Namespace) -> int:
     from .exporter import export_html
 
@@ -635,6 +645,10 @@ def build_parser() -> argparse.ArgumentParser:
     p_import.add_argument("--category", default="Peec-Import",
                           help="Kategorie für Prompts, die noch nicht existieren")
     p_import.set_defaults(func=cmd_import_peec)
+
+    sub.add_parser(
+        "retype", help="domain_type/url_type neu berechnen (ohne erneutes Scrapen)"
+    ).set_defaults(func=cmd_retype)
 
     p_export = sub.add_parser(
         "export-html", help="Dashboard als einzelne, eigenständige HTML-Datei exportieren"

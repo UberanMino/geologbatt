@@ -193,6 +193,10 @@ python3 -m geotracker runs                                  # Läufe auflisten
 python3 -m geotracker show-run 1 --full                     # Lauf inkl. aller Citations
 python3 -m geotracker domains                               # Domain-Ranking (zitierte Quellen)
 python3 -m geotracker reclassify-domains                    # source_type neu berechnen, ohne zu scrapen
+python3 -m geotracker retype                                # domain_type + url_type neu berechnen
+python3 -m geotracker import-peec                           # Peec-Chat-Exporte als Ebene-1-Läufe übernehmen
+python3 -m geotracker serve                                 # API + Dashboard
+python3 -m geotracker export-html dashboard.html            # Dashboard als EINE Datei, ohne Server
 ```
 
 `ingest` läuft **sequenziell und gedrosselt** (Default 2 s Pause), respektiert
@@ -281,7 +285,7 @@ python3 tests/test_dashboard.py  # Engines 2–4, Peec-Import, Filter, API
 python3 -m pytest tests -q       # falls pytest da ist
 ```
 
-39 Tests, keiner ruft eine externe API auf.
+43 Tests, keiner ruft eine externe API auf.
 
 Die Ebene-2-Tests prüfen keine Modellqualität, sondern das, was wir
 verantworten: Markenabgleich, offene Entdeckung, die abgeleiteten Kennzahlen,
@@ -346,40 +350,74 @@ aufgenommen.
 
 ---
 
-## Dashboard (Schritt 3)
+## Dashboard
 
-`python3 -m geotracker serve` startet REST-API und Oberfläche. Die gesamte
-Filter- und Visualisierungslogik liegt im Frontend; die API liefert nur JSON
-und gibt niemals einen Provider-Key heraus.
+Zwei Wege zur **gleichen** Oberfläche — beide rendern dieselbe Vorlage
+(`geotracker/api/static/standalone.html`), damit Server und Datei nicht
+auseinanderlaufen können (Test: `test_server_and_export_render_the_same_template`):
+
+```bash
+python3 -m geotracker serve                        # http://127.0.0.1:8000 — Daten live aus der DB
+python3 -m geotracker export-html dashboard.html   # eine Datei, Doppelklick genügt, kein Python nötig
+python3 -m geotracker export-html --fragment x.html  # ohne <html>/<head>/<body>, zum Einbetten
+```
+
+Der Export ist ein **Schnappschuss**: er zeigt den Stand zum Exportzeitpunkt und
+kann selbst nichts abrufen. Neue Daten holt weiterhin nur `ingest` / `schedule`.
+
+Die gesamte Filter- und Visualisierungslogik läuft im Frontend. Kein Provider-Key
+erreicht je den Browser — weder über die API noch über den Export.
+
+### Aufbau
+
+Navigation und Filterleiste sind bewusst nah an Peec gebaut, damit der Umstieg
+keine Umgewöhnung kostet: linke Seitenleiste mit Gruppen, oben eine Zeile aus
+Filter-Chips, die auf **allen** Seiten gilt.
+
+| Gruppe | Seite | Beantwortet |
+| --- | --- | --- |
+| Allgemein | **Overview** | Visibility, Share of Voice, Ø Position, Sentiment, Läufe, Zitate — je mit Delta zum gleich langen Vorzeitraum; Multi-Marken-Zeitreihe, Quellenverteilung (Top/Neu/Steigend/Fallend), Quellentypen und die Liste aller Chats |
+| Allgemein | **Prompts** | Themenspalte + Tabelle je Prompt (Visibility, Sentiment, Position, Marken, Modelle, Branding); Klick öffnet die **volle Antwort-Historie** mit Datum, Marken in Reihenfolge und allen zitierten Quellen |
+| Quellen | **Domains** | Domain-Dominanz: Abrufe über Zeit, Bewegungen gegen den Vorzeitraum, Quellentyp-Verteilung, vollständige Tabelle (Klick filtert alles auf diese Domain) |
+| Quellen | **URLs** | URL-genaue Zitate inkl. Seitentyp — nur eigene Scrapes, weil Peec keine Pfade liefert (steht als Hinweis auf der Seite) |
+| Quellen | **Gap-Analyse** | Domains, URLs und Prompts, bei denen Wettbewerber vorkommen und LogBATT nicht — plus, wo die eigenen Domains bereits zitiert werden |
+| Marke | **Insights** | Kennzahlen-Verlauf (Visibility / SoV / Position umschaltbar), Performance-Matrix Thema × Modell, Top-Rankings je Modell |
+| Marke | **Wettbewerber** | Leaderboard aller genannten Marken + **neu entdeckte** Marken und Domains mit erstem Auftreten in der Auswahl |
 
 ### Filter — frei kombinierbar
 
-Zeitraum · Land · Sprache · Kategorie · Engine · Datenquelle · Marke/Wettbewerber ·
-zitierte Domain · zitierte URL · Prompt.
+Zeitraum (Presets + freie Datumsauswahl) · Modell/Engine · Thema · Marke ·
+Quellentyp · Domain · Datenquelle. Dazu Prompt-Suche und Klick-Filter direkt aus
+jeder Tabelle heraus.
 
 Zwischen Facetten **UND**, innerhalb einer Facette **ODER** (Mehrfachauswahl).
-Die zentrale Zusage: **jede** Kennzahl kommt aus der gefilterten Menge — es gibt
-in `queries.py` bewusst keine zweite, "schnellere" Query, die den Filter umgeht.
-Der Test `test_filters_apply_to_every_metric` hält das fest.
+Die zentrale Zusage: **jede** Kennzahl kommt aus der gefilterten Menge — das gilt
+serverseitig (`queries.py`, Test `test_filters_apply_to_every_metric`) und im
+Browser identisch. Auch „neu entdeckt" und die Delta-Spalten rechnen gegen die
+Auswahl, nicht gegen den Gesamtbestand.
 
-### Ansichten
+Ehrlichkeit vor Vollständigkeit: fehlt der Vorzeitraum-Wert, steht dort „–" und
+kein erfundenes „+64 %". Ohne Ebene-2-Lauf bleibt Sentiment leer, mit Hinweis.
 
-| Tab | Beantwortet |
-| --- | --- |
-| Übersicht | Visibility, Share of Voice, Ø Position, Sentiment, Problem-Narrativ — je mit Delta zum gleich langen Vorzeitraum, plus Zeitreihen |
-| Prompts | Tabelle je Prompt; Klick öffnet die **volle Antwort-Historie** mit Datum, Marken in Reihenfolge und allen zitierten Quellen |
-| Domains | Domain-Dominanz: welche Quellen prägen die Antworten (Klick filtert alles darauf) |
-| URLs | URL-genaue Zitate — nur eigene Scrapes, Peec liefert keine Pfade |
-| Eigen-Domain-Gap | Prompts **ohne** ein einziges Zitat von logbatt.de/.com, nach Relevanz sortiert = Arbeitsliste |
-| Earned Media | Foren-, Vergleichs- und Referenzseiten, die die Antworten prägen |
-| Marken | Leaderboard mit Nennungen, SoV, Visibility, Ø Position |
-| Kategorie / Land / Engine | dieselben Kennzahlen je Dimension |
-| Neu entdeckt | Marken und Domains, die zuletzt erstmals auftauchten |
+### Zwei Achsen je Quelle
+
+`source_type` beantwortet **wem gehört das** (owned / competitor / earned_media /
+other) und ist die Handlungsachse. `domain_type` beantwortet **was für eine Art
+Quelle ist das** (you / competitor / corporate / institutional / ugc / editorial /
+reference / marketplace / other). Dazu je Citation ein `url_type` (Startseite,
+Produktseite, Ratgeber, Artikel, Listicle, Profil …).
+
+Beides ist regelbasiert in `taxonomy.py`, jederzeit ohne Scrapen und ohne
+Modellaufruf neu berechenbar (`geotracker retype`), und Besitz schlägt Art: die
+eigene Domain ist immer `you`, eine Wettbewerber-Domain immer `competitor`.
+URL-Typen ohne echte URL sind ehrlich `unknown` — es werden keine Pfade geraten.
 
 ### API
 
 `GET /api/{overview,timeseries,domains,urls,gaps,brands,prompts,prompts/{id},discoveries,breakdown/{dim},meta,health}`
 — alle nehmen dieselben Filter-Query-Parameter. Interaktive Doku unter `/docs`.
+Die API bleibt der Weg für eigene Auswertungen und Exporte; die Oberfläche selbst
+rechnet lokal im Browser.
 
 ## Historische Peec-Daten
 

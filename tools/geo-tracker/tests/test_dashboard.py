@@ -274,6 +274,81 @@ def test_api_filters_are_forwarded(tmp_path):
     assert 0 < filtered < everything
 
 
+
+# --- Taxonomie (domain_type / url_type) -------------------------------------
+def test_domain_type_ownership_wins():
+    """Besitz schlägt Art: die eigene Domain ist `you`, egal wie sie aussieht."""
+    from geotracker.taxonomy import classify_domain_type
+
+    assert classify_domain_type("logbatt.de", source_type="owned") == "you"
+    assert classify_domain_type("denios.de", source_type="competitor") == "competitor"
+    # Auch ohne source_type reicht die Zuordnung über brand_domains.
+    assert classify_domain_type("denios.de", source_type="other", is_brand_domain=True) == "competitor"
+    # Auch eine UGC-Plattform wird zu `you`, wenn sie uns gehört — sonst wäre
+    # die Besitzachse nicht mehr verlässlich.
+    assert classify_domain_type("reddit.com", source_type="owned") == "you"
+    assert classify_domain_type("reddit.com", source_type="other") == "ugc"
+    assert classify_domain_type("umweltbundesamt.de", source_type="earned_media") == "institutional"
+    assert classify_domain_type("irgendeine-firma.de", source_type="other") == "corporate"
+    assert classify_domain_type("", source_type="other") == "other"
+
+
+def test_url_type_is_unknown_without_a_real_url():
+    """Ohne URL-genaues Zitat wird nichts erfunden."""
+    from geotracker.taxonomy import classify_url_type
+
+    assert classify_url_type("", url_known=False) == "unknown"
+    assert classify_url_type("https://logbatt.de/produkt/x", url_known=False) == "unknown"
+    assert classify_url_type("https://logbatt.de/") == "homepage"
+    assert classify_url_type("https://logbatt.de/ratgeber/lagerung") == "how_to"
+    assert classify_url_type("https://x.de/blog/beitrag") == "article"
+    assert classify_url_type("https://x.de/vergleich") == "listicle"
+    assert classify_url_type("https://x.de/impressum") == "profile"
+
+
+def test_retype_is_repeatable_and_reports_changes(tmp_path):
+    """`retype` rechnet nur um — der zweite Lauf ändert nichts mehr."""
+    from geotracker.taxonomy import retype
+
+    conn = _db(tmp_path)
+    first = retype(conn)
+    second = retype(conn)
+    assert second == {"domain_types_changed": 0, "url_types_changed": 0}
+    assert first["domain_types_changed"] >= 0
+
+    types = {r["domain"]: r["domain_type"] for r in conn.execute(
+        "SELECT domain, domain_type FROM domains")}
+    assert types.get("logbatt.de") == "you"
+    conn.close()
+
+
+# --- Server und Export zeigen dasselbe Dashboard ----------------------------
+def test_server_and_export_render_the_same_template(tmp_path):
+    from fastapi.testclient import TestClient
+
+    import geotracker.api.app as app_module
+    from geotracker.exporter import export_html
+
+    conn = _db(tmp_path)
+    target = tmp_path / "dash.html"
+    export_html(conn, target)
+    conn.close()
+
+    app_module._config = _config(tmp_path)
+    served = TestClient(app_module.app).get("/").text
+    exported = target.read_text(encoding="utf-8")
+
+    # Beide bauen auf derselben Vorlage auf: gleiche Navigation, gleiche Seiten.
+    for needle in ("data-route=\"overview\"", "data-route=\"gap\"", "Neu entdeckte Domains"):
+        assert needle in served and needle in exported
+
+    # Der Platzhalter darf in keiner Ausgabe überleben.
+    assert "/*__GEO_DATA__*/null" not in served
+    assert "/*__GEO_DATA__*/null" not in exported
+    # Und kein Key landet je im Frontend.
+    assert "api_key" not in served.lower() and "sk-ant" not in served
+
+
 # ---------------------------------------------------------------------------
 if __name__ == "__main__":
     import tempfile

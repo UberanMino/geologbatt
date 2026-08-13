@@ -15,6 +15,7 @@ from typing import Any
 import yaml
 
 from .classify import Classifier
+from .taxonomy import retype
 from .config import PACKAGE_DIR
 from .db import utcnow
 from .urls import normalize_domain
@@ -177,4 +178,6 @@ def seed_all(conn: sqlite3.Connection, seeds_dir: Path | None = None) -> dict[st
     result.update(seed_brands(conn, seeds_dir))
     result.update(seed_domains(conn, seeds_dir))
     result.update(seed_prompts(conn, seeds_dir))
+    # Domain-/URL-Typen hängen von den Seeds ab -> direkt mitziehen.
+    result.update(retype(conn))
     return result

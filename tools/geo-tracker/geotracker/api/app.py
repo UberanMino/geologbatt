@@ -14,11 +14,12 @@ from pathlib import Path
 from typing import Any
 
 from fastapi import Depends, FastAPI, HTTPException, Query
-from fastapi.responses import FileResponse
+from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 
 from ..config import load_config
 from ..db import open_db
+from ..exporter import render_dashboard
 from . import queries
 from .queries import Filters
 
@@ -173,9 +174,13 @@ def health(conn: sqlite3.Connection = Depends(get_conn)) -> dict[str, Any]:
 
 
 # --- Frontend --------------------------------------------------------------
+# Server und Export zeigen bewusst DASSELBE Dashboard: `/` rendert die gleiche
+# Vorlage wie `geotracker export-html`, nur mit frisch aus der DB erzeugtem
+# Payload statt eingefrorenem Schnappschuss. So kann die servergestützte
+# Ansicht nicht von der Datei abweichen.
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 
-@app.get("/")
-def index() -> FileResponse:
-    return FileResponse(STATIC_DIR / "index.html")
+@app.get("/", response_class=HTMLResponse)
+def index(conn: sqlite3.Connection = Depends(get_conn)) -> HTMLResponse:
+    return HTMLResponse(render_dashboard(conn))
