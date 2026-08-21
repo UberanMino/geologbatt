@@ -9,8 +9,9 @@ Tab-getrennt, CRLF, Datenfelder in Anführungszeichen**. Spalten:
 - **8 Prompts** je Sprache · **13 Sprachen** · **104 Zeilen**.
 - Nicht enthalten: **Deutsch, English, Español** (laufen über Suchhelden) sowie
   **Deutsch (Schweiz)** und **Deutsch (Österreich)** (nicht benötigt).
-- `Tags` sind je Prompt sprachübergreifend identisch (`product`/`service` +
-  Slug) → erlaubt den Vergleich desselben Prompts über alle Märkte hinweg.
+- `Tags` = Themen-Tag (`product`/`service` + Slug, sprachübergreifend identisch)
+  **+ die jeweilige Sprache** (z. B. `product, transport-box, Français`) →
+  erlaubt Filtern nach Prompt *und* nach Sprache/Markt.
 
 ## Die 8 Prompts (Auswahl, verifiziert 2026-08-20)
 
