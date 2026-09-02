@@ -1,9 +1,15 @@
 <!--
-LogBATT Website – Ist-Zustand (Gutenberg-Rohcode)
+LogBATT Website – Ist-Zustand (voller WordPress-Gutenberg-Quellcode)
 Seite:            Startseite / Homepage
 URL:              https://www.logbatt.de/
-Meta-Title:       Die Gesamtlösung für Batterielogistik 🔋 | LogBATT GmbH
-Meta-Description: Gesamtlösung für Lithium-Ionen-Batterielogistik bei LogBATT. ✔️ Entsorgung ✔️ Recycling ✔️ Transport und ✔️ sichere Lagerung von E-Auto-Batterien.
+Meta-Title:       Die Gesamtlösung für Batterielogistik | LogBATT GmbH
+Hinweis:          Vollständiger Blockcode aus dem Backend (verbatim). Enthält Video-Cover (headervideo),
+                  Hero-CTA + Floating-Kontakt (Custom HTML/CSS), btn-jobs, Organization/WebPage/DefinedTerm-
+                  und VideoObject- sowie FAQPage(15)-JSON-LD, rh/block-icon-Vorteile, punkte-zeile (4 Icons),
+                  rh/gallery (24 Referenz-Logos), latest-posts, 15 Accordions, sync-Blöcke ref:1070/ref:28191.
+                  Server-Platzhalter [customer.name_website]/[ProxyNumber]/[customer.email] bleiben erhalten.
+                  Asset-URLs auf Editor-Domain 117655.wd50.extern.regiohelden.de – für lokalisierte Seiten
+                  auf die jeweilige Public-Domain (logbatt.es / logbatt.com) umschreiben (media-src-CSP!).
 -->
 <!-- wp:cover {"url":"https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2020/07/Video-Startseite-Header.mp4","id":7632,"dimRatio":50,"backgroundType":"video","minHeight":765,"minHeightUnit":"px","align":"full","className":"headervideo","layout":{"type":"constrained"}} -->
 <div class="wp-block-cover alignfull headervideo" style="min-height:765px"><video class="wp-block-cover__video-background intrinsic-ignore" autoplay muted loop playsinline src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2020/07/Video-Startseite-Header.mp4" data-object-fit="cover"></video><span aria-hidden="true" class="wp-block-cover__background has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:image {"id":22670,"sizeSlug":"full","linkDestination":"none","align":"center","disableImageForScreenReaders":true} -->
@@ -32,7 +38,199 @@ Meta-Description: Gesamtlösung für Lithium-Ionen-Batterielogistik bei LogBATT.
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 
-[Hero-CTA-Kasten, Floating-Kontakt-Box, Kategorie-Buttons, "Wir stellen ein"-Button — Custom HTML/CSS im Original vorhanden]
+<!-- wp:columns {"blockId":"906ac5f8-5965-4122-a2a8-e61c39516954","isPredefinedBreakpoint":true,"isPredefinedBreakpointLarge":true} -->
+<div class="wp-block-columns"><!-- wp:column -->
+<div class="wp-block-column"></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:html -->
+<!--
+  LogBATT Hero-CTA-Kasten
+-->
+<div class="logbatt-hero-cta">
+  <div class="logbatt-hero-cta__contact">
+    <a class="logbatt-hero-cta__contact-link" href="tel:+497153925080">
+      <svg class="logbatt-hero-cta__icon" viewBox="0 0 512 512" aria-hidden="true">
+        <path d="M487.8 24.1L387 .8c-14.7-3.4-29.8 4.2-35.8 18.1l-46.5 108.5c-5.5 12.7-1.8 27.7 8.9 36.5l53.9 44.1c-34 69.2-90.3 125.6-159.6 159.6l-44.1-53.9c-8.8-10.7-23.8-14.4-36.5-8.9L18.9 351.3C5 357.3-2.6 372.3.8 387L24 487.7C27.3 502 39.9 512 54.5 512 306.7 512 512 307.8 512 54.5c0-14.6-10-27.2-24.2-30.4z"/>
+      </svg>
+      <span>+49 7153 925080</span>
+    </a>
+    <a class="logbatt-hero-cta__contact-link" href="mailto:info@logbatt.de">
+      <svg class="logbatt-hero-cta__icon" viewBox="0 0 512 512" aria-hidden="true">
+        <path d="M464 64H48C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h416c8.8 0 16 7.2 16 16v41.4c-21.9 18.5-53.2 44-150.6 121.3-16.9 13.4-50.2 45.7-73.4 45.3-23.2.4-56.6-31.9-73.4-45.3C85.2 197.4 53.9 171.9 32 153.4V112c0-8.8 7.2-16 16-16zm416 320H48c-8.8 0-16-7.2-16-16V195c22.8 18.7 58.8 47.6 130.7 104.7 20.5 16.4 56.7 52.5 93.3 52.3 36.4.3 72.3-35.5 93.3-52.3 71.9-57.1 107.9-86 130.7-104.7v205c0 8.8-7.2 16-16 16z"/>
+      </svg>
+      <span>info@logbatt.de</span>
+    </a>
+  </div>
+
+  <a class="logbatt-hero-cta__button" href="https://www.logbatt.de/kontakt/">
+    Jetzt beraten lassen
+  </a>
+</div>
+
+<style>
+  .logbatt-hero-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    padding: 20px;
+  }
+
+  .logbatt-hero-cta__contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+  }
+
+  .logbatt-hero-cta__contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    font-size: 19px;
+    font-weight: 500;
+    text-decoration: none;
+    opacity: 0.95;
+    transition: opacity 0.15s ease;
+  }
+
+  .logbatt-hero-cta__contact-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
+  .logbatt-hero-cta__icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+
+  .logbatt-hero-cta__button {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 20px 44px;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.15s ease, transform 0.1s ease;
+  }
+
+  .logbatt-hero-cta__button:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-1px);
+  }
+
+  .logbatt-hero-cta__button:active {
+    transform: translateY(0);
+  }
+
+  @media (max-width: 480px) {
+    .logbatt-hero-cta__contact {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .logbatt-hero-cta__button {
+      width: 100%;
+      text-align: center;
+      box-sizing: border-box;
+    }
+  }
+</style>
+<!-- /wp:html --></div></div>
+<!-- /wp:cover -->
+
+<!-- wp:html -->
+<!--
+  LogBATT Floating-Kontakt-Box (rechts, immer sichtbar beim Scrollen)
+-->
+<div class="logbatt-floating-contact">
+  <a href="tel:+497153925080" class="logbatt-floating-contact__item" aria-label="Anrufen: +49 7153 925080">
+    <svg class="logbatt-floating-contact__icon" viewBox="0 0 512 512" aria-hidden="true">
+      <path d="M487.8 24.1L387 .8c-14.7-3.4-29.8 4.2-35.8 18.1l-46.5 108.5c-5.5 12.7-1.8 27.7 8.9 36.5l53.9 44.1c-34 69.2-90.3 125.6-159.6 159.6l-44.1-53.9c-8.8-10.7-23.8-14.4-36.5-8.9L18.9 351.3C5 357.3-2.6 372.3.8 387L24 487.7C27.3 502 39.9 512 54.5 512 306.7 512 512 307.8 512 54.5c0-14.6-10-27.2-24.2-30.4z"/>
+    </svg>
+    <span class="logbatt-floating-contact__label">+49 7153 925080</span>
+  </a>
+  <a href="mailto:info@logbatt.de" class="logbatt-floating-contact__item" aria-label="E-Mail: info@logbatt.de">
+    <svg class="logbatt-floating-contact__icon" viewBox="0 0 512 512" aria-hidden="true">
+      <path d="M464 64H48C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h416c8.8 0 16 7.2 16 16v41.4c-21.9 18.5-53.2 44-150.6 121.3-16.9 13.4-50.2 45.7-73.4 45.3-23.2.4-56.6-31.9-73.4-45.3C85.2 197.4 53.9 171.9 32 153.4V112c0-8.8 7.2-16 16-16zm416 320H48c-8.8 0-16-7.2-16-16V195c22.8 18.7 58.8 47.6 130.7 104.7 20.5 16.4 56.7 52.5 93.3 52.3 36.4.3 72.3-35.5 93.3-52.3 71.9-57.1 107.9-86 130.7-104.7v205c0 8.8-7.2 16-16 16z"/>
+    </svg>
+    <span class="logbatt-floating-contact__label">info@logbatt.de</span>
+  </a>
+</div>
+
+<style>
+  .logbatt-floating-contact {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 9000;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+  }
+
+  .logbatt-floating-contact__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background-color 0.15s ease;
+  }
+
+  .logbatt-floating-contact__item:hover {
+    background-color: #f2f2f2;
+  }
+
+  .logbatt-floating-contact__icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 600px) {
+    .logbatt-floating-contact__label {
+      display: none;
+    }
+    .logbatt-floating-contact__item {
+      padding: 14px;
+      justify-content: center;
+    }
+  }
+</style>
+<!-- /wp:html -->
+
+<!-- wp:columns {"blockId":"464052a7-aa54-4b07-a337-300691b398e9","isPredefinedBreakpoint":true,"isPredefinedBreakpointLarge":true} -->
+<div class="wp-block-columns"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:buttons {"className":"btn-jobs"} -->
+<div class="wp-block-buttons btn-jobs"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/stellenanzeigen/">Wir stellen ein</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
 
 <!-- wp:html -->
 <script type="application/ld+json">
@@ -81,52 +279,314 @@ Meta-Description: Gesamtlösung für Lithium-Ionen-Batterielogistik bei LogBATT.
 </script>
 <!-- /wp:html -->
 
-<!-- wp:heading {"level":1,"className":"uppercase","anchor":"willkommen-zukunft"} -->
+<!-- wp:group {"align":"full"} -->
+<div class="wp-block-group alignfull"><!-- wp:spacer {"height":"60px","hideDesktop":true,"className":"block-control-hide-desktop"} -->
+<div style="height:60px" aria-hidden="true" class="wp-block-spacer block-control-hide-desktop"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"level":1,"className":"uppercase","style":{"typography":{"textAlign":"center"}},"anchor":"willkommen-zukunft"} -->
 <h1 class="wp-block-heading has-text-align-center uppercase" id="willkommen-zukunft">LogBATT – die Lösung für Batterielogistik</h1>
 <!-- /wp:heading -->
 
-<!-- Fließtext-Spalten (Einleitung) -->
+<!-- wp:block {"ref":1070} /-->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:columns {"className":"rh-columns-block-bd14b6f3-efb7-4246-87f0-0c297ebf04ec","blockId":"bd14b6f3-efb7-4246-87f0-0c297ebf04ec","isPredefinedBreakpoint":true,"isPredefinedBreakpointLarge":true} -->
+<div class="wp-block-columns rh-columns-block-bd14b6f3-efb7-4246-87f0-0c297ebf04ec"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:paragraph -->
 <p>Die [customer.name_website] hat sich vom ersten Tag auf die <strong>Gesamtlösung von Lithium-Ionen-Batterielogistik</strong> spezialisiert, um ihren Kunden einzigartige und durchdachte Lösungen über die <strong>komplette Batterie-Supply-Chain</strong> anbieten zu können. Wir besitzen die notwendigen <strong>rechtlichen Zertifikate</strong> und Ressourcen, um alle Aspekte des Gefahrgut- und Abfallrechtes für Sie gesetzeskonform und verlässlich abdecken zu können.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
 <p>Egal welche Batteriegröße oder welcher Branche Sie angehören: Wir haben die passende Lösung für Sie – und das alles aus einer Hand.</p>
-<p>Selbst die Königsklasse für Gefahrguttransportboxen für <strong>kritisch defekte Batterien</strong> nach den neuesten gefahrgutrechtlichen Auflagen des <strong>ADR 2025 P911/LP 906</strong> inklusive Genehmigungen zum Sammeln, Befördern und Makeln für gefährlichen Abfall in <strong>der Entsorgungs- und Recyclinglogistik</strong>, leben wir täglich. Seit Mitte 2023 sind wir Mitglied der Lagermax Group.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:paragraph -->
+<p>Selbst die Königsklasse für Gefahrguttransportboxen für <strong>kritisch defekte Batterien </strong>nach den neuesten gefahrgutrechtlichen Auflagen des <strong>ADR 2025 P911/LP 906 </strong>inklusive Genehmigungen zum Sammeln, Befördern und Makeln für gefährlichen Abfall in <strong>der Entsorgungs- und Recyclinglogistik</strong>, leben wir täglich. Seit Mitte 2023 sind wir Mitglied der Lagermax Group.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
 <p>Mit unseren <strong>Transportboxen für defekte bis kritische Lithium-Ionen-Batterien</strong> bieten wir eine Gesamtlösung an. Profitieren auch Sie von unseren Lösungen und werden unser langfristiger Partner. Willkommen Zukunft.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
 <p>Tel.: [ProxyNumber] | E-Mail: <a href="mailto:[customer.email]">[customer.email]</a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
 
-<!-- Abschnitt: Ihre Vorteile (Icon-Liste) -->
-<h2 id="ihre-vorteile">Ihre Vorteile</h2>
-<ul>
-  <li><a href="/ueber-uns/#zertifizierungen">Zertifiziert</a> — DIN ISO 9001, 14001, QSP, EfB</li>
-  <li><a href="/logistik/">9000+ Transporte</a> — mit grünen, gelben und roten Batterien aller Umfänge</li>
-  <li><a href="/ueber-uns/#unternehmen">Know-how</a> — Lithium-Ionen-Batterien Logistik</li>
-  <li><a href="/logistik/#networksolution">Europaweites</a> — Logistik- und Batterieentsorgernetzwerk</li>
-  <li><a href="/entwicklung/">Entwicklung</a> — Transport-, Lager- und Quarantäneboxen</li>
-  <li><a href="/logistik/#verpackungsschulung">Beratung, Schulung</a> — E-Learning Academy oder vor Ort</li>
-</ul>
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
 
-<!-- Abschnitt: Wir übernehmen Ihre Batterielogistik (4 Schritte) -->
-<h2 id="wir-ubernehmen-ihre-batterielogistik">Wir übernehmen Ihre Batterielogistik</h2>
-<h4 id="abholen-lagern">Abholen/Lagern</h4>
-<h4 id="verpacken">Verpacken</h4>
-<h4 id="befordern">Befördern</h4>
-<h4 id="verbringung-zur-recyclinganlage-bestimmungsort">Ver­bringung zur Recycling­anlage / Bestimmungs­ort</h4>
-<p>Noch Fragen? Hier geht es zu unserem FAQ: <a href="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2025/04/FAQ-Batterielogistik.pdf" target="_blank" rel="noreferrer noopener">FAQ Batterielogistik</a></p>
+<!-- wp:block {"ref":28191} /-->
 
-<!-- Abschnitt: Neueste Entwicklungen (YouTube DTB8vPQZ060) + CTA -->
-<h3 id="gesamtlosungen"><strong>Neueste Entwicklungen</strong></h3>
-<p>YouTube: https://www.youtube.com/watch?v=DTB8vPQZ060</p>
-<p>Fragen Sie unser Rundum-Sorglos-Paket an. Lehnen Sie sich zurück. Wir kümmern uns: Tel.: [ProxyNumber] | E-Mail: [customer.email]</p>
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
 
-<!-- Abschnitt: Auszug unserer Referenzen (rh/gallery, 5 Spalten) -->
-<h2 id="auszug-unserer-referenzen">Auszug unserer Referenzen</h2>
-<p>Wir bieten unseren Kunden der Branchen <strong>Automotive, Industrie, Werkzeug und Consumer</strong> innovative sowie marktführende Dienstleistungen und Produkte an. Hierzu gehören namhafte Automobilhersteller, Zulieferer und Werkzeuganbieter:</p>
-<p>Referenz-Logos: AMG, Porsche, Daimler, BMW, Bosch eBike, Draexlmaier, Mercedes, Ford, StreetScooter, LG Chem, TÜV SÜD (Batterieprüfung), Intertek, Akasol, Fuso, SGS, UPS, Toyota, Volvo, Webasto, MAN, Kreisel, Stena, DHL, Northvolt, Stellantis.</p>
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
 
-<!-- Abschnitt: News (Instagram + latest-posts) -->
-<h2 id="news">News</h2>
-<p>LogBATT ist jetzt auch auf Social Media. Erhalten Sie auf Instagram exklusive Einblicke ins Unternehmen! → <a href="/ueber-uns/#instagram">Zum Instagram-Feed</a></p>
-<p>[latest-posts: 3 neueste Blog-Beiträge mit Bild, Datum, Auszug]</p>
+<!-- wp:group {"align":"full","className":"vorteile-zeile"} -->
+<div class="wp-block-group alignfull vorteile-zeile"><!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
 
-<!-- VideoObject JSON-LD -->
+<!-- wp:heading {"style":{"typography":{"textAlign":"center"}},"anchor":"ihre-vorteile"} -->
+<h2 class="wp-block-heading has-text-align-center" id="ihre-vorteile">Ihre Vorteile</h2>
+<!-- /wp:heading -->
+
+<!-- wp:block {"ref":1070} /-->
+
+<!-- wp:columns {"className":"rh-columns-block-50280fd3-1af6-4323-8ce1-6111708e8709","blockId":"50280fd3-1af6-4323-8ce1-6111708e8709","isPredefinedBreakpoint":true,"isPredefinedBreakpointLarge":true} -->
+<div class="wp-block-columns rh-columns-block-50280fd3-1af6-4323-8ce1-6111708e8709"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:rh/block-icon-list {"layout":{"type":"flex","justifyContent":"center"}} -->
+<div class="wp-block-rh-block-icon-list is-content-justification-center"><!-- wp:rh/block-icon {"height":"45px","icon":"file-alt","width":"45px"} /--></div>
+<!-- /wp:rh/block-icon-list -->
+
+<!-- wp:paragraph -->
+<p><strong><a href="/ueber-uns/#zertifizierungen">Zertifiziert</a></strong><br>DIN ISO 9001, 14001, QSP, EfB</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:rh/block-icon-list {"layout":{"type":"flex","justifyContent":"center"}} -->
+<div class="wp-block-rh-block-icon-list is-content-justification-center"><!-- wp:rh/block-icon {"height":"45px","icon":"truck","width":"45px"} /--></div>
+<!-- /wp:rh/block-icon-list -->
+
+<!-- wp:paragraph -->
+<p><strong><a href="/logistik/">9000+ Transporte</a></strong><br>mit grünen, gelben und roten Batterien aller Umfänge</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:rh/block-icon-list {"layout":{"type":"flex","justifyContent":"center"}} -->
+<div class="wp-block-rh-block-icon-list is-content-justification-center"><!-- wp:rh/block-icon {"height":"45px","icon":"lightbulb-on","width":"45px"} /--></div>
+<!-- /wp:rh/block-icon-list -->
+
+<!-- wp:paragraph -->
+<p><strong><a href="/ueber-uns/#unternehmen">Know-how</a></strong><br>Lithium-Ionen-Batterien Logistik</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:columns {"className":"rh-columns-block-b074494d-a8af-45cc-a708-471b0be3c8a9","blockId":"b074494d-a8af-45cc-a708-471b0be3c8a9","isPredefinedBreakpoint":true,"isPredefinedBreakpointLarge":true} -->
+<div class="wp-block-columns rh-columns-block-b074494d-a8af-45cc-a708-471b0be3c8a9"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:rh/block-icon-list {"layout":{"type":"flex","justifyContent":"center"}} -->
+<div class="wp-block-rh-block-icon-list is-content-justification-center"><!-- wp:rh/block-icon {"height":"45px","icon":"chart-network","width":"45px"} /--></div>
+<!-- /wp:rh/block-icon-list -->
+
+<!-- wp:paragraph -->
+<p><strong><a href="/logistik/#networksolution">Europaweites</a></strong><br>Logistik- und Batterieentsorgernetzwerk</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:rh/block-icon-list {"layout":{"type":"flex","justifyContent":"center"}} -->
+<div class="wp-block-rh-block-icon-list is-content-justification-center"><!-- wp:rh/block-icon {"height":"45px","icon":"sync","width":"45px"} /--></div>
+<!-- /wp:rh/block-icon-list -->
+
+<!-- wp:paragraph -->
+<p><strong><a href="/entwicklung/">Entwicklung</a></strong><br>Transport-, Lager- und Quarantäneboxen</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:rh/block-icon-list {"layout":{"type":"flex","justifyContent":"center"}} -->
+<div class="wp-block-rh-block-icon-list is-content-justification-center"><!-- wp:rh/block-icon {"height":"45px","icon":"users-class","width":"45px"} /--></div>
+<!-- /wp:rh/block-icon-list -->
+
+<!-- wp:paragraph -->
+<p><strong><a href="/logistik/#verpackungsschulung">Beratung, Schulung</a></strong><br>E-Learning Academy oder vor Ort</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer --></div>
+<!-- /wp:group -->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer --></div>
+<!-- /wp:group -->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:group {"align":"full","className":"punkte-zeile"} -->
+<div class="wp-block-group alignfull punkte-zeile"><!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"style":{"typography":{"textAlign":"center"}},"anchor":"wir-ubernehmen-ihre-batterielogistik"} -->
+<h2 class="wp-block-heading has-text-align-center" id="wir-ubernehmen-ihre-batterielogistik">Wir übernehmen Ihre Batterielogistik</h2>
+<!-- /wp:heading -->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:columns {"className":"rh-columns-block-44b81a14-c4d9-4b01-9e0a-2413bc32c866","blockId":"44b81a14-c4d9-4b01-9e0a-2413bc32c866","breakpoint":"400","breakpointLarge":"840","isPredefinedBreakpointLarge":true} -->
+<div class="wp-block-columns rh-columns-block-44b81a14-c4d9-4b01-9e0a-2413bc32c866"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"id":18367,"sizeSlug":"full","linkDestination":"none","align":"center","disableImageForScreenReaders":true} -->
+<figure class="wp-block-image aligncenter size-full"><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2023/02/icon01-4.png" alt="Batterie Icon " class="wp-image-18367"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":4,"style":{"typography":{"textAlign":"center"}},"anchor":"abholen-lagern"} -->
+<h4 class="wp-block-heading has-text-align-center" id="abholen-lagern">Abholen/Lagern</h4>
+<!-- /wp:heading --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"id":18370,"sizeSlug":"full","linkDestination":"none","align":"center","disableImageForScreenReaders":true} -->
+<figure class="wp-block-image aligncenter size-full"><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2023/02/icon02-1.png" alt="Box Icon" class="wp-image-18370"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":4,"style":{"typography":{"textAlign":"center"}},"anchor":"verpacken"} -->
+<h4 class="wp-block-heading has-text-align-center" id="verpacken">Verpacken</h4>
+<!-- /wp:heading --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"id":18373,"sizeSlug":"full","linkDestination":"none","align":"center","disableImageForScreenReaders":true} -->
+<figure class="wp-block-image aligncenter size-full"><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2023/02/icon03-1.png" alt="LKW Icon" class="wp-image-18373"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":4,"style":{"typography":{"textAlign":"center"}},"anchor":"befordern"} -->
+<h4 class="wp-block-heading has-text-align-center" id="befordern">Befördern</h4>
+<!-- /wp:heading --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"id":18376,"sizeSlug":"full","linkDestination":"none","align":"center","disableImageForScreenReaders":true} -->
+<figure class="wp-block-image aligncenter size-full"><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2023/02/icon04-1.png" alt="Industrie Icon" class="wp-image-18376"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":4,"style":{"typography":{"textAlign":"center"}},"anchor":"verbringung-zur-recyclinganlage-bestimmungsort"} -->
+<h4 class="wp-block-heading has-text-align-center" id="verbringung-zur-recyclinganlage-bestimmungsort">Ver­bringung zur Recycling­anlage / Bestimmungs­ort</h4>
+<!-- /wp:heading --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:columns {"blockId":"3fd21da3-4b43-453d-a0c3-046e8a0a8d0f","isPredefinedBreakpoint":true,"isPredefinedBreakpointLarge":true} -->
+<div class="wp-block-columns"><!-- wp:column {"width":"100%"} -->
+<div class="wp-block-column" style="flex-basis:100%"><!-- wp:columns {"blockId":"8dc8b127-fbab-48d8-a562-07dacfe18f43","isPredefinedBreakpoint":true,"isPredefinedBreakpointLarge":true} -->
+<div class="wp-block-columns"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:paragraph {"style":{"typography":{"textAlign":"right"}}} -->
+<p class="has-text-align-right">Noch Fragen? Hier geht es zu unserem FAQ: </p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:buttons {"layout":{"type":"flex","verticalAlignment":"top","justifyContent":"center"}} -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2025/04/FAQ-Batterielogistik.pdf" target="_blank" rel="noreferrer noopener">FAQ Batterielogistik</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","className":"gesamtloesung-zeile"} -->
+<div class="wp-block-group alignfull gesamtloesung-zeile"><!-- wp:spacer {"height":"30px"} -->
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"level":3,"style":{"typography":{"textAlign":"center"}},"anchor":"gesamtlosungen"} -->
+<h3 class="wp-block-heading has-text-align-center" id="gesamtlosungen"><strong>Neueste Entwicklungen</strong></h3>
+<!-- /wp:heading -->
+
+<!-- wp:embed {"url":"https://www.youtube.com/watch?v=DTB8vPQZ060","type":"video","providerNameSlug":"youtube","responsive":true,"className":"wp-embed-aspect-16-9 wp-has-aspect-ratio"} -->
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+https://www.youtube.com/watch?v=DTB8vPQZ060
+</div></figure>
+<!-- /wp:embed -->
+
+<!-- wp:rh/cta {"align":"full"} -->
+<div class="wp-block-rh-cta alignfull"><!-- wp:paragraph {"align":"center","className":"has-text-align-center","style":{"typography":{"textAlign":"center"}},"anchor":"block-ec539aa5-80c9-4c0f-b098-dad3fe3fc7c5","dependencyValueBetween":[]} -->
+<p class="has-text-align-center" id="block-ec539aa5-80c9-4c0f-b098-dad3fe3fc7c5">Fragen Sie unser Rundum-Sorglos-Paket an. Lehnen Sie sich zurück. Wir kümmern uns:<br>Tel.: [ProxyNumber] | E-Mail: <a href="mailto:[customer.email]">[customer.email]</a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:rh/cta --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","className":"referenzen-zeile","dependencyValueBetween":[]} -->
+<div class="wp-block-group alignfull referenzen-zeile"><!-- wp:spacer {"height":"60px"} -->
+<div style="height:60px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:columns {"className":"rh-columns-block-cdbbec5a-8948-41a6-a31e-83a144c0f508","blockId":"cdbbec5a-8948-41a6-a31e-83a144c0f508","isPredefinedBreakpoint":true,"isPredefinedBreakpointLarge":true} -->
+<div class="wp-block-columns rh-columns-block-cdbbec5a-8948-41a6-a31e-83a144c0f508"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:heading {"className":"margin-schrift","anchor":"auszug-unserer-referenzen"} -->
+<h2 id="auszug-unserer-referenzen" class="wp-block-heading margin-schrift">Auszug unserer Referenzen</h2>
+<!-- /wp:heading --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:paragraph -->
+<p>Wir bieten unseren Kunden der Branchen <strong>Automotive, Industrie, Werkzeug und Consumer </strong>innovative sowie marktführende Dienstleistungen und Produkte an. Hierzu gehören namhafte Automobilhersteller, Zulieferer und Werkzeuganbieter:</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:spacer {"height":"20px"} -->
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:rh/gallery {"linkTo":"none","imageCrop":false,"lightbox":false,"blockId":"a880df12-8664-4669-9fe6-d3e66a75f979","columns":5,"gridSize":"lrg"} -->
+<div class="wp-block-rh-gallery"><ul class="has-caption-style-dark columns-5"><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2020/04/amg.png" alt="Schwarz-weißer Balken, waagerecht zentriert, minimalistisch und schlicht, auf weißem Hintergrund." data-id="473" data-link="https://117655.wd50.extern.regiohelden.de/startseite/amg/" class="wp-image-473"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2020/04/porsche.png" alt="Porsche-Logo in Schwarz, Rot und Gold mit Stuttgarter Wappen auf weißem Hintergrund." data-id="494" data-link="https://117655.wd50.extern.regiohelden.de/startseite/porsche/" class="wp-image-494"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2021/11/Daimler-600x315px.png" alt="Daimler 600x315px" data-id="14367" data-link="https://117655.wd50.extern.regiohelden.de/startseite/daimler-600x315px/" class="wp-image-14367"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2020/11/bmw.png" alt="BMW-Logo mit schwarz-weißer Umrandung und blau-weißen Vierteln." data-id="9390" data-link="https://117655.wd50.extern.regiohelden.de/startseite/bmw/" class="wp-image-9390"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2020/05/bosch-ebike.png" alt="Bosch-Logo, schwarzer Text &quot;Bosch eBike Systems&quot; unter rotem &quot;BOSCH&quot;, silbernes Emblem links." data-id="3020" data-link="https://117655.wd50.extern.regiohelden.de/startseite/bosch-ebike/" class="wp-image-3020"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2021/11/Draexlmaier-600x315px.png" alt="Draexlmaier 600x315px" data-id="14370" data-link="https://117655.wd50.extern.regiohelden.de/startseite/draexlmaier-600x315px/" class="wp-image-14370"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2020/11/mercedes.png" alt="Schwarzes Mercedes-Benz-Logo mit einem dreizackigen Stern auf weißem Hintergrund." data-id="9399" data-link="https://117655.wd50.extern.regiohelden.de/startseite/mercedes/" class="wp-image-9399"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2020/11/ford.png" alt="Blaues Ford-Logo mit weißer Schrift und ovalem Rahmen." data-id="9393" data-link="https://117655.wd50.extern.regiohelden.de/startseite/ford/" class="wp-image-9393"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2020/04/streetscooter.png" alt="Logo von StreetScooter: Silberner Kreis mit Pfeilen, darunter der Schriftzug &quot;StreetScooter&quot;." data-id="503" data-link="https://117655.wd50.extern.regiohelden.de/startseite/streetscooter/" class="wp-image-503"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2020/11/lg-chem.png" alt="LG Chem-Logo, rotes Symbol links, grauer Schriftzug rechts, schlichtes Design." data-id="9396" data-link="https://117655.wd50.extern.regiohelden.de/startseite/lg-chem/" class="wp-image-9396"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2020/04/tuev.png" alt="Oktogonales TÜV SÜD-Logo in Blau und Silber mit Text &quot;Batterieprüfung&quot; darunter." data-id="506" data-link="https://117655.wd50.extern.regiohelden.de/startseite/tuev/" class="wp-image-506"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2021/11/Intertek-600x315px.png" alt="Intertek 600x315px" data-id="14373" data-link="https://117655.wd50.extern.regiohelden.de/startseite/intertek-600x315px/" class="wp-image-14373"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2021/11/Akasol-600x315px.png" alt="Akasol 600x315px" data-id="14394" data-link="https://117655.wd50.extern.regiohelden.de/startseite/akasol-600x315px/" class="wp-image-14394"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2021/11/Fuso-600x315px.png" alt="Fuso Logo" data-id="14379" data-link="https://117655.wd50.extern.regiohelden.de/startseite/fuso-600x315px/" class="wp-image-14379"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2021/11/SGS-600x315px.png" alt="SGS Logo" data-id="14382" data-link="https://117655.wd50.extern.regiohelden.de/startseite/sgs-600x315px/" class="wp-image-14382"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2021/11/UPS-600x315px.png" alt="UPS Logo" data-id="14388" data-link="https://117655.wd50.extern.regiohelden.de/startseite/ups-600x315px/" class="wp-image-14388"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2021/11/Toyota-600x315px.png" alt="Toyota 600x315px" data-id="14391" data-link="https://117655.wd50.extern.regiohelden.de/startseite/toyota-600x315px/" class="wp-image-14391"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2021/11/Volvo-600x315px.png" alt="Volvo 600x315px" data-id="14397" data-link="https://117655.wd50.extern.regiohelden.de/startseite/volvo-600x315px/" class="wp-image-14397"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2020/05/webasto.png" alt="Webasto-Logo in Blau mit stilisiertem roten &quot;W&quot; in Halbkreis-Form." data-id="3026" data-link="https://117655.wd50.extern.regiohelden.de/startseite/webasto/" class="wp-image-3026"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2021/11/MAN-600x315px.png" alt="MAN 600x315px" data-id="14400" data-link="https://117655.wd50.extern.regiohelden.de/startseite/man-600x315px/" class="wp-image-14400"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2021/11/Kreisel-600x315px.png" alt="Kreisel 600x315px" data-id="14403" data-link="https://117655.wd50.extern.regiohelden.de/startseite/kreisel-600x315px/" class="wp-image-14403"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2021/11/Stenna-600x315px-1.png" alt="Stenna 600x315px 1" data-id="14427" data-link="https://117655.wd50.extern.regiohelden.de/startseite/stenna-600x315px-1/" class="wp-image-14427"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2023/02/dhl-logo-1.png" alt="Dhl logo 1" data-id="18358" data-link="https://117655.wd50.extern.regiohelden.de/startseite/dhl-logo-1/" class="wp-image-18358"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2022/01/Northvolt_logo-600x315px.png" alt="Northvolt logo 600x315px" data-id="14597" data-link="https://117655.wd50.extern.regiohelden.de/startseite/northvolt_logo-600x315px/" class="wp-image-14597"/></figure></li><li class="rh-gallery--item" tabindex="0"><figure><img src="https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2022/08/logbatt-stellantis-logo.png" alt="Logbatt stellantis logo" data-id="16239" data-link="https://117655.wd50.extern.regiohelden.de/startseite/logbatt-stellantis-logo/" class="wp-image-16239"/></figure></li></ul></div>
+<!-- /wp:rh/gallery -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","className":"grey-zeile"} -->
+<div class="wp-block-group alignfull grey-zeile"><!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:heading {"style":{"typography":{"textAlign":"center"}},"anchor":"news"} -->
+<h2 class="wp-block-heading has-text-align-center" id="news">News</h2>
+<!-- /wp:heading -->
+
+<!-- wp:block {"ref":1070} /-->
+
+<!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
+<p class="has-text-align-center">LogBATT ist jetzt auch auf Social Media.<br>Erhalten Sie auf Instagram exklusive Einblicke ins Unternehmen!</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/ueber-uns/#instagram">Zum Instagram-Feed</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:block {"ref":1070} /-->
+
+<!-- wp:latest-posts {"postsToShow":3,"displayPostContent":true,"displayPostDate":true,"displayFeaturedImage":true,"featuredImageSizeSlug":"large","addLinkToFeaturedImage":true,"className":"news-start"} /-->
+
+<!-- wp:spacer {"height":"60px"} -->
+<div style="height:60px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer --></div>
+<!-- /wp:group -->
+
 <!-- wp:html -->
 <script type="application/ld+json">
 {
@@ -142,10 +602,18 @@ Meta-Description: Gesamtlösung für Lithium-Ionen-Batterielogistik bei LogBATT.
 </script>
 <!-- /wp:html -->
 
-<!-- Abschnitt: FAQ – Häufig gestellte Fragen zur LogBATT GmbH und Batterielogistik -->
-<h2>FAQ – Häufig gestellte Fragen zur LogBATT GmbH und Batterielogistik</h2>
+<!-- wp:spacer {"height":"60px"} -->
+<div style="height:60px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
 
-<!-- FAQPage JSON-LD (15 Fragen) -->
+<!-- wp:heading -->
+<h2 class="wp-block-heading">FAQ – Häufig gestellte Fragen zur LogBATT GmbH und Batterielogistik</h2>
+<!-- /wp:heading -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
 <!-- wp:html -->
 <script type="application/ld+json">
 {
@@ -179,4 +647,92 @@ Meta-Description: Gesamtlösung für Lithium-Ionen-Batterielogistik bei LogBATT.
 </script>
 <!-- /wp:html -->
 
-<!-- Die 16 sichtbaren Accordion-Elemente (generic/accordion) spiegeln die FAQ-Fragen oben 1:1 wider -->
+<!-- wp:generic/accordion {"anchor":"-strong-was-ist-die-logbatt-gmbh-strong","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-strong-was-ist-die-logbatt-gmbh-strong"><summary class="accordion-title"><h3><strong>Was ist die LogBATT GmbH?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
+<p>Die LogBATT GmbH mit Sitz in Plochingen ist ein auf die Logistik von Lithium-Ionen-Batterien spezialisiertes Unternehmen. LogBATT deckt die komplette Batterie-Supply-Chain aus einer Hand ab – Transport, Lagerung, Verpackung, Entsorgung und Recycling – und entwickelt und produziert zugleich eigene Gefahrgut- und Brandschutzbehälter. Seit Mitte 2023 ist LogBATT Teil der Lagermax Group.</p>
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
+
+<!-- wp:generic/accordion {"anchor":"-strong-welche-leistungen-bietet-logbatt-an-strong","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-strong-welche-leistungen-bietet-logbatt-an-strong"><summary class="accordion-title"><h3><strong>Welche Leistungen bietet LogBATT an?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
+<p>LogBATT bietet gefahrgutkonformen Transport, sichere Lagerung und Quarantänelagerung, Entsorgungs- und Recyclinglogistik sowie die Entwicklung, Produktion und Verkauf sowie Miete von Transport- und Lagerbehältern. Ergänzend bietet LogBATT Verpackungsschulungen über die eigene E-Learning Academy oder vor Ort an.</p>
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
+
+<!-- wp:generic/accordion {"anchor":"-strong-stellt-logbatt-seine-transport-und-lagerbehaelter-selbst-her-strong","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-strong-stellt-logbatt-seine-transport-und-lagerbehaelter-selbst-her-strong"><summary class="accordion-title"><h3><strong>Stellt LogBATT seine Transport- und Lagerbehälter selbst her?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
+<p>Ja. LogBATT ist Hersteller der SafetyBATTbox-Familie und entwickelt und produziert die Transport-, Lager- und Quarantänebehälter selbst – inklusive eigener realer Brandtests und BAM-Bauartzulassungen. Damit ist LogBATT nicht nur Logistikdienstleister, sondern auch Entwickler und Produzent der eingesetzten Behälter.</p>
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
+
+<!-- wp:generic/accordion {"anchor":"-strong-fuer-welche-batteriezustaende-bietet-logbatt-loesungen-strong","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-strong-fuer-welche-batteriezustaende-bietet-logbatt-loesungen-strong"><summary class="accordion-title"><h3><strong>Für welche Batteriezustände bietet LogBATT Lösungen?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
+<p>LogBATT bietet Lösungen für nicht defekte, defekte und kritisch defekte Lithium-Ionen-Batterien. Für kritisch defekte Batterien verfügt LogBATT über eine Verfahrensfestlegung nach ADR 2025 P911/LP906 – die höchste gefahrgutrechtliche Anforderungsstufe.</p>
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
+
+<!-- wp:generic/accordion {"anchor":"-strong-ist-logbatt-zertifiziert-strong","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-strong-ist-logbatt-zertifiziert-strong"><summary class="accordion-title"><h3><strong>Ist LogBATT zertifiziert?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
+<p>Ja. LogBATT ist nach DIN EN ISO 9001 und ISO 14001 zertifiziert, verfügt über das Qualitätssicherungsprogramm Gefahrgutverpackungen (QSP) und ist anerkannter Entsorgungsfachbetrieb (EfB). Zusätzlich besitzt LogBATT die Genehmigungen zum Sammeln, Befördern und Makeln gefährlicher Abfälle sowie eine Zulassung für den US-Markt (DOT Special Permit).</p>
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
+
+<!-- wp:generic/accordion {"anchor":"-strong-strong-gehoert-logbatt-zu-einem-groesseren-unternehmen-strong-strong","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-strong-strong-gehoert-logbatt-zu-einem-groesseren-unternehmen-strong-strong"><summary class="accordion-title"><h3><strong><strong>Gehört LogBATT zu einem größeren Unternehmen?</strong></strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
+<p>Ja. LogBATT ist seit Mitte 2023 Mitglied der Lagermax Group, einer international tätigen Logistikgruppe. Die Anbindung erweitert das europaweite Logistik- und Entsorgernetzwerk von LogBATT.</p>
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
+
+<!-- wp:generic/accordion {"anchor":"-strong-strong-fuer-welche-branchen-arbeitet-logbatt-strong-strong","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-strong-strong-fuer-welche-branchen-arbeitet-logbatt-strong-strong"><summary class="accordion-title"><h3><strong><strong>Für welche Branchen arbeitet LogBATT?</strong></strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
+<p>LogBATT arbeitet für Kunden aus den Branchen Automotive, Industrie, Werkzeug und Consumer Electronics – darunter Automobilhersteller, Zulieferer und Werkzeuganbieter. Die Lösungen sind für alle Batteriegrößen ausgelegt, von der einzelnen Powertool-Zelle bis zur kompletten E-Auto-Traktionsbatterie.</p>
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
+
+<!-- wp:generic/accordion {"anchor":"-strong-strong-was-unterscheidet-logbatt-von-anderen-lithium-batterien-logistik-unternehmen-strong-strong","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-strong-strong-was-unterscheidet-logbatt-von-anderen-lithium-batterien-logistik-unternehmen-strong-strong"><summary class="accordion-title"><h3><strong><strong>Was unterscheidet LogBATT von anderen Lithium Batterien Logistik Unternehmen?</strong></strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
+<p>LogBATT versteht sich auch als Gesamtlösung für die Batterielogistik und übernimmt den vollständigen Ablauf: Abholen und Lagern, Verpacken, Befördern und die Verbringung zur Recyclinganlage oder zum Bestimmungsort. Kunden müssen die einzelnen Schritte also nicht über mehrere Dienstleister koordinieren.</p>
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
+
+<!-- wp:generic/accordion {"anchor":"-strong-kann-man-die-behaelter-von-logbatt-kaufen-oder-mieten-strong","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-strong-kann-man-die-behaelter-von-logbatt-kaufen-oder-mieten-strong"><summary class="accordion-title"><h3><strong>Kann man die Behälter von LogBATT kaufen oder mieten?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
+<p>Beide Optionen sind möglich. Die SafetyBATTbox-Transport- und -Lagerbehälter können gekauft oder gemietet werden – die Mietlösung eignet sich besonders für wechselnde Bedarfe, zeitlich begrenzte Projekte oder kurzfristige Anforderungen wie Rückrufaktionen.</p>
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
+
+<!-- wp:generic/accordion {"anchor":"-strong-wo-ist-logbatt-ansaessig-und-taetig-strong","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-strong-wo-ist-logbatt-ansaessig-und-taetig-strong"><summary class="accordion-title"><h3><strong>Wo ist LogBATT ansässig und tätig?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
+<p>Der Hauptsitz der LogBATT GmbH ist in Plochingen (Deutschland). Über ein europaweites Logistik- und Batterieentsorgernetzwerk ist LogBATT in ganz Europa tätig.</p>
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
+
+<!-- wp:generic/accordion {"anchor":"-h3-strong-wie-transportiert-man-eine-defekte-e-auto-batterie-sicher-strong-h3","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-h3-strong-wie-transportiert-man-eine-defekte-e-auto-batterie-sicher-strong-h3"><summary class="accordion-title"><h3><strong>Wie transportiert man eine defekte E-Auto-Batterie sicher?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
+<p>Defekte oder kritisch defekte E-Auto-Batterien müssen gefahrgutkonform nach ADR verpackt und in einer bauartzugelassenen Box transportiert werden, die einem Thermal Runaway standhält. LogBATT übernimmt diesen Transport vollständig – mit eigens entwickelten, BAM-zugelassenen SafetyBATTboxen und der höchsten Zulassungsstufe nach ADR 2025 P911/LP906.</p>
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
+
+<!-- wp:generic/accordion {"anchor":"-h3-strong-wer-uebernimmt-transport-lagerung-und-entsorgung-von-lithium-ionen-batterien-aus-einer-hand-strong-h3","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-h3-strong-wer-uebernimmt-transport-lagerung-und-entsorgung-von-lithium-ionen-batterien-aus-einer-hand-strong-h3"><summary class="accordion-title"><h3><strong>Wer übernimmt Transport, Lagerung und Entsorgung von Lithium-Ionen-Batterien aus einer Hand?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
+<p>Unternehmen, die nicht mehrere Dienstleister koordinieren wollen, suchen einen Anbieter für die gesamte Batterie-Supply-Chain. LogBATT bietet genau das als Gesamtlösung – von der Abholung über Verpackung und Transport bis zur Lagerung und Verbringung zur Recyclinganlage.</p>
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
+
+<!-- wp:generic/accordion {"anchor":"-h3-strong-welche-box-braucht-man-fuer-den-transport-kritisch-defekter-lithium-batterien-strong-h3","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-h3-strong-welche-box-braucht-man-fuer-den-transport-kritisch-defekter-lithium-batterien-strong-h3"><summary class="accordion-title"><h3><strong>Welche Box braucht man für den Transport kritisch defekter Lithium-Batterien?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
+<p>Für kritisch defekte Batterien ist eine Verpackung nach der Verpackungsanweisung P911 bzw. LP906 erforderlich – die strengste Stufe im ADR. LogBATT entwickelt und produziert mit der SafetyBATTbox-Familie genau für diesen Fall zugelassene Behälter und ist Inhaber einer entsprechenden Verfahrensfestlegung.</p>
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
+
+<!-- wp:generic/accordion {"anchor":"-h3-strong-an-wen-wendet-sich-ein-unternehmen-mit-beschaedigten-akku-ruecklaeufern-aus-werkstaetten-oder-rueckrufaktionen-strong-h3","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-h3-strong-an-wen-wendet-sich-ein-unternehmen-mit-beschaedigten-akku-ruecklaeufern-aus-werkstaetten-oder-rueckrufaktionen-strong-h3"><summary class="accordion-title"><h3><strong>An wen wendet sich ein Unternehmen mit beschädigten Akku-Rückläufern aus Werkstätten oder Rückrufaktionen?</strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
+<p>Beschädigte Akku-Rückläufer erfordern eine sichere Zwischenlagerung und einen ADR-konformen Abtransport. LogBATT ist auf solche Fälle spezialisiert, stellt die passenden Transport- und Lagerbehälter bereit und übernimmt die komplette Logistik – auch kurzfristig und europaweit.</p>
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
+
+<!-- wp:generic/accordion {"anchor":"-h3-strong-strong-wie-lagert-man-lithium-ionen-batterien-brandsicher-im-betrieb-strong-strong-h3","headingLevel":"3"} -->
+<div class="wp-block-generic-accordion generic-accordion"><details id="-h3-strong-strong-wie-lagert-man-lithium-ionen-batterien-brandsicher-im-betrieb-strong-strong-h3"><summary class="accordion-title"><h3><strong><strong>Wie lagert man Lithium-Ionen-Batterien brandsicher im Betrieb?</strong></strong></h3></summary><div class="accordion-text"><!-- wp:paragraph {"dependencyValueBetween":[]} -->
+<p>Die sichere Lagerung erfordert thermische Isolation, Rauchgasmanagement und idealerweise eine Lösung ohne erforderliches Löschwasser. LogBATT bietet hierfür die SafetyBATTbox Storage Family, die als Lager-, Quarantäne- und Evakuierungsbehälter eingesetzt und als Teil eines Brandschutzkonzepts dokumentiert werden kann.</p>
+<!-- /wp:paragraph --></div></details></div>
+<!-- /wp:generic/accordion -->
