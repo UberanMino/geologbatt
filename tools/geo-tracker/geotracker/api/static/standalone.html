@@ -47,6 +47,9 @@ aside{background:var(--sidebar);border-right:1px solid var(--line);padding:14px 
   font-size:14px;letter-spacing:-.01em}
 .brandmark span{width:20px;height:20px;border-radius:5px;background:var(--accent);
   color:var(--on-accent);display:grid;place-items:center;font-size:11px;font-weight:700}
+.projectpick{padding:0 4px 8px}
+.projectpick select{width:100%;padding:7px 9px;border:1px solid var(--line);border-radius:7px;
+  background:var(--card);color:var(--ink);font:inherit;font-size:12px;cursor:pointer}
 .navgroup{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);
   font-weight:650;padding:12px 8px 5px}
 aside a{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:7px;
@@ -100,6 +103,8 @@ button.mini.on{background:var(--accent);border-color:var(--accent);color:var(--o
 .r-2-1{grid-template-columns:1.35fr 1fr}
 .r-1-1{grid-template-columns:1fr 1fr}
 @media(max-width:1150px){.r-2-1,.r-1-1{grid-template-columns:1fr}}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:820px){.grid2{grid-template-columns:1fr}}
 .kpirow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
   border:1px solid var(--line);border-radius:var(--r);background:var(--panel);overflow:hidden}
 .kpirow>div{padding:12px 14px;border-right:1px solid var(--line)}
@@ -183,6 +188,8 @@ pre.answer{white-space:pre-wrap;font:11.8px/1.55 ui-monospace,SFMono-Regular,Men
 <div class="app">
   <aside>
     <div class="brandmark"><span>LB</span> LogBATT</div>
+    <div class="projectpick" id="projectpick"></div>
+    <a data-route="intro"><i>❋</i>Über das Tool</a>
     <div class="navgroup">Allgemein</div>
     <a data-route="overview"><i>◧</i>Overview</a>
     <a data-route="prompts"><i>≡</i>Prompts</a>
@@ -194,6 +201,7 @@ pre.answer{white-space:pre-wrap;font:11.8px/1.55 ui-monospace,SFMono-Regular,Men
     <a data-route="insights"><i>◆</i>Insights</a>
     <a data-route="brands"><i>▦</i>Wettbewerber</a>
     <div class="navgroup">System</div>
+    <a data-route="projects"><i>▤</i>Projekte</a>
     <a data-route="settings"><i>⚙</i>Einstellungen</a>
     <div class="sidefoot" id="sidefoot"></div>
   </aside>
@@ -210,10 +218,34 @@ pre.answer{white-space:pre-wrap;font:11.8px/1.55 ui-monospace,SFMono-Regular,Men
 
 <script>
 // ===========================================================================
-// Eingebetteter Datenstand — wird von `geotracker export-html` ersetzt.
-// Alles rechnet im Browser: keine Netzwerkaufrufe, kein Server.
+// Speicher-Layer (nur Browser). Projekte und API-Schlüssel liegen lokal in
+// localStorage — nichts davon verlässt je den Rechner oder landet im HTML.
 // ===========================================================================
-const D = /*__GEO_DATA__*/null;
+const STORE = {
+  reg: 'geo.projects', active: 'geo.active', seeded: 'geo.seeded',
+  proj: id => 'geo.project.' + id, key: name => 'geo.apikey.' + name,
+  builtin: '__builtin__',
+};
+function lsGet(k)   { try { return localStorage.getItem(k); } catch (e) { return null; } }
+function lsSet(k, v){ try { localStorage.setItem(k, v); return true; } catch (e) { return false; } }
+function lsDel(k)   { try { localStorage.removeItem(k); } catch (e) {} }
+
+// Datensatz des aktiven Projekts (oder null -> eingebautes Projekt).
+function activeProjectData() {
+  const id = lsGet(STORE.active);
+  if (!id || id === STORE.builtin) return null;
+  const raw = lsGet(STORE.proj(id));
+  if (!raw) return null;
+  try { return JSON.parse(raw); } catch (e) { return null; }
+}
+
+// ===========================================================================
+// Eingebetteter Datenstand — wird von `geotracker export-html` ersetzt.
+// Er ist das eingebaute Projekt; weitere Projekte liegen in localStorage.
+// Alles rechnet im Browser: keine Netzwerkaufrufe für die Auswertung.
+// ===========================================================================
+const EMBEDDED = /*__GEO_DATA__*/null;
+const D = activeProjectData() || EMBEDDED;
 
 const PROMPT = new Map(D.prompts.map(p => [p.id, p]));
 const BRAND  = new Map(D.brands.map(b => [b.id, b]));
@@ -474,7 +506,9 @@ function lineChart(series, o) {
 // ---------------------------------------------------------------------------
 const DATE_PRESETS = [['all','Gesamter Zeitraum'],['7','Letzte 7 Tage'],['14','Letzte 14 Tage'],['30','Letzte 30 Tage']];
 let OPEN_POP = null;
-const SPAN = { min: D.runs.map(r=>r.d).sort()[0], max: D.runs.map(r=>r.d).sort().pop() };
+const _SPAN_DATES = D.runs.map(r=>r.d).sort();
+const _TODAY = (D.generated_at || new Date().toISOString()).slice(0,10);
+const SPAN = { min: _SPAN_DATES[0] || _TODAY, max: _SPAN_DATES[_SPAN_DATES.length-1] || _TODAY };
 
 function facetOptions(key) {
   const count = new Map();
@@ -1048,17 +1082,30 @@ function pageBrands() {
 }
 
 // ---------------------------------------------------------------------------
-// Einstellungen — API-Schlüssel. Funktioniert NUR im Server-Modus
-// (`geotracker serve`): der Export ist ein statischer Schnappschuss ohne
-// Backend, dort erklärt die Seite stattdessen den .env-Weg.
+// Einstellungen — API-Schlüssel. Zwei Modi, automatisch erkannt:
+//   • Server-Modus (`geotracker serve`): Schlüssel wandern in die .env.
+//   • Lokaler Modus (Datei/Export): Schlüssel werden im Browser (localStorage)
+//     gespeichert — bewusst, weil das Tool lokal läuft. Sie verlassen den
+//     Rechner nie und landen nicht im HTML.
+let SETTINGS_MODE = 'checking';   // 'server' | 'local'
+
+function maskLocal(v) { v = (v||'').trim(); return !v ? '' : (v.length>=4 ? '····'+v.slice(-4) : '····'); }
+function localSettingsStatus() {
+  const sa = lsGet(STORE.key('searchapi')) || '';
+  const an = lsGet(STORE.key('anthropic')) || '';
+  return { local:true, keys:{
+    searchapi:{ configured:!!sa, hint:maskLocal(sa) },
+    anthropic:{ configured:!!an, hint:maskLocal(an) } } };
+}
+
 function pageSettings() {
   setTimeout(hydrateSettings, 0);
   return `
   <h1 class="h">Einstellungen</h1>
-  <div class="hsub">API-Schlüssel für die Datenerfassung. Sie werden serverseitig in
-    <code>.env</code> gespeichert und verlassen den Server nie wieder — die Anzeige
-    zeigt nur die letzten vier Zeichen zur Wiedererkennung.</div>
-  <div id="settingsBody"><div class="empty">Prüfe Verbindung zum Server…</div></div>`;
+  <div class="hsub">API-Schlüssel für die Datenerfassung. Die Anzeige zeigt nur die
+    letzten vier Zeichen zur Wiedererkennung — der vollständige Schlüssel wird nie
+    zurückgegeben.</div>
+  <div id="settingsBody"><div class="empty">Prüfe Umgebung…</div></div>`;
 }
 
 async function hydrateSettings() {
@@ -1069,21 +1116,24 @@ async function hydrateSettings() {
     const res = await fetch('api/settings', { cache:'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     st = await res.json();
+    SETTINGS_MODE = 'server';
   } catch (e) {
-    body.innerHTML = `<div class="note">Dieses Dashboard ist gerade als
-      <b>statischer Schnappschuss</b> geöffnet — ohne laufenden Server lassen sich
-      hier keine Schlüssel speichern.<br><br>
-      Starte den Server mit <code>python3 -m geotracker serve</code> und öffne
-      <code>http://127.0.0.1:8000/</code> → dann erscheint hier das Eingabefeld.<br>
-      Alternativ die Schlüssel direkt in <code>.env</code> eintragen
-      (Vorlage: <code>.env.example</code>).</div>`;
-    return;
+    SETTINGS_MODE = 'local';
+    st = localSettingsStatus();
   }
   body.innerHTML = settingsForm(st);
 }
 
 function settingsForm(st) {
   const k = st.keys;
+  const modeNote = SETTINGS_MODE === 'server'
+    ? `<div class="hsub" style="margin-top:14px">Server-Modus: gespeichert in
+        <code>${esc(st.env_path)}</code>. Neue Läufe (<code>geotracker ingest</code> /
+        <code>evaluate</code>) verwenden den Wert ab dem nächsten Aufruf.</div>`
+    : `<div class="hsub" style="margin-top:14px">Lokaler Modus: die Schlüssel liegen nur in
+        <b>diesem Browser</b> (localStorage) und verlassen den Rechner nicht. Für echte
+        Abrufe startest du das Tool mit <code>python3 -m geotracker serve</code> — dann
+        landen sie in der <code>.env</code>.</div>`;
   return `
   ${settingsKey('sa', 'SearchApi-Schlüssel', k.searchapi,
     'Ebene 1 — Scraping der KI-Oberflächen (ChatGPT, Perplexity, Gemini, Google AI Overview). Ohne diesen Schlüssel laufen keine neuen Abrufe.')}
@@ -1094,9 +1144,7 @@ function settingsForm(st) {
       background:var(--accent);color:#fff;font:inherit;font-weight:600;cursor:pointer">Speichern</button>
     <span id="setFeedback" style="font-size:12.5px;color:var(--ink-2)"></span>
   </div>
-  <div class="hsub" style="margin-top:14px">Gespeichert in <code>${esc(st.env_path)}</code>.
-    Neue Läufe (<code>geotracker ingest</code> / <code>evaluate</code>) verwenden den Wert
-    ab dem nächsten Aufruf.</div>`;
+  ${modeNote}`;
 }
 
 function settingsKey(id, label, meta, help) {
@@ -1118,12 +1166,20 @@ function settingsKey(id, label, meta, help) {
 
 window.saveSettings = async () => {
   const fb = document.getElementById('setFeedback');
-  const payload = {};
   const sa = (document.getElementById('set_sa') || {}).value?.trim() || '';
   const an = (document.getElementById('set_an') || {}).value?.trim() || '';
+  if (!sa && !an) { fb.textContent = 'Kein neuer Schlüssel eingegeben.'; return; }
+
+  if (SETTINGS_MODE === 'local') {
+    if (sa) lsSet(STORE.key('searchapi'), sa);
+    if (an) lsSet(STORE.key('anthropic'), an);
+    document.getElementById('settingsBody').innerHTML = settingsForm(localSettingsStatus());
+    document.getElementById('setFeedback').textContent = 'Lokal in diesem Browser gespeichert.';
+    return;
+  }
+  const payload = {};
   if (sa) payload.searchapi = sa;
   if (an) payload.anthropic = an;
-  if (!Object.keys(payload).length) { fb.textContent = 'Kein neuer Schlüssel eingegeben.'; return; }
   fb.textContent = 'Speichere…';
   try {
     const res = await fetch('api/settings', { method:'POST',
@@ -1137,8 +1193,283 @@ window.saveSettings = async () => {
   }
 };
 
+// ===========================================================================
+// Projekte — jedes Projekt ist ein eigener Datensatz (gleiche Form wie der
+// eingebettete). Umschalten lädt die Seite mit dem gewählten Datensatz neu,
+// sodass die komplette Auswertung unverändert weiterläuft.
+// ===========================================================================
+function projectRegistry() {
+  try { return JSON.parse(lsGet(STORE.reg) || '{}'); } catch (e) { return {}; }
+}
+function builtinName() {
+  const own = (EMBEDDED.brands || []).find(b => b.own);
+  return (own && own.name) || 'Eingebautes Projekt';
+}
+function projectList() {
+  const reg = projectRegistry();
+  const active = lsGet(STORE.active) || STORE.builtin;
+  const rows = [{ id:STORE.builtin, name:builtinName()+' (eingebaut)', builtin:true }];
+  for (const id of Object.keys(reg)) rows.push({ id, name:reg[id].name, builtin:false });
+  for (const r of rows) r.active = r.id === active;
+  if (!rows.some(r => r.active)) rows[0].active = true;
+  return rows;
+}
+window.switchProject = id => {
+  if (id === STORE.builtin) lsDel(STORE.active); else lsSet(STORE.active, id);
+  location.hash = 'overview'; location.reload();
+};
+function createProject(name, data) {
+  const id = 'p' + Date.now().toString(36);
+  const reg = projectRegistry();
+  reg[id] = { name, createdAt: new Date().toISOString() };
+  if (!lsSet(STORE.proj(id), JSON.stringify(data)) || !lsSet(STORE.reg, JSON.stringify(reg)))
+    return null;
+  return id;
+}
+window.deleteProject = id => {
+  const reg = projectRegistry();
+  if (!reg[id]) return;
+  if (!confirm(`Projekt „${reg[id].name}" wirklich löschen?`)) return;
+  delete reg[id]; lsSet(STORE.reg, JSON.stringify(reg)); lsDel(STORE.proj(id));
+  if ((lsGet(STORE.active) || '') === id) lsDel(STORE.active);
+  location.hash = 'projects'; location.reload();
+};
+
+// ---------------------------------------------------------------------------
+// Deterministischer Demo-Datensatz (gesät, damit er stabil bleibt). Erzeugt
+// echte Streuung: viele Läufe über Zeit, Domains/URLs mit unterschiedlicher
+// Abruf-Häufigkeit — genau das, was ein einzelner Fixture-Lauf nicht zeigt.
+function mulberry32(a){ return function(){ a|=0; a=a+0x6D2B79F5|0; let t=Math.imul(a^a>>>15,1|a);
+  t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
+
+function demoPayload(opts) {
+  opts = opts || {};
+  const rnd = mulberry32(0xC0FFEE ^ ((opts.seed||'demo').split('').reduce((a,c)=>a+c.charCodeAt(0),0)));
+  const pick = arr => arr[Math.floor(rnd()*arr.length)];
+  const slug = s => (s||'').toLowerCase().replace(/[^a-z0-9]+/g,'').slice(0,24) || 'marke';
+
+  const ownName = (opts.ownName || 'Demo GmbH').trim();
+  const ownDomain = slug(opts.ownDomain || ownName) + '.de';
+  const competitors = (opts.competitors && opts.competitors.length ? opts.competitors
+    : ['Wettbewerb Nord','Wettbewerb Süd','Wettbewerb West']).map(s=>s.trim()).filter(Boolean);
+  const promptTexts = (opts.prompts && opts.prompts.length ? opts.prompts : [
+    'Wer bietet die beste Lösung für ' + ownName.split(' ')[0] + '?',
+    'Welche Anbieter gibt es für sichere Lagerung?',
+    'Vergleich der führenden Anbieter in der Branche',
+    'Worauf bei der Auswahl eines Dienstleisters achten?',
+    'Empfehlungen für zertifizierte Anbieter',
+    'Welche Firma hat die beste Beratung?',
+  ]).map(s=>s.trim()).filter(Boolean);
+
+  // Marken: eigene + Wettbewerber + zwei „earned media"/Referenzen.
+  const brands = [{ id:1, name:ownName, own:1, comp:0, known:1, seen:null }];
+  competitors.forEach((c,i)=> brands.push({ id:2+i, name:c, own:0, comp:1, known:1, seen:null }));
+  const refBase = brands.length + 1;
+  const refs = ['Branchenportal', 'Fachmagazin'];
+  refs.forEach((c,i)=> brands.push({ id:refBase+i, name:c, own:0, comp:0, known:1, seen:null }));
+
+  // Domains + je ein paar echte URLs (damit die URL-Sektion Häufigkeiten zeigt).
+  const domains = {};
+  const urlPool = [];
+  const addDomain = (host, stype, dtype) => {
+    domains[host] = { type:stype, dtype, known:1, seen:null };
+    const paths = ['/', '/loesungen/', '/produkte/lager/', '/ratgeber/sicherheit/', '/referenzen/'];
+    paths.forEach(p => urlPool.push({
+      url:'https://www.'+host+p, domain:host, stype,
+      utype: p==='/'?'homepage':(p.includes('produkte')?'product_page':(p.includes('ratgeber')?'how_to':'category_page')),
+      title: (stype==='owned'?ownName:host)+' – '+(p==='/'?'Startseite':p.replace(/\//g,' ').trim()),
+      known:1 }));
+  };
+  addDomain(ownDomain, 'owned', 'you');
+  competitors.forEach(c => addDomain(slug(c)+'.de', 'competitor', 'competitor'));
+  addDomain('branchenportal.de', 'earned_media', 'reference');
+  addDomain('fachmagazin.de', 'earned_media', 'editorial');
+  addDomain('wikipedia.org', 'other', 'reference');
+
+  const engines = ['chatgpt','perplexity','gemini','google_ai_overview'];
+  const today = new Date();
+  const runs = [];
+  let rid = 1;
+  const days = 30;
+  for (let d = days; d >= 0; d -= 1) {
+    const date = new Date(today.getTime() - d*86400000).toISOString().slice(0,10);
+    promptTexts.forEach((_, pi) => engines.forEach(eng => {
+      if (rnd() < 0.35) return;                       // nicht jeder Prompt jeden Tag/Engine
+      const mentioned = rnd() < 0.55 ? 1 : 0;
+      const pos = mentioned ? 1 + Math.floor(rnd()*4) : null;
+      const sent = mentioned ? +(0.1 + rnd()*0.8).toFixed(2) : null;
+      // 3–6 zitierte Quellen, nach Rang. Eigene erscheint, wenn mentioned.
+      const n = 3 + Math.floor(rnd()*4);
+      const chosen = [];
+      const seen = new Set();
+      for (let r = 0; r < n; r += 1) {
+        const src = pick(urlPool);
+        if (seen.has(src.url)) continue; seen.add(src.url);
+        chosen.push(src);
+      }
+      // [dom,url,stype,url_known,rank,title,is_known,url_type]
+      const c = chosen.map((s, i) => [s.domain, s.url, s.stype, 1, i+1, s.title, 1, s.utype]);
+      // Markennennungen (b): eigene + ein paar Wettbewerber.
+      const b = [];
+      if (mentioned) b.push([1, pos]);
+      brands.filter(x=>x.comp).forEach((x,i)=>{ if (rnd()<0.4) b.push([x.id, i+1+(mentioned?1:0)]); });
+      runs.push({ id:rid++, p:pi+1, e:eng, d:date, s:'demo',
+        m:mentioned, pos, sen:sent, pn: mentioned && rnd()<0.5 ? 1 : 0,
+        ev:'demo-1', t:'(Demo-Antwort — synthetische Daten zur Veranschaulichung.)',
+        c, b });
+    }));
+  }
+
+  const prompts = promptTexts.map((text, i) => ({
+    id:i+1, text, cat:'Demo', country:'DE', lang:'de',
+    branding:'unbranded', intent:'commercial', tags:['demo'] }));
+
+  return {
+    generated_at: new Date().toISOString().replace(/\.\d+Z$/,'Z'),
+    prompts, brands, domains, runs,
+    meta:{ skipped_runs:0, sources:['demo'], engines, demo:true },
+  };
+}
+
+// Beim ersten Start ein Demo-Projekt hinterlegen, damit sofort etwas zu sehen
+// ist (idempotent — nur einmal, danach vom Nutzer frei löschbar).
+function ensureDemoSeed() {
+  if (lsGet(STORE.seeded)) return;
+  const id = createProject('Demo GmbH (Beispieldaten)', demoPayload({ seed:'demo' }));
+  if (id) lsSet(STORE.seeded, '1');
+}
+
+// ---------------------------------------------------------------------------
+function pageProjects() {
+  const rows = projectList();
+  const cards = rows.map(r => `
+    <div class="card" style="display:flex;align-items:center;gap:14px">
+      <div style="flex:1">
+        <h3 style="margin:0">${esc(r.name)} ${r.active
+          ? '<span style="font-size:11px;color:var(--accent);font-weight:600">● aktiv</span>' : ''}</h3>
+        <div class="sub" style="margin-top:2px">${r.builtin
+          ? 'Aus dem Export eingebettet — kann nicht gelöscht werden.'
+          : 'Lokal in diesem Browser gespeichert.'}</div>
+      </div>
+      ${r.active ? '' : `<button onclick="switchProject('${r.id}')" style="padding:8px 14px;
+        border:1px solid var(--line);border-radius:8px;background:var(--card);
+        color:var(--ink);font:inherit;cursor:pointer">Öffnen</button>`}
+      ${r.builtin ? '' : `<button onclick="deleteProject('${r.id}')" style="padding:8px 12px;
+        border:1px solid var(--line);border-radius:8px;background:var(--card);
+        color:var(--neg);font:inherit;cursor:pointer">Löschen</button>`}
+    </div>`).join('');
+  return `
+  <h1 class="h">Projekte</h1>
+  <div class="hsub">Jedes Projekt ist ein eigener Marken-/Kunden-Datensatz. Wechseln lädt
+    das Dashboard mit den Daten des gewählten Projekts.</div>
+  <div style="margin:6px 0 18px"><button onclick="go('newproject')" style="padding:10px 18px;
+    border:0;border-radius:8px;background:var(--accent);color:#fff;font:inherit;
+    font-weight:600;cursor:pointer">+ Neues Projekt</button></div>
+  ${cards}`;
+}
+
+function pageNewProject() {
+  const field = (id, label, ph, val='') => `
+    <label style="display:block;margin:12px 0 4px;font-size:12.5px;color:var(--ink-2)">${label}</label>
+    <input id="np_${id}" placeholder="${esc(ph)}" value="${esc(val)}"
+      style="width:100%;box-sizing:border-box;padding:9px 11px;border:1px solid var(--line);
+        border-radius:8px;font:inherit;background:var(--bg);color:var(--ink)">`;
+  return `
+  <h1 class="h">Neues Projekt</h1>
+  <div class="hsub">Marke, Wettbewerber und Prompts eintragen. Mit „Beispieldaten" bekommt
+    das Projekt sofort einen gefüllten, synthetischen Datensatz zum Vorzeigen — echte Daten
+    holt später <code>geotracker ingest</code> über die API-Schlüssel.</div>
+  <div class="card">
+    ${field('name','Projektname','z. B. Muster AG')}
+    ${field('own','Eigene Marke','z. B. Muster AG')}
+    ${field('domain','Eigene Domain','z. B. muster-ag.de')}
+    ${field('comp','Wettbewerber (mit Komma getrennt)','Anbieter A, Anbieter B, Anbieter C')}
+    <label style="display:block;margin:12px 0 4px;font-size:12.5px;color:var(--ink-2)">Prompts (eine Zeile pro Prompt)</label>
+    <textarea id="np_prompts" rows="4" placeholder="Wer bietet die beste Lösung für …?"
+      style="width:100%;box-sizing:border-box;padding:9px 11px;border:1px solid var(--line);
+        border-radius:8px;font:inherit;background:var(--bg);color:var(--ink);resize:vertical"></textarea>
+    <label style="display:flex;align-items:center;gap:8px;margin-top:14px;font-size:13px;cursor:pointer">
+      <input type="checkbox" id="np_demo" checked> Mit Beispieldaten füllen (empfohlen für die Demo)
+    </label>
+    <div style="display:flex;gap:12px;align-items:center;margin-top:16px">
+      <button onclick="submitNewProject()" style="padding:10px 20px;border:0;border-radius:8px;
+        background:var(--accent);color:#fff;font:inherit;font-weight:600;cursor:pointer">Projekt anlegen</button>
+      <button onclick="go('projects')" style="padding:10px 16px;border:1px solid var(--line);
+        border-radius:8px;background:var(--card);color:var(--ink);font:inherit;cursor:pointer">Abbrechen</button>
+      <span id="npFeedback" style="font-size:12.5px;color:var(--neg)"></span>
+    </div>
+  </div>`;
+}
+
+window.submitNewProject = () => {
+  const val = id => (document.getElementById('np_'+id)||{}).value?.trim() || '';
+  const name = val('name') || val('own') || 'Neues Projekt';
+  const own = val('own') || name;
+  const competitors = val('comp').split(',').map(s=>s.trim()).filter(Boolean);
+  const prompts = val('prompts').split('\n').map(s=>s.trim()).filter(Boolean);
+  const withDemo = document.getElementById('np_demo').checked;
+  const fb = document.getElementById('npFeedback');
+
+  const data = withDemo
+    ? demoPayload({ seed:name, ownName:own, ownDomain:val('domain'), competitors, prompts })
+    : { generated_at:new Date().toISOString().replace(/\.\d+Z$/,'Z'),
+        prompts: prompts.map((text,i)=>({ id:i+1, text, cat:'Eigene', country:'DE', lang:'de',
+          branding:'unbranded', intent:'commercial', tags:[] })),
+        brands: [{ id:1, name:own, own:1, comp:0, known:1, seen:null },
+          ...competitors.map((c,i)=>({ id:2+i, name:c, own:0, comp:1, known:1, seen:null }))],
+        domains:{}, runs:[], meta:{ skipped_runs:0, sources:[], engines:[] } };
+
+  const id = createProject(name, data);
+  if (!id) { fb.textContent = 'Speichern fehlgeschlagen (localStorage nicht verfügbar?).'; return; }
+  switchProject(id);
+};
+
+// ---------------------------------------------------------------------------
+function pageIntro() {
+  const feat = (t, d) => `<div class="card"><h3 style="margin:0 0 4px">${t}</h3>
+    <div class="sub">${d}</div></div>`;
+  return `
+  <h1 class="h">GEO-Visibility-Tracker</h1>
+  <div class="hsub">Sichtbarkeit einer Marke in den Antworten von KI-Suchsystemen messbar
+    machen — ChatGPT, Perplexity, Gemini und Google AI Overview. „GEO" = Generative Engine
+    Optimization: das SEO für die Ära der KI-Antworten.</div>
+
+  <div class="note">Kurz gesagt: Das Tool stellt reale Nutzerfragen an die KI-Engines, speichert
+    deren Antworten und zitierte Quellen roh ab (Ebene 1) und wertet sie anschließend strukturiert
+    aus (Ebene 2). Ergebnis: Wird meine Marke genannt? An welcher Stelle? Mit welchem Tenor?
+    Und welche Quellen zitiert die KI stattdessen?</div>
+
+  <h3 style="margin:22px 0 10px">Was das Dashboard zeigt</h3>
+  <div class="grid2">
+    ${feat('Overview', 'Sichtbarkeitsrate, Position und Tenor der eigenen Marke über die Zeit — inklusive Vergleich zum Vorzeitraum.')}
+    ${feat('Prompts', 'Jede getrackte Frage mit voller Antwort-Historie: wann welche Engine was geantwortet hat.')}
+    ${feat('Domains & URLs', 'Welche Quellen die KI zitiert — nach Häufigkeit, Typ und Bewegung. Die Achse, an der man ansetzt.')}
+    ${feat('Gap-Analyse', 'Fragen mit hoher Relevanz, in denen die eigene Marke fehlt, Wettbewerber aber zitiert werden — die Arbeitsliste.')}
+    ${feat('Insights & Wettbewerber', 'Marken-Leaderboard und Muster: wer teilt sich mit wem die Sichtbarkeit.')}
+    ${feat('Zwei Ebenen', 'Ebene 1 = rohe Erfassung (SearchApi). Ebene 2 = Auswertung mit Claude Haiku. Roh bleibt roh, Interpretation ist getrennt.')}
+  </div>
+
+  <h3 style="margin:22px 0 10px">In drei Schritten starten</h3>
+  <div class="card"><ol style="margin:0;padding-left:20px;line-height:1.9">
+    <li><b>API-Schlüssel eintragen</b> — unter <span class="link" onclick="go('settings')">Einstellungen</span>
+      (SearchApi für die Erfassung, optional Anthropic für die Auswertung).</li>
+    <li><b>Projekt anlegen</b> — unter <span class="link" onclick="go('projects')">Projekte</span> eine Marke,
+      ihre Wettbewerber und die zu trackenden Fragen definieren.</li>
+    <li><b>Erfassen & ansehen</b> — im Server-Modus holt <code>geotracker ingest</code> die Antworten;
+      hier im Dashboard entstehen daraus Kennzahlen und Rankings.</li>
+  </ol></div>
+
+  <div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap">
+    <button onclick="go('overview')" style="padding:11px 20px;border:0;border-radius:8px;
+      background:var(--accent);color:#fff;font:inherit;font-weight:600;cursor:pointer">Dashboard ansehen</button>
+    <button onclick="go('newproject')" style="padding:11px 18px;border:1px solid var(--line);
+      border-radius:8px;background:var(--card);color:var(--ink);font:inherit;cursor:pointer">+ Neues Projekt</button>
+  </div>`;
+}
+
 // ---------------------------------------------------------------------------
 const PAGES = {
+  intro:   { title:'Über das Tool', view:pageIntro },
   overview:{ title:'Overview', view:pageOverview },
   prompts: { title:'Prompts', view:pagePrompts },
   domains: { title:'Quellen › Domains', view:()=>pageSources('domain') },
@@ -1146,6 +1477,8 @@ const PAGES = {
   gap:     { title:'Quellen › Gap-Analyse', view:pageGap },
   insights:{ title:'Marke › Insights', view:pageInsights },
   brands:  { title:'Marke › Wettbewerber', view:pageBrands },
+  projects:{ title:'System › Projekte', view:pageProjects },
+  newproject:{ title:'System › Neues Projekt', view:pageNewProject },
   settings:{ title:'System › Einstellungen', view:pageSettings },
 };
 
@@ -1174,15 +1507,27 @@ function render() {
     `<div class="empty">Fehler beim Rendern: ${esc(err.message)}</div>`; console.error(err); }
 }
 
+function renderProjectPicker() {
+  const rows = projectList();
+  const opts = rows.map(r =>
+    `<option value="${esc(r.id)}" ${r.active?'selected':''}>${esc(r.name)}</option>`).join('');
+  document.getElementById('projectpick').innerHTML =
+    `<select id="projSelect" onchange="switchProject(this.value)"
+       title="Projekt wechseln">${opts}</select>`;
+}
+
 (function init() {
+  ensureDemoSeed();
+  renderProjectPicker();
   F.since = SPAN.min; F.until = SPAN.max;
   document.querySelectorAll('aside a[data-route]').forEach(a => {
     a.href = '#' + a.dataset.route;
     a.onclick = e => { e.preventDefault(); go(a.dataset.route); };
   });
-  if (PAGES[location.hash.slice(1)]) ROUTE = location.hash.slice(1);
+  ROUTE = PAGES[location.hash.slice(1)] ? location.hash.slice(1) : 'intro';
+  const demo = D.meta && D.meta.demo;
   document.getElementById('sidefoot').innerHTML =
-    `Schnappschuss<br>${esc(D.generated_at.slice(0,10))}<br>
+    `${demo ? '<b>Demo-Daten</b><br>' : 'Schnappschuss<br>'}${esc((D.generated_at||'').slice(0,10))}<br>
      ${D.runs.length} Läufe · ${D.prompts.length} Prompts<br>
      <span style="opacity:.8">Rechnet lokal im Browser</span>`;
   renderChips();
