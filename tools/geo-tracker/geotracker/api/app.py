@@ -9,6 +9,7 @@ Start:  python3 -m geotracker serve  (oder: uvicorn geotracker.api.app:app)
 
 from __future__ import annotations
 
+import os
 import sqlite3
 from pathlib import Path
 from typing import Any
@@ -16,8 +17,9 @@ from typing import Any
 from fastapi import Depends, FastAPI, HTTPException, Query
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel
 
-from ..config import load_config
+from ..config import EDITABLE_SECRETS, env_path, load_config, mask_secret, write_env_values
 from ..db import open_db
 from ..exporter import render_dashboard
 from . import queries
@@ -171,6 +173,74 @@ def discoveries(
 def health(conn: sqlite3.Connection = Depends(get_conn)) -> dict[str, Any]:
     runs = conn.execute("SELECT COUNT(*) c FROM runs").fetchone()["c"]
     return {"status": "ok", "db": str(_config.db_path), "runs": runs}
+
+
+# --- Einstellungen (API-Schlüssel) -----------------------------------------
+# Das Settings-Fenster darf die Provider-Keys SETZEN, aber nie einen lesbaren
+# Schlüssel zurückbekommen: `GET` liefert nur "gesetzt/fehlt" plus die letzten
+# vier Zeichen als Wiedererkennung. Damit bleibt die Zusage aus config.py
+# gewahrt — kein Endpunkt gibt einen brauchbaren Provider-Key an das Frontend.
+class SettingsUpdate(BaseModel):
+    searchapi: str | None = None
+    anthropic: str | None = None
+
+
+def _settings_status() -> dict[str, Any]:
+    return {
+        "env_path": str(env_path()),
+        "keys": {
+            "searchapi": {
+                "configured": _config.has_searchapi_key,
+                "hint": mask_secret(_config.searchapi_key),
+            },
+            "anthropic": {
+                "configured": bool(_config.anthropic_key),
+                "hint": mask_secret(_config.anthropic_key),
+            },
+        },
+    }
+
+
+@app.get("/api/settings")
+def get_settings() -> dict[str, Any]:
+    """Status der Provider-Schlüssel — ohne die Schlüssel selbst."""
+    return _settings_status()
+
+
+@app.post("/api/settings")
+def update_settings(body: SettingsUpdate) -> dict[str, Any]:
+    """Provider-Schlüssel in die `.env` schreiben und Config neu laden.
+
+    Ein weggelassenes Feld (``None``) bleibt unverändert; ein leerer String
+    löscht den jeweiligen Schlüssel. Neue Läufe (``ingest``/``evaluate``)
+    verwenden den Wert ab dem nächsten Aufruf.
+    """
+    global _config
+    updates: dict[str, str] = {}
+    for field, env_key in EDITABLE_SECRETS.items():
+        value = getattr(body, field)
+        if value is None:
+            continue  # nicht mitgeschickt -> unverändert lassen
+        updates[env_key] = value.strip()
+
+    if not updates:
+        return _settings_status()
+
+    try:
+        write_env_values(updates)
+    except OSError as exc:
+        raise HTTPException(status_code=500, detail=f".env nicht schreibbar: {exc}") from exc
+
+    # Prozess-Umgebung sofort nachziehen, damit die neu geladene Config den
+    # frischen Wert sieht (load_config nutzt setdefault, Env gewinnt).
+    for env_key, value in updates.items():
+        if value:
+            os.environ[env_key] = value
+        else:
+            os.environ.pop(env_key, None)
+
+    _config = load_config()
+    return _settings_status()
 
 
 # --- Frontend --------------------------------------------------------------

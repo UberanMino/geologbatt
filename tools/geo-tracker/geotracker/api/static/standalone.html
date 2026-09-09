@@ -193,6 +193,8 @@ pre.answer{white-space:pre-wrap;font:11.8px/1.55 ui-monospace,SFMono-Regular,Men
     <div class="navgroup">Marke</div>
     <a data-route="insights"><i>◆</i>Insights</a>
     <a data-route="brands"><i>▦</i>Wettbewerber</a>
+    <div class="navgroup">System</div>
+    <a data-route="settings"><i>⚙</i>Einstellungen</a>
     <div class="sidefoot" id="sidefoot"></div>
   </aside>
 
@@ -1046,6 +1048,96 @@ function pageBrands() {
 }
 
 // ---------------------------------------------------------------------------
+// Einstellungen — API-Schlüssel. Funktioniert NUR im Server-Modus
+// (`geotracker serve`): der Export ist ein statischer Schnappschuss ohne
+// Backend, dort erklärt die Seite stattdessen den .env-Weg.
+function pageSettings() {
+  setTimeout(hydrateSettings, 0);
+  return `
+  <h1 class="h">Einstellungen</h1>
+  <div class="hsub">API-Schlüssel für die Datenerfassung. Sie werden serverseitig in
+    <code>.env</code> gespeichert und verlassen den Server nie wieder — die Anzeige
+    zeigt nur die letzten vier Zeichen zur Wiedererkennung.</div>
+  <div id="settingsBody"><div class="empty">Prüfe Verbindung zum Server…</div></div>`;
+}
+
+async function hydrateSettings() {
+  const body = document.getElementById('settingsBody');
+  if (!body) return;
+  let st;
+  try {
+    const res = await fetch('api/settings', { cache:'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    st = await res.json();
+  } catch (e) {
+    body.innerHTML = `<div class="note">Dieses Dashboard ist gerade als
+      <b>statischer Schnappschuss</b> geöffnet — ohne laufenden Server lassen sich
+      hier keine Schlüssel speichern.<br><br>
+      Starte den Server mit <code>python3 -m geotracker serve</code> und öffne
+      <code>http://127.0.0.1:8000/</code> → dann erscheint hier das Eingabefeld.<br>
+      Alternativ die Schlüssel direkt in <code>.env</code> eintragen
+      (Vorlage: <code>.env.example</code>).</div>`;
+    return;
+  }
+  body.innerHTML = settingsForm(st);
+}
+
+function settingsForm(st) {
+  const k = st.keys;
+  return `
+  ${settingsKey('sa', 'SearchApi-Schlüssel', k.searchapi,
+    'Ebene 1 — Scraping der KI-Oberflächen (ChatGPT, Perplexity, Gemini, Google AI Overview). Ohne diesen Schlüssel laufen keine neuen Abrufe.')}
+  ${settingsKey('an', 'Anthropic-Schlüssel', k.anthropic,
+    'Ebene 2 — Auswertung mit Claude Haiku 4.5 (Sentiment, Problem-Narrativ). Für reine Ebene-1-Abrufe nicht nötig.')}
+  <div style="display:flex;gap:12px;align-items:center;margin-top:4px">
+    <button onclick="saveSettings()" style="padding:9px 18px;border:0;border-radius:8px;
+      background:var(--accent);color:#fff;font:inherit;font-weight:600;cursor:pointer">Speichern</button>
+    <span id="setFeedback" style="font-size:12.5px;color:var(--ink-2)"></span>
+  </div>
+  <div class="hsub" style="margin-top:14px">Gespeichert in <code>${esc(st.env_path)}</code>.
+    Neue Läufe (<code>geotracker ingest</code> / <code>evaluate</code>) verwenden den Wert
+    ab dem nächsten Aufruf.</div>`;
+}
+
+function settingsKey(id, label, meta, help) {
+  const status = meta.configured
+    ? `<span style="font-size:11.5px;font-weight:600;color:var(--pos);
+         background:var(--accent-soft);padding:2px 8px;border-radius:20px">gesetzt · ${esc(meta.hint)}</span>`
+    : `<span style="font-size:11.5px;font-weight:600;color:var(--neg);
+         background:rgba(190,40,40,.09);padding:2px 8px;border-radius:20px">fehlt</span>`;
+  return `<div class="card">
+    <h3 style="display:flex;align-items:center;gap:10px">${esc(label)} ${status}</h3>
+    <div class="sub">${help}</div>
+    <input id="set_${id}" type="password" autocomplete="off" spellcheck="false"
+      placeholder="${meta.configured ? 'Neuen Schlüssel eingeben, um zu ersetzen' : 'Schlüssel hier einfügen'}"
+      style="width:100%;box-sizing:border-box;margin-top:11px;padding:9px 11px;
+        border:1px solid var(--line);border-radius:8px;font:inherit;
+        background:var(--bg);color:var(--ink)">
+  </div>`;
+}
+
+window.saveSettings = async () => {
+  const fb = document.getElementById('setFeedback');
+  const payload = {};
+  const sa = (document.getElementById('set_sa') || {}).value?.trim() || '';
+  const an = (document.getElementById('set_an') || {}).value?.trim() || '';
+  if (sa) payload.searchapi = sa;
+  if (an) payload.anthropic = an;
+  if (!Object.keys(payload).length) { fb.textContent = 'Kein neuer Schlüssel eingegeben.'; return; }
+  fb.textContent = 'Speichere…';
+  try {
+    const res = await fetch('api/settings', { method:'POST',
+      headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(payload) });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    document.getElementById('settingsBody').innerHTML = settingsForm(await res.json());
+    document.getElementById('setFeedback').textContent =
+      'Gespeichert. Neue Läufe verwenden die Schlüssel ab sofort.';
+  } catch (e) {
+    fb.textContent = 'Fehler beim Speichern: ' + e.message;
+  }
+};
+
+// ---------------------------------------------------------------------------
 const PAGES = {
   overview:{ title:'Overview', view:pageOverview },
   prompts: { title:'Prompts', view:pagePrompts },
@@ -1054,6 +1146,7 @@ const PAGES = {
   gap:     { title:'Quellen › Gap-Analyse', view:pageGap },
   insights:{ title:'Marke › Insights', view:pageInsights },
   brands:  { title:'Marke › Wettbewerber', view:pageBrands },
+  settings:{ title:'System › Einstellungen', view:pageSettings },
 };
 
 // Routing über den Hash: die Seite ist damit verlinkbar und der Zurück-Knopf

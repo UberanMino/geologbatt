@@ -37,6 +37,57 @@ def _load_dotenv(path: Path) -> None:
         os.environ.setdefault(key, value)
 
 
+# Schlüssel, die das Dashboard-Einstellungsfenster setzen darf. Bewusst eine
+# feste Whitelist: das Settings-Fenster kann NUR diese beiden Secrets schreiben,
+# keine beliebigen Umgebungsvariablen.
+EDITABLE_SECRETS: dict[str, str] = {
+    "searchapi": "SEARCHAPI_API_KEY",
+    "anthropic": "ANTHROPIC_API_KEY",
+}
+
+
+def env_path() -> Path:
+    """Pfad der `.env` (respektiert GEOTRACKER_ENV_FILE für Tests)."""
+    override = os.environ.get("GEOTRACKER_ENV_FILE", "").strip()
+    return Path(override).expanduser() if override else PROJECT_DIR / ".env"
+
+
+def mask_secret(value: str) -> str:
+    """Nur ein Wiedererkennungs-Hinweis, nie der ganze Schlüssel.
+
+    "gesetzt · ····ab12" reicht dem Nutzer zum Abgleich; die vollständige
+    Zeichenkette verlässt den Server bewusst nie.
+    """
+    v = (value or "").strip()
+    if not v:
+        return ""
+    return "····" + v[-4:] if len(v) >= 4 else "····"
+
+
+def write_env_values(updates: dict[str, str], env_file: Path | None = None) -> None:
+    """`KEY=VALUE` in der `.env` aktualisieren (anlegen/ersetzen), Rest erhalten.
+
+    Kommentare, Reihenfolge und andere Einträge bleiben unangetastet; ein bereits
+    vorhandener Schlüssel wird an Ort und Stelle ersetzt, ein neuer angehängt.
+    """
+    path = env_file or env_path()
+    lines = path.read_text(encoding="utf-8").splitlines() if path.is_file() else []
+    remaining = dict(updates)
+    out: list[str] = []
+    for line in lines:
+        stripped = line.strip()
+        if stripped and not stripped.startswith("#") and "=" in stripped:
+            key = stripped.split("=", 1)[0].strip()
+            if key in remaining:
+                out.append(f"{key}={remaining.pop(key)}")
+                continue
+        out.append(line)
+    for key, value in remaining.items():
+        out.append(f"{key}={value}")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(out) + "\n", encoding="utf-8")
+
+
 def _env_int(name: str, default: int) -> int:
     raw = os.environ.get(name, "").strip()
     try:
@@ -79,7 +130,7 @@ class Config:
 
 
 def load_config(env_file: Path | None = None) -> Config:
-    _load_dotenv(env_file or PROJECT_DIR / ".env")
+    _load_dotenv(env_file or env_path())
 
     db_path = Path(
         os.environ.get("GEOTRACKER_DB_PATH", str(PROJECT_DIR / "data" / "geotracker.sqlite3"))

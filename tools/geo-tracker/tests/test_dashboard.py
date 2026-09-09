@@ -259,6 +259,52 @@ def test_api_endpoints_respond(tmp_path, monkeypatch=None):
     assert "api_key" not in body.lower() and "sk-" not in body
 
 
+def test_settings_writes_env_and_never_returns_the_key(tmp_path, monkeypatch):
+    from fastapi.testclient import TestClient
+
+    import geotracker.api.app as app_module
+    from geotracker import config as config_module
+
+    env_file = tmp_path / ".env"
+    monkeypatch.setenv("GEOTRACKER_ENV_FILE", str(env_file))
+    monkeypatch.delenv("SEARCHAPI_API_KEY", raising=False)
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+
+    conn = _db(tmp_path)
+    conn.close()
+    app_module._config = _config(tmp_path)
+    client = TestClient(app_module.app)
+
+    # Anfangs: beide Schlüssel fehlen.
+    status = client.get("/api/settings").json()
+    assert status["keys"]["searchapi"]["configured"] is False
+    assert status["keys"]["anthropic"]["configured"] is False
+
+    secret = "sk-searchapi-ABCDwxyz1234"
+    resp = client.post("/api/settings", json={"searchapi": secret})
+    assert resp.status_code == 200
+    payload = resp.json()
+
+    # Status meldet "gesetzt", aber niemals den ganzen Schlüssel.
+    assert payload["keys"]["searchapi"]["configured"] is True
+    assert payload["keys"]["searchapi"]["hint"] == "····1234"
+    assert secret not in resp.text
+    assert payload["keys"]["anthropic"]["configured"] is False  # unberührt
+
+    # .env wurde tatsächlich geschrieben und von der Config übernommen.
+    assert f"SEARCHAPI_API_KEY={secret}" in env_file.read_text(encoding="utf-8")
+    assert app_module._config.searchapi_key == secret
+
+    # Zweiter Schlüssel getrennt setzbar, ohne den ersten zu verlieren.
+    client.post("/api/settings", json={"anthropic": "sk-ant-0000WXYZ"})
+    after = client.get("/api/settings").json()["keys"]
+    assert after["searchapi"]["configured"] and after["anthropic"]["configured"]
+
+    # Leerer String löscht gezielt.
+    client.post("/api/settings", json={"searchapi": ""})
+    assert client.get("/api/settings").json()["keys"]["searchapi"]["configured"] is False
+
+
 def test_api_filters_are_forwarded(tmp_path):
     from fastapi.testclient import TestClient
 
