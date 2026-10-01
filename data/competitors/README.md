@@ -37,3 +37,19 @@ ebenfalls fast ausschließlich im Recycling-Cluster auf. Beide sind spezialisier
 Recycling-/Havarie-Anbieter und sollten bei einer Recycling-fokussierten GEO-Maßnahme als
 Hauptkonkurrenz behandelt werden, nicht als Nischenspieler. Details:
 `notes/geo-analyse-peec-prompts-master-2026-08-03.md`, Abschnitt 1.
+
+## UK-/EN-Markt (logbatt.com, Peec 02.09.–01.10.2026)
+
+Quelle: `data/peec/logbatt-com-en_2026-09-02_2026-10-01/`, Analyse
+`notes/geo-analysis-com-hardware-2026-10-01.md`. Sichtbarkeit in den 7 Hardware-Kauf-Prompts:
+
+| Marke | Sichtbarkeit Kauf-Prompts | Relevante Domains |
+| --- | ---: | --- |
+| Zarges | 70 % | zarges.com/uk/, zargescases.co.uk (UK-Distributor), 17 Fremd-Domains (Händler) |
+| DENIOS | 50 % | denios.co.uk (Shop mit £-Preisen), denios.ie |
+| Chemstore | 38 % | chemstore.co.uk (UK-Hersteller) |
+| LogBATT | 16 % | logbatt.com, lagermax.com, lion-care.com |
+
+Weitere im EN-Datensatz häufig genannte Anbieter: Air Sea Containers (airseadg.com, 152 Nennungen),
+Safelincs (102), O'Neill GmbH (oneillgmbh.co.uk, 100), GWP (gwp.co.uk, 88), Battery Safe
+Solutions, Cemo (Li-SAFE, über UK-Händler), Conrail (Container-Miete/-Verkauf UK).

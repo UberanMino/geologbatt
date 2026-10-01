@@ -15,6 +15,9 @@ data/peec/
                                           README (Schema/Caveats), findings.md (strategische
                                           Auswertung), competitors.md (Leaderboard),
                                           prompt-metrics.csv (maschinenlesbar je Prompt)
+  logbatt-com-en_2026-09-02_2026-10-01/  logbatt.com / englische Prompts (UK-lokalisierte Antworten):
+                                          15 Chat-Exporte (chats/raw/), Quell-URL-Export inkl. Seiten-
+                                          Ebene (source-urls/), prompt-metrics.csv – eigene README
   2026-07-27_2026-08-03/                 ein Zeitraum-Ordner pro Export-Batch (Woche)
     chats/                               Chat-Exporte: pro Datei ein getesteter Prompt
     top-brands/                          Top-Brands-Exporte: Sichtbarkeits-/Wettbewerbsranking
@@ -25,10 +28,11 @@ für Wettbewerbs- und Sichtbarkeitsanalysen – es ist der vollständige Account
 seiten- oder themengefiltert). Er ersetzt den früheren, nur einen Teil beschreibenden
 `chat-export-*`-Ordner. Weitere Zeiträume kommen als zusätzliche `tracked-prompts-*`-Ordner dazu.
 
-### Caveat: keine Seiten-Ebene
+### Caveat: keine Seiten-Ebene (gilt für die DE-Chat-Exporte)
 `sources` enthält nur **Domains** (`logbatt.de`), nie Pfade. Aus diesem Export lässt sich **nicht**
 ableiten, welche einzelne LogBATT-**Seite** zitiert wurde – dafür wäre der Peec-Quellen-/URL-Export
-nötig. Details siehe `tracked-prompts-2026-07-01_2026-08-05/README.md`.
+nötig. Details siehe `tracked-prompts-2026-07-01_2026-08-05/README.md`. Für logbatt.com liegt
+dieser Quell-URL-Export inzwischen vor: `logbatt-com-en_2026-09-02_2026-10-01/source-urls/`.
 
 ## Spalten-Glossar (Chat-Exporte)
 

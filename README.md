@@ -23,8 +23,10 @@ website/de/        Ist-Zustand der deutschen Website (roher WordPress-Gutenberg-
   _index.md        Seitenübersicht: Slug, URL, Meta-Title, Meta-Description, Kernaussage
 optimized/de/      GEO-optimierte Content-Vorschläge je Seite (fertig zur Umsetzung im Backend),
                    spiegelt die Struktur von website/de/
+optimized/en/      dito für logbatt.com (englisch)
 data/peec/         Peec-AI-Exporte: wie LLMs auf relevante Prompts reagieren (Chats + Top-Brands
-                   je Zeitraum, siehe data/peec/README.md)
+                   je Zeitraum, siehe data/peec/README.md); logbatt.com/EN-Daten in
+                   data/peec/logbatt-com-en_*/
 data/analytics/    Zugriffs-/Traffic-Daten der LogBATT-Seiten (folgt)
 data/competitors/  Wettbewerber-Informationen (folgt; erste Kandidaten aus Peec-Zitaten siehe
                    notes/geo-analyse-peec-2026-07-27_2026-08-03.md, Abschnitt 4)
@@ -40,6 +42,9 @@ notes/             GEO-Analysen einzelner Seiten und abgeleitete Maßnahmen
 - [~] Peec-AI-Daten (eingepflegt: 3 Chat-Exports + 2 Top-Brands-Snapshots für 27.07.–03.08.2026,
   plus Master-Liste aller 79 aktiv getrackten Prompts über 10 Themen-Cluster (Stand 03.08.2026);
   siehe data/peec/ und die beiden geo-analyse-peec-*.md-Notizen)
+- [x] logbatt.com (EN): Peec-Export 02.09.–01.10.2026 (15 Prompts × 3 Engines × 30 Tage +
+  1.765 Quell-URLs) eingepflegt unter `data/peec/logbatt-com-en_2026-09-02_2026-10-01/`;
+  Analyse Hardware-Verkauf vs. DENIOS/Zarges/Chemstore: `notes/geo-analysis-com-hardware-2026-10-01.md`
 - [ ] Analytics-/Traffic-Daten
 - [ ] Competitor-Daten
 - [ ] GEO-Analyse & Maßnahmenableitung

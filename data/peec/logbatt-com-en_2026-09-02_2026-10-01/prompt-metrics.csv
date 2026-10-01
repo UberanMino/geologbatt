@@ -1,0 +1,16 @@
+cluster,prompt,answers,no_answer,vis_LogBATT,vis_DENIOS,vis_Zarges,vis_Chemstore,vis_LogBATT_chatgpt-ui,vis_LogBATT_gemini-ui,vis_LogBATT_google-ai-overview,logbatt_domain_cited,avg_position_LogBATT,shopping_module
+hardware-buy,What transport boxes are available for lithium batteries?,90,0,0.0,0.311,0.522,0.1,0.0,0.0,0.0,0.044,,0.333
+hardware-buy,Which containers are suitable for storing lithium batteries?,90,0,0.0,0.111,0.278,0.122,0.0,0.0,0.0,0.022,,0.256
+hardware-buy,What is the best transport box for lithium-ion batteries?,78,12,0.038,0.295,0.603,0.038,0.0,0.1,0.0,0.038,1.33,0.577
+hardware-buy,Which suppliers sell safety boxes for damaged lithium batteries?,78,12,0.09,0.679,0.949,0.756,0.067,0.167,0.0,0.026,3.86,0.41
+hardware-buy,Provider of quarantine boxes for lithium-ion batteries,90,0,0.222,0.733,0.733,0.756,0.133,0.367,0.167,0.144,3.1,0.267
+hardware-buy,Which suppliers sell dangerous goods boxes for high-voltage batteries?,86,4,0.337,0.605,0.953,0.395,0.1,0.233,0.731,0.395,2.52,0.395
+hardware-buy,Which suppliers offer transport crates for lithium-ion batteries?,90,0,0.4,0.756,0.878,0.467,0.5,0.367,0.333,0.378,3.14,0.278
+hardware-rent,Providers of storage containers for lithium batteries for rent,74,16,0.527,0.189,0.0,0.0,0.767,0.133,0.857,0.5,1.03,0.0
+hardware-rent,Where can I rent quarantine boxes for defective lithium-ion batteries?,90,0,0.656,0.589,0.078,0.356,0.833,0.367,0.767,0.611,1.14,0.022
+hardware-rent,Which company rents out dangerous goods boxes for lithium batteries?,89,1,0.989,0.247,0.191,0.236,1.0,0.967,1.0,0.921,1.0,0.0
+service,Which company is best for disposing of lithium-ion batteries?,90,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0
+service,Which service provider specializes in the disposal of lithium batteries after an incident?,89,1,0.135,0.0,0.0,0.0,0.133,0.033,0.241,0.191,1.0,0.0
+service,Which company can transport damaged lithium batteries?,89,1,0.202,0.0,0.056,0.0,0.033,0.567,0.0,0.157,1.0,0.0
+service,Which providers dispose of lithium batteries after a warehouse or truck fire?,89,1,0.326,0.0,0.0,0.0,0.233,0.567,0.172,0.393,1.0,0.0
+service,Service provider for Europe-wide collection of lithium batteries after an incident,89,1,0.921,0.0,0.011,0.0,0.9,0.967,0.897,0.584,1.01,0.0
