@@ -19,40 +19,43 @@ Target URLs (checked on 2026-10-01, all return 200, no redirects):
 
 ---
 
-## 1. Product cards: add a link below each spec list
+## 1. Product carousel at the top: point the buttons to the product pages
 
-Section "Product overview: the SafetyBATTbox storage containers compared". Each product card is a
-column with an H4 (e.g. "SafetyBATTbox XL Storage") followed by a bullet list (ending with
-"Dimensions … Tare weight"). **Directly below that list, in the same column**, add a paragraph
-block. In the code editor, paste it after the closing `<!-- /wp:list -->` of the outer list,
-before the `</div>` of the column:
+The live EN page already has the product carousel (the `rh/block-splide` block with three slides:
+XL Storage, L-Storage, M-Storage). Its "Go to the product" buttons currently jump to anchors on the
+same page (`#safety-batt-box-xl-storage` etc.). On the German page (`/lagerbehaelter/`) the same
+buttons open the product pages. In the editor, change only the button link (the text stays):
 
-XL Storage:
+| Slide | Old link | New link |
+| --- | --- | --- |
+| XL Storage | `#safety-batt-box-xl-storage` | `https://www.logbatt.com/storage-containers/safetybattbox-xl-storage/` |
+| L-Storage | `#safety-batt-box-l-storage` | `https://www.logbatt.com/storage-containers/safetybattbox-l-storage/` |
+| M-Storage | `#safety-batt-box-m-storage` | `https://www.logbatt.com/storage-containers/safetybattbox-m-storage/` |
+
+## 1b. Product overview: link the box titles
+
+Section "Product overview: the SafetyBATTbox storage containers compared". Put the link on the
+H4 title of each box, the same way the German transport-crates page does it. Don't add any extra text.
+In the editor: select the title text → link → paste the URL. In the code editor, the three
+headings look like this afterwards:
+
 ```html
-<!-- wp:paragraph -->
-<p><a href="https://www.logbatt.com/storage-containers/safetybattbox-xl-storage/">SafetyBATTbox XL Storage: technical data, functions and enquiry →</a></p>
-<!-- /wp:paragraph -->
+<!-- wp:heading {"level":4,"anchor":"safety-batt-box-xl-storage"} -->
+<h4 id="safety-batt-box-xl-storage" class="wp-block-heading"><a href="https://www.logbatt.com/storage-containers/safetybattbox-xl-storage/" data-type="link" data-id="https://www.logbatt.com/storage-containers/safetybattbox-xl-storage/">SafetyBATTbox XL Storage</a></h4>
+<!-- /wp:heading -->
+```
+```html
+<!-- wp:heading {"level":4,"anchor":"safety-batt-box-l-storage"} -->
+<h4 id="safety-batt-box-l-storage" class="wp-block-heading"><a href="https://www.logbatt.com/storage-containers/safetybattbox-l-storage/" data-type="link" data-id="https://www.logbatt.com/storage-containers/safetybattbox-l-storage/">SafetyBATTbox L Storage</a></h4>
+<!-- /wp:heading -->
+```
+```html
+<!-- wp:heading {"level":4,"anchor":"safety-batt-box-m-storage"} -->
+<h4 id="safety-batt-box-m-storage" class="wp-block-heading"><a href="https://www.logbatt.com/storage-containers/safetybattbox-m-storage/" data-type="link" data-id="https://www.logbatt.com/storage-containers/safetybattbox-m-storage/">SafetyBATTbox M Storage</a></h4>
+<!-- /wp:heading -->
 ```
 
-L Storage:
-```html
-<!-- wp:paragraph -->
-<p><a href="https://www.logbatt.com/storage-containers/safetybattbox-l-storage/">SafetyBATTbox L Storage: technical data, functions and enquiry →</a></p>
-<!-- /wp:paragraph -->
-```
-
-M Storage:
-```html
-<!-- wp:paragraph -->
-<p><a href="https://www.logbatt.com/storage-containers/safetybattbox-m-storage/">SafetyBATTbox M Storage: technical data, functions and enquiry →</a></p>
-<!-- /wp:paragraph -->
-```
-
-This is the same wording and placement as on `/transport-crates/`.
-
-Leave the "Go to the product" buttons in the hero and the left "Products" navigation as they are.
-They are jump links within the page and still useful for visitors. The new links are the
-crawlable route to the detail pages.
+Leave the left "Products" navigation (jump links within the page) unchanged.
 
 ## 2. Fix the broken rental link (404)
 
@@ -87,7 +90,8 @@ https://validator.schema.org/.
 
 ## 4. Check after publishing
 
-- Front end: three new links below the product cards, each opens the correct product page.
+- Front end: the three carousel buttons and the three box titles in the product overview each open
+  the correct product page.
 - The "hired" link opens the rental page (no 404).
 - Rich Results Test / Schema validator: no errors, each product shows its `url`.
 - Side note, not part of this patch: on the live page, several product images use

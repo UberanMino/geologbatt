@@ -268,8 +268,10 @@ pro-equip.co.uk, unimac.co.uk, empteezy.co.uk, kingfisherdirect.co.uk.
 ## 7. Implementation status
 
 - **2026-10-01 – P0 #1 (product links), `/transport-crates/`: done** in
-  `optimized/en/transport-crates.html`. Each product card has a text link to its detail page, and
-  each `Product` in the `ItemList` JSON-LD has a `url`. Found along the way:
+  `optimized/en/transport-crates.html`, following the pattern of the German page: the box
+  titles (H4) in the product overview link to the product pages, the product carousel
+  (`rh/block-splide`, 7 slides, "Go to the product") is back below the intro (it was missing on
+  the EN page), and each `Product` in the `ItemList` JSON-LD has a `url`. Found along the way:
   - The live slugs are swapped relative to the names: `/transport-crates/safetybattbox-xl-2-2/` =
     **XL-2.2+**, `/transport-crates/safetybattbox-xl-2-2-2/` = **XL 2.2**. The links follow the live
     pages. Renaming the slugs (with 301s) is optional.
