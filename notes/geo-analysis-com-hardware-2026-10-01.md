@@ -262,3 +262,20 @@ pro-equip.co.uk, unimac.co.uk, empteezy.co.uk, kingfisherdirect.co.uk.
 3. Can we publish indicative prices (at least for S-1/S-1-lite/M-2), or at least "from €/£ …"?
 4. Is there an English product brochure PDF?
 5. Do we have, or want, UK resellers or distributors? The LionCare partnership is the model.
+
+---
+
+## 7. Implementation status
+
+- **2026-10-01 – P0 #1 (product links), `/transport-crates/`: done** in
+  `optimized/en/transport-crates.html`. Each product card has a text link to its detail page, and
+  each `Product` in the `ItemList` JSON-LD has a `url`. Found along the way:
+  - The live slugs are swapped relative to the names: `/transport-crates/safetybattbox-xl-2-2/` =
+    **XL-2.2+**, `/transport-crates/safetybattbox-xl-2-2-2/` = **XL 2.2**. The links follow the live
+    pages. Renaming the slugs (with 301s) is optional.
+  - **XL-lite has no English product page.** The old JSON-LD `url`
+    `/transport-crates/safety-batt-box-xl-lite/` redirected to **logbatt.se** (Swedish) and has been
+    removed. Once an EN page exists, add the card link and the `url`.
+- **2026-10-01 – P0 #1, `/storage-containers/`: patch ready** in
+  `optimized/en/storage-containers-link-patch.md` (the Gutenberg source isn't in the repo). It also
+  covers P0 #4 (404 link `/transport-crates/rent-storage-boxes/`).
