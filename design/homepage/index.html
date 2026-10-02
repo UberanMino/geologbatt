@@ -1,0 +1,1805 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Die Gesamtlösung für Batterielogistik 🔋 | LogBATT GmbH</title>
+<meta name="description" content="Gesamtlösung für Lithium-Ionen-Batterielogistik bei LogBATT. ✔️ Entsorgung ✔️ Recycling ✔️ Transport und ✔️ sichere Lagerung von E-Auto-Batterien.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<!--
+  ============================================================================
+  LogBATT – Homepage Redesign (Entwurf)
+  ----------------------------------------------------------------------------
+  Diese Datei ist die STANDALONE-Vorschau. Für den Einbau in WordPress wird
+  nur der Bereich zwischen "COPY START" und "COPY END" benötigt
+  (ein einziger "Custom HTML"-Block). Details: siehe README.md.
+
+  Fonts: Montserrat + Roboto werden vom RegioHelden-Theme bereits geladen;
+  der <link> oben ist nur für diese lokale Vorschau nötig.
+  ============================================================================
+-->
+</head>
+<body style="margin:0">
+
+<!-- ========================= COPY START ========================= -->
+<style>
+/* ==========================================================================
+   LogBATT Homepage – alle Styles unter .lb-page gescoped (kein Konflikt mit
+   dem WordPress-/RegioHelden-Theme).
+   ========================================================================== */
+.lb-page{
+  /* Marke */
+  --lb-ci:#29abe2;
+  --lb-ci-600:#1b93c8;
+  --lb-ci-700:#12769f;
+  --lb-ci-050:#e9f7fd;
+  --lb-ink:#0e1a22;
+  --lb-ink-2:#16242e;
+  --lb-ink-3:#22333f;
+  --lb-grey:#6d6e71;
+  --lb-grey-2:#8b9299;
+  --lb-text:#333333;
+  --lb-line:#e2e8ec;
+  --lb-bg:#ffffff;
+  --lb-soft:#f4f7f9;
+  --lb-warn:#ff6b35;
+  --lb-warn-soft:#fff1ea;
+  --lb-ok:#12a67a;
+
+  --lb-r:14px;
+  --lb-r-lg:22px;
+  --lb-shadow:0 1px 2px rgba(14,26,34,.04), 0 8px 30px rgba(14,26,34,.07);
+  --lb-shadow-lg:0 2px 4px rgba(14,26,34,.05), 0 24px 60px rgba(14,26,34,.13);
+
+  --lb-h:"Montserrat","Roboto",Arial,Helvetica,sans-serif;
+  --lb-b:"Roboto",Arial,Helvetica,sans-serif;
+
+  font-family:var(--lb-b);
+  color:var(--lb-text);
+  background:var(--lb-bg);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+
+  /* Full-Bleed: bricht aus dem schmalen WP-Content-Container aus.
+     Falls das im Theme Probleme macht: die nächsten 3 Zeilen entfernen. */
+  width:100vw;
+  max-width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+  overflow-x:clip;
+  position:relative;
+}
+.lb-page *,.lb-page *::before,.lb-page *::after{box-sizing:border-box}
+.lb-page h1,.lb-page h2,.lb-page h3,.lb-page h4,.lb-page h5,.lb-page p,
+.lb-page ul,.lb-page ol,.lb-page li,.lb-page figure,.lb-page blockquote{margin:0;padding:0}
+.lb-page ul,.lb-page ol{list-style:none}
+.lb-page img,.lb-page svg,.lb-page video{max-width:100%;display:block}
+.lb-page button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.lb-page a{color:var(--lb-ci-700);text-decoration:none}
+.lb-page a:hover{text-decoration:underline}
+.lb-page h1,.lb-page h2,.lb-page h3,.lb-page h4{
+  font-family:var(--lb-h);font-weight:800;color:var(--lb-ink);
+  line-height:1.12;letter-spacing:-.015em;text-wrap:balance;
+}
+.lb-page :focus-visible{outline:3px solid var(--lb-ci);outline-offset:3px;border-radius:6px}
+
+/* ---------- Layout-Bausteine ---------- */
+.lb-wrap{max-width:1220px;margin-inline:auto;padding-inline:clamp(20px,5vw,48px)}
+.lb-sec{padding-block:clamp(64px,8vw,116px)}
+.lb-sec--soft{background:var(--lb-soft)}
+.lb-sec--dark{background:var(--lb-ink);color:#c9d6de}
+.lb-sec--dark h2,.lb-sec--dark h3,.lb-sec--dark h4{color:#fff}
+
+.lb-eyebrow{
+  font-family:var(--lb-h);font-weight:700;font-size:.78rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--lb-ci-700);display:inline-flex;align-items:center;gap:10px;
+}
+.lb-eyebrow::before{content:"";width:26px;height:2px;background:var(--lb-ci);border-radius:2px}
+.lb-sec--dark .lb-eyebrow{color:#63c8ee}
+.lb-h2{font-size:clamp(1.85rem,3.6vw,3rem);margin-top:14px}
+.lb-lead{font-size:clamp(1.02rem,1.35vw,1.2rem);color:var(--lb-grey);max-width:62ch;margin-top:18px}
+.lb-sec--dark .lb-lead{color:#a9bdc8}
+.lb-head{max-width:820px}
+.lb-head--center{margin-inline:auto;text-align:center}
+.lb-head--center .lb-lead{margin-inline:auto}
+
+/* ---------- Buttons ---------- */
+.lb-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--lb-h);font-weight:700;font-size:.98rem;letter-spacing:.01em;
+  padding:15px 28px;border-radius:100px;text-decoration:none;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
+  will-change:transform;text-align:center;
+}
+.lb-btn:hover{text-decoration:none;transform:translateY(-2px)}
+.lb-btn svg{width:18px;height:18px;flex:none}
+.lb-btn--primary{background:var(--lb-ci);color:#062230;box-shadow:0 10px 26px rgba(41,171,226,.34)}
+.lb-btn--primary:hover{background:#54c4f0;color:#062230;box-shadow:0 16px 34px rgba(41,171,226,.45)}
+.lb-btn--ghost{border:2px solid rgba(255,255,255,.5);color:#fff}
+.lb-btn--ghost:hover{background:#fff;color:var(--lb-ink);border-color:#fff}
+.lb-btn--line{border:2px solid var(--lb-line);color:var(--lb-ink);background:#fff}
+.lb-btn--line:hover{border-color:var(--lb-ci);color:var(--lb-ci-700)}
+.lb-btn--dark{background:var(--lb-ink);color:#fff}
+.lb-btn--dark:hover{background:var(--lb-ink-3);color:#fff}
+.lb-btns{display:flex;flex-wrap:wrap;gap:14px}
+
+/* ---------- Scroll-Reveal ---------- */
+.lb-rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,.7,.3,1),transform .7s cubic-bezier(.22,.7,.3,1)}
+.lb-rv.is-in{opacity:1;transform:none}
+.lb-rv[data-d="1"]{transition-delay:.08s}
+.lb-rv[data-d="2"]{transition-delay:.16s}
+.lb-rv[data-d="3"]{transition-delay:.24s}
+.lb-rv[data-d="4"]{transition-delay:.32s}
+.lb-rv[data-d="5"]{transition-delay:.40s}
+
+/* ==========================================================================
+   1 – HERO
+   ========================================================================== */
+.lb-hero{
+  position:relative;min-height:min(92vh,880px);display:flex;flex-direction:column;
+  background:var(--lb-ink);overflow:hidden;isolation:isolate;
+  padding-top:clamp(80px,10vh,120px);
+}
+.lb-hero__body{flex:1;display:flex;align-items:center;width:100%;padding-bottom:clamp(36px,6vh,64px)}
+.lb-hero__media{position:absolute;inset:0;z-index:-2}
+.lb-hero__media video,.lb-hero__media img{width:100%;height:100%;object-fit:cover}
+.lb-hero__scrim{
+  position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(120% 80% at 15% 30%, rgba(14,26,34,.92) 0%, rgba(14,26,34,.72) 40%, rgba(14,26,34,.55) 70%),
+    linear-gradient(180deg, rgba(14,26,34,.75) 0%, rgba(14,26,34,.35) 35%, rgba(14,26,34,.88) 100%);
+}
+.lb-hero__grid{
+  position:absolute;inset:0;z-index:-1;opacity:.35;
+  background-image:linear-gradient(rgba(41,171,226,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(41,171,226,.16) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(70% 60% at 70% 40%,#000 0%,transparent 75%);
+  -webkit-mask-image:radial-gradient(70% 60% at 70% 40%,#000 0%,transparent 75%);
+}
+.lb-hero__inner{position:relative;max-width:900px}
+.lb-badge{
+  display:inline-flex;align-items:center;gap:10px;padding:9px 20px 9px 13px;border-radius:100px;
+  max-width:100%;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(8px);
+  color:#fff;font-family:var(--lb-h);font-weight:600;font-size:.83rem;letter-spacing:.02em;
+}
+.lb-badge b{color:#7fd4f5;font-weight:700}
+.lb-badge__dot{width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 4px rgba(74,222,128,.22)}
+.lb-hero h1{
+  color:#fff;font-size:clamp(2.3rem,5.6vw,4.35rem);font-weight:900;margin-top:24px;letter-spacing:-.025em;
+}
+.lb-hero h1 em{font-style:normal;color:var(--lb-ci);position:relative}
+.lb-hero__sub{
+  color:#c6d6df;font-size:clamp(1.05rem,1.75vw,1.34rem);margin-top:22px;max-width:60ch;line-height:1.6;
+}
+.lb-hero__sub strong{color:#fff;font-weight:500}
+.lb-hero .lb-btns{margin-top:36px}
+.lb-hero__quick{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.lb-hero__quick a{
+  display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:100px;
+  border:1px solid rgba(255,255,255,.24);color:#dbe7ee;font-size:.9rem;background:rgba(255,255,255,.05);
+  transition:all .2s ease;
+}
+.lb-hero__quick a:hover{background:rgba(41,171,226,.9);border-color:transparent;color:#fff;text-decoration:none}
+.lb-hero__contact{margin-top:30px;display:flex;flex-wrap:wrap;gap:8px 26px;color:#9fb4c0;font-size:.95rem}
+.lb-hero__contact a{color:#fff;font-weight:500}
+.lb-hero__contact a:hover{color:var(--lb-ci)}
+
+.lb-trust{
+  position:relative;z-index:2;margin-top:auto;
+  border-top:1px solid rgba(255,255,255,.14);
+  background:linear-gradient(180deg,rgba(14,26,34,.2),rgba(14,26,34,.75));
+  backdrop-filter:blur(10px);
+}
+.lb-trust ul{display:flex;flex-wrap:wrap;gap:10px 22px;padding-block:16px;align-items:center;justify-content:center}
+.lb-trust li{
+  display:flex;align-items:center;gap:8px;color:#cfe0e9;font-size:.78rem;font-weight:500;
+  font-family:var(--lb-h);letter-spacing:.04em;text-transform:uppercase;
+}
+.lb-trust li svg{width:15px;height:15px;color:var(--lb-ci);flex:none}
+.lb-scroll{
+  position:relative;margin:0 auto 22px;z-index:3;
+  width:26px;height:42px;border:2px solid rgba(255,255,255,.4);border-radius:14px;
+}
+.lb-scroll::after{
+  content:"";position:absolute;left:50%;top:8px;width:3px;height:8px;border-radius:2px;background:#fff;
+  transform:translateX(-50%);animation:lb-scroll 1.9s ease-in-out infinite;
+}
+@keyframes lb-scroll{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}70%{opacity:1}100%{opacity:0;transform:translate(-50%,14px)}}
+
+/* ==========================================================================
+   2 – NUTZEN / EMOTION + FLOW-VISUALISIERUNG
+   ========================================================================== */
+.lb-flow-card{
+  margin-top:52px;background:#fff;border:1px solid var(--lb-line);border-radius:var(--lb-r-lg);
+  box-shadow:var(--lb-shadow-lg);overflow:hidden;
+}
+.lb-flow-top{
+  display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;
+  padding:22px clamp(18px,3vw,32px);border-bottom:1px solid var(--lb-line);background:linear-gradient(180deg,#fbfdfe,#fff);
+}
+.lb-switch{display:inline-flex;background:var(--lb-soft);border:1px solid var(--lb-line);border-radius:100px;padding:5px;gap:4px}
+.lb-switch button{
+  font-family:var(--lb-h);font-weight:700;font-size:.88rem;padding:11px 22px;border-radius:100px;
+  color:var(--lb-grey);transition:all .25s ease;white-space:nowrap;
+}
+.lb-switch button[aria-pressed="true"]{background:var(--lb-ink);color:#fff;box-shadow:0 6px 18px rgba(14,26,34,.2)}
+.lb-switch button[aria-pressed="true"].is-warn{background:var(--lb-warn);box-shadow:0 6px 18px rgba(255,107,53,.3)}
+.lb-stress{min-width:250px;flex:1;max-width:340px}
+.lb-stress__label{display:flex;justify-content:space-between;font-size:.8rem;font-family:var(--lb-h);font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--lb-grey)}
+.lb-stress__val{color:#c8410d;transition:color .5s ease}
+.lb-stress.is-calm .lb-stress__val{color:#0d8a65}
+.lb-stress__bar{height:9px;border-radius:100px;background:var(--lb-line);margin-top:9px;overflow:hidden}
+.lb-stress__fill{
+  height:100%;width:88%;border-radius:100px;background:linear-gradient(90deg,#ffb199,var(--lb-warn));
+  transition:width 1s cubic-bezier(.22,.7,.3,1),background 1s ease;
+}
+.lb-stress.is-calm .lb-stress__fill{width:11%;background:linear-gradient(90deg,#6fe0bd,var(--lb-ok))}
+.lb-flow-stage{padding:clamp(14px,2.4vw,28px);background:
+  radial-gradient(80% 70% at 50% 0%,#f7fbfd 0%,#fff 70%);}
+.lb-flow-stage svg{width:100%;height:auto}
+.lb-flow-note{
+  display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center;justify-content:space-between;
+  padding:20px clamp(18px,3vw,32px);border-top:1px solid var(--lb-line);background:var(--lb-soft);
+}
+.lb-flow-note p{font-size:1rem;color:var(--lb-ink);font-weight:500;max-width:62ch}
+.lb-flow-note p b{font-family:var(--lb-h);font-weight:800}
+
+.lb-gains{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin-top:34px}
+.lb-gain{
+  background:#fff;border:1px solid var(--lb-line);border-radius:var(--lb-r);padding:30px 26px 28px;
+  box-shadow:var(--lb-shadow);position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+}
+.lb-gain::after{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--lb-ci);transition:width .4s ease}
+.lb-gain:hover{transform:translateY(-5px);box-shadow:var(--lb-shadow-lg);border-color:#cfe6f2}
+.lb-gain:hover::after{width:100%}
+.lb-gain__ico{
+  width:50px;height:50px;border-radius:14px;background:var(--lb-ci-050);color:var(--lb-ci-700);
+  display:grid;place-items:center;margin-bottom:20px;
+}
+.lb-gain__ico svg{width:25px;height:25px}
+.lb-gain h3{font-size:1.14rem;margin-bottom:10px}
+.lb-gain p{font-size:.97rem;color:var(--lb-grey)}
+
+.lb-cta-band{
+  margin-top:44px;border-radius:var(--lb-r-lg);padding:clamp(28px,4vw,44px);
+  background:linear-gradient(120deg,var(--lb-ink) 0%,#173445 55%,var(--lb-ci-700) 130%);
+  display:flex;flex-wrap:wrap;gap:26px;align-items:center;justify-content:space-between;
+  box-shadow:var(--lb-shadow-lg);position:relative;overflow:hidden;
+}
+.lb-cta-band::before{
+  content:"";position:absolute;right:-90px;top:-90px;width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,rgba(41,171,226,.35),transparent 65%);
+}
+.lb-cta-band__txt{position:relative;max-width:60ch}
+.lb-cta-band h3{color:#fff;font-size:clamp(1.35rem,2.2vw,1.85rem)}
+.lb-cta-band p{color:#a9c3d1;margin-top:10px}
+.lb-cta-band .lb-btns{position:relative}
+.lb-cta-band--light{background:linear-gradient(120deg,#ffffff 0%,#e9f7fd 100%)}
+.lb-cta-band--light::before{background:radial-gradient(circle,rgba(41,171,226,.22),transparent 65%)}
+.lb-cta-band--light h3{color:var(--lb-ink)}
+.lb-cta-band--light p{color:var(--lb-grey)}
+
+/* ==========================================================================
+   3 – LAGERBEHÄLTER (interaktiv)
+   ========================================================================== */
+.lb-tabs{display:flex;flex-wrap:wrap;gap:12px;margin-top:38px}
+.lb-tab{
+  flex:1 1 200px;text-align:left;padding:18px 22px;border-radius:var(--lb-r);
+  border:2px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);
+  transition:all .25s ease;color:#c9d6de;
+}
+.lb-tab strong{display:block;font-family:var(--lb-h);font-weight:800;font-size:1.06rem;color:#fff}
+.lb-tab span{font-size:.86rem;color:#93a9b6}
+.lb-tab:hover{border-color:rgba(41,171,226,.6);background:rgba(41,171,226,.1)}
+.lb-tab[aria-selected="true"]{background:var(--lb-ci);border-color:var(--lb-ci);box-shadow:0 14px 34px rgba(41,171,226,.3);color:#062230}
+.lb-tab[aria-selected="true"] strong{color:#062230}
+.lb-tab[aria-selected="true"] span{color:rgba(6,34,48,.78)}
+
+.lb-box-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,3.5vw,48px);margin-top:34px;align-items:start}
+.lb-stage{
+  background:linear-gradient(160deg,#132530,#0b161d);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--lb-r-lg);padding:clamp(16px,2.5vw,26px);position:relative;overflow:hidden;
+}
+.lb-stage::before{
+  content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:40px 40px;
+}
+.lb-stage__svg{position:relative}
+.lb-hot{cursor:pointer}
+.lb-hot__ring{fill:rgba(41,171,226,.28);stroke:var(--lb-ci);stroke-width:1.5;transition:all .25s ease}
+.lb-hot__dot{fill:#fff}
+.lb-hot:hover .lb-hot__ring,.lb-hot.is-active .lb-hot__ring{fill:var(--lb-ci);stroke:#fff;stroke-width:2}
+.lb-hot__pulse{fill:none;stroke:var(--lb-ci);stroke-width:1.5;opacity:0;transform-origin:center;transform-box:fill-box}
+.lb-hot.is-active .lb-hot__pulse{animation:lb-pulse 2s ease-out infinite}
+@keyframes lb-pulse{0%{opacity:.75;transform:scale(1)}100%{opacity:0;transform:scale(2.4)}}
+.lb-gas circle{opacity:0;animation:lb-gas 4.2s ease-in infinite}
+@keyframes lb-gas{
+  0%{opacity:0;transform:translateY(0) scale(.5)}
+  18%{opacity:.75}
+  100%{opacity:0;transform:translateY(-78px) scale(2.1)}
+}
+.lb-flame{transform-origin:center bottom;transform-box:fill-box;animation:lb-flame 1.5s ease-in-out infinite alternate}
+@keyframes lb-flame{from{transform:scaleY(.86) scaleX(1.04);opacity:.85}to{transform:scaleY(1.1) scaleX(.94);opacity:1}}
+.lb-hotinfo{
+  margin-top:16px;position:relative;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--lb-r);padding:20px 22px;min-height:118px;
+}
+.lb-hotinfo h4{font-size:1.03rem;color:#fff;display:flex;align-items:center;gap:10px}
+.lb-hotinfo h4::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--lb-ci);flex:none}
+.lb-hotinfo p{margin-top:9px;font-size:.95rem;color:#a9bdc8}
+.lb-hotinfo__hint{font-size:.78rem;color:#7d94a2;margin-top:12px;letter-spacing:.04em;text-transform:uppercase;font-family:var(--lb-h);font-weight:600}
+
+.lb-model{position:relative}
+.lb-model__photo{
+  border-radius:var(--lb-r-lg);overflow:hidden;background:#0f1e27;border:1px solid rgba(255,255,255,.1);
+  aspect-ratio:16/10;position:relative;
+}
+.lb-model__photo img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;
+  transition:opacity .55s ease,transform 6s ease;transform:scale(1.06);
+}
+.lb-model__photo img.is-on{opacity:1;transform:scale(1)}
+.lb-model__rent{
+  position:absolute;left:16px;top:16px;z-index:2;background:rgba(41,171,226,.96);color:#062230;
+  font-family:var(--lb-h);font-weight:700;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;
+  padding:8px 15px;border-radius:100px;
+}
+.lb-model h3{color:#fff;font-size:clamp(1.5rem,2.6vw,2rem);margin-top:26px}
+.lb-model__art{font-size:.82rem;color:#7d94a2;font-family:var(--lb-h);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-top:8px}
+.lb-model__desc{color:#a9bdc8;margin-top:14px;font-size:1.02rem}
+.lb-specs{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:26px;background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.11);border-radius:var(--lb-r);overflow:hidden}
+.lb-spec{background:#101f28;padding:18px 20px}
+.lb-spec dt{font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:#7d94a2;font-family:var(--lb-h);font-weight:600}
+.lb-spec dd{font-family:var(--lb-h);font-weight:800;color:#fff;font-size:1.3rem;margin-top:6px;line-height:1.2}
+.lb-spec dd small{font-size:.8rem;font-weight:600;color:#9fb4c0;margin-left:3px}
+.lb-spec--wide{grid-column:1/-1}
+.lb-spec--wide dd{font-size:1rem;font-weight:600}
+.lb-model .lb-btns{margin-top:26px}
+.lb-model__foot{font-size:.82rem;color:#7d94a2;margin-top:16px}
+
+.lb-scale{margin-top:clamp(34px,5vw,58px);border-top:1px solid rgba(255,255,255,.12);padding-top:36px}
+.lb-scale__head{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:baseline;justify-content:space-between}
+.lb-scale__head h4{font-size:1.15rem;color:#fff}
+.lb-scale__head span{font-size:.86rem;color:#7d94a2}
+.lb-scale__stage{
+  margin-top:26px;display:flex;align-items:flex-end;gap:clamp(16px,3vw,44px);
+  padding:26px clamp(14px,2.5vw,28px) 0;border-bottom:2px solid rgba(255,255,255,.22);
+  overflow-x:auto;scrollbar-width:thin;
+}
+.lb-human{flex:none;width:44px;opacity:.6;position:relative}
+.lb-human svg{width:100%;height:auto}
+.lb-human span{position:absolute;bottom:-26px;left:50%;transform:translateX(-50%);font-size:.72rem;color:#9fb4c0;white-space:nowrap}
+.lb-scale__box{flex:none;position:relative;transition:all .7s cubic-bezier(.22,.7,.3,1);align-self:flex-end}
+.lb-scale__box i{
+  display:block;border:2px dashed rgba(255,255,255,.3);border-radius:6px;
+  transition:all .7s cubic-bezier(.22,.7,.3,1);background:rgba(255,255,255,.03);
+}
+.lb-scale__box.is-on i{border-style:solid;border-color:var(--lb-ci);background:rgba(41,171,226,.18);box-shadow:0 0 0 6px rgba(41,171,226,.1)}
+.lb-scale__box b{
+  display:block;text-align:center;font-family:var(--lb-h);font-weight:700;font-size:.8rem;
+  color:#7d94a2;margin-top:10px;transition:color .4s ease;white-space:nowrap;
+}
+.lb-scale__box.is-on b{color:#fff}
+.lb-scale__legend{margin-top:38px;font-size:.84rem;color:#7d94a2}
+
+/* ==========================================================================
+   4 – PROZESS
+   ========================================================================== */
+.lb-steps{position:relative;margin-top:52px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.lb-steps::before{
+  content:"";position:absolute;left:35px;top:34px;height:2px;width:calc(75% + 16px);background:var(--lb-line);
+}
+.lb-steps__prog{
+  position:absolute;left:35px;top:34px;height:2px;width:0;background:var(--lb-ci);
+  transition:width 1.6s cubic-bezier(.4,0,.2,1);box-shadow:0 0 12px rgba(41,171,226,.6);
+}
+.lb-steps.is-in .lb-steps__prog{width:calc(75% + 16px)}
+.lb-step{position:relative;padding-top:0}
+.lb-step__n{
+  width:70px;height:70px;border-radius:50%;background:#fff;border:2px solid var(--lb-line);
+  display:grid;place-items:center;font-family:var(--lb-h);font-weight:800;font-size:1.3rem;
+  color:var(--lb-ci-700);position:relative;z-index:2;transition:all .5s ease;
+}
+.lb-step__n svg{width:28px;height:28px}
+.lb-sec--soft .lb-step__n{background:var(--lb-soft)}
+.lb-steps.is-in .lb-step__n{border-color:var(--lb-ci);background:#fff;box-shadow:0 10px 26px rgba(41,171,226,.18)}
+.lb-step h3{font-size:1.14rem;margin-top:22px}
+.lb-step p{font-size:.97rem;color:var(--lb-grey);margin-top:9px}
+
+/* ==========================================================================
+   5 – LEISTUNGEN
+   ========================================================================== */
+.lb-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px;margin-top:46px}
+.lb-card{
+  display:flex;flex-direction:column;background:#fff;border:1px solid var(--lb-line);
+  border-radius:var(--lb-r);padding:32px 28px;box-shadow:var(--lb-shadow);
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;position:relative;overflow:hidden;
+}
+.lb-card:hover{transform:translateY(-6px);box-shadow:var(--lb-shadow-lg);border-color:#cfe6f2;text-decoration:none}
+.lb-card__ico{width:52px;height:52px;border-radius:14px;background:var(--lb-ci-050);color:var(--lb-ci-700);display:grid;place-items:center}
+.lb-card__ico svg{width:26px;height:26px}
+.lb-card h3{font-size:1.2rem;margin-top:22px;color:var(--lb-ink)}
+.lb-card p{font-size:.97rem;color:var(--lb-grey);margin-top:11px;flex:1}
+.lb-card__more{
+  margin-top:20px;font-family:var(--lb-h);font-weight:700;font-size:.9rem;color:var(--lb-ci-700);
+  display:inline-flex;align-items:center;gap:8px;
+}
+.lb-card__more svg{width:16px;height:16px;transition:transform .25s ease}
+.lb-card:hover .lb-card__more svg{transform:translateX(5px)}
+
+/* ---------- Vorteile ---------- */
+.lb-adv{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:44px}
+.lb-adv a{
+  display:flex;gap:16px;align-items:flex-start;padding:22px 24px;background:#fff;
+  border:1px solid var(--lb-line);border-radius:var(--lb-r);transition:all .22s ease;color:inherit;
+}
+.lb-adv a:hover{border-color:var(--lb-ci);box-shadow:var(--lb-shadow);text-decoration:none;transform:translateX(4px)}
+.lb-adv__ico{width:40px;height:40px;flex:none;border-radius:11px;background:var(--lb-ci-050);color:var(--lb-ci-700);display:grid;place-items:center}
+.lb-adv__ico svg{width:21px;height:21px}
+.lb-adv strong{display:block;font-family:var(--lb-h);font-weight:800;color:var(--lb-ink);font-size:1.02rem}
+.lb-adv span{font-size:.92rem;color:var(--lb-grey)}
+
+/* ---------- Kennzahlen ---------- */
+.lb-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:rgba(255,255,255,.12);border-radius:var(--lb-r-lg);overflow:hidden;margin-top:46px}
+.lb-stat{background:var(--lb-ink-2);padding:36px 30px;text-align:center}
+.lb-stat b{display:block;font-family:var(--lb-h);font-weight:900;font-size:clamp(2.1rem,4.2vw,3.1rem);color:#fff;line-height:1;letter-spacing:-.02em}
+.lb-stat b i{font-style:normal;color:var(--lb-ci)}
+.lb-stat span{display:block;margin-top:12px;font-size:.93rem;color:#a9bdc8}
+
+/* ---------- Referenzen ---------- */
+.lb-marquee{margin-top:44px;position:relative;overflow:hidden;
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
+.lb-marquee__track{display:flex;width:max-content;animation:lb-marq 58s linear infinite}
+.lb-marquee:hover .lb-marquee__track{animation-play-state:paused}
+@keyframes lb-marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.lb-marquee__row{display:flex;align-items:center}
+.lb-marquee img{
+  height:44px;width:auto;max-width:150px;object-fit:contain;margin-inline:clamp(20px,3vw,40px);
+  filter:grayscale(1);opacity:.55;transition:filter .3s ease,opacity .3s ease;
+}
+.lb-marquee img:hover{filter:none;opacity:1}
+
+/* ---------- Video ---------- */
+.lb-video{
+  margin-top:44px;position:relative;border-radius:var(--lb-r-lg);overflow:hidden;aspect-ratio:16/9;
+  background:#0b161d;box-shadow:var(--lb-shadow-lg);
+}
+.lb-video img,.lb-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
+.lb-video__btn{
+  position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,rgba(11,22,29,.25),rgba(11,22,29,.7));
+  width:100%;transition:background .3s ease;
+}
+.lb-video__btn:hover{background:linear-gradient(180deg,rgba(11,22,29,.15),rgba(11,22,29,.55))}
+.lb-video__play{
+  width:84px;height:84px;border-radius:50%;background:var(--lb-ci);display:grid;place-items:center;
+  box-shadow:0 16px 44px rgba(41,171,226,.5);transition:transform .3s ease;
+}
+.lb-video__btn:hover .lb-video__play{transform:scale(1.1)}
+.lb-video__play svg{width:30px;height:30px;color:#fff;margin-left:5px}
+.lb-video__cap{position:absolute;left:0;right:0;bottom:0;padding:24px 28px;color:#fff;text-align:left;
+  font-family:var(--lb-h);font-weight:700;font-size:1.05rem;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.lb-video__note{font-size:.82rem;color:var(--lb-grey-2);margin-top:12px}
+
+/* ---------- Text/About ---------- */
+.lb-about{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,4vw,64px);align-items:center}
+.lb-prose p{font-size:1.03rem;color:var(--lb-text);margin-top:18px;max-width:66ch}
+.lb-prose p:first-of-type{margin-top:0}
+.lb-prose strong{font-weight:700;color:var(--lb-ink)}
+.lb-about__fig{border-radius:var(--lb-r-lg);overflow:hidden;box-shadow:var(--lb-shadow-lg);position:relative}
+.lb-about__fig img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
+.lb-about__quote{
+  position:absolute;left:0;right:0;bottom:0;padding:28px 26px 24px;color:#fff;
+  background:linear-gradient(180deg,transparent,rgba(14,26,34,.9));font-family:var(--lb-h);font-weight:700;font-size:1.1rem;
+}
+
+/* ---------- News ---------- */
+.lb-news{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:44px}
+.lb-news a{
+  display:block;border-radius:var(--lb-r);overflow:hidden;background:#fff;border:1px solid var(--lb-line);
+  box-shadow:var(--lb-shadow);transition:transform .25s ease,box-shadow .25s ease;color:inherit;
+}
+.lb-news a:hover{transform:translateY(-6px);box-shadow:var(--lb-shadow-lg);text-decoration:none}
+.lb-news__img{aspect-ratio:16/10;overflow:hidden;background:var(--lb-soft)}
+.lb-news__img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.lb-news a:hover .lb-news__img img{transform:scale(1.06)}
+.lb-news__body{padding:24px 26px 28px}
+.lb-news__tag{font-family:var(--lb-h);font-weight:700;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--lb-ci-700)}
+.lb-news h3{font-size:1.12rem;margin-top:10px}
+.lb-news p{font-size:.94rem;color:var(--lb-grey);margin-top:9px}
+
+/* ---------- FAQ ---------- */
+.lb-faq{margin-top:44px;max-width:900px;margin-inline:auto;border-top:1px solid var(--lb-line)}
+.lb-faq details{border-bottom:1px solid var(--lb-line)}
+.lb-faq summary{
+  list-style:none;cursor:pointer;padding:22px 52px 22px 0;position:relative;
+  font-family:var(--lb-h);font-weight:700;font-size:1.05rem;color:var(--lb-ink);transition:color .2s ease;
+}
+.lb-faq summary::-webkit-details-marker{display:none}
+.lb-faq summary:hover{color:var(--lb-ci-700)}
+.lb-faq summary::after{
+  content:"";position:absolute;right:8px;top:50%;width:13px;height:13px;
+  border-right:2px solid var(--lb-ci);border-bottom:2px solid var(--lb-ci);
+  transform:translateY(-70%) rotate(45deg);transition:transform .3s ease;
+}
+.lb-faq details[open] summary::after{transform:translateY(-25%) rotate(225deg)}
+.lb-faq__a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.lb-faq details[open] .lb-faq__a{grid-template-rows:1fr}
+.lb-faq__a>div{overflow:hidden}
+.lb-faq__a p{padding-bottom:24px;color:var(--lb-grey);font-size:1rem;max-width:78ch}
+
+/* ---------- Schluss-CTA ---------- */
+.lb-final{position:relative;overflow:hidden;background:var(--lb-ink)}
+.lb-final::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(70% 90% at 80% 20%,rgba(41,171,226,.34),transparent 60%),
+             radial-gradient(60% 80% at 10% 90%,rgba(41,171,226,.16),transparent 60%);
+}
+.lb-final__inner{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,5vw,70px);align-items:center}
+.lb-final h2{color:#fff;font-size:clamp(1.9rem,3.8vw,3rem)}
+.lb-final p{color:#a9c3d1;font-size:1.08rem;margin-top:18px;max-width:56ch}
+.lb-contact{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--lb-r-lg);padding:clamp(26px,3.4vw,38px);backdrop-filter:blur(8px)}
+.lb-contact h3{color:#fff;font-size:1.25rem}
+.lb-contact ul{margin-top:22px;display:grid;gap:14px}
+.lb-contact li a{display:flex;align-items:center;gap:14px;color:#dce9f0;font-size:1.05rem;padding:12px 14px;border-radius:12px;transition:background .2s ease}
+.lb-contact li a:hover{background:rgba(255,255,255,.08);text-decoration:none;color:#fff}
+.lb-contact li svg{width:20px;height:20px;color:var(--lb-ci);flex:none}
+.lb-contact .lb-btn{width:100%;margin-top:24px}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width:1020px){
+  .lb-box-grid{grid-template-columns:1fr}
+  .lb-about{grid-template-columns:1fr}
+  .lb-about__fig img{aspect-ratio:16/10}
+  .lb-final__inner{grid-template-columns:1fr}
+  .lb-steps{grid-template-columns:repeat(2,1fr);gap:34px 22px}
+  .lb-steps::before,.lb-steps__prog{display:none}
+}
+@media (max-width:760px){
+  .lb-hero{min-height:auto;padding-top:84px}
+  .lb-hero__quick a{font-size:.84rem;padding:8px 15px}
+  .lb-trust ul{gap:8px 18px;padding-block:14px}
+  .lb-trust li{font-size:.72rem}
+  .lb-scroll{display:none}
+  .lb-flow-top{flex-direction:column;align-items:stretch}
+  .lb-switch{width:100%}
+  .lb-switch button{flex:1}
+  .lb-stress{max-width:none}
+  .lb-specs{grid-template-columns:1fr}
+  .lb-btn{width:100%}
+  .lb-btns{flex-direction:column;align-items:stretch}
+  .lb-marquee img{height:34px}
+}
+@media (max-width:520px){
+  .lb-steps{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .lb-page *,.lb-page *::before,.lb-page *::after{
+    animation-duration:.001ms !important;animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;scroll-behavior:auto !important;
+  }
+  .lb-rv{opacity:1;transform:none}
+}
+</style>
+
+<div class="lb-page" id="lb-top">
+
+<!-- ==========================================================================
+     1 – HERO
+     ========================================================================== -->
+<header class="lb-hero">
+  <div class="lb-hero__media">
+    <video autoplay muted loop playsinline preload="metadata"
+           poster="https://www.logbatt.de/wp-content/uploads/sites/10112/2026/05/DSC07445-1.jpg"
+           src="https://www.logbatt.de/wp-content/uploads/sites/10112/2020/07/Video-Startseite-Header.mp4"></video>
+  </div>
+  <div class="lb-hero__scrim"></div>
+  <div class="lb-hero__grid"></div>
+
+  <div class="lb-hero__body">
+   <div class="lb-wrap">
+    <div class="lb-hero__inner">
+      <p class="lb-badge lb-rv"><span class="lb-badge__dot"></span><span>Seit 2023 Teil der <b>Lagermax Group</b> &nbsp;·&nbsp; Hersteller der SafetyBATTbox</span></p>
+
+      <h1 class="lb-rv" data-d="1">Die Gesamtlösung für <em>Lithium-Ionen-<br>Batterielogistik</em></h1>
+
+      <p class="lb-hero__sub lb-rv" data-d="2">
+        Transport, Lagerung, Verpackung, Entsorgung und Recycling – aus einer Hand.
+        <strong>Sie übergeben die Batterie. Wir übernehmen Gefahrgutrecht, Haftung, Brandrisiko und Papierkram.</strong>
+      </p>
+
+      <div class="lb-btns lb-rv" data-d="3">
+        <a class="lb-btn lb-btn--primary" href="/kontakt/#kontakt">
+          Kostenlose Erstberatung
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="lb-btn lb-btn--ghost" href="#nutzen">So arbeiten wir</a>
+      </div>
+
+      <nav class="lb-hero__quick lb-rv" data-d="4" aria-label="Schnelleinstieg">
+        <a href="/logistik/">Logistik</a>
+        <a href="/transportkisten/">Transportboxen</a>
+        <a href="/lagerbehaelter/">Lagerbehälter</a>
+        <a href="/entwicklung/">Entwicklung</a>
+        <a href="/entsorgung/">Entsorgung &amp; Recycling</a>
+      </nav>
+
+      <p class="lb-hero__contact lb-rv" data-d="5">
+        <span>Direkt sprechen: <a href="tel:+497153925080">+49 7153 92508-0</a></span>
+        <span><a href="mailto:info@logbatt.de">info@logbatt.de</a></span>
+      </p>
+    </div>
+   </div>
+  </div>
+
+  <div class="lb-scroll" aria-hidden="true"></div>
+
+  <div class="lb-trust">
+    <div class="lb-wrap">
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>DIN EN ISO 9001</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>DIN EN ISO 14001</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>QSP Gefahrgutverpackungen</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Entsorgungsfachbetrieb</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>ADR 2025 P911/LP906</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>BAM-Bauartzulassung</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>DOT Special Permit</li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<!-- ==========================================================================
+     2 – NUTZEN / EMOTION + FLOW-VISUALISIERUNG
+     ========================================================================== -->
+<section class="lb-sec" id="nutzen">
+  <div class="lb-wrap">
+    <div class="lb-head lb-rv">
+      <p class="lb-eyebrow">Was Sie davon haben</p>
+      <h2 class="lb-h2">Batterien sind Ihr Produkt.<br>Sie sollten nicht Ihr Problem sein.</h2>
+      <p class="lb-lead">
+        Eine defekte Hochvoltbatterie im Werk löst sonst eine Kettenreaktion aus: Gefahrgutbeauftragter,
+        Verpackungsnachweis, Spedition, Entsorger, Brandschutz, Versicherung. Fünf Ansprechpartner,
+        vier Regelwerke – und die Haftung bleibt bei Ihnen. Mit LogBATT bleibt genau ein Anruf übrig.
+      </p>
+    </div>
+
+    <div class="lb-flow-card lb-rv" data-d="1">
+      <div class="lb-flow-top">
+        <div class="lb-switch" role="group" aria-label="Vergleich umschalten">
+          <button type="button" id="lb-flow-a" class="is-warn" aria-pressed="false">Ohne Gesamtlösung</button>
+          <button type="button" id="lb-flow-b" aria-pressed="true">Mit LogBATT</button>
+        </div>
+        <div class="lb-stress is-calm" id="lb-stress">
+          <div class="lb-stress__label"><span>Aufwand &amp; Restrisiko bei Ihnen</span><span class="lb-stress__val" id="lb-stress-val">gering</span></div>
+          <div class="lb-stress__bar"><div class="lb-stress__fill"></div></div>
+        </div>
+      </div>
+
+      <div class="lb-flow-stage">
+        <svg id="lb-flow" viewBox="0 0 860 470" role="img"
+             aria-label="Vergleich: Ohne Gesamtlösung koordiniert Ihr Unternehmen sechs Gewerke einzeln. Mit LogBATT läuft alles über einen Ansprechpartner.">
+          <defs>
+            <linearGradient id="lb-hubgrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#16242e"/><stop offset="100%" stop-color="#12769f"/>
+            </linearGradient>
+          </defs>
+
+          <g id="lb-links" fill="none" stroke-linecap="round"></g>
+
+          <!-- Ihr Unternehmen -->
+          <g id="lb-you">
+            <rect x="40" y="196" width="172" height="78" rx="16" fill="#ffffff" stroke="#0e1a22" stroke-width="2"/>
+            <text x="126" y="228" text-anchor="middle" font-family="Montserrat,Roboto,sans-serif" font-weight="800" font-size="17" fill="#0e1a22">Ihr Unternehmen</text>
+            <text x="126" y="250" text-anchor="middle" font-family="Roboto,sans-serif" font-size="13" fill="#6d6e71">defekte Batterie im Haus</text>
+          </g>
+
+          <!-- LogBATT-Hub -->
+          <g id="lb-hub">
+            <rect x="342" y="192" width="180" height="86" rx="18" fill="url(#lb-hubgrad)"/>
+            <text x="432" y="228" text-anchor="middle" font-family="Montserrat,Roboto,sans-serif" font-weight="900" font-size="22" fill="#ffffff">LogBATT</text>
+            <text x="432" y="252" text-anchor="middle" font-family="Roboto,sans-serif" font-size="13" fill="#7fd4f5">Ein Ansprechpartner</text>
+          </g>
+
+          <g id="lb-nodes"></g>
+        </svg>
+      </div>
+
+      <div class="lb-flow-note">
+        <p id="lb-flow-note"><b>Mit LogBATT:</b> Ein Vertrag, ein Ansprechpartner, eine lückenlose Dokumentationskette – von der Abholung bis zum Recyclingnachweis.</p>
+        <a class="lb-btn lb-btn--dark" href="/gesamtloesung/">Gesamtlösung ansehen</a>
+      </div>
+    </div>
+
+    <div class="lb-gains">
+      <article class="lb-gain lb-rv">
+        <div class="lb-gain__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.07 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <h3>Eine Nummer statt fünf Dienstleister</h3>
+        <p>Abholung, Verpackung, Transport, Lagerung, Entsorgung und Recycling laufen über einen Vertrag – Sie koordinieren niemanden mehr.</p>
+      </article>
+      <article class="lb-gain lb-rv" data-d="1">
+        <div class="lb-gain__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Rechtssicher – ohne eigene Rechtsabteilung</h3>
+        <p>ADR, RID, IMDG, IATA-DGR, BattG, ElektroG: Wir halten Zertifikate, Genehmigungen und Nachweise vor – dokumentiert und prüfungsfest.</p>
+      </article>
+      <article class="lb-gain lb-rv" data-d="2">
+        <div class="lb-gain__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s4 4.5 4 8a4 4 0 0 1-8 0c0-3.5 4-8 4-8z"/><path d="M5 15c0 4 3.5 7 7 7s7-3 7-7"/></svg></div>
+        <h3>Kein Brandrisiko im eigenen Lager</h3>
+        <p>Kritisch defekte Batterien wandern in geprüfte SafetyBATTboxen: thermische Isolation, Rauchgasfilterung – und kein Löschwasser nötig.</p>
+      </article>
+      <article class="lb-gain lb-rv" data-d="3">
+        <div class="lb-gain__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></div>
+        <h3>Planbar statt Feuerwehreinsatz</h3>
+        <p>Rückrufaktion, Havarie oder Serienanlauf: Behälter zum Kauf oder zur Miete, europaweites Netzwerk, kalkulierbare Kosten pro Fall.</p>
+      </article>
+    </div>
+
+    <div class="lb-cta-band lb-rv">
+      <div class="lb-cta-band__txt">
+        <h3>Sagen Sie uns, was bei Ihnen steht – wir sagen Ihnen, wie es rausgeht.</h3>
+        <p>Zustand, Menge, Standort: Mehr brauchen wir nicht für eine belastbare erste Einschätzung.</p>
+      </div>
+      <div class="lb-btns">
+        <a class="lb-btn lb-btn--primary" href="/kontakt/#kontakt">Situation schildern</a>
+        <a class="lb-btn lb-btn--ghost" href="tel:+497153925080">+49 7153 92508-0</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     3 – LAGERBEHÄLTER (interaktiv)
+     ========================================================================== -->
+<section class="lb-sec lb-sec--dark" id="lagerbehaelter">
+  <div class="lb-wrap">
+    <div class="lb-head lb-rv">
+      <p class="lb-eyebrow">SafetyBATTbox Storage Family</p>
+      <h2 class="lb-h2">Lagerbehälter, die den Ernstfall aushalten – selbst entwickelt, selbst getestet.</h2>
+      <p class="lb-lead">
+        Eine beschädigte Zelle reagiert manchmal erst Tage später. Unsere Lager-, Quarantäne- und
+        Evakuierungsbehälter halten Hitze, Flammen, Projektile und Flüssigkeiten kontrolliert im Behälter –
+        <strong style="color:#fff">ohne Löschwasser und ohne Rückhaltevorrichtung</strong>.
+      </p>
+    </div>
+
+    <div class="lb-tabs" role="tablist" aria-label="Lagerbehälter-Modelle">
+      <button class="lb-tab" role="tab" id="tab-m"  aria-selected="false" aria-controls="lb-model" data-model="m">
+        <strong>M-Storage</strong><span>bis 80 kg · kompakt, ohne Stapler beweglich</span>
+      </button>
+      <button class="lb-tab" role="tab" id="tab-l"  aria-selected="false" aria-controls="lb-model" data-model="l">
+        <strong>L-Storage</strong><span>bis 350 kg · Module, E-Bike- &amp; Industrieakkus</span>
+      </button>
+      <button class="lb-tab" role="tab" id="tab-xl" aria-selected="true"  aria-controls="lb-model" data-model="xl">
+        <strong>XL-Storage</strong><span>bis 1.050 kg · komplette Hochvoltspeicher</span>
+      </button>
+    </div>
+
+    <div class="lb-box-grid">
+
+      <!-- Interaktiver Schnitt durch den Behälter -->
+      <div class="lb-rv">
+        <div class="lb-stage">
+          <div class="lb-stage__svg">
+            <svg viewBox="0 0 600 430" role="img" aria-label="Schnittdarstellung einer SafetyBATTbox Storage mit den sechs Sicherheitsfunktionen">
+              <defs>
+                <linearGradient id="lb-steel" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#31485a"/><stop offset="100%" stop-color="#1b2c37"/>
+                </linearGradient>
+                <linearGradient id="lb-fire" x1="0" y1="1" x2="0" y2="0">
+                  <stop offset="0%" stop-color="#ff9b3d"/><stop offset="60%" stop-color="#ff6b35"/><stop offset="100%" stop-color="#ffd06b"/>
+                </linearGradient>
+                <pattern id="lb-absorb" width="10" height="10" patternUnits="userSpaceOnUse">
+                  <circle cx="3" cy="3" r="1.6" fill="#4d7d94"/>
+                </pattern>
+              </defs>
+
+              <!-- Rauchgas -->
+              <g class="lb-gas" fill="#8fa9b8">
+                <circle cx="322" cy="86" r="6" style="animation-delay:0s"/>
+                <circle cx="336" cy="86" r="5" style="animation-delay:.7s"/>
+                <circle cx="328" cy="86" r="7" style="animation-delay:1.4s"/>
+                <circle cx="344" cy="86" r="4" style="animation-delay:2.1s"/>
+                <circle cx="316" cy="86" r="5" style="animation-delay:2.8s"/>
+              </g>
+
+              <!-- Filter / Gasmanagement -->
+              <rect x="290" y="86" width="80" height="34" rx="7" fill="#22333f" stroke="#4d7d94" stroke-width="2"/>
+              <path d="M300 96h60M300 103h60M300 110h60" stroke="#4d7d94" stroke-width="2" stroke-linecap="round"/>
+
+              <!-- Außenhülle -->
+              <rect x="80" y="120" width="440" height="270" rx="14" fill="url(#lb-steel)" stroke="#5b7d92" stroke-width="2.5"/>
+              <!-- Thermische Isolation -->
+              <rect x="94" y="134" width="412" height="242" rx="10" fill="rgba(255,176,138,.07)" stroke="#ffb08a" stroke-width="2" stroke-dasharray="7 5"/>
+              <!-- Edelstahl-Innenwanne -->
+              <rect x="110" y="150" width="380" height="212" rx="7" fill="#0b141a" stroke="#93b2c4" stroke-width="2"/>
+
+              <!-- Auffangwanne mit Absorptionsmaterial -->
+              <rect x="110" y="340" width="380" height="22" fill="url(#lb-absorb)" opacity=".85"/>
+              <rect x="110" y="340" width="380" height="22" fill="none" stroke="#4d7d94" stroke-width="1.5"/>
+
+              <!-- LogBAGs -->
+              <rect x="140" y="288" width="96" height="50" rx="20" fill="#20404f" stroke="#4d7d94" stroke-width="2"/>
+              <rect x="424" y="288" width="52" height="50" rx="20" fill="#20404f" stroke="#4d7d94" stroke-width="2"/>
+
+              <!-- Batterie -->
+              <rect x="252" y="284" width="156" height="54" rx="8" fill="#16303d" stroke="#29abe2" stroke-width="2.5"/>
+              <rect x="272" y="276" width="26" height="10" rx="3" fill="#29abe2"/>
+              <rect x="362" y="276" width="26" height="10" rx="3" fill="#29abe2"/>
+              <path d="M322 296l-12 20h14l-6 18 22-24h-14l8-14z" fill="#29abe2" opacity=".9"/>
+
+              <!-- Flamme (eingeschlossen) -->
+              <path class="lb-flame" d="M330 194c22 22 34 40 34 56 0 20-16 34-34 34s-34-14-34-34c0-16 12-34 34-56z" fill="url(#lb-fire)" opacity=".92"/>
+              <path class="lb-flame" d="M330 232c9 10 14 18 14 25a14 14 0 0 1-28 0c0-7 5-15 14-25z" fill="#ffe9a8" opacity=".85" style="animation-delay:.4s"/>
+
+              <!-- Front / Beladung -->
+              <path d="M80 300v66" stroke="#93b2c4" stroke-width="2" stroke-dasharray="5 4"/>
+              <path d="M14 332h48M52 322l12 10-12 10" fill="none" stroke="#29abe2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="24" y="346" width="46" height="8" rx="2" fill="#4d7d94"/>
+
+              <!-- Stapel-Indikator -->
+              <path d="M452 132h44M452 124h44" stroke="#93b2c4" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+
+              <!-- Hotspots -->
+              <g class="lb-hot is-active" data-hot="gas"    tabindex="0" role="button" aria-label="Gasmanagement und Rauchgasfilterung">
+                <circle class="lb-hot__pulse" cx="330" cy="103" r="14"/><circle class="lb-hot__ring" cx="330" cy="103" r="14"/><circle class="lb-hot__dot" cx="330" cy="103" r="4"/>
+              </g>
+              <g class="lb-hot" data-hot="iso"   tabindex="0" role="button" aria-label="Thermische Isolation">
+                <circle class="lb-hot__pulse" cx="104" cy="176" r="14"/><circle class="lb-hot__ring" cx="104" cy="176" r="14"/><circle class="lb-hot__dot" cx="104" cy="176" r="4"/>
+              </g>
+              <g class="lb-hot" data-hot="wanne" tabindex="0" role="button" aria-label="Auffangwanne mit Absorptionsmaterial">
+                <circle class="lb-hot__pulse" cx="206" cy="351" r="14"/><circle class="lb-hot__ring" cx="206" cy="351" r="14"/><circle class="lb-hot__dot" cx="206" cy="351" r="4"/>
+              </g>
+              <g class="lb-hot" data-hot="bags"  tabindex="0" role="button" aria-label="LogBAGs Brandschutzkissen">
+                <circle class="lb-hot__pulse" cx="188" cy="300" r="14"/><circle class="lb-hot__ring" cx="188" cy="300" r="14"/><circle class="lb-hot__dot" cx="188" cy="300" r="4"/>
+              </g>
+              <g class="lb-hot" data-hot="load"  tabindex="0" role="button" aria-label="Frontalbeladung">
+                <circle class="lb-hot__pulse" cx="44" cy="332" r="14"/><circle class="lb-hot__ring" cx="44" cy="332" r="14"/><circle class="lb-hot__dot" cx="44" cy="332" r="4"/>
+              </g>
+              <g class="lb-hot" data-hot="stack" tabindex="0" role="button" aria-label="Stapelbar 1 plus 1">
+                <circle class="lb-hot__pulse" cx="474" cy="128" r="14"/><circle class="lb-hot__ring" cx="474" cy="128" r="14"/><circle class="lb-hot__dot" cx="474" cy="128" r="4"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <div class="lb-hotinfo" id="lb-hotinfo" aria-live="polite">
+          <h4 id="lb-hot-title">Gasmanagement &amp; Rauchgasfilterung</h4>
+          <p id="lb-hot-text">Reagiert eine Batterie thermisch, werden die Rauchgase gerichtet abgeführt und gefiltert – statt unkontrolliert in die Halle zu strömen.</p>
+          <p class="lb-hotinfo__hint">Punkte im Schnittbild anklicken</p>
+        </div>
+      </div>
+
+      <!-- Modellkarte -->
+      <div class="lb-model lb-rv" data-d="1" id="lb-model" role="tabpanel">
+        <div class="lb-model__photo">
+          <span class="lb-model__rent">Kauf oder Miete</span>
+          <img id="ph-m"  src="https://www.logbatt.de/wp-content/uploads/sites/10112/2026/06/M-Storage_frontal.png" alt="SafetyBATTbox M-Storage – kompakter Lagerbehälter für Lithium-Ionen-Batterien" loading="lazy">
+          <img id="ph-l"  src="https://www.logbatt.de/wp-content/uploads/sites/10112/2026/06/L-Storage_frontal.png" alt="SafetyBATTbox L-Storage – Lagerbehälter für Batteriemodule" loading="lazy">
+          <img id="ph-xl" class="is-on" src="https://www.logbatt.de/wp-content/uploads/sites/10112/2023/02/xl-storage_.jpg" alt="SafetyBATTbox XL-Storage – Lagerbehälter für komplette Hochvoltspeicher" loading="lazy">
+        </div>
+
+        <h3 id="lb-m-name">SafetyBATTbox XL-Storage</h3>
+        <p class="lb-model__art" id="lb-m-art">Art.-Nr. 300030 · Lager-, Quarantäne- &amp; Evakuierungsbehälter</p>
+        <p class="lb-model__desc" id="lb-m-desc">Die stationäre Großlösung für komplette E-Auto-Batteriepacks und große PHEV-/BEV-Hochvoltspeicher. Frontal beladbar per Hubwagen, teilbar und von einer Person bedienbar.</p>
+
+        <dl class="lb-specs">
+          <div class="lb-spec"><dt>Batteriegewicht bis</dt><dd><span class="lb-count" id="lb-m-load" data-to="1050">1.050</span> <small>kg</small></dd></div>
+          <div class="lb-spec"><dt>Leergewicht ca.</dt><dd><span class="lb-count" id="lb-m-tare" data-to="1150">1.150</span> <small>kg</small></dd></div>
+          <div class="lb-spec lb-spec--wide"><dt>Außenmaße (L × B × H)</dt><dd id="lb-m-dim">3196 × 2298 × 1237 mm</dd></div>
+          <div class="lb-spec lb-spec--wide"><dt>Gehäuse</dt><dd id="lb-m-mat">Edelstahl, verzinkt, pulverbeschichtet</dd></div>
+        </dl>
+
+        <div class="lb-btns">
+          <a class="lb-btn lb-btn--primary" href="/kontakt/#kontakt">Behälter anfragen</a>
+          <a class="lb-btn lb-btn--ghost" id="lb-m-link" href="/lagerbehaelter/safety-battbox-xl-storage/">Technische Details</a>
+        </div>
+        <p class="lb-model__foot">Gasmanagementsystem · stapelbar 1 + 1 · kein Löschwasser erforderlich · Feuer und Projektile bleiben in der Box<sup>1</sup></p>
+      </div>
+    </div>
+
+    <!-- Größenvergleich -->
+    <div class="lb-scale lb-rv">
+      <div class="lb-scale__head">
+        <h4>Größenvergleich (Frontansicht, maßstabsgetreu)</h4>
+        <span>Referenz: Person 1,80 m</span>
+      </div>
+      <div class="lb-scale__stage" id="lb-scale">
+        <div class="lb-human" aria-hidden="true">
+          <svg viewBox="0 0 44 135" fill="#9fb4c0"><circle cx="22" cy="13" r="11"/><path d="M22 27c-9 0-14 6-14 14v30h6l2 62h5l2-42h2l2 42h5l2-62h6V41c0-8-5-14-14-14z"/></svg>
+          <span>1,80 m</span>
+        </div>
+        <div class="lb-scale__box" data-model="m"><i style="width:75px;height:53px"></i><b>M-Storage</b></div>
+        <div class="lb-scale__box" data-model="l"><i style="width:120px;height:71px"></i><b>L-Storage</b></div>
+        <div class="lb-scale__box is-on" data-model="xl"><i style="width:240px;height:93px"></i><b>XL-Storage</b></div>
+      </div>
+      <p class="lb-scale__legend">
+        <sup>1</sup> Bei den getesteten Versionen mit zusätzlichem Verpackungsmaterial. Alle Modelle sind witterungsbeständig
+        und für die Außenaufstellung (unter Dach) freigegeben – so verlagern Sie das Brandrisiko aus dem Gebäude.
+      </p>
+    </div>
+
+    <div class="lb-cta-band lb-cta-band--light lb-rv">
+      <div class="lb-cta-band__txt">
+        <h3>Unsicher, welche Größe zu Ihrem Bestand passt?</h3>
+        <p>Sagen Sie uns Batterietyp, Zustand und Stückzahl – wir empfehlen Modell, Aufstellort und Mietvariante.</p>
+      </div>
+      <div class="lb-btns">
+        <a class="lb-btn lb-btn--dark" href="/kontakt/#kontakt">Beratung anfordern</a>
+        <a class="lb-btn lb-btn--line" href="/lagerbehaelter/">Alle Lagerbehälter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     4 – ABLAUF
+     ========================================================================== -->
+<section class="lb-sec lb-sec--soft" id="ablauf">
+  <div class="lb-wrap">
+    <div class="lb-head lb-rv">
+      <p class="lb-eyebrow">Wir übernehmen Ihre Batterielogistik</p>
+      <h2 class="lb-h2">Vier Schritte – und Sie haben damit nichts mehr zu tun.</h2>
+      <p class="lb-lead">Vom Anruf bis zum Recyclingnachweis läuft alles über LogBATT. Sie stellen die Batterie bereit, den Rest organisieren, dokumentieren und verantworten wir.</p>
+    </div>
+
+    <div class="lb-steps" id="lb-steps">
+      <div class="lb-steps__prog"></div>
+      <article class="lb-step lb-rv">
+        <div class="lb-step__n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 21V12h6v9"/></svg></div>
+        <h3>1 · Abholen &amp; Lagern</h3>
+        <p>Wir stellen geprüfte Behälter bereit, holen europaweit ab und übernehmen bei Bedarf die Quarantänelagerung.</p>
+      </article>
+      <article class="lb-step lb-rv" data-d="1">
+        <div class="lb-step__n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7L12 12l8.7-5M12 22V12"/></svg></div>
+        <h3>2 · Verpacken</h3>
+        <p>Gefahrgutkonforme Verpackung in bauartzugelassenen SafetyBATTboxen – bis zur Stufe P911/LP906 für kritisch defekte Batterien.</p>
+      </article>
+      <article class="lb-step lb-rv" data-d="2">
+        <div class="lb-step__n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h13v13H1zM14 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <h3>3 · Befördern</h3>
+        <p>Transport nach ADR, RID, IMDG und IATA-DGR – mit eigenem Equipment, europaweitem Netzwerk und lückenloser Dokumentation.</p>
+      </article>
+      <article class="lb-step lb-rv" data-d="3">
+        <div class="lb-step__n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4"/><path d="M21 7H8a5 5 0 0 0-5 5v1"/><path d="M7 21l-4-4 4-4"/><path d="M3 17h13a5 5 0 0 0 5-5v-1"/></svg></div>
+        <h3>4 · Verbringung zur Recyclinganlage</h3>
+        <p>Zielort oder Recyclinganlage – inklusive Genehmigungen zum Sammeln, Befördern und Makeln gefährlicher Abfälle.</p>
+      </article>
+    </div>
+
+    <div class="lb-btns lb-rv" style="margin-top:44px">
+      <a class="lb-btn lb-btn--primary" href="/kontakt/#kontakt">Rundum-Sorglos-Paket anfragen</a>
+      <a class="lb-btn lb-btn--line" href="https://www.logbatt.de/wp-content/uploads/sites/10112/2025/04/FAQ-Batterielogistik.pdf" target="_blank" rel="noopener">FAQ Batterielogistik (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     5 – LEISTUNGEN
+     ========================================================================== -->
+<section class="lb-sec" id="leistungen">
+  <div class="lb-wrap">
+    <div class="lb-head lb-rv">
+      <p class="lb-eyebrow">Leistungen &amp; Produkte</p>
+      <h2 class="lb-h2">Die komplette Batterie-Supply-Chain – aus einer Hand</h2>
+      <p class="lb-lead">Egal welche Batteriegröße, egal welche Branche: grün, gelb oder rot – wir haben die passende Lösung. Und wir bauen die Behälter dafür selbst.</p>
+    </div>
+
+    <div class="lb-cards">
+      <a class="lb-card lb-rv" href="/logistik/">
+        <div class="lb-card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h13v13H1zM14 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <h3>Batterielogistik</h3>
+        <p>Vorwärts- und After-Sales-Logistik für Zellen, Module und Hochvoltspeicher – europaweit, mit eigenem Netzwerk.</p>
+        <span class="lb-card__more">Mehr erfahren <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="lb-card lb-rv" data-d="1" href="/gefahrgutlogistik/">
+        <div class="lb-card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></div>
+        <h3>Gefahrgutlogistik</h3>
+        <p>Transport nicht defekter, defekter und kritisch defekter Batterien nach ADR, RID, IMDG und IATA-DGR.</p>
+        <span class="lb-card__more">Mehr erfahren <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="lb-card lb-rv" data-d="2" href="/entsorgung/">
+        <div class="lb-card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg></div>
+        <h3>Entsorgung</h3>
+        <p>Entsorgungsfachbetrieb mit Genehmigungen zum Sammeln, Befördern und Makeln gefährlicher Abfälle.</p>
+        <span class="lb-card__more">Mehr erfahren <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="lb-card lb-rv" href="/recycling/">
+        <div class="lb-card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19H4a2 2 0 0 1-1.7-3L4 13"/><path d="M17 5l1.7 3M9.4 4.6l1.7-3a2 2 0 0 1 3.4 0L16 4"/><path d="M20 19h-9M14 22l-3-3 3-3M7 13L4.5 8.5"/></svg></div>
+        <h3>Recycling</h3>
+        <p>Verbringung zur Recyclinganlage als Teil der Kreislaufwirtschaft – dokumentiert und nachweisbar.</p>
+        <span class="lb-card__more">Mehr erfahren <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="lb-card lb-rv" data-d="1" href="/transportkisten/">
+        <div class="lb-card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7L12 12l8.7-5M12 22V12"/></svg></div>
+        <h3>Transportboxen</h3>
+        <p>Sieben BAM-zugelassene SafetyBATTbox-Größen – zum Kauf oder zur Miete, inklusive LogBAGs und LogCOVER.</p>
+        <span class="lb-card__more">Mehr erfahren <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="lb-card lb-rv" data-d="2" href="/entwicklung/">
+        <div class="lb-card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6L4.6 17a2 2 0 0 0 1.8 3h11.2a2 2 0 0 0 1.8-3L15 8V2z"/><path d="M9 2h6M7.5 14h9"/></svg></div>
+        <h3>Entwicklung &amp; Schulung</h3>
+        <p>Eigene Entwicklung, reale Brandtests, kundenspezifische Lösungen – plus Verpackungsschulungen in der E-Learning Academy.</p>
+        <span class="lb-card__more">Mehr erfahren <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+
+    <div class="lb-head lb-rv" style="margin-top:clamp(60px,7vw,96px)">
+      <p class="lb-eyebrow">Ihre Vorteile</p>
+      <h2 class="lb-h2" style="font-size:clamp(1.6rem,2.8vw,2.3rem)">Warum Unternehmen mit uns arbeiten</h2>
+    </div>
+    <div class="lb-adv">
+      <a class="lb-rv" href="/ueber-uns/#zertifizierungen">
+        <span class="lb-adv__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/><path d="M8.2 13.9L7 22l5-3 5 3-1.2-8.1"/></svg></span>
+        <span><strong>Zertifiziert</strong><span>DIN ISO 9001 &amp; 14001, QSP, EfB, DOT-SP</span></span>
+      </a>
+      <a class="lb-rv" data-d="1" href="/logistik/">
+        <span class="lb-adv__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h13v13H1zM14 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+        <span><strong>9.000+ Transporte</strong><span>mit grünen, gelben und roten Batterien aller Umfänge</span></span>
+      </a>
+      <a class="lb-rv" data-d="2" href="/ueber-uns/#unternehmen">
+        <span class="lb-adv__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/><path d="M9 21h6M10 19h4"/></svg></span>
+        <span><strong>Know-how</strong><span>seit dem ersten Tag auf Lithium-Ionen-Batterien spezialisiert</span></span>
+      </a>
+      <a class="lb-rv" href="/logistik/#networksolution">
+        <span class="lb-adv__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+        <span><strong>Europaweit</strong><span>Logistik- und Batterieentsorgernetzwerk</span></span>
+      </a>
+      <a class="lb-rv" data-d="1" href="/entwicklung/">
+        <span class="lb-adv__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6L4.6 17a2 2 0 0 0 1.8 3h11.2a2 2 0 0 0 1.8-3L15 8V2z"/><path d="M9 2h6"/></svg></span>
+        <span><strong>Entwicklung</strong><span>Transport-, Lager- und Quarantäneboxen aus eigener Produktion</span></span>
+      </a>
+      <a class="lb-rv" data-d="2" href="/logistik/#verpackungsschulung">
+        <span class="lb-adv__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+        <span><strong>Beratung &amp; Schulung</strong><span>E-Learning Academy oder Unterweisung vor Ort</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     6 – KENNZAHLEN
+     ========================================================================== -->
+<section class="lb-sec lb-sec--dark" id="zahlen" style="padding-block:clamp(52px,6vw,84px)">
+  <div class="lb-wrap">
+    <div class="lb-head lb-head--center lb-rv">
+      <p class="lb-eyebrow">Belastbar, nicht behauptet</p>
+      <h2 class="lb-h2" style="font-size:clamp(1.6rem,2.8vw,2.3rem)">Zahlen, die im Ernstfall zählen</h2>
+    </div>
+    <div class="lb-stats lb-rv" id="lb-stats">
+      <div class="lb-stat"><b><span class="lb-count" data-to="9000">9.000</span><i>+</i></b><span>durchgeführte Transporte mit grünen, gelben und roten Batterien</span></div>
+      <div class="lb-stat"><b><span class="lb-count" data-to="45">45</span></b><span>bestandene reale Brandtests unserer Behälter</span></div>
+      <div class="lb-stat"><b><span class="lb-count" data-to="30">30</span><i>+</i></b><span>Länder, in denen wir Analysefahrten durchführen</span></div>
+      <div class="lb-stat"><b><span class="lb-count" data-to="10">10</span></b><span>SafetyBATTbox-Modelle: 7 Transport-, 3 Lagerbehälter</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     7 – ÜBER LOGBATT (Fließtext)
+     ========================================================================== -->
+<section class="lb-sec" id="ueber-logbatt">
+  <div class="lb-wrap">
+    <div class="lb-about">
+      <div class="lb-rv">
+        <p class="lb-eyebrow">Willkommen Zukunft</p>
+        <h2 class="lb-h2" style="font-size:clamp(1.7rem,3vw,2.5rem)">LogBATT – die Lösung für Batterielogistik</h2>
+        <div class="lb-prose" style="margin-top:26px">
+          <p>Die <strong>LogBATT GmbH</strong> hat sich vom ersten Tag auf die <strong>Gesamtlösung von Lithium-Ionen-Batterielogistik</strong> spezialisiert, um ihren Kunden einzigartige und durchdachte Lösungen über die <strong>komplette Batterie-Supply-Chain</strong> anbieten zu können. Wir besitzen die notwendigen <strong>rechtlichen Zertifikate</strong> und Ressourcen, um alle Aspekte des Gefahrgut- und Abfallrechtes für Sie gesetzeskonform und verlässlich abdecken zu können.</p>
+          <p>Egal welche Batteriegröße oder welcher Branche Sie angehören: Wir haben die passende Lösung für Sie – und das alles aus einer Hand.</p>
+          <p>Selbst die Königsklasse für Gefahrguttransportboxen für <strong>kritisch defekte Batterien</strong> nach den neuesten gefahrgutrechtlichen Auflagen des <strong>ADR 2025 P911/LP 906</strong> inklusive Genehmigungen zum Sammeln, Befördern und Makeln für gefährlichen Abfall in <strong>der Entsorgungs- und Recyclinglogistik</strong>, leben wir täglich. Seit Mitte 2023 sind wir Mitglied der <strong>Lagermax Group</strong>.</p>
+          <p>Mit unseren <strong>Transportboxen für defekte bis kritische Lithium-Ionen-Batterien</strong> bieten wir eine Gesamtlösung an. Profitieren auch Sie von unseren Lösungen und werden unser langfristiger Partner. Willkommen Zukunft.</p>
+        </div>
+        <div class="lb-btns" style="margin-top:32px">
+          <a class="lb-btn lb-btn--primary" href="/gesamtloesung/">Unsere Gesamtlösung</a>
+          <a class="lb-btn lb-btn--line" href="/ueber-uns/">Über uns</a>
+        </div>
+      </div>
+      <figure class="lb-about__fig lb-rv" data-d="1">
+        <img src="https://www.logbatt.de/wp-content/uploads/sites/10112/2026/02/hand-mit-batterie.jpg"
+             alt="Mitarbeiter der LogBATT GmbH mit einer Lithium-Ionen-Batterie" loading="lazy">
+        <figcaption class="lb-about__quote">„Lehnen Sie sich zurück. Wir kümmern uns.“</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     8 – VIDEO
+     ========================================================================== -->
+<section class="lb-sec lb-sec--soft" id="entwicklungen">
+  <div class="lb-wrap">
+    <div class="lb-head lb-head--center lb-rv">
+      <p class="lb-eyebrow" style="justify-content:center">Neueste Entwicklungen</p>
+      <h2 class="lb-h2">Sehen Sie selbst, was unsere Behälter aushalten</h2>
+      <p class="lb-lead">Reale Brandtests statt Datenblatt-Versprechen: LogBATT-Gefahrgutlogistik als Referenz der Bundesanstalt für Materialforschung und -prüfung (BAM).</p>
+    </div>
+
+    <div class="lb-video lb-rv" data-yt="DTB8vPQZ060">
+      <img src="https://i.ytimg.com/vi/DTB8vPQZ060/maxresdefault.jpg" alt="Video: Gesamtlösungen für die Batterielogistik" loading="lazy">
+      <button class="lb-video__btn" type="button" aria-label="Video abspielen (lädt YouTube)">
+        <span class="lb-video__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="lb-video__cap">Gesamtlösungen für die Batterielogistik</span>
+      </button>
+    </div>
+    <p class="lb-video__note lb-rv">Mit dem Klick auf das Vorschaubild wird eine Verbindung zu YouTube hergestellt. Es gelten die Datenschutzbestimmungen von Google.</p>
+
+    <div class="lb-cta-band lb-rv">
+      <div class="lb-cta-band__txt">
+        <h3>Fragen Sie unser Rundum-Sorglos-Paket an.</h3>
+        <p>Lehnen Sie sich zurück. Wir kümmern uns – von der Abholung bis zum Recyclingnachweis.</p>
+      </div>
+      <div class="lb-btns">
+        <a class="lb-btn lb-btn--primary" href="tel:+497153925080">+49 7153 92508-0</a>
+        <a class="lb-btn lb-btn--ghost" href="mailto:info@logbatt.de">info@logbatt.de</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     9 – REFERENZEN
+     ========================================================================== -->
+<section class="lb-sec" id="referenzen" style="padding-block:clamp(52px,6vw,88px)">
+  <div class="lb-wrap">
+    <div class="lb-head lb-head--center lb-rv">
+      <p class="lb-eyebrow" style="justify-content:center">Auszug unserer Referenzen</p>
+      <h2 class="lb-h2" style="font-size:clamp(1.6rem,2.8vw,2.3rem)">Automotive, Industrie, Werkzeug und Consumer</h2>
+      <p class="lb-lead">Namhafte Automobilhersteller, Zulieferer und Werkzeuganbieter vertrauen auf unsere Dienstleistungen und Produkte.</p>
+    </div>
+  </div>
+  <div class="lb-marquee lb-rv" aria-label="Referenzkunden">
+    <div class="lb-marquee__track" id="lb-marquee"></div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     10 – NEWS
+     ========================================================================== -->
+<section class="lb-sec lb-sec--soft" id="news">
+  <div class="lb-wrap">
+    <div class="lb-head lb-rv">
+      <p class="lb-eyebrow">News</p>
+      <h2 class="lb-h2" style="font-size:clamp(1.7rem,3vw,2.5rem)">Einblicke, Fachwissen und Neues aus Plochingen</h2>
+      <p class="lb-lead">LogBATT ist jetzt auch auf Social Media. Erhalten Sie exklusive Einblicke ins Unternehmen.</p>
+    </div>
+    <div class="lb-news">
+      <a class="lb-rv" href="/category/blog/">
+        <div class="lb-news__img"><img src="https://www.logbatt.de/wp-content/uploads/sites/10112/2026/05/young-professionals-having-a-discussion-at-a.jpg" alt="Team der LogBATT GmbH im Gespräch" loading="lazy"></div>
+        <div class="lb-news__body">
+          <div class="lb-news__tag">Blog</div>
+          <h3>Aktuelles aus der Batterielogistik</h3>
+          <p>Projekte, Entwicklungen und Erfahrungen aus dem Alltag mit defekten und kritisch defekten Lithium-Ionen-Batterien.</p>
+        </div>
+      </a>
+      <a class="lb-rv" data-d="1" href="/category/informatives/">
+        <div class="lb-news__img"><img src="https://www.logbatt.de/wp-content/uploads/sites/10112/2026/02/hand-mit-batterie.jpg" alt="Lithium-Ionen-Batterie in der Hand" loading="lazy"></div>
+        <div class="lb-news__body">
+          <div class="lb-news__tag">Informatives</div>
+          <h3>Regularien verständlich erklärt</h3>
+          <p>ADR, TRGS 510, VdS 3103, P911/LP906: Was hinter den Vorschriften steckt – und was das für Ihren Betrieb bedeutet.</p>
+        </div>
+      </a>
+      <a class="lb-rv" data-d="2" href="/ueber-uns/#instagram">
+        <div class="lb-news__img"><img src="https://www.logbatt.de/wp-content/uploads/sites/10112/2026/06/IMG_1601_.jpg" alt="LogBATT Team" loading="lazy"></div>
+        <div class="lb-news__body">
+          <div class="lb-news__tag">Instagram</div>
+          <h3>LogBATT hinter den Kulissen</h3>
+          <p>Brandtests, Produktion, Messen und Menschen: Folgen Sie uns für exklusive Einblicke ins Unternehmen.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     11 – FAQ
+     ========================================================================== -->
+<section class="lb-sec" id="faq">
+  <div class="lb-wrap">
+    <div class="lb-head lb-head--center lb-rv">
+      <p class="lb-eyebrow" style="justify-content:center">FAQ</p>
+      <h2 class="lb-h2">Häufig gestellte Fragen zur LogBATT GmbH und Batterielogistik</h2>
+    </div>
+    <div class="lb-faq lb-rv" data-d="1">
+      <details>
+        <summary>Was ist die LogBATT GmbH?</summary>
+        <div class="lb-faq__a"><div>
+          <p>Die LogBATT GmbH mit Sitz in Plochingen ist ein auf die Logistik von Lithium-Ionen-Batterien spezialisiertes Unternehmen. LogBATT deckt die komplette Batterie-Supply-Chain aus einer Hand ab – Transport, Lagerung, Verpackung, Entsorgung und Recycling – und entwickelt und produziert zugleich eigene Gefahrgut- und Brandschutzbehälter. Seit Mitte 2023 ist LogBATT Teil der Lagermax Group.</p>
+        </div></div>
+      </details>
+      <details>
+        <summary>Welche Leistungen bietet LogBATT an?</summary>
+        <div class="lb-faq__a"><div>
+          <p>LogBATT bietet gefahrgutkonformen Transport (ADR, RID, IMDG, IATA), sichere Lagerung und Quarantänelagerung, Entsorgungs- und Recyclinglogistik sowie die Entwicklung und Produktion von Transport- und Lagerbehältern. Ergänzend bietet LogBATT Verpackungsschulungen über die eigene E-Learning Academy oder vor Ort an.</p>
+        </div></div>
+      </details>
+      <details>
+        <summary>Stellt LogBATT seine Transport- und Lagerbehälter selbst her?</summary>
+        <div class="lb-faq__a"><div>
+          <p>Ja. LogBATT ist Hersteller der SafetyBATTbox-Familie und entwickelt und produziert die Transport-, Lager- und Quarantänebehälter selbst – inklusive eigener realer Brandtests und BAM-Bauartzulassungen. Damit ist LogBATT nicht nur Logistikdienstleister, sondern auch Entwickler und Produzent der eingesetzten Behälter.</p>
+        </div></div>
+      </details>
+      <details>
+        <summary>Für welche Batteriezustände bietet LogBATT Lösungen?</summary>
+        <div class="lb-faq__a"><div>
+          <p>LogBATT bietet Lösungen für nicht defekte, defekte und kritisch defekte Lithium-Ionen-Batterien. Für kritisch defekte Batterien verfügt LogBATT über eine Verfahrensfestlegung nach ADR 2025 P911/LP906 – die höchste gefahrgutrechtliche Anforderungsstufe.</p>
+        </div></div>
+      </details>
+      <details>
+        <summary>Ist LogBATT zertifiziert?</summary>
+        <div class="lb-faq__a"><div>
+          <p>Ja. LogBATT ist nach DIN EN ISO 9001 und ISO 14001 zertifiziert, verfügt über das Qualitätssicherungsprogramm Gefahrgutverpackungen (QSP) und ist anerkannter Entsorgungsfachbetrieb (EfB). Zusätzlich besitzt LogBATT die Genehmigungen zum Sammeln, Befördern und Makeln gefährlicher Abfälle sowie eine Zulassung für den US-Markt (DOT Special Permit).</p>
+        </div></div>
+      </details>
+      <details>
+        <summary>Gehört LogBATT zu einem größeren Unternehmen?</summary>
+        <div class="lb-faq__a"><div>
+          <p>Ja. LogBATT ist seit Mitte 2023 Mitglied der Lagermax Group, einer international tätigen Logistikgruppe. Die Anbindung erweitert das europaweite Logistik- und Entsorgernetzwerk von LogBATT.</p>
+        </div></div>
+      </details>
+      <details>
+        <summary>Für welche Branchen arbeitet LogBATT?</summary>
+        <div class="lb-faq__a"><div>
+          <p>LogBATT arbeitet für Kunden aus den Branchen Automotive, Industrie, Werkzeug und Consumer Electronics – darunter Automobilhersteller, Zulieferer und Werkzeuganbieter. Die Lösungen sind für alle Batteriegrößen ausgelegt, von der einzelnen Powertool-Zelle bis zur kompletten E-Auto-Traktionsbatterie.</p>
+        </div></div>
+      </details>
+      <details>
+        <summary>Bietet LogBATT eine Komplettlösung aus einer Hand?</summary>
+        <div class="lb-faq__a"><div>
+          <p>Ja. LogBATT versteht sich als Gesamtlösung für die Batterielogistik und übernimmt den vollständigen Ablauf: Abholen und Lagern, Verpacken, Befördern und die Verbringung zur Recyclinganlage oder zum Bestimmungsort. Kunden müssen die einzelnen Schritte nicht über mehrere Dienstleister koordinieren.</p>
+        </div></div>
+      </details>
+      <details>
+        <summary>Kann man die Behälter von LogBATT kaufen oder mieten?</summary>
+        <div class="lb-faq__a"><div>
+          <p>Beide Optionen sind möglich. Die SafetyBATTbox-Transport- und -Lagerbehälter können gekauft oder gemietet werden – die Mietlösung eignet sich besonders für wechselnde Bedarfe, zeitlich begrenzte Projekte oder kurzfristige Anforderungen wie Rückrufaktionen.</p>
+        </div></div>
+      </details>
+      <details>
+        <summary>Wo ist LogBATT ansässig und europaweit tätig?</summary>
+        <div class="lb-faq__a"><div>
+          <p>Der Hauptsitz der LogBATT GmbH ist in Plochingen (Deutschland). Über ein europaweites Logistik- und Batterieentsorgernetzwerk ist LogBATT in ganz Europa tätig.</p>
+        </div></div>
+      </details>
+      <details>
+        <summary>Wie transportiert man eine defekte E-Auto-Batterie sicher?</summary>
+        <div class="lb-faq__a"><div>
+          <p>Defekte oder kritisch defekte E-Auto-Batterien müssen gefahrgutkonform nach ADR verpackt und in einer bauartzugelassenen Box transportiert werden, die einem Thermal Runaway standhält. LogBATT übernimmt diesen Transport vollständig – mit eigens entwickelten, BAM-zugelassenen SafetyBATTboxen und der höchsten Zulassungsstufe nach ADR 2025 P911/LP906.</p>
+        </div></div>
+      </details>
+      <details>
+        <summary>Wer übernimmt Transport, Lagerung und Entsorgung von Lithium-Ionen-Batterien aus einer Hand?</summary>
+        <div class="lb-faq__a"><div>
+          <p>Unternehmen, die nicht mehrere Dienstleister koordinieren wollen, suchen einen Anbieter für die gesamte Batterie-Supply-Chain. LogBATT bietet genau das als Gesamtlösung – von der Abholung über Verpackung und Transport bis zur Lagerung und Verbringung zur Recyclinganlage.</p>
+        </div></div>
+      </details>
+      <details>
+        <summary>Welche Box braucht man für den Transport kritisch defekter Lithium-Batterien?</summary>
+        <div class="lb-faq__a"><div>
+          <p>Für kritisch defekte Batterien ist eine Verpackung nach der Verpackungsanweisung P911 bzw. LP906 erforderlich – die strengste Stufe im ADR. LogBATT entwickelt und produziert mit der SafetyBATTbox-Familie genau für diesen Fall zugelassene Behälter und ist Inhaber einer entsprechenden Verfahrensfestlegung.</p>
+        </div></div>
+      </details>
+      <details>
+        <summary>An wen wendet sich ein Unternehmen mit beschädigten Akku-Rückläufern aus Werkstätten oder Rückrufaktionen?</summary>
+        <div class="lb-faq__a"><div>
+          <p>Beschädigte Akku-Rückläufer erfordern eine sichere Zwischenlagerung und einen ADR-konformen Abtransport. LogBATT ist auf solche Fälle spezialisiert, stellt die passenden Transport- und Lagerbehälter bereit und übernimmt die komplette Logistik – auch kurzfristig und europaweit.</p>
+        </div></div>
+      </details>
+      <details>
+        <summary>Wie lagert man Lithium-Ionen-Batterien brandsicher im Betrieb?</summary>
+        <div class="lb-faq__a"><div>
+          <p>Die sichere Lagerung erfordert thermische Isolation, Rauchgasmanagement und idealerweise eine Lösung ohne erforderliches Löschwasser. LogBATT bietet hierfür die SafetyBATTbox Storage Family, die als Lager-, Quarantäne- und Evakuierungsbehälter eingesetzt und als Teil eines Brandschutzkonzepts dokumentiert werden kann.</p>
+        </div></div>
+      </details>
+    </div>
+    <p style="text-align:center;margin-top:34px;color:var(--lb-grey)">
+      Noch Fragen offen? <a href="https://www.logbatt.de/wp-content/uploads/sites/10112/2025/04/FAQ-Batterielogistik.pdf" target="_blank" rel="noopener">FAQ Batterielogistik als PDF</a>
+      oder direkt im <a href="/lexikon/">Lexikon</a> nachschlagen.
+    </p>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     12 – SCHLUSS-CTA
+     ========================================================================== -->
+<section class="lb-sec lb-final" id="kontakt-cta">
+  <div class="lb-wrap">
+    <div class="lb-final__inner">
+      <div class="lb-rv">
+        <p class="lb-eyebrow" style="color:#63c8ee">Erstgespräch</p>
+        <h2>Erzählen Sie uns von Ihrer Batterie.<br>Den Rest erledigen wir.</h2>
+        <p>Ob einzelner Havariefall, laufende Rückläufer aus der Werkstatt oder europaweite Rückrufaktion: Wir sagen Ihnen in einem Gespräch, was zu tun ist – und übernehmen es auf Wunsch komplett.</p>
+        <div class="lb-btns" style="margin-top:32px">
+          <a class="lb-btn lb-btn--primary" href="/kontakt/#kontakt">Jetzt Kontakt aufnehmen</a>
+          <a class="lb-btn lb-btn--ghost" href="/downloadbereich/">Downloadbereich</a>
+        </div>
+      </div>
+      <div class="lb-contact lb-rv" data-d="1">
+        <h3>LogBATT GmbH · Plochingen</h3>
+        <ul>
+          <li><a href="tel:+497153925080"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.07 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+49 7153 92508-0</a></li>
+          <li><a href="mailto:info@logbatt.de"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>info@logbatt.de</a></li>
+          <li><a href="/beratung-schulung/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Schulung &amp; E-Learning Academy</a></li>
+          <li><a href="/stellenanzeigen/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Wir stellen ein</a></li>
+        </ul>
+        <a class="lb-btn lb-btn--primary" href="/kontakt/#kontakt">Erstberatung vereinbaren</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     STRUKTURIERTE DATEN (unverändert von der bestehenden Startseite übernommen)
+     ========================================================================== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.logbatt.de/#organization",
+      "hasCertification": [
+        { "@type": "Certification", "name": "DIN EN ISO 9001" },
+        { "@type": "Certification", "name": "DIN EN ISO 14001" },
+        { "@type": "Certification", "name": "Qualitätssicherungsprogramm Gefahrgutverpackungen (QSP)" },
+        { "@type": "Certification", "name": "Entsorgungsfachbetrieb (EfB)" },
+        { "@type": "Certification", "name": "ADR 2025 – Verfahrensfestlegung P911/LP906" }
+      ],
+      "knowsAbout": [
+        { "@id": "https://www.logbatt.de/#concept-lithium-ion-battery" },
+        { "@id": "https://www.logbatt.de/#concept-adr" },
+        { "@id": "https://www.logbatt.de/#concept-thermal-runaway" },
+        { "@id": "https://www.logbatt.de/#concept-dangerous-goods" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Leistungen und Produkte der LogBATT GmbH",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gefahrgutlogistik für Lithium-Ionen-Batterien", "description": "Gefahrgutkonformer Transport von nicht defekten, defekten und kritisch defekten Lithium-Ionen-Batterien nach ADR (Straße), RID (Schiene), IMDG (See) und IATA-DGR (Luftfracht).", "serviceType": "Batterielogistik / Gefahrguttransport", "provider": { "@id": "https://www.logbatt.de/#organization" }, "areaServed": { "@type": "Place", "name": "Europa" } } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Entsorgung von Lithium-Ionen-Batterien", "description": "Entsorgungslogistik für Lithium-Ionen-Batterien inklusive der Genehmigungen zum Sammeln, Befördern und Makeln gefährlicher Abfälle.", "serviceType": "Batterieentsorgung", "provider": { "@id": "https://www.logbatt.de/#organization" }, "areaServed": { "@type": "Place", "name": "Europa" } } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Recycling von Lithium-Ionen-Batterien", "description": "Recyclinglogistik und Verbringung von Lithium-Ionen-Batterien zur Recyclinganlage als Teil der Kreislaufwirtschaft.", "serviceType": "Batterierecycling", "provider": { "@id": "https://www.logbatt.de/#organization" }, "areaServed": { "@type": "Place", "name": "Europa" } } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lagerung und Quarantänelagerung", "description": "Sichere Lagerung, Quarantäne- und Evakuierungslösungen für Lithium-Ionen-Batterien mit der SafetyBATTbox Storage Family.", "serviceType": "Batterielagerung", "provider": { "@id": "https://www.logbatt.de/#organization" }, "areaServed": { "@type": "Place", "name": "Europa" } } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Entwicklung und Produktion von Gefahrgutbehältern", "description": "Entwicklung und Eigenproduktion von Transport-, Lager- und Quarantänebehältern (SafetyBATTbox), inklusive realer Brandtests und kundenspezifischer Lösungen.", "serviceType": "Entwicklung & Produktion", "provider": { "@id": "https://www.logbatt.de/#organization" }, "areaServed": { "@type": "Place", "name": "Europa" } } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Verpackungsschulung & E-Learning Academy", "description": "Schulungen und digitale Verpackungsunterweisungen zum gefahrgutrechtlichen Umgang mit kritisch defekten Lithium-Ionen-Batterien in den SafetyBATTboxen.", "serviceType": "Schulung", "provider": { "@id": "https://www.logbatt.de/#organization" }, "areaServed": { "@type": "Place", "name": "Europa" } } },
+          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "SafetyBATTbox Transportbehälter", "description": "Zertifizierte ADR-Transport- und Brandschutzbehälter (BAM-Bauartzulassung) für beschädigte, defekte und kritisch defekte Lithium-Ionen-Batterien.", "category": "Gefahrgutverpackung / Transportbehälter für Lithium-Ionen-Batterien", "url": "https://www.logbatt.de/transportkisten/", "brand": { "@id": "https://www.logbatt.de/#safetybattbox" }, "manufacturer": { "@id": "https://www.logbatt.de/#organization" } } },
+          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "SafetyBATTbox Storage Family (Lagerbehälter)", "description": "Stationäre Lager-, Quarantäne- und Evakuierungsbehälter für die sichere Lagerung nicht defekter, defekter und kritisch defekter Lithium-Ionen-Batterien.", "category": "Lagerbehälter für Lithium-Ionen-Batterien", "url": "https://www.logbatt.de/lagerbehaelter/", "brand": { "@id": "https://www.logbatt.de/#safetybattbox" }, "manufacturer": { "@id": "https://www.logbatt.de/#organization" } } }
+        ]
+      },
+      "brand": { "@type": "Brand", "@id": "https://www.logbatt.de/#safetybattbox", "name": "SafetyBATTbox", "description": "Produktfamilie zertifizierter Transport-, Lager- und Quarantänebehälter für Lithium-Ionen-Batterien, entwickelt und produziert von der LogBATT GmbH." }
+    },
+    { "@type": "WebPage", "@id": "https://www.logbatt.de/#webpage", "url": "https://www.logbatt.de/", "name": "Die Gesamtlösung für Batterielogistik | LogBATT GmbH", "description": "LogBATT GmbH – Gesamtlösung für die Logistik von Lithium-Ionen-Batterien: Transport, Lagerung, Entsorgung und Recycling sowie Entwicklung und Produktion zertifizierter Transport- und Brandschutzbehälter (SafetyBATTbox).", "inLanguage": "de", "isPartOf": { "@id": "https://www.logbatt.de/#website" }, "about": { "@id": "https://www.logbatt.de/#organization" }, "mainEntity": { "@id": "https://www.logbatt.de/#organization" }, "publisher": { "@id": "https://www.logbatt.de/#organization" } },
+    { "@type": "DefinedTerm", "@id": "https://www.logbatt.de/#concept-lithium-ion-battery", "name": "Lithium-Ionen-Batterie", "sameAs": "https://www.wikidata.org/wiki/Q2822895" },
+    { "@type": "DefinedTerm", "@id": "https://www.logbatt.de/#concept-adr", "name": "ADR (Europäisches Übereinkommen über die Beförderung gefährlicher Güter auf der Straße)", "sameAs": "https://www.wikidata.org/wiki/Q900482" },
+    { "@type": "DefinedTerm", "@id": "https://www.logbatt.de/#concept-thermal-runaway", "name": "Thermal Runaway (thermisches Durchgehen)", "sameAs": "https://www.wikidata.org/wiki/Q908282" },
+    { "@type": "DefinedTerm", "@id": "https://www.logbatt.de/#concept-dangerous-goods", "name": "Gefahrgut / gefährliche Güter", "sameAs": "https://www.wikidata.org/wiki/Q1498116" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Gesamtlösungen für die Batterielogistik",
+  "description": "LogBATT Gefahrgutlogistik als Referenz der Bundesanstalt für Materialforschung und -prüfung (BAM)",
+  "thumbnailUrl": "https://i.vimeocdn.com/video/1005963433-2d681220585991dc454ae5ce9896b6da319e0637833c2debf9bcd1dc5d162b1d-d?mw=1000&mh=563",
+  "uploadDate": "2020-11-20",
+  "duration": "PT3M35S",
+  "contentUrl": "https://117655.wd50.extern.regiohelden.de/wp-content/uploads/sites/10112/2020/11/sicherer-transport-lithium-batterien.mp4"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.logbatt.de/#faq",
+      "inLanguage": "de",
+      "isPartOf": { "@id": "https://www.logbatt.de/#webpage" },
+      "mainEntity": [
+        { "@type": "Question", "name": "Was ist die LogBATT GmbH?", "acceptedAnswer": { "@type": "Answer", "text": "Die LogBATT GmbH mit Sitz in Plochingen ist ein auf die Logistik von Lithium-Ionen-Batterien spezialisiertes Unternehmen. LogBATT deckt die komplette Batterie-Supply-Chain aus einer Hand ab – Transport, Lagerung, Verpackung, Entsorgung und Recycling – und entwickelt und produziert zugleich eigene Gefahrgut- und Brandschutzbehälter. Seit Mitte 2023 ist LogBATT Teil der Lagermax Group." } },
+        { "@type": "Question", "name": "Welche Leistungen bietet LogBATT an?", "acceptedAnswer": { "@type": "Answer", "text": "LogBATT bietet gefahrgutkonformen Transport (ADR, RID, IMDG, IATA), sichere Lagerung und Quarantänelagerung, Entsorgungs- und Recyclinglogistik sowie die Entwicklung und Produktion von Transport- und Lagerbehältern. Ergänzend bietet LogBATT Verpackungsschulungen über die eigene E-Learning Academy oder vor Ort an." } },
+        { "@type": "Question", "name": "Stellt LogBATT seine Transport- und Lagerbehälter selbst her?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. LogBATT ist Hersteller der SafetyBATTbox-Familie und entwickelt und produziert die Transport-, Lager- und Quarantänebehälter selbst – inklusive eigener realer Brandtests und BAM-Bauartzulassungen. Damit ist LogBATT nicht nur Logistikdienstleister, sondern auch Entwickler und Produzent der eingesetzten Behälter." } },
+        { "@type": "Question", "name": "Für welche Batteriezustände bietet LogBATT Lösungen?", "acceptedAnswer": { "@type": "Answer", "text": "LogBATT bietet Lösungen für nicht defekte, defekte und kritisch defekte Lithium-Ionen-Batterien. Für kritisch defekte Batterien verfügt LogBATT über eine Verfahrensfestlegung nach ADR 2025 P911/LP906 – die höchste gefahrgutrechtliche Anforderungsstufe." } },
+        { "@type": "Question", "name": "Ist LogBATT zertifiziert?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. LogBATT ist nach DIN EN ISO 9001 und ISO 14001 zertifiziert, verfügt über das Qualitätssicherungsprogramm Gefahrgutverpackungen (QSP) und ist anerkannter Entsorgungsfachbetrieb (EfB). Zusätzlich besitzt LogBATT die Genehmigungen zum Sammeln, Befördern und Makeln gefährlicher Abfälle sowie eine Zulassung für den US-Markt (DOT Special Permit)." } },
+        { "@type": "Question", "name": "Gehört LogBATT zu einem größeren Unternehmen?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. LogBATT ist seit Mitte 2023 Mitglied der Lagermax Group, einer international tätigen Logistikgruppe. Die Anbindung erweitert das europaweite Logistik- und Entsorgernetzwerk von LogBATT." } },
+        { "@type": "Question", "name": "Für welche Branchen arbeitet LogBATT?", "acceptedAnswer": { "@type": "Answer", "text": "LogBATT arbeitet für Kunden aus den Branchen Automotive, Industrie, Werkzeug und Consumer Electronics – darunter Automobilhersteller, Zulieferer und Werkzeuganbieter. Die Lösungen sind für alle Batteriegrößen ausgelegt, von der einzelnen Powertool-Zelle bis zur kompletten E-Auto-Traktionsbatterie." } },
+        { "@type": "Question", "name": "Bietet LogBATT eine Komplettlösung aus einer Hand?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. LogBATT versteht sich als Gesamtlösung für die Batterielogistik und übernimmt den vollständigen Ablauf: Abholen und Lagern, Verpacken, Befördern und die Verbringung zur Recyclinganlage oder zum Bestimmungsort. Kunden müssen die einzelnen Schritte nicht über mehrere Dienstleister koordinieren." } },
+        { "@type": "Question", "name": "Kann man die Behälter von LogBATT kaufen oder mieten?", "acceptedAnswer": { "@type": "Answer", "text": "Beide Optionen sind möglich. Die SafetyBATTbox-Transport- und -Lagerbehälter können gekauft oder gemietet werden – die Mietlösung eignet sich besonders für wechselnde Bedarfe, zeitlich begrenzte Projekte oder kurzfristige Anforderungen wie Rückrufaktionen." } },
+        { "@type": "Question", "name": "Wo ist LogBATT ansässig und europaweit tätig?", "acceptedAnswer": { "@type": "Answer", "text": "Der Hauptsitz der LogBATT GmbH ist in Plochingen (Deutschland). Über ein europaweites Logistik- und Batterieentsorgernetzwerk ist LogBATT in ganz Europa tätig." } },
+        { "@type": "Question", "name": "Wie transportiert man eine defekte E-Auto-Batterie sicher?", "acceptedAnswer": { "@type": "Answer", "text": "Defekte oder kritisch defekte E-Auto-Batterien müssen gefahrgutkonform nach ADR verpackt und in einer bauartzugelassenen Box transportiert werden, die einem Thermal Runaway standhält. LogBATT übernimmt diesen Transport vollständig – mit eigens entwickelten, BAM-zugelassenen SafetyBATTboxen und der höchsten Zulassungsstufe nach ADR 2025 P911/LP906." } },
+        { "@type": "Question", "name": "Wer übernimmt Transport, Lagerung und Entsorgung von Lithium-Ionen-Batterien aus einer Hand?", "acceptedAnswer": { "@type": "Answer", "text": "Unternehmen, die nicht mehrere Dienstleister koordinieren wollen, suchen einen Anbieter für die gesamte Batterie-Supply-Chain. LogBATT bietet genau das als Gesamtlösung – von der Abholung über Verpackung und Transport bis zur Lagerung und Verbringung zur Recyclinganlage." } },
+        { "@type": "Question", "name": "Welche Box braucht man für den Transport kritisch defekter Lithium-Batterien?", "acceptedAnswer": { "@type": "Answer", "text": "Für kritisch defekte Batterien ist eine Verpackung nach der Verpackungsanweisung P911 bzw. LP906 erforderlich – die strengste Stufe im ADR. LogBATT entwickelt und produziert mit der SafetyBATTbox-Familie genau für diesen Fall zugelassene Behälter und ist Inhaber einer entsprechenden Verfahrensfestlegung." } },
+        { "@type": "Question", "name": "An wen wendet sich ein Unternehmen mit beschädigten Akku-Rückläufern aus Werkstätten oder Rückrufaktionen?", "acceptedAnswer": { "@type": "Answer", "text": "Beschädigte Akku-Rückläufer erfordern eine sichere Zwischenlagerung und einen ADR-konformen Abtransport. LogBATT ist auf solche Fälle spezialisiert, stellt die passenden Transport- und Lagerbehälter bereit und übernimmt die komplette Logistik – auch kurzfristig und europaweit." } },
+        { "@type": "Question", "name": "Wie lagert man Lithium-Ionen-Batterien brandsicher im Betrieb?", "acceptedAnswer": { "@type": "Answer", "text": "Die sichere Lagerung erfordert thermische Isolation, Rauchgasmanagement und idealerweise eine Lösung ohne erforderliches Löschwasser. LogBATT bietet hierfür die SafetyBATTbox Storage Family, die als Lager-, Quarantäne- und Evakuierungsbehälter eingesetzt und als Teil eines Brandschutzkonzepts dokumentiert werden kann." } }
+      ]
+    }
+  ]
+}
+</script>
+
+</div><!-- /.lb-page -->
+
+<script>
+(function () {
+  "use strict";
+  var root = document.getElementById('lb-top');
+  if (!root) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nf = new Intl.NumberFormat('de-DE');
+
+  /* ---------------------------------------------------------------- utils */
+  function hex2rgb(h) { return [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)]; }
+  function mixColor(a, b, t) {
+    var x = hex2rgb(a), y = hex2rgb(b);
+    return 'rgb(' + Math.round(x[0] + (y[0] - x[0]) * t) + ',' + Math.round(x[1] + (y[1] - x[1]) * t) + ',' + Math.round(x[2] + (y[2] - x[2]) * t) + ')';
+  }
+  function easeInOut(t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+  function svgEl(name, attrs) {
+    var e = document.createElementNS('http://www.w3.org/2000/svg', name);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+  function onceInView(el, cb, ratio) {
+    if (!el) return;
+    if (!('IntersectionObserver' in window)) { cb(); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { cb(); io.disconnect(); } });
+    }, { threshold: ratio || .25, rootMargin: '0px 0px -8% 0px' });
+    io.observe(el);
+  }
+
+  /* ------------------------------------------------------- scroll reveals */
+  var revs = root.querySelectorAll('.lb-rv');
+  if (!('IntersectionObserver' in window) || reduce) {
+    Array.prototype.forEach.call(revs, function (el) { el.classList.add('is-in'); });
+  } else {
+    var rio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('is-in'); rio.unobserve(en.target); }
+      });
+    }, { threshold: .12, rootMargin: '0px 0px -6% 0px' });
+    Array.prototype.forEach.call(revs, function (el) { rio.observe(el); });
+  }
+
+  /* ------------------------------------------------------------- counters */
+  function runCounter(el) {
+    var to = parseFloat(el.getAttribute('data-to')) || 0;
+    if (reduce) { el.textContent = nf.format(to); return; }
+    var from = 0, dur = 1400, t0 = null;
+    function step(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      el.textContent = nf.format(Math.round(from + (to - from) * easeInOut(p)));
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  Array.prototype.forEach.call(root.querySelectorAll('.lb-count'), function (el) {
+    onceInView(el, function () { runCounter(el); }, .4);
+  });
+
+  /* -------------------------------------------------------- Ablauf-Balken */
+  var steps = document.getElementById('lb-steps');
+  onceInView(steps, function () { steps.classList.add('is-in'); }, .3);
+
+  /* ==================================================== FLOW-VISUALISIERUNG */
+  var svg = document.getElementById('lb-flow');
+  if (svg) {
+    var NODES = [
+      { t: 'Gefahrgutrecht (ADR)',   a: [430, 6],   b: [610, 22]  },
+      { t: 'Verpackung (UN / BAM)',  a: [628, 74],  b: [610, 94]  },
+      { t: 'Transport',              a: [452, 142], b: [610, 166] },
+      { t: 'Lagerung & Quarantäne',  a: [640, 212], b: [610, 238] },
+      { t: 'Entsorgung',             a: [408, 288], b: [610, 310] },
+      { t: 'Recycling',              a: [598, 366], b: [610, 382] }
+    ];
+    var WOB = [-72, 64, -54, 76, -62, 52];
+    var NW = 214, NH = 52;
+    var SRC_A = [212, 235], SRC_B = [522, 235];
+    var C_WARN = '#ff6b35', C_CI = '#29abe2';
+    var F_WARN = '#fff3ed', F_CI = '#eaf7fd';
+
+    var gLinks = document.getElementById('lb-links');
+    var gNodes = document.getElementById('lb-nodes');
+    var gHub = document.getElementById('lb-hub');
+    var trunk = svgEl('path', { 'stroke-width': 3, fill: 'none', stroke: C_CI, 'stroke-linecap': 'round' });
+    gLinks.appendChild(trunk);
+
+    NODES.forEach(function (n, i) {
+      n.path = svgEl('path', { 'stroke-width': 2.2, fill: 'none' });
+      gLinks.appendChild(n.path);
+
+      n.g = svgEl('g', {});
+      n.rect = svgEl('rect', { x: 0, y: 0, width: NW, height: NH, rx: 13, 'stroke-width': 2 });
+      n.g.appendChild(n.rect);
+      var label = svgEl('text', { x: 18, y: 31, 'font-family': 'Roboto, Arial, sans-serif', 'font-size': 14.5, fill: '#0e1a22' });
+      label.textContent = n.t;
+      n.g.appendChild(label);
+      n.badge = svgEl('circle', { cx: NW - 24, cy: 26, r: 11 });
+      n.g.appendChild(n.badge);
+      n.bang = svgEl('text', { x: NW - 24, y: 31, 'text-anchor': 'middle', 'font-family': 'Montserrat, Roboto, sans-serif', 'font-weight': 800, 'font-size': 14, fill: '#fff' });
+      n.bang.textContent = '!';
+      n.g.appendChild(n.bang);
+      n.check = svgEl('path', { d: 'M' + (NW - 30) + ' 26l4 4 7-8', fill: 'none', stroke: '#fff', 'stroke-width': 2.4, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+      n.g.appendChild(n.check);
+      gNodes.appendChild(n.g);
+    });
+
+    function drawFlow(t) {
+      var sx = SRC_A[0] + (SRC_B[0] - SRC_A[0]) * t;
+      var sy = SRC_A[1];
+      var lineCol = mixColor(C_WARN, C_CI, t);
+      var fillCol = mixColor(F_WARN, F_CI, t);
+
+      gHub.setAttribute('opacity', Math.max(0, (t - .25) / .75).toFixed(3));
+      trunk.setAttribute('opacity', t.toFixed(3));
+      trunk.setAttribute('d', 'M212 235H' + (342).toFixed(1));
+
+      NODES.forEach(function (n, i) {
+        var x = n.a[0] + (n.b[0] - n.a[0]) * t;
+        var y = n.a[1] + (n.b[1] - n.a[1]) * t;
+        n.g.setAttribute('transform', 'translate(' + x.toFixed(1) + ',' + y.toFixed(1) + ')');
+        n.rect.setAttribute('fill', fillCol);
+        n.rect.setAttribute('stroke', lineCol);
+        n.badge.setAttribute('fill', lineCol);
+        n.bang.setAttribute('opacity', (1 - t).toFixed(3));
+        n.check.setAttribute('opacity', t.toFixed(3));
+
+        var dx = x, dy = y + NH / 2;
+        var w = WOB[i] * (1 - t);
+        var gap = (dx - sx) * .5;
+        var d = 'M' + sx.toFixed(1) + ' ' + sy + ' C' +
+          (sx + gap).toFixed(1) + ' ' + (sy + w).toFixed(1) + ',' +
+          (dx - gap * .8).toFixed(1) + ' ' + (dy - w).toFixed(1) + ',' +
+          dx.toFixed(1) + ' ' + dy.toFixed(1);
+        n.path.setAttribute('d', d);
+        n.path.setAttribute('stroke', lineCol);
+        n.path.setAttribute('opacity', (.5 + .4 * t).toFixed(3));
+      });
+    }
+
+    var cur = 1, anim = null;
+    function goTo(target) {
+      if (reduce) { cur = target; drawFlow(target); return; }
+      if (anim) cancelAnimationFrame(anim);
+      var from = cur, t0 = null, dur = 1000;
+      (function loop(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min((ts - t0) / dur, 1);
+        cur = from + (target - from) * easeInOut(p);
+        drawFlow(cur);
+        if (p < 1) anim = requestAnimationFrame(loop);
+      })(performance.now());
+    }
+
+    var btnA = document.getElementById('lb-flow-a');
+    var btnB = document.getElementById('lb-flow-b');
+    var stress = document.getElementById('lb-stress');
+    var stressVal = document.getElementById('lb-stress-val');
+    var note = document.getElementById('lb-flow-note');
+    var NOTE_A = '<b>Ohne Gesamtlösung:</b> Sie koordinieren sechs Gewerke, prüfen Papiere und Zulassungen – und tragen Haftung und Brandrisiko bei jedem einzelnen Fall selbst.';
+    var NOTE_B = '<b>Mit LogBATT:</b> Ein Vertrag, ein Ansprechpartner, eine lückenlose Dokumentationskette – von der Abholung bis zum Recyclingnachweis.';
+
+    function setState(s) {
+      btnA.setAttribute('aria-pressed', s === 0 ? 'true' : 'false');
+      btnB.setAttribute('aria-pressed', s === 1 ? 'true' : 'false');
+      stress.classList.toggle('is-calm', s === 1);
+      stressVal.textContent = s === 1 ? 'gering' : 'hoch';
+      note.innerHTML = s === 1 ? NOTE_B : NOTE_A;
+      goTo(s);
+    }
+    btnA.addEventListener('click', function () { setState(0); });
+    btnB.addEventListener('click', function () { setState(1); });
+
+    /* Startzustand: Chaos – und beim Scrollen in die Lösung auflösen. */
+    cur = 0; drawFlow(0);
+    btnA.setAttribute('aria-pressed', 'true');
+    btnB.setAttribute('aria-pressed', 'false');
+    stress.classList.remove('is-calm');
+    stressVal.textContent = 'hoch';
+    note.innerHTML = NOTE_A;
+    onceInView(svg, function () { setTimeout(function () { setState(1); }, 900); }, .3);
+  }
+
+  /* ================================================== LAGERBEHÄLTER-MODULE */
+  var MODELS = {
+    m: {
+      name: 'SafetyBATTbox M-Storage',
+      art: 'Art.-Nr. 300031 · Lager-, Quarantäne- &amp; Evakuierungsbehälter',
+      desc: 'Die kompakte stationäre Lagerlösung für kleinere Zellgruppen, Powertool- und E-Bike-Akkus. Mit geringem Leergewicht auch ohne Stapler beweglich – ideal für Werkstätten und Standorte mit geringem Durchsatz.',
+      load: 80, tare: 85,
+      dim: '1000 × 600 × 700 mm', mat: 'Verzinkter Stahl',
+      link: '/lagerbehaelter/safety-battbox-m-storage/'
+    },
+    l: {
+      name: 'SafetyBATTbox L-Storage',
+      art: 'Art.-Nr. 300041 · Lager-, Quarantäne- &amp; Evakuierungsbehälter',
+      desc: 'Die universelle Lagerlösung für Betriebe mit mittlerem Batterievolumen: PKW-Module, E-Bike-Akkus und Industrie-Lithium-Batterien – stapelbar und witterungsbeständig.',
+      load: 350, tare: 295,
+      dim: '1604 × 1204 × 945 mm', mat: 'Eloxiertes Aluminium, Edelstahl, verzinkter Stahl',
+      link: '/lagerbehaelter/safety-battbox-l-storage/'
+    },
+    xl: {
+      name: 'SafetyBATTbox XL-Storage',
+      art: 'Art.-Nr. 300030 · Lager-, Quarantäne- &amp; Evakuierungsbehälter',
+      desc: 'Die stationäre Großlösung für komplette E-Auto-Batteriepacks und große PHEV-/BEV-Hochvoltspeicher. Frontal beladbar per Hubwagen, teilbar und von einer Person bedienbar.',
+      load: 1050, tare: 1150,
+      dim: '3196 × 2298 × 1237 mm', mat: 'Edelstahl, verzinkt, pulverbeschichtet',
+      link: '/lagerbehaelter/safety-battbox-xl-storage/'
+    }
+  };
+
+  var tabs = root.querySelectorAll('.lb-tab');
+  if (tabs.length) {
+    var elName = document.getElementById('lb-m-name'),
+        elArt  = document.getElementById('lb-m-art'),
+        elDesc = document.getElementById('lb-m-desc'),
+        elLoad = document.getElementById('lb-m-load'),
+        elTare = document.getElementById('lb-m-tare'),
+        elDim  = document.getElementById('lb-m-dim'),
+        elMat  = document.getElementById('lb-m-mat'),
+        elLink = document.getElementById('lb-m-link');
+
+    function animateValue(el, to) {
+      var from = parseInt((el.textContent || '0').replace(/\D/g, ''), 10) || 0;
+      if (reduce || from === to) { el.textContent = nf.format(to); return; }
+      var t0 = null, dur = 700;
+      (function loop(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min((ts - t0) / dur, 1);
+        el.textContent = nf.format(Math.round(from + (to - from) * easeInOut(p)));
+        if (p < 1) requestAnimationFrame(loop);
+      })(performance.now());
+    }
+
+    function selectModel(key) {
+      var m = MODELS[key];
+      if (!m) return;
+      Array.prototype.forEach.call(tabs, function (t) {
+        t.setAttribute('aria-selected', t.getAttribute('data-model') === key ? 'true' : 'false');
+      });
+      Array.prototype.forEach.call(root.querySelectorAll('.lb-model__photo img'), function (img) {
+        img.classList.toggle('is-on', img.id === 'ph-' + key);
+      });
+      Array.prototype.forEach.call(root.querySelectorAll('.lb-scale__box'), function (b) {
+        b.classList.toggle('is-on', b.getAttribute('data-model') === key);
+      });
+      elName.textContent = m.name;
+      elArt.innerHTML = m.art;
+      elDesc.textContent = m.desc;
+      elDim.textContent = m.dim;
+      elMat.textContent = m.mat;
+      elLink.setAttribute('href', m.link);
+      animateValue(elLoad, m.load);
+      animateValue(elTare, m.tare);
+    }
+
+    Array.prototype.forEach.call(tabs, function (t) {
+      t.addEventListener('click', function () { selectModel(t.getAttribute('data-model')); });
+    });
+    Array.prototype.forEach.call(root.querySelectorAll('.lb-scale__box'), function (b) {
+      b.style.cursor = 'pointer';
+      b.addEventListener('click', function () { selectModel(b.getAttribute('data-model')); });
+    });
+  }
+
+  /* --------------------------------------------------------- Hotspot-Info */
+  var HOT = {
+    gas:   ['Gasmanagement &amp; Rauchgasfilterung', 'Reagiert eine Batterie thermisch, werden die entstehenden Rauchgase gerichtet abgeführt und gefiltert – statt unkontrolliert in die Halle zu strömen.'],
+    iso:   ['Thermische Isolation – löschen ohne Wasser', 'Die Außenflächentemperatur bleibt während eines Batteriebrandes im kontrollierten Bereich. Es wird kein Löschwasser und keine Rückhaltevorrichtung benötigt.'],
+    wanne: ['Auffangwanne mit Absorptionsmaterial', 'Austretende Flüssigkeiten wie Elektrolyt oder Kühlmittel werden aufgefangen und gebunden – sie gelangen nicht in Boden oder Kanalisation.'],
+    bags:  ['LogBAGs – wiederverwendbare Brandschutzkissen', 'Nicht brennbares Material nach DIN 4102: Die LogBAGs fixieren die Batterie und absorbieren Flüssigkeiten. Nach Gebrauch entnehmbar, prüfbar und wiederverwendbar.'],
+    load:  ['Frontal- oder Oberbeladung', 'Schwere Hochvoltspeicher werden per Hubwagen oder Flurförderzeug direkt eingeschoben – ohne aufwendiges Anheben von oben. Von einer Person bedienbar.'],
+    stack: ['Stapelbar 1 + 1', 'Zwei Behälter übereinander sparen Stellfläche in der Quarantänelagerung – bei vollem Brandschutz auch im gestapelten Zustand.']
+  };
+  var hotTitle = document.getElementById('lb-hot-title');
+  var hotText = document.getElementById('lb-hot-text');
+  Array.prototype.forEach.call(root.querySelectorAll('.lb-hot'), function (h) {
+    function activate() {
+      var d = HOT[h.getAttribute('data-hot')];
+      if (!d) return;
+      Array.prototype.forEach.call(root.querySelectorAll('.lb-hot'), function (o) { o.classList.remove('is-active'); });
+      h.classList.add('is-active');
+      hotTitle.innerHTML = d[0];
+      hotText.textContent = d[1];
+    }
+    h.addEventListener('click', activate);
+    h.addEventListener('mouseenter', activate);
+    h.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
+    });
+  });
+
+  /* ------------------------------------------------------------- Referenzen */
+  var LOGOS = [
+    ['AMG', '2020/04/amg.png'],
+    ['Porsche', '2020/04/porsche.png'],
+    ['Daimler', '2021/11/Daimler-600x315px.png'],
+    ['BMW', '2020/11/bmw.png'],
+    ['Bosch eBike', '2020/05/bosch-ebike.png'],
+    ['Dräxlmaier', '2021/11/Draexlmaier-600x315px.png'],
+    ['Mercedes-Benz', '2020/11/mercedes.png'],
+    ['Ford', '2020/11/ford.png'],
+    ['StreetScooter', '2020/04/streetscooter.png'],
+    ['LG Chem', '2020/11/lg-chem.png'],
+    ['TÜV SÜD', '2020/04/tuev.png'],
+    ['Intertek', '2021/11/Intertek-600x315px.png'],
+    ['Akasol', '2021/11/Akasol-600x315px.png'],
+    ['FUSO', '2021/11/Fuso-600x315px.png'],
+    ['SGS', '2021/11/SGS-600x315px.png'],
+    ['UPS', '2021/11/UPS-600x315px.png'],
+    ['Toyota', '2021/11/Toyota-600x315px.png'],
+    ['Volvo', '2021/11/Volvo-600x315px.png'],
+    ['Webasto', '2020/05/webasto.png'],
+    ['MAN', '2021/11/MAN-600x315px.png'],
+    ['Kreisel', '2021/11/Kreisel-600x315px.png'],
+    ['Stena', '2021/11/Stenna-600x315px-1.png'],
+    ['DHL', '2023/02/dhl-logo-1.png'],
+    ['Northvolt', '2022/01/Northvolt_logo-600x315px.png'],
+    ['Stellantis', '2022/08/logbatt-stellantis-logo.png']
+  ];
+  var track = document.getElementById('lb-marquee');
+  if (track) {
+    var base = 'https://www.logbatt.de/wp-content/uploads/sites/10112/';
+    var html = '<div class="lb-marquee__row">' + LOGOS.map(function (l) {
+      return '<img src="' + base + l[1] + '" alt="' + l[0] + '" loading="lazy">';
+    }).join('') + '</div>';
+    track.innerHTML = html + html.replace('class="lb-marquee__row"', 'class="lb-marquee__row" aria-hidden="true"');
+  }
+
+  /* ------------------------------------------------------------ Video-Facade */
+  Array.prototype.forEach.call(root.querySelectorAll('.lb-video'), function (box) {
+    var btn = box.querySelector('.lb-video__btn');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var id = box.getAttribute('data-yt');
+      var f = document.createElement('iframe');
+      f.setAttribute('src', 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0');
+      f.setAttribute('title', 'Gesamtlösungen für die Batterielogistik');
+      f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+      f.setAttribute('allowfullscreen', '');
+      box.innerHTML = '';
+      box.appendChild(f);
+    });
+  });
+
+  /* ------------------------------------------------- FAQ: sanftes Schliessen */
+  Array.prototype.forEach.call(root.querySelectorAll('.lb-faq details'), function (d) {
+    var sum = d.querySelector('summary');
+    sum.addEventListener('click', function (e) {
+      if (!d.open || reduce) return;          /* Oeffnen: Browser + CSS-Transition */
+      e.preventDefault();                      /* Schliessen: erst animieren      */
+      var body = d.querySelector('.lb-faq__a');
+      body.style.gridTemplateRows = '0fr';
+      window.setTimeout(function () {
+        d.open = false;
+        body.style.gridTemplateRows = '';
+      }, 320);
+    });
+  });
+
+  /* ---------------------------------------------------- sanftes Ankerscrollen */
+  Array.prototype.forEach.call(root.querySelectorAll('a[href^="#"]'), function (a) {
+    a.addEventListener('click', function (e) {
+      var el = document.querySelector(a.getAttribute('href'));
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    });
+  });
+})();
+</script>
+<!-- ========================= COPY END ========================= -->
+
+</body>
+</html>
