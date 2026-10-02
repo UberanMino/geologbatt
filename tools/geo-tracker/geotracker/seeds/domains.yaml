@@ -1,0 +1,73 @@
+# Domain-Seed für die Citation-/Source-Analyse.
+#
+# source_type-Regeln (Reihenfolge = Priorität, erste Regel gewinnt):
+#   1. owned        -> Domain steht in `owned` (eigene LogBATT-Domains)
+#   2. competitor   -> Domain gehört einer Brand aus brands.yaml (brand_domains)
+#   3. earned_media -> Domain steht in `earned_media` ODER matcht ein Muster
+#                      aus `earned_media_patterns`
+#   4. other        -> alles Übrige
+#
+# "Offene Entdeckung": JEDE zitierte Domain landet in der Tabelle `domains`,
+# auch unbekannte. Unbekannte bekommen source_type = other und is_known = false
+# und tauchen im Dashboard unter "Neu entdeckt" auf, bis jemand sie hier oder
+# in brands.yaml einsortiert. Die Klassifikation ist re-runnable
+# (`geotracker reclassify-domains`) — ändert man diese Datei, werden bereits
+# gespeicherte Citations neu klassifiziert, ohne erneut zu scrapen.
+
+owned:
+  - logbatt.de
+  - logbatt.com
+
+earned_media:
+  # Foren / Community
+  - reddit.com
+  - gutefrage.net
+  - motor-talk.de
+  - quora.com
+  - stackexchange.com
+  - youtube.com
+  - linkedin.com
+  - facebook.com
+  - x.com
+  - twitter.com
+
+  # B2B-Marktplätze, Vergleichs- und Anbieterverzeichnisse
+  - wlw.de                    # "Wer liefert was"
+  - europages.de
+  - europages.com
+  - kompass.com
+  - industrystock.de
+  - exportpages.de
+  - dastelefonbuch.de
+  - gelbeseiten.de
+  - trustpilot.com
+  - provenexpert.com
+  - kaiserkraft.de
+  - loxxer.com
+
+  # Fach- und Referenzquellen (prägen die Antworten inhaltlich)
+  - wikipedia.org
+  - de.wikipedia.org
+  - dguv.de
+  - bam.de
+  - umweltbundesamt.de
+  - vde.com
+  - dekra.de
+  - tuv.com
+  - tuvsud.com
+  - bgetem.de
+  - gefahrgut-online.de
+  - vci.de
+  - batterielagerung.de
+  - lithiumionenlagerung.de
+
+# Regex-Muster (case-insensitiv, gegen die volle Host-Angabe geprüft) für
+# Domain-Familien, die wir nicht einzeln pflegen wollen. Bewusst konservativ:
+# lieber "other" als eine falsche earned_media-Zuordnung, weil daraus im
+# Dashboard eine Handlungsempfehlung wird.
+earned_media_patterns:
+  - '(^|\.)reddit\.'
+  - '(^|\.)wikipedia\.org$'
+  - '(^|\.)wikimedia\.org$'
+  - '(^|\.)ihk[-.]'            # Industrie- und Handelskammern
+  - '(^|\.)ihk\.de$'

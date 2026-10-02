@@ -8,3 +8,11 @@ Thumbs.db
 # Node
 node_modules/
 product-pdfs/.build/
+# GEO-Visibility-Tracker (tools/geo-tracker)
+.env
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+__pycache__/
+*.py[cod]
+.pytest_cache/

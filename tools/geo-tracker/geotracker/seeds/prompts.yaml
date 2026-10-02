@@ -1,0 +1,203 @@
+# Prompt-Seed für den GEO-Visibility-Tracker (Ebene 1).
+#
+# Quelle: data/peec/prompts-master-2026-08-03.md — die 79 aktiv getrackten,
+# nicht-marken-bezogenen Prompts aus dem LogBATT-Peec-Account, 1:1 übernommen,
+# damit unsere Zahlen direkt gegen Peec gegengeprüft werden können.
+#
+# category  = Peec-`topic_name` (Themen-Cluster), unverändert.
+# country   = ISO-3166-1 alpha-2. ACHTUNG: keine der vier SearchApi-KI-Engines
+#             nimmt einen Location-Parameter entgegen (siehe README, Abschnitt
+#             "Land & Sprache"). `country` ist deshalb heute eine Auswertungs-
+#             Dimension, kein Request-Parameter.
+# language  = ISO-639-1. Wird über die Sprache des Prompt-Textes gesteuert
+#             (SearchApi antwortet in der Sprache der Query — dokumentiert).
+# engines   = Engines, gegen die dieser Prompt laufen soll.
+#
+# Der Seed ist idempotent: `geotracker seed` legt fehlende Prompts an und
+# aktualisiert category/engines bestehender, löscht aber nie.
+
+defaults:
+  country: DE
+  language: de
+  engines: [chatgpt, perplexity, gemini, google_ai_overview]
+  active: true
+
+prompts:
+
+  # --- Vermietung von Gefahrgutboxen ---
+  - text: "Wer vermietet Havarieboxen für Lithium-Akkus?"
+    category: "Vermietung von Gefahrgutboxen"
+  - text: "Welche Firma bietet Gefahrgutboxen für Batterien zur Miete an?"
+    category: "Vermietung von Gefahrgutboxen"
+  - text: "Wo kann ich Lagerbehälter für defekte Lithium-Batterien mieten?"
+    category: "Vermietung von Gefahrgutboxen"
+  - text: "Anbieter Vermietung von Gefahrgutboxen für Lithium Batterien"
+    category: "Vermietung von Gefahrgutboxen"
+  - text: "Welche Firma bietet Brandschutzkisten für Batterien zur Miete an?"
+    category: "Vermietung von Gefahrgutboxen"
+  - text: "Wer vermietet Gefahrgutboxen für Lithium-Batterien?"
+    category: "Vermietung von Gefahrgutboxen"
+  - text: "Wo bekomme ich Havariecontainer für Lithium-Akkus zur Miete?"
+    category: "Vermietung von Gefahrgutboxen"
+  - text: "Anbieter für Lagercontainer für Lithium Batterien zur Miete"
+    category: "Vermietung von Gefahrgutboxen"
+  - text: "Wo kann ich Quarantänekisten für defekte Lithium-Ionen-Batterien mieten?"
+    category: "Vermietung von Gefahrgutboxen"
+  - text: "Firma für Batterie Container Vermietung Deutschland"
+    category: "Vermietung von Gefahrgutboxen"
+  - text: "Bester Anbieter für feuerfeste Quarantänebehälter für Lithium Batterien"
+    category: "Vermietung von Gefahrgutboxen"
+  - text: "Firma für Havariebehälter Vermietung Deutschland"
+    category: "Vermietung von Gefahrgutboxen"
+
+  # --- Verkauf von Gefahrgutboxen ---
+  - text: "Welche Anbieter verkaufen Gefahrgutboxen für Hochvoltbatterien?"
+    category: "Verkauf von Gefahrgutboxen"
+  - text: "Anbieter Transportkisten für Lithium-Ionen-Batterien"
+    category: "Verkauf von Gefahrgutboxen"
+  - text: "Wer bietet Gefahrgutboxen für Lithium Ionen Batterien an?"
+    category: "Verkauf von Gefahrgutboxen"
+  - text: "Wer bietet Havariecontainer für Lithium-Ionen-Batterien für Unternehmen an?"
+    category: "Verkauf von Gefahrgutboxen"
+  - text: "Wer bietet Transportkisten für Lithium-Ionen-Batterien für Unternehmen an?"
+    category: "Verkauf von Gefahrgutboxen"
+  - text: "Anbieter Lithium-Ionen-Batterie Quarantänebox"
+    category: "Verkauf von Gefahrgutboxen"
+  - text: "Welche Anbieter verkaufen Havariekisten für Lithium-Batterien?"
+    category: "Verkauf von Gefahrgutboxen"
+  - text: "Wer verkauft Lagerboxen für Lithium Ionen Batterien?"
+    category: "Verkauf von Gefahrgutboxen"
+  - text: "Anbieter Quarantänekiste für defekte Batterien B2B"
+    category: "Verkauf von Gefahrgutboxen"
+  - text: "Wer verkauft Brandschutzbehälter für Lithium Batterien an Unternehmen?"
+    category: "Verkauf von Gefahrgutboxen"
+  - text: "Anbieter Lithium-Ionen-Batterie Lagercontainer"
+    category: "Verkauf von Gefahrgutboxen"
+  - text: "Bei welchem Anbieter kann ich Brandschutzcontainer für defekte Batterien meines Unternehmens kaufen?"
+    category: "Verkauf von Gefahrgutboxen"
+
+  # --- Lagerung ---
+  - text: "Bei welchem Anbieter kann ich am besten Lagerbehälter für Lithium Ionen Akkus mieten?"
+    category: "Lagerung"
+  - text: "Bei welchem Anbieter kann ich am besten Lagerbehälter für Lithium Ionen Akkus kaufen?"
+    category: "Lagerung"
+
+  # --- Transport ---
+  - text: "Bester Anbieter um beschädigte Lithium Batterien transportieren zu lassen"
+    category: "Transport"
+  - text: "Welcher ist der beste Anbieter für Lithium Ionen Akku Transportboxen?"
+    category: "Transport"
+  - text: "Bei welchem Unternehmen kann ich beschädigte Lithium Batterien transportieren lassen?"
+    category: "Transport"
+
+  # --- Storage Container ---
+  - text: "Welche Unternehmen verkaufen PGS 37-2 konforme Großcontainer für Lithium-Akkus?"
+    category: "Storage Container"
+  - text: "Wer bietet Großcontainer für die Lagerung von Lithiumbatterien an?"
+    category: "Storage Container"
+  - text: "Welche Firma ist spezialisiert auf Lithium-Sicherheitscontainer?"
+    category: "Storage Container"
+  - text: "Wer bietet kranverladbare Sicherheitscontainer für Lithium-Batterien an?"
+    category: "Storage Container"
+  - text: "Anbieter begehbarer Sicherheitscontainer Lithium-Batterien"
+    category: "Storage Container"
+  - text: "Welcher Anbieter verkauft begehbare Quarantänecontainer für beschädigte Lithium-Batterien?"
+    category: "Storage Container"
+  - text: "Anbieter 40-Fuß-Container zur Lagerung von Lithium-Batterien"
+    category: "Storage Container"
+  - text: "Begehbarer Quarantänecontainer Lithium-Ionen-Batterien Anbieter"
+    category: "Storage Container"
+  - text: "Welche Firmen bieten 10-Fuß-Container für die Lagerung von Lithium-Akkus an?"
+    category: "Storage Container"
+  - text: "Wer verkauft 20-Fuß-Container für die Lithium-Batterien-Lagerung?"
+    category: "Storage Container"
+  - text: "Wer bietet begehbare ISO-Container für Hochvoltbatterien an?"
+    category: "Storage Container"
+
+  # --- Havariefälle ---
+  - text: "Dienstleister Lithium-Batterie Havariefall Abholung europaweit"
+    category: "Havariefälle"
+  - text: "Welcher Dienstleister ist auf die Entsorgung von Lithium-Batterien nach Havariefällen spezialisiert?"
+    category: "Havariefälle"
+  - text: "Anbieter Transport und Entsorgung abgebrannte Lithium-Batterie"
+    category: "Havariefälle"
+  - text: "Welche Anbieter entsorgen Lithium-Batterien nach einem Lagerbrand oder LKW-Brand?"
+    category: "Havariefälle"
+  - text: "Anbieter Lithium-Batterie Entsorgung nach Brandschaden"
+    category: "Havariefälle"
+  - text: "Anbieter Havariefall Lithium Batterie Entsorgung"
+    category: "Havariefälle"
+  - text: "Welche Firmen entsorgen E-Auto Batterien nach einem Unfall?"
+    category: "Havariefälle"
+  - text: "Wer entsorgt Lithium-Batterien aus einem Wasserbad inklusive kontaminiertem Wasser?"
+    category: "Havariefälle"
+  - text: "Spezialist für Lithium-Batterien im Wasserbad und kontaminiertes Löschwasser"
+    category: "Havariefälle"
+  - text: "Wer übernimmt die Entsorgung im Havariefall bei Lithium-Batterien?"
+    category: "Havariefälle"
+  - text: "Wo kann ich einen nach einem Unfall defekten Akku entsorgen lassen?"
+    category: "Havariefälle"
+
+  # --- Entsorgung ---
+  - text: "Welcher ist der beste Anbieter für Lithium-Ionen-Akku-Entsorgung?"
+    category: "Entsorgung"
+  - text: "Welcher ist der beste Anbieter für Lithium-Ionen-Batterien Entsorgung?"
+    category: "Entsorgung"
+  - text: "Bei welchem Unternehmen kann ich am besten Lithium-Ionen-Batterien entsorgen lassen?"
+    category: "Entsorgung"
+
+  # --- Transportboxen ---
+  - text: "Was ist der beste Havariecontainer für den Transport von Lithium Ionen Batterien?"
+    category: "Transportboxen"
+  - text: "Welche Brandschutzkisten für den Transport von Lithium Batterien für Unternehmen gibt es?"
+    category: "Transportboxen"
+  - text: "Bester Transportbehälter für Lithium Ionen Batterien"
+    category: "Transportboxen"
+  - text: "Welche Transportboxen für Lithium Batterien gibt es?"
+    category: "Transportboxen"
+  - text: "Welcher Gefahrgutcontainer für den Transport von Lithium Akkus ist am besten?"
+    category: "Transportboxen"
+  - text: "Beste Quarantänekiste für den Transport von Lithium-Akkus"
+    category: "Transportboxen"
+  - text: "Beste Transportbox für Lithium Ionen Batterien"
+    category: "Transportboxen"
+  - text: "Welche Havariebehälter gibt es, um defekte Lithium-Batterien zu transportieren?"
+    category: "Transportboxen"
+  - text: "Welche Gefahrgutbox brauche ich für den Transport von Lithium-Batterien?"
+    category: "Transportboxen"
+  - text: "Welche Quarantänebehälter brauche ich, um Lithium-Batterien zu transportieren?"
+    category: "Transportboxen"
+
+  # --- Lagerbehälter ---
+  - text: "Beste Havariecontainer für die Lagerung defekter Batterien"
+    category: "Lagerbehälter"
+  - text: "Welche Quarantäneboxen für die Lagerung von Lithium-Batterien gibt es?"
+    category: "Lagerbehälter"
+  - text: "Welche Lagerbox ist für beschädigte Lithium-Ionen-Akkus geeignet?"
+    category: "Lagerbehälter"
+  - text: "Welche Evakuierungskisten eignen sich für die Lagerung von Lithium-Batterien?"
+    category: "Lagerbehälter"
+  - text: "Welche Havariekiste eignet sich für die Lagerung von Lithium-Batterien?"
+    category: "Lagerbehälter"
+  - text: "Welcher Gefahrgutcontainer für die Lagerung von Lithium Akkus ist am besten?"
+    category: "Lagerbehälter"
+  - text: "Bester Lagerbehälter für Lithium Ionen Akkus"
+    category: "Lagerbehälter"
+  - text: "Welche Havariebehälter brauche ich für defekte Lithium-Akkus?"
+    category: "Lagerbehälter"
+  - text: "Was sind die besten Behälter für Lithium-Ionen-Akkus?"
+    category: "Lagerbehälter"
+
+  # --- Recycling ---
+  - text: "Lithium Batterie Recycling gewerblich Dienstleister"
+    category: "Recycling"
+  - text: "Wer bietet Recycling von Lithium-Ionen-Batterien für Unternehmen an?"
+    category: "Recycling"
+  - text: "Anbieter für Batterierecycling europaweit"
+    category: "Recycling"
+  - text: "Wie finde ich einen Dienstleister für Batterierecycling im B2B-Bereich?"
+    category: "Recycling"
+  - text: "Welches Unternehmen ist das beste für Lithium-Ionen-Akku Recycling?"
+    category: "Recycling"
+  - text: "Bei wem kann ich am besten Lithium-Ionen-Akkus recyclen lassen?"
+    category: "Recycling"

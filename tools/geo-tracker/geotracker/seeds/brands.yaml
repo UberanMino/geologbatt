@@ -1,0 +1,109 @@
+# Brand-Seed (bekannte Marken, is_known = true).
+#
+# Ebene 2 (Auswertungs-Layer) darf zusätzlich NEUE Brands anlegen — die bekommen
+# dann is_known = false ("offene Entdeckung"). Dieser Seed definiert nur das,
+# was wir vorab sicher wissen.
+#
+# `domains` ist bewusst Teil des Brand-Seeds und nicht nur eine Domain-Liste:
+# die Citation-Klassifikation (source_type = competitor) braucht die Zuordnung
+# Domain -> Marke, damit "denios.de wurde zitiert" und "DENIOS wurde genannt"
+# im Dashboard dieselbe Marke treffen. Subdomains matchen automatisch
+# (shop.denios.de zählt auf denios.de).
+#
+# `aliases` sind Schreibweisen, die im Antworttext vorkommen können. Ebene 2
+# gleicht extrahierte Marken case-insensitiv gegen name + aliases ab.
+
+brands:
+  - name: LogBATT
+    is_own_brand: true
+    aliases: ["LogBATT GmbH", "Log BATT", "LogBatt", "SafetyBATTbox", "Safety BATTbox"]
+    domains: [logbatt.de, logbatt.com]
+
+  - name: DENIOS
+    aliases: ["DENIOS SE", "Denios AG", "Denios"]
+    domains: [denios.de, denios.com]
+
+  - name: RETRON
+    aliases: ["RETRON GmbH", "Retron", "Retron Battery"]
+    domains: [retron.world, retron.de]
+
+  - name: Zarges
+    aliases: ["ZARGES GmbH", "Zarges Aluminium"]
+    domains: [zarges.com, zarges.de]
+
+  - name: Genius
+    # Annahme: "Genius" in den Peec-Nennungen = Genius Sicherheitstechnik.
+    # Domain vor dem ersten Live-Lauf gegen einen echten Treffer verifizieren.
+    aliases: ["Genius Sicherheitstechnik", "Genius GmbH"]
+    domains: [genius-europe.com]
+
+  - name: Bauer Südlohn
+    aliases: ["Bauer GmbH", "Bauer Suedlohn", "Bauer Südlohn GmbH"]
+    domains: [bauer-suedlohn.de]
+
+  - name: GelKoh
+    aliases: ["GelKoh GmbH", "Gelkoh"]
+    domains: [gelkoh.de]
+
+  - name: Paul Müller
+    # data/competitors/README.md: paulmueller.de (in Peec getrackt) und
+    # mueller-safety.de wirken wie zwei Präsenzen derselben Firma -> beide
+    # Domains hier, bis das bestätigt oder widerlegt ist.
+    aliases: ["Paul Mueller", "Müller Safety", "Mueller Safety", "Paul Müller GmbH"]
+    domains: [paulmueller.de, mueller-safety.de]
+
+  - name: LiBCycle
+    aliases: ["LiBCycle GmbH", "Libcycle", "LIBCYCLE"]
+    domains: [libcycle.de]
+
+  - name: DellCon
+    aliases: ["DellCon GmbH", "Dellcon"]
+    domains: [dellcon.de]
+
+  - name: Zieglmeier
+    aliases: ["Zieglmeier GmbH", "Ziegelmeier"]
+    domains: [zieglmeier.de]
+
+  - name: Buncker
+    aliases: ["Buncker GmbH"]
+    domains: [buncker.de]
+
+  - name: mts
+    aliases: ["mts GmbH", "MTS", "mts Gefahrgut"]
+    domains: [mts-online.de]
+
+  - name: RLG
+    aliases: ["Rücknahmesystem Batterien", "Reclay", "RLG Systems"]
+    domains: [rlg.de, rueckgabe-batterien.de]
+
+  # --- Aus Peec-Zitaten identifiziert, aber (noch) nicht in Peec Top-Brands
+  # getrackt (siehe data/competitors/README.md). Als bekannt geführt, damit
+  # ihre Domains nicht als "other" durchrutschen.
+  - name: PROTECTO
+    aliases: ["PROTECTO GmbH", "Protecto"]
+    domains: [protecto.de]
+
+  - name: Ellermann
+    aliases: ["Ellermann GmbH", "RED BOXX", "RED-MAXX", "Container Ellermann"]
+    domains: [container-ellermann.com, ellermann.de]
+
+  - name: TITAN Containers
+    aliases: ["Titan Containers", "TITAN Container"]
+    domains: [titancontainers.de, titancontainers.at, titancontainers.com]
+
+  - name: LionCare
+    aliases: ["LionCare GmbH", "Lion Care"]
+    domains: [lion-care.com]
+
+  - name: Lönne
+    aliases: ["Lönne GmbH", "Loenne", "Lönne GmbH & Co. KG"]
+    domains: [loenne.de]
+
+# Kein Wettbewerber, sondern Vertriebspartner (data/competitors/README.md).
+# Wird als Brand geführt, damit die Nennung im Dashboard sichtbar bleibt, aber
+# mit is_competitor = false, damit sie nicht in Share-of-Voice-Vergleiche
+# gegen LogBATT einfließt.
+partners:
+  - name: Lithium Safety Containers
+    aliases: ["Lithium Safety Containers B.V.", "LSC"]
+    domains: [lithiumsafetycontainers.nl]

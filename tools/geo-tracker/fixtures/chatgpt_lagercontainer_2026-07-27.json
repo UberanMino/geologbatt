@@ -1,0 +1,110 @@
+{
+  "_fixture_note": "REKONSTRUIERTER Payload, KEIN Live-Mitschnitt. Antworttext und die Liste der zitierten Domains stammen 1:1 aus dem echten Peec-ChatGPT-Export vom 2026-07-27 (data/peec/2026-07-27_2026-08-03/chats/anbieter-lithium-ionen-batterie-lagercontainer.md). Peec exportiert nur Domains, keine vollstaendigen URLs — die URLs sind deshalb auf https://www.<domain>/ gesetzt und die Titel sind plausibel ergaenzt. Die Huelle entspricht dem in der SearchApi-Doku dokumentierten chatgpt-Response-Schema (searchapi.io/docs/chatgpt-api, abgerufen 2026-08-12). Zweck: den Ebene-1-Ingest-Pfad end-to-end pruefbar machen, solange kein SEARCHAPI_API_KEY vorliegt.",
+  "search_metadata": {
+    "id": "search_fixture_chatgpt_lagercontainer_20260727",
+    "status": "Success",
+    "created_at": "2026-07-27T06:12:31Z",
+    "request_time_taken": 21.4,
+    "parsing_time_taken": 0.02,
+    "total_time_taken": 21.42,
+    "request_url": "https://chatgpt.com/"
+  },
+  "search_parameters": {
+    "engine": "chatgpt",
+    "q": "Anbieter Lithium-Ionen-Batterie Lagercontainer",
+    "web_search": true
+  },
+  "markdown": "Wenn Sie Anbieter für **Lithium-Ionen-Batterie-Lagercontainer** (Außencontainer, Brandschutzcontainer oder Quarantänecontainer) suchen, gehören diese Unternehmen im deutschsprachigen Raum zu den bekanntesten:\n\n| Anbieter | Schwerpunkt |\n|---------|-------------|\n| LogBATT GmbH                    | Hersteller von SafetyBATTbox-Lagercontainern für intakte, defekte und kritisch defekte Lithium-Ionen-Batterien; Kauf und Miete möglich.                     |\n| PROTECTO GmbH                    | Begehbare F90-Batterielager, DIBt-zugelassene Container für Industrie, Logistik und Produktion.                     |\n| LionCare                    | Lagercontainer, Lagerschränke und Regalsysteme für Lithium-Ionen-Batterien verschiedener Größen.                     |\n| Schuon Batterielogistik                    | Spezialist für Lagerung und Logistik von Lithium-Ionen-Batterien mit zugelassenen Lagerflächen.                     |\n| Batterielagerung.de (Lacont)                    | Sicherheitsschränke und Lösungen für kleinere bis mittlere Lagermengen.                     |\n\nFalls Sie einen **begehbaren Lagercontainer** für den Außenbereich suchen, sind insbesondere **LogBATT** und **PROTECTO** auf industrielle Anwendungen mit Brandschutz und Gefahrgutanforderungen spezialisiert.\n\nWenn Sie mir noch sagen:\n- welche **Batteriegröße** (z. B. E-Bike, Gabelstapler, EV-Batterien),\n- welche **Lagermenge** (Anzahl oder kWh),\n- ob der Container **innen oder außen** stehen soll,\n- und ob Sie **kaufen oder mieten** möchten,\n\nkann ich Ihnen die am besten geeigneten Anbieter und Container empfehlen.",
+  "search_queries": [
+    "Anbieter Lithium-Ionen-Batterie Lagercontainer Deutschland",
+    "Batteriecontainer Lagerung Lithium-Ionen Hersteller"
+  ],
+  "reference_links": [
+    {
+      "index": 0,
+      "title": "Lithium-Ionen-Batterien sicher lagern – Vorschriften und Lösungen",
+      "link": "https://www.lithiumionenlagerung.de/",
+      "source": "lithiumionenlagerung.de",
+      "snippet": null,
+      "ref_id": "turn0search0"
+    },
+    {
+      "index": 1,
+      "title": "LogBATT – Lithium Battery Logistics: Transport, Storage, Disposal",
+      "link": "https://www.logbatt.com/",
+      "source": "logbatt.com",
+      "snippet": null,
+      "ref_id": "turn0search1"
+    },
+    {
+      "index": 2,
+      "title": "Batteriecontainer und Lagerlösungen für Lithium-Ionen-Akkus | PROTECTO",
+      "link": "https://www.protecto.de/",
+      "source": "protecto.de",
+      "snippet": null,
+      "ref_id": "turn0search2"
+    },
+    {
+      "index": 3,
+      "title": "Lithium Safety Container – LogBATT GmbH",
+      "link": "https://www.logbatt.de/",
+      "source": "logbatt.de",
+      "snippet": null,
+      "ref_id": "turn0search3"
+    },
+    {
+      "index": 4,
+      "title": "LOXXER – Safe storage and charging of lithium-ion batteries",
+      "link": "https://www.loxxer.com/",
+      "source": "loxxer.com",
+      "snippet": null,
+      "ref_id": "turn0search4"
+    },
+    {
+      "index": 5,
+      "title": "LionCare – Lagercontainer und Regalsysteme für Lithium-Ionen-Batterien",
+      "link": "https://www.lion-care.com/",
+      "source": "lion-care.com",
+      "snippet": null,
+      "ref_id": "turn0search5"
+    },
+    {
+      "index": 6,
+      "title": "Lithium-Ionen-Batterie Lagercontainer Hersteller und Lieferanten",
+      "link": "https://www.wlw.de/",
+      "source": "wlw.de",
+      "snippet": null,
+      "ref_id": "turn0search6"
+    },
+    {
+      "index": 7,
+      "title": "RELiON Battery – Lithium Battery Storage Guidelines",
+      "link": "https://www.relionbat.com/",
+      "source": "relionbat.com",
+      "snippet": null,
+      "ref_id": "turn0search7"
+    },
+    {
+      "index": 8,
+      "title": "RED BOXX® Gefahrstoffcontainer für Lithium-Batterien | Ellermann",
+      "link": "https://www.container-ellermann.com/",
+      "source": "container-ellermann.com",
+      "snippet": null,
+      "ref_id": "turn0search8"
+    },
+    {
+      "index": 9,
+      "title": "Batterielagerung.de – Sicherheitsschränke und Lagersysteme (Lacont)",
+      "link": "https://www.batterielagerung.de/",
+      "source": "batterielagerung.de",
+      "snippet": null,
+      "ref_id": "turn0search9"
+    }
+  ],
+  "response_metadata": {
+    "model": "gpt-5-5",
+    "conversation_id": "6a1f0e2c-11ab-83ea-9d4c-2f7b19c4ee01",
+    "message_id": "b7c94f10-3d55-4a21-9f88-15c3aa77bd42",
+    "is_web_search_performed": true
+  }
+}

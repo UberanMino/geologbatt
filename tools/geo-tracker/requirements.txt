@@ -1,0 +1,14 @@
+# Ebene 1 (Rohdaten-Ingestion)
+# HTTP läuft über urllib aus der Standardbibliothek, SQLite über sqlite3.
+# Einzige echte Abhängigkeit sind die YAML-Seeds.
+PyYAML>=6.0
+
+# Ebene 2 (Auswertungs-Layer, Claude Haiku 4.5)
+# Wird NUR innerhalb der evaluate-Befehle importiert — `geotracker ingest`
+# läuft auch ohne dieses Paket.
+anthropic>=0.121
+
+# --- Ab Schritt 3, hier schon dokumentiert ---------------------------------
+# fastapi>=0.115         # REST-API fürs Dashboard
+# uvicorn[standard]>=0.30
+# apscheduler>=3.10      # täglicher Lauf, Intervall konfigurierbar
