@@ -267,16 +267,18 @@ pro-equip.co.uk, unimac.co.uk, empteezy.co.uk, kingfisherdirect.co.uk.
 
 ## 7. Implementation status
 
-- **2026-10-02 – P0 #1 (product links), `/transport-crates/`: done** in
-  `optimized/en/transport-crates.html`. Only change compared with the August version (d3bf7f0): the
-  box titles (H4) in the product overview link to the product pages, and each `Product` in the
-  JSON-LD has a `url`. Found along the way:
+- **2026-10-02 – P0 #1 (product links) on `/transport-crates/` and `/storage-containers/`: done**
+  in `optimized/en/transport-crates.html` and `optimized/en/storage-containers.html`.
+  - Base: the real editor versions incl. product carousel, from branch
+    `claude/geo-spanish-storage-transport-udvkki` (commit 1234baa, 2026-09-18). This branch had
+    started from an older state without the carousel. The earlier reconstruction attempts
+    (2026-10-01/02) are obsolete.
+  - Only changes: the box titles (H4) in the product overview link to the product pages, and each
+    `Product` in the JSON-LD has a `url`. On transport-crates, the old XL-lite `url` is removed
+    (it redirected to logbatt.se). On storage-containers, the 404 link
+    `/transport-crates/rent-storage-boxes/` now points to `/transport-crates/storage-container-leasing/`.
+    The carousels are unchanged.
   - The live slugs are swapped relative to the names: `/transport-crates/safetybattbox-xl-2-2/` =
     **XL-2.2+**, `/transport-crates/safetybattbox-xl-2-2-2/` = **XL 2.2**. The links follow the live
-    pages. Renaming the slugs (with 301s) is optional.
-  - **XL-lite has no English product page.** The old JSON-LD `url`
-    `/transport-crates/safety-batt-box-xl-lite/` redirected to **logbatt.se** (Swedish) and has been
-    removed. Once an EN page exists, add the card link and the `url`.
-- **2026-10-01 – P0 #1, `/storage-containers/`: patch ready** in
-  `optimized/en/storage-containers-link-patch.md` (the Gutenberg source isn't in the repo). It also
-  covers P0 #4 (404 link `/transport-crates/rent-storage-boxes/`).
+    pages.
+  - **XL-lite has no English product page**, so its title stays unlinked.
