@@ -1,0 +1,56 @@
+# GEO agent configuration.
+#
+# Default profile is "mock": the whole loop runs offline, no API key needed.
+# Switch to real models by setting `profile: live` (and providing keys in .env),
+# or per run:  python run.py --profile live run --target havarie
+#
+# GUARDRAIL: generator and judge MUST be different model families, otherwise the
+# loop optimises into a shared self-bias blind spot (arXiv:2412.16829). The
+# scorer and synthesizer default to the judge family so the generator never
+# grades or coaches itself.
+
+profile: mock
+
+# Single-provider (all-Claude) starter setup: different Claude models per role,
+# which partly mitigates self-bias within one family. Once you have a second
+# provider key (e.g. OpenAI/Gemini), switch the Judge to it and set
+# allow_same_family back to false for the full guardrail.
+models:
+  # Cost-tuned for a recursive loop: Judge + Scorer run once PER PROMPT per
+  # iteration (the 9x-volume roles), so they get the cheapest model. Haiku as
+  # Judge is also more faithful — real GEO engines run cheap models under the
+  # hood. Generator/Synthesizer run once per iteration, so they get Sonnet.
+  generator:   anthropic:claude-sonnet-5      # 1x/iter — quality where it counts
+  judge:       anthropic:claude-haiku-4-5     # 9x/iter — cheapest + most realistic
+  scorer:      anthropic:claude-haiku-4-5     # 9x/iter — pure JSON extraction
+  synthesizer: anthropic:claude-sonnet-5      # 1x/iter — needs reasoning
+  # Bump generator to anthropic:claude-opus-5 if content quality needs it.
+  # When a 2nd provider key is available, move the Judge to a cheap cross-family
+  # model (e.g. openai:gpt-4o-mini) — cheapest AND full self-bias separation.
+  # Recommended once a second key is available (full self-bias guard):
+  #   judge:       openai:gpt-4.1
+  #   scorer:      openai:gpt-4o-mini
+  #   synthesizer: openai:gpt-4.1
+  # NOTE: verify exact model IDs against your provider before a live run.
+
+# Generator and Judge share the 'anthropic' family here, so we opt in explicitly.
+# The loop still warns; treat single-family results as a proxy.
+allow_same_family: true
+
+# sources_only  -> judge answers ONLY from the provided documents (recommended:
+#                  maximises sensitivity to the one thing that changes, the candidate)
+# blended       -> judge may also use parametric knowledge (secondary realism check)
+grounding: sources_only
+
+temperature:
+  generator: 0.5
+  judge: 0.2
+  scorer: 0.0
+  synthesizer: 0.3
+
+loop:
+  max_iterations: 6
+  patience: 2          # stop after this many iterations without >min_delta gain
+  target_score: 0.9    # stop early once train mean composite reaches this
+  min_delta: 0.01
+  top_k_competitors: 3

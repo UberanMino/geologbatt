@@ -1,0 +1,218 @@
+# GEO prompt set + content targets.
+#
+# Prompts, clusters, baseline mention rates and competitor shares are taken from
+# the repo's real Peec tracking export
+# (data/peec/tracked-prompts-2026-07-01_2026-08-05/prompt-metrics.csv).
+#
+# Each prompt carries:
+#   mode: swap   -> LogBATT already shows up for this prompt in reality; the loop
+#                   tests whether better content flips "retrieved-but-unnamed" to "named".
+#         inject -> LogBATT barely shows up; the loop tests "if my page were
+#                   retrieved, would I be named?" (a stronger assumption).
+#   split: train -> feeds the Synthesizer.   val -> held out, scored only.
+# facts / problem_frame_anchors are inherited from the target unless overridden.
+
+brand:
+  name: LogBATT
+  aliases: [LogBATT GmbH, SafetyBATTbox, LogBATT]
+  domain: logbatt.de
+
+# Not competitors — never counted against us (see data/competitors/README.md).
+partners:
+  - lithiumsafetycontainers.nl
+
+weights:
+  mention: 0.35
+  position: 0.20
+  cited_from_candidate: 0.20
+  problem_frame: 0.10
+  claims: 0.15
+
+targets:
+
+  havarie:
+    title: "Havarie & Notfall: kritisch defekte Lithium-Batterien sicher handhaben"
+    cluster: "Havarie/Brand/Unfall"
+    seed: corpus/logbatt/havarie-seed.md
+    brand_voice: "sachlich, kompetent, B2B; Notfall-Kompetenz ohne Alarmismus"
+    facts:
+      - "24/7-Havarie-Erreichbarkeit"
+      - "europaweite Abholung im Havariefall"
+      - "Verfahrensfestlegung nach ADR 2025 P911/LP906"
+      - "Entsorgungsfachbetrieb (EfB)"
+      - "SafetyBATTbox Havarie- und Quarantänebehälter"
+      - "Miete und Kauf"
+    problem_frame_anchors:
+      - "kritisch defekte Batterien"
+      - "Havariefall"
+      - "thermisches Durchgehen"
+      - "kontaminiertes Löschwasser"
+      - "Quarantäne"
+
+  lagerung:
+    title: "Lagerung von Lithium-Ionen-Batterien: Behälter, Container, Quarantäne"
+    cluster: "Lagerung/Lagerbehälter"
+    seed: corpus/logbatt/lagerung-seed.md
+    brand_voice: "sachlich, kompetent, B2B; Fokus Produkt + Zertifizierung"
+    facts:
+      - "zertifizierte Transport-, Lager- und Quarantänebehälter"
+      - "SafetyBATTbox (Größen S/M/L/XL)"
+      - "Lithium Safety Container (10/20/40 Fuß, DACH-Vertrieb)"
+      - "DIN EN ISO 9001/14001, QSP"
+      - "Entsorgungsfachbetrieb (EfB)"
+      - "Miete und Kauf"
+    problem_frame_anchors:
+      - "intakte, defekte und kritisch defekte Batterien"
+      - "Quarantäne"
+      - "Brandschutz"
+      - "Lagerung und Laden"
+
+prompts:
+
+  # --- Havarie: train -------------------------------------------------------
+  - id: hav-01
+    target: havarie
+    text: "Wer vermietet Havarieboxen für Lithium-Akkus?"
+    intent: commercial
+    split: train
+    mode: swap
+    baseline_mention_pct: 93
+    competitors: {Paul Müller: 59, DENIOS: 46, RETRON: 24, Zieglmeier: 5, Zarges: 5}
+
+  - id: hav-02
+    target: havarie
+    text: "Wo bekomme ich Havariecontainer für Lithium-Akkus zur Miete?"
+    intent: commercial
+    split: train
+    mode: swap
+    baseline_mention_pct: 83
+    competitors: {DENIOS: 60, Paul Müller: 23, Zieglmeier: 2, RETRON: 1}
+
+  - id: hav-03
+    target: havarie
+    text: "Welcher Dienstleister ist auf die Entsorgung von Lithium-Batterien nach Havariefällen spezialisiert?"
+    intent: commercial
+    split: train
+    mode: swap
+    baseline_mention_pct: 76
+    competitors: {RETRON: 91, DellCon: 9, DENIOS: 2, Paul Müller: 2}
+
+  - id: hav-04
+    target: havarie
+    text: "Welche Havariekiste eignet sich für die Lagerung von Lithium-Batterien?"
+    intent: informational
+    split: train
+    mode: inject
+    baseline_mention_pct: 27
+    competitors: {Zarges: 61, Paul Müller: 43, DENIOS: 25, RETRON: 20, Genius: 6}
+
+  - id: hav-05
+    target: havarie
+    text: "Welche Havariebehälter brauche ich für defekte Lithium-Akkus?"
+    intent: informational
+    split: train
+    mode: inject
+    baseline_mention_pct: 6
+    competitors: {Zarges: 29, DENIOS: 24, Paul Müller: 6, RETRON: 3}
+
+  - id: hav-06
+    target: havarie
+    text: "Wer übernimmt die Entsorgung im Havariefall bei Lithium-Batterien?"
+    intent: commercial
+    split: train
+    mode: inject
+    baseline_mention_pct: 22
+    competitors: {RETRON: 20, DENIOS: 1}
+
+  # --- Havarie: held-out validation ----------------------------------------
+  - id: hav-07
+    target: havarie
+    text: "Dienstleister Lithium-Batterie Havariefall Abholung europaweit"
+    intent: commercial
+    split: val
+    mode: swap
+    baseline_mention_pct: 87
+    competitors: {LiBCycle: 17, RETRON: 8, DellCon: 6, DENIOS: 1}
+
+  - id: hav-08
+    target: havarie
+    text: "Spezialist für Lithium-Batterien im Wasserbad und kontaminiertes Löschwasser"
+    intent: informational
+    split: val
+    mode: inject
+    baseline_mention_pct: 14
+    competitors: {RETRON: 26, Paul Müller: 12, GelKoh: 11, Zieglmeier: 11, DENIOS: 11}
+
+  - id: hav-09
+    target: havarie
+    text: "Welche Havariebehälter gibt es, um defekte Lithium-Batterien zu transportieren?"
+    intent: informational
+    split: val
+    mode: inject
+    baseline_mention_pct: 25
+    competitors: {Zarges: 66, DENIOS: 44, Paul Müller: 20, Genius: 18, RETRON: 7}
+
+  # --- Lagerung: train ------------------------------------------------------
+  - id: lag-01
+    target: lagerung
+    text: "Anbieter für Lagercontainer für Lithium Batterien zur Miete"
+    intent: commercial
+    split: train
+    mode: swap
+    baseline_mention_pct: 92
+    competitors: {DENIOS: 24, RETRON: 5, LiBCycle: 3, Bauer Südlohn: 1}
+
+  - id: lag-02
+    target: lagerung
+    text: "Wer verkauft Lagerboxen für Lithium Ionen Batterien?"
+    intent: commercial
+    split: train
+    mode: swap
+    baseline_mention_pct: 65
+    competitors: {Zarges: 67, DENIOS: 58, Genius: 23, RETRON: 20, Zieglmeier: 11}
+
+  - id: lag-03
+    target: lagerung
+    text: "Anbieter Lithium-Ionen-Batterie Lagercontainer"
+    intent: commercial
+    split: train
+    mode: inject
+    baseline_mention_pct: 58
+    competitors: {DENIOS: 40, Bauer Südlohn: 25, RETRON: 18, Zarges: 7, LiBCycle: 4}
+
+  - id: lag-04
+    target: lagerung
+    text: "Welche Lagerbox ist für beschädigte Lithium-Ionen-Akkus geeignet?"
+    intent: informational
+    split: train
+    mode: inject
+    baseline_mention_pct: 26
+    competitors: {Zarges: 65, DENIOS: 52, Genius: 10, RETRON: 6, Zieglmeier: 5}
+
+  - id: lag-05
+    target: lagerung
+    text: "Bester Lagerbehälter für Lithium Ionen Akkus"
+    intent: commercial
+    split: train
+    mode: inject
+    baseline_mention_pct: 4
+    competitors: {Zarges: 42, Genius: 13, DENIOS: 7, RETRON: 4, Bauer Südlohn: 1}
+
+  # --- Lagerung: held-out validation ---------------------------------------
+  - id: lag-06
+    target: lagerung
+    text: "Wo kann ich Lagerbehälter für defekte Lithium-Batterien mieten?"
+    intent: commercial
+    split: val
+    mode: swap
+    baseline_mention_pct: 94
+    competitors: {DENIOS: 53, RETRON: 27, Zarges: 12, Zieglmeier: 8, Bauer Südlohn: 1}
+
+  - id: lag-07
+    target: lagerung
+    text: "Welche Evakuierungskisten eignen sich für die Lagerung von Lithium-Batterien?"
+    intent: informational
+    split: val
+    mode: inject
+    baseline_mention_pct: 30
+    competitors: {Zarges: 55, DENIOS: 30, RETRON: 18, Genius: 6, Paul Müller: 2}
