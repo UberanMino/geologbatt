@@ -16,6 +16,10 @@ Transport-, Lager- und Quarantänebehälter (Marke **SafetyBATTbox**). Seit Mitt
 Entsorgungsfachbetrieb (EfB), DOT Special Permit; Verfahrensfestlegung nach
 ADR 2025 P911/LP906 für kritisch defekte Batterien.
 
+> **Arbeitsweise:** Siehe [`CLAUDE.md`](CLAUDE.md). Der Default-Branch ist der einzige gültige Stand.
+> Vor jeder Seitenänderung prüft `tools/live-diff.py` die Repo-Datei gegen die Live-Seite, und
+> `tools/repo-status.sh` zeigt Arbeit, die noch nicht gemergt ist.
+
 ## Repo-Struktur
 
 ```
