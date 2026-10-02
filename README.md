@@ -31,6 +31,8 @@ data/analytics/    Zugriffs-/Traffic-Daten der LogBATT-Seiten (folgt)
 data/competitors/  Wettbewerber-Informationen (folgt; erste Kandidaten aus Peec-Zitaten siehe
                    notes/geo-analyse-peec-2026-07-27_2026-08-03.md, Abschnitt 4)
 notes/             GEO-Analysen einzelner Seiten und abgeleitete Maßnahmen
+product-pdfs/      PDF-Produktblätter der 10 SafetyBATTbox-Seiten für Sprachen ohne eigene Produktseiten
+                   (Generator + Übersetzungen; Rumänisch als Entwurf unter product-pdfs/out/ro/)
 ```
 
 ## Status

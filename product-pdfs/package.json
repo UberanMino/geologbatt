@@ -1,0 +1,13 @@
+{
+  "name": "logbatt-product-pdfs",
+  "private": true,
+  "type": "module",
+  "description": "Erzeugt PDF-Produktblätter der SafetyBATTbox-Produktseiten für Sprachen ohne eigene Produktseiten.",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "pdf-lib": "1.17.1",
+    "playwright": "1.56.1"
+  }
+}

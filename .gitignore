@@ -4,3 +4,7 @@ Thumbs.db
 *.swp
 .idea/
 .vscode/
+
+# Node
+node_modules/
+product-pdfs/.build/

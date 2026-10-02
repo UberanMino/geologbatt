@@ -1,0 +1,289 @@
+{
+  "_comment": "Rumänische Übersetzung der SafetyBATTbox-Produktdetailseiten (Quelle: website/de/...). Maschinell/KI-übersetzt, Fachlektorat durch Muttersprachler steht aus. Spec-Labels und Text-Werte sind nach dem deutschen Original verschlüsselt; Zahlen, Typ-, UN- und P/LP-Codes werden unverändert übernommen.",
+  "lang": "ro",
+  "status": "Entwurf – Fachlektorat ausstehend",
+  "ui": {
+    "doc_type": "Fișă de produs",
+    "category_transport": "Cutii de transport pentru baterii litiu-ion",
+    "category_storage": "Containere de depozitare pentru baterii litiu-ion",
+    "features": "Caracteristici și avantaje",
+    "specs": "Date tehnice",
+    "faq": "Întrebări frecvente despre {name}",
+    "rent_title": "Cumpărare sau închiriere – flexibil, în funcție de nevoile dumneavoastră",
+    "rent_transport": "De acum beneficiați de și mai multă flexibilitate: {name}, soluția noastră consacrată pentru transportul sigur al bateriilor litiu-ion – fie ele nedefecte, defecte sau critic defecte –, poate fi nu doar cumpărată, ci și închiriată. Astfel obțineți o soluție economică pentru <strong>necesități variabile, proiecte limitate în timp sau cerințe pe termen scurt</strong>. Contactați-ne – vă consiliem cu plăcere personal și găsim împreună soluția de închiriere potrivită.",
+    "rent_storage": "De acum beneficiați de și mai multă flexibilitate: {name}, soluția noastră consacrată pentru depozitarea sigură a bateriilor litiu-ion – fie ele nedefecte, defecte sau critic defecte –, poate fi nu doar cumpărată, ci și închiriată. Astfel obțineți o soluție economică pentru <strong>necesități variabile, proiecte limitate în timp sau cerințe pe termen scurt</strong>. Contactați-ne – vă consiliem cu plăcere personal și găsim împreună soluția de închiriere potrivită.",
+    "cta_title": "Solicitați consultanță pentru produs",
+    "cta_text": "Vă consiliem cu plăcere personal în alegerea containerului potrivit – pentru cumpărare sau închiriere.",
+    "bam": "Omologare BAM",
+    "country": "Germania",
+    "original": "Versiunea originală (germană)",
+    "page": "Pagina",
+    "of": "din",
+    "keywords": "SafetyBATTbox, LogBATT, baterii litiu-ion, mărfuri periculoase, ADR, BAM, cutie de transport, container de depozitare, baterii defecte, baterii critic defecte, protecție la incendiu"
+  },
+  "spec_labels": {
+    "Typ": "Tip",
+    "Artikel-Nr.": "Nr. articol",
+    "Volumen [l]": "Volum [l]",
+    "Abmessungen außen [mm]": "Dimensiuni exterioare [mm]",
+    "Abmessungen innen [mm]": "Dimensiuni interioare [mm]",
+    "Nutzmaße [mm]": "Dimensiuni utile [mm]",
+    "Werkstoff": "Material",
+    "Leergewicht [kg]": "Greutate proprie [kg]",
+    "Max. Zuladung [kg]": "Sarcină utilă max. [kg]",
+    "Max. Bruttogewicht [kg]": "Greutate brută max. [kg]",
+    "ADR Sondervorschrift": "Dispoziții speciale ADR",
+    "ADR Verpackungsanweisungen": "Instrucțiuni de ambalare ADR",
+    "Zulassung": "Omologare",
+    "Verpackungsgruppe": "Grupă de ambalare",
+    "Stapelbar": "Stivuibil",
+    "Einsatzbereich": "Domeniu de utilizare",
+    "Anwendung": "Aplicație",
+    "Unterfahrhöhe [mm]": "Înălțime de acces pentru furci [mm]"
+  },
+  "spec_values": {
+    "Verzinkter Stahl (Verkleidung) / Edelstahl (Innenwanne)": "Oțel zincat (carcasă) / oțel inoxidabil (cuvă interioară)",
+    "Edelstahl": "Oțel inoxidabil",
+    "Kunststoff (Gehäuse) / Aluminium (Verstärkungsblech)": "Plastic (carcasă) / aluminiu (tablă de ranforsare)",
+    "Kunststoff (Gehäuse)": "Plastic (carcasă)",
+    "Eloxiertes Aluminium (Verkleidung) / Edelstahl (Innenwanne)": "Aluminiu eloxat (carcasă) / oțel inoxidabil (cuvă interioară)",
+    "Eloxiertes Aluminium / Edelstahl / verzinkt": "Aluminiu eloxat / oțel inoxidabil / oțel zincat",
+    "Verzinkter Stahl": "Oțel zincat",
+    "Pulverbeschichteter Stahl (Verkleidung) / Edelstahl (Innenwanne)": "Oțel vopsit electrostatic (carcasă) / oțel inoxidabil (cuvă interioară)",
+    "Lithium-Batterien": "Baterii cu litiu",
+    "Transport und Lagerung": "Transport și depozitare",
+    "Lagerung": "Depozitare",
+    "Einzelfallfestlegung D-BAM 16336": "Aprobare BAM pentru caz individual D-BAM 16336",
+    "SV310 / SV376 / SV377": "DS 310 / DS 376 / DS 377",
+    "SV310 / SV376": "DS 310 / DS 376",
+    "SV376": "DS 376"
+  },
+  "products": {
+    "safety-battbox-l-2": {
+      "name": "SafetyBATTbox L-2",
+      "subtitle": "Cutie de transport universală pentru baterii cu litiu de tipuri diferite (P908–P911)",
+      "bullets": [
+        "SafetyBATTbox L-2 de la LogBATT este soluția universală de dimensiune medie din portofoliul LogBATT. Cu dimensiunile utile de 1.300 x 900 x 450 mm, acest container pentru mărfuri periculoase se potrivește unei game largi de tipuri de baterii – de la module individuale de autoturisme până la mai mulți acumulatori de biciclete electrice sau baterii industriale cu litiu.",
+        "Domenii tipice de utilizare: ateliere cu comenzi diverse, firme de reciclare, puncte de colectare a bateriilor uzate, producători de aparate electrice și service-uri de reparații.",
+        "Construcție robustă din oțel cu cuvă interioară din oțel inoxidabil: durabilă, rezistentă și potrivită și pentru utilizare intensivă în exterior.",
+        "Stivuibilă 1 + 2 – depozitare intermediară eficientă din punct de vedere al spațiului în zonele logistice.",
+        "Siguranță dovedită prin teste reale de incendiu și certificare BAM. În cazul unui eveniment termic, pereții exteriori rămân sub 100 °C, iar flăcările și proiectilele nu ies din cutie.",
+        "Sistem integrat de gestionare a gazelor de ardere: traseul definit prin filtre previne suprapresiunea și punerea în pericol a zonei înconjurătoare.",
+        "Omologare de tip pentru grupa de ambalare I (ADR, RID, IMDG, ICAO) pentru instrucțiunile de ambalare P908, P909, P910 și P911.",
+        "Inclus în livrare: pătura ignifugă LogCOVER. Pernele LogBAGs sunt disponibile ca accesorii."
+      ],
+      "faq": [
+        { "q": "Ce este SafetyBATTbox L-2?", "a": "SafetyBATTbox L-2 de la LogBATT este cutia de transport universală de dimensiune medie. Cu dimensiuni utile de 1.300 × 900 × 450 mm, acest container pentru mărfuri periculoase acoperă o gamă largă – de la module individuale de autoturisme până la mai mulți acumulatori de biciclete electrice sau baterii industriale cu litiu." },
+        { "q": "Pentru ce instrucțiuni de ambalare este omologată SafetyBATTbox L-2?", "a": "L-2 este omologată conform P908, P909, P910 și P911 (grupa de ambalare I) și acoperă astfel bateriile deteriorate până la cele critic defecte. Omologarea de tip BAM (D-BAM 15891) este valabilă pentru ADR, RID, IMDG și ICAO." },
+        { "q": "Ce cutie de transport pentru baterii litiu-ion este potrivită pentru atelierele cu tipuri diferite de baterii?", "a": "Pentru atelierele cu comenzi diverse, firmele de reciclare, punctele de colectare a bateriilor uzate, producătorii de aparate electrice și service-urile de reparații, SafetyBATTbox L-2 de la LogBATT este soluția universală potrivită." },
+        { "q": "Cum transport diferite tipuri de baterii într-un singur container?", "a": "SafetyBATTbox L-2 este concepută exact pentru acest lucru: dimensiunile sale utile și omologarea de la P908 la P911 permit transportul bateriilor cu litiu de tipuri diferite – de la un singur modul de autoturism până la mai mulți acumulatori de biciclete electrice – într-un singur container pentru mărfuri periculoase." },
+        { "q": "Este SafetyBATTbox L-2 stivuibilă?", "a": "Da, L-2 este stivuibilă 1 + 2 și permite astfel o depozitare intermediară eficientă din punct de vedere al spațiului în zonele logistice. Construcția robustă din oțel cu cuvă interioară din oțel inoxidabil este durabilă și potrivită și pentru utilizare intensivă în exterior." },
+        { "q": "Cât de sigură este SafetyBATTbox L-2 în cazul unei propagări termice?", "a": "Siguranța este dovedită prin teste reale de incendiu și certificare BAM. În cazul unui eveniment termic, pereții exteriori rămân sub 100 °C, flăcările și proiectilele nu ies din cutie, iar traseul definit prin filtre previne suprapresiunea." },
+        { "q": "Ce include livrarea SafetyBATTbox L-2?", "a": "Pătura ignifugă LogCOVER este inclusă în livrare; pernele LogBAGs sunt disponibile ca accesorii." }
+      ]
+    },
+    "safety-battbox-m-2": {
+      "name": "SafetyBATTbox M-2",
+      "subtitle": "Cutie de transport compactă pentru acumulatori de biciclete electrice, baterii de laptop și baterii de aparate",
+      "bullets": [
+        "SafetyBATTbox M-2 de la LogBATT este cutia de transport compactă pentru logistica zilnică a bateriilor cu litiu mici și medii. Cu dimensiuni utile de 716 x 316 x 206 mm, acest container pentru mărfuri periculoase oferă suficient spațiu pentru acumulatori de biciclete electrice, baterii de laptop și module mai mici de autoturisme.",
+        "Utilizatori tipici: comercianți de biciclete electrice, service-uri de biciclete, firme de reparații IT, centre de reciclare, puncte municipale de colectare a bateriilor uzate.",
+        "Cu o greutate proprie de 100 kg, cutia poate fi manevrată de două persoane chiar și fără stivuitor – un avantaj clar pentru firmele mai mici fără echipamente dedicate de transport intern.",
+        "Stivuibilă 1 + 4: până la cinci cutii suprapuse reduc considerabil suprafața de depozitare.",
+        "Siguranță confirmată prin teste reale de incendiu și certificare BAM. În cazul unui eveniment termic, pereții exteriori rămân sub 100 °C, iar flăcările și proiectilele nu ies din cutie.",
+        "Sistemul integrat de gestionare a gazelor de ardere filtrează gazele și previne suprapresiunea în caz de incident.",
+        "Omologare de tip pentru grupa de ambalare I (ADR, RID, IMDG, ICAO) pentru instrucțiunile de ambalare P908, P909, P910 și P911.",
+        "Inclus în livrare: pătura ignifugă LogCOVER. Pernele LogBAGs sunt disponibile ca accesorii."
+      ],
+      "faq": [
+        { "q": "Ce este SafetyBATTbox M-2?", "a": "SafetyBATTbox M-2 de la LogBATT este cutia de transport compactă pentru logistica zilnică a bateriilor cu litiu mici și medii. Cu dimensiuni utile de 716 × 316 × 206 mm, oferă spațiu pentru acumulatori de biciclete electrice, baterii de laptop și module mai mici de autoturisme." },
+        { "q": "Pentru ce instrucțiuni de ambalare este omologată SafetyBATTbox M-2?", "a": "M-2 este omologată conform P908, P909, P910 și P911 (grupa de ambalare I) și este astfel potrivită pentru baterii mici și medii deteriorate până la critic defecte. Omologarea de tip BAM (D-BAM 15468) este valabilă pentru ADR, RID, IMDG și ICAO." },
+        { "q": "Ce cutie de transport pentru baterii litiu-ion este potrivită pentru comercianții de biciclete electrice și firmele de reparații?", "a": "Pentru comercianții de biciclete electrice, service-urile de biciclete, firmele de reparații IT, centrele de reciclare și punctele municipale de colectare, SafetyBATTbox M-2 de la LogBATT este soluția potrivită pentru transportul sigur al acumulatorilor defecți." },
+        { "q": "Am nevoie de stivuitor pentru SafetyBATTbox M-2?", "a": "Nu. Cu o greutate proprie de 100 kg, M-2 poate fi manevrată de două persoane chiar și fără stivuitor – un avantaj clar pentru firmele mai mici fără echipamente dedicate de transport intern." },
+        { "q": "Cum depozitez mai mulți acumulatori defecți de biciclete electrice cu economie de spațiu?", "a": "SafetyBATTbox M-2 este stivuibilă 1 + 4 – până la cinci cutii suprapuse reduc considerabil suprafața de depozitare necesară, cu protecție completă la incendiu și în stare stivuită." },
+        { "q": "Cât de sigură este SafetyBATTbox M-2 în caz de incident?", "a": "Siguranța este confirmată prin teste reale de incendiu și certificare BAM. În cazul unui eveniment termic, pereții exteriori rămân sub 100 °C, flăcările și proiectilele nu ies din cutie, iar sistemul integrat de gestionare a gazelor de ardere filtrează gazele și previne suprapresiunea." },
+        { "q": "Ce include livrarea SafetyBATTbox M-2?", "a": "Pătura ignifugă LogCOVER este inclusă în livrare; pernele LogBAGs sunt disponibile ca accesorii." }
+      ]
+    },
+    "safety-battbox-s-1": {
+      "name": "SafetyBATTbox S-1",
+      "subtitle": "Cutie de transport în format Euro pentru expedierea individuală a bateriilor cu litiu",
+      "bullets": [
+        "SafetyBATTbox S-1 de la LogBATT este cea mai compactă soluție certificată UN pentru transportul conform ADR al bateriilor individuale cu litiu din biciclete electrice, laptopuri și aparate electrice.",
+        "Utilizatori tipici: firme de curierat, comerț de specialitate, firme de reparații, puncte de colectare și operatori logistici mai mici care trebuie să expedieze sau să depoziteze temporar baterii defecte individuale.",
+        "Formatul corespunde dimensiunii Euro (600 x 400 mm) – cutia se potrivește astfel pe paletele uzuale și în sistemele de depozitare standard.",
+        "Cu o greutate proprie de 9 kg, poate fi purtată de o singură persoană – utilizabilă și fără dispozitive de ridicare.",
+        "Siguranță dovedită prin teste reale de incendiu și certificare BAM. În cazul unui eveniment termic, pereții exteriori rămân sub 100 °C, iar flăcările și proiectilele nu ies din cutie.",
+        "Manipulare eficientă: pernele LogBAGs pentru asigurarea încărcăturii fac inutilă ancorarea.",
+        "Stivuibilă 1 + 8 – eficiență maximă a spațiului pentru punctele de colectare și expediere.",
+        "Omologare de tip pentru grupa de ambalare I (ADR, RID, IMDG, ICAO) pentru instrucțiunile de ambalare P908, P909, P910 și P911.",
+        "Pernele LogBAGs sunt disponibile ca accesorii pentru SafetyBATTbox S-1."
+      ],
+      "faq": [
+        { "q": "Ce este SafetyBATTbox S-1?", "a": "SafetyBATTbox S-1 de la LogBATT este cea mai compactă soluție certificată UN pentru transportul conform ADR al bateriilor individuale cu litiu din biciclete electrice, laptopuri și aparate electrice. Formatul corespunde dimensiunii Euro (600 × 400 mm)." },
+        { "q": "Pentru ce instrucțiuni de ambalare este omologată S-1?", "a": "S-1 este omologată conform P908, P909, P910 și P911 (grupa de ambalare I) și este astfel potrivită și pentru baterii individuale critic defecte. Omologarea de tip BAM (D-BAM 15937) este valabilă pentru ADR, RID, IMDG și ICAO." },
+        { "q": "Ce cutie este potrivită pentru expedierea individuală a bateriilor defecte?", "a": "Pentru firmele de curierat, comerțul de specialitate, firmele de reparații, punctele de colectare și operatorii logistici mai mici care expediază sau depozitează temporar baterii defecte individuale, SafetyBATTbox S-1 de la LogBATT este soluția potrivită." },
+        { "q": "Se potrivește SafetyBATTbox S-1 pe paletele standard?", "a": "Da. Formatul Euro (600 × 400 mm) se potrivește pe paletele uzuale și în sistemele de depozitare standard. Cu doar 9 kg greutate proprie, cutia poate fi purtată de o singură persoană – și fără dispozitive de ridicare." },
+        { "q": "Cum expediez conform ADR o singură baterie critic defectă?", "a": "Pentru expedierea individuală, SafetyBATTbox S-1 oferă cea mai compactă soluție certificată UN: omologată până la P911, cu perne LogBAGs pentru asigurarea încărcăturii, care fac inutilă ancorarea." },
+        { "q": "Este SafetyBATTbox S-1 stivuibilă?", "a": "Da, S-1 este stivuibilă 1 + 8 și oferă astfel eficiență maximă a spațiului pentru punctele de colectare și expediere cu volum mare." },
+        { "q": "Cât de sigură este S-1 în cazul unui eveniment termic?", "a": "Siguranța este dovedită prin teste reale de incendiu și certificare BAM. În cazul unui eveniment termic, pereții exteriori rămân sub 100 °C, iar flăcările și proiectilele nu ies din cutie." }
+      ]
+    },
+    "safety-battbox-s-1-lite": {
+      "name": "SafetyBATTbox S-1-lite",
+      "subtitle": "Cutie de transport economică din plastic pentru acumulatori mici care nu sunt critic defecți (GA II)",
+      "bullets": [
+        "SafetyBATTbox S-1-lite de la LogBATT este cutia de transport mică și economică pentru bateriile cu litiu din biciclete electrice, laptopuri și aparate electrice care nu sunt critic defecte.",
+        "Aplicații tipice: logistică de expediere obișnuită, expedieri prin curierat cu acumulatori de schimb intacți, puncte de colectare pentru reciclare, retururi din comerțul cu amănuntul.",
+        "Construcția integral din plastic reduce greutatea și costurile față de S-1, fiind însă pe deplin suficientă pentru bateriile care nu sunt critic defecte (grupa de ambalare II).",
+        "Asigurarea încărcăturii cu perne LogBAGs și chingi de tensionare – rapid, simplu, fără ancorare.",
+        "Stivuibilă 1 + 8 – eficientă ca spațiu în centrele de colectare și expediere.",
+        "Omologare de tip pentru grupa de ambalare II (ADR, RID, IMDG, ICAO) pentru instrucțiunile de ambalare P903, P908, P909 și P910.",
+        "Inclus în livrare: 2 perne LogBAGs."
+      ],
+      "faq": [
+        { "q": "Ce este SafetyBATTbox S-1-lite?", "a": "SafetyBATTbox S-1-lite de la LogBATT este cutia de transport mică și economică din plastic pentru bateriile cu litiu din biciclete electrice, laptopuri și aparate electrice care nu sunt critic defecte. Fiind un container din grupa de ambalare II, este varianta mai avantajoasă ca preț a S-1." },
+        { "q": "Pentru ce instrucțiuni de ambalare este omologată S-1-lite?", "a": "S-1-lite este omologată conform P903, P908, P909 și P910 (grupa de ambalare II) și este astfel potrivită pentru acumulatori mici care nu sunt critic defecți. Omologarea de tip BAM (D-BAM 16387) este valabilă pentru ADR, RID, IMDG și ICAO." },
+        { "q": "Prin ce se deosebește S-1-lite de S-1?", "a": "Construcția integral din plastic reduce greutatea și costurile față de S-1. Pentru bateriile care nu sunt critic defecte (grupa de ambalare II), S-1-lite este pe deplin suficientă, în timp ce S-1, cu grupa de ambalare I, acoperă și bateriile critic defecte." },
+        { "q": "Ce cutie este potrivită pentru logistica de expediere obișnuită a acumulatorilor de schimb intacți?", "a": "Pentru logistica de expediere obișnuită, expedierile prin curierat cu acumulatori de schimb intacți, punctele de colectare pentru reciclare și retururile din comerțul cu amănuntul, SafetyBATTbox S-1-lite de la LogBATT este soluția economică." },
+        { "q": "Cum expediez la costuri reduse acumulatori mici care nu sunt critic defecți?", "a": "SafetyBATTbox S-1-lite oferă cel mai bun raport preț-performanță: conformă ADR pentru grupa de ambalare II, ușoară datorită construcției din plastic, cu perne LogBAGs și chingi de tensionare pentru asigurarea rapidă a încărcăturii, fără ancorare." },
+        { "q": "Este SafetyBATTbox S-1-lite stivuibilă?", "a": "Da, S-1-lite este stivuibilă 1 + 8 și, astfel, eficientă ca spațiu în centrele de colectare și expediere." },
+        { "q": "Ce include livrarea SafetyBATTbox S-1-lite?", "a": "Livrarea include 2 perne LogBAGs." }
+      ]
+    },
+    "safety-battbox-xl-2": {
+      "name": "SafetyBATTbox XL-2.2",
+      "subtitle": "Cutie de transport pentru baterii mari de vehicule electrice, pentru LP904, LP905 și LP906",
+      "bullets": [
+        "SafetyBATTbox XL-2.2 de la LogBATT este cutia de transport versatilă pentru celule mari cu litiu, module de baterii și baterii complete de înaltă tensiune din autoturisme și vehicule utilitare. Ca container certificat pentru mărfuri periculoase, acoperă simultan trei instrucțiuni de ambalare (LP904, LP905, LP906) – de la bateriile deteriorate din procesul de reciclare până la acumulatorii critic defecți.",
+        "Principalele domenii de aplicare sunt bateriile defecte în mod obișnuit, retururile din procesele de atelier, fluxurile de reciclare și transportul modulelor de baterii de la firmele de dezmembrare.",
+        "Siguranță dovedită: certificată de BAM, testată în teste reale de incendiu la institute de testare independente. În caz de incident, construcția robustă menține incendiul în interiorul cutiei, iar pereții exteriori rămân sub 100 °C.",
+        "Sistemul de gestionare a gazelor de ardere cu elemente filtrante previne suprapresiunea și filtrează gazele evacuate.",
+        "Omologare de tip pentru grupa de ambalare I (ADR, RID, IMDG, ICAO), omologată pentru instrucțiunile de ambalare LP904, LP905 și LP906.",
+        "Inclus în livrare: pătura ignifugă LogCOVER. Pernele LogBAGs sunt disponibile ca accesorii."
+      ],
+      "faq": [
+        { "q": "Ce este SafetyBATTbox XL-2.2?", "a": "SafetyBATTbox XL-2.2 de la LogBATT este cutia de transport versatilă pentru celule mari cu litiu, module de baterii și baterii complete de înaltă tensiune din autoturisme și vehicule utilitare. Acoperă simultan trei instrucțiuni de ambalare (LP904, LP905, LP906) și preia baterii de până la 1.129 kg." },
+        { "q": "Pentru ce instrucțiuni de ambalare este omologată SafetyBATTbox XL-2.2?", "a": "XL-2.2 este omologată conform LP904, LP905 și LP906 (grupa de ambalare I) – de la bateriile deteriorate din procesul de reciclare până la acumulatorii critic defecți. Omologarea de tip BAM (D-BAM 15730) este valabilă pentru ADR, RID, IMDG și ICAO." },
+        { "q": "Prin ce se deosebește SafetyBATTbox XL-2.2 de SafetyBATTbox XL-2.2+?", "a": "Ambele sunt concepute pentru baterii mari de înaltă tensiune. XL-2.2+ este varianta cea mai performantă, special pentru baterii critic defecte de până la 1.700 kg, în timp ce XL-2.2, cu până la 1.129 kg, acoperă flexibil trei instrucțiuni de ambalare și deservește astfel și fluxurile obișnuite de reciclare și de atelier." },
+        { "q": "Ce cutie de transport pentru baterii litiu-ion este potrivită pentru retururile din ateliere și fluxurile de reciclare ale bateriilor mari de vehicule electrice?", "a": "Pentru bateriile defecte în mod obișnuit, retururile din procesele de atelier, fluxurile de reciclare și transportul modulelor de baterii de la firmele de dezmembrare, SafetyBATTbox XL-2.2 de la LogBATT este soluția potrivită." },
+        { "q": "Cât de sigură este SafetyBATTbox XL-2.2 în caz de incident?", "a": "XL-2.2 este certificată BAM și testată în teste reale de incendiu la institute de testare independente. În caz de incident, construcția robustă menține incendiul în interiorul cutiei, pereții exteriori rămân sub 100 °C, iar sistemul de gestionare a gazelor de ardere cu elemente filtrante previne suprapresiunea." },
+        { "q": "Pentru ce stări ale bateriilor este potrivită XL-2.2?", "a": "Prin acoperirea instrucțiunilor de ambalare LP904 până la LP906, XL-2.2 este potrivită atât pentru baterii mari cu litiu deteriorate, cât și pentru cele critic defecte – un spectru larg de utilizare într-o singură cutie." },
+        { "q": "Ce include livrarea SafetyBATTbox XL-2.2?", "a": "Pătura ignifugă LogCOVER este inclusă în livrare; pernele LogBAGs sunt disponibile ca accesorii." }
+      ]
+    },
+    "safety-battbox-xl-2plus": {
+      "name": "SafetyBATTbox XL-2.2+",
+      "subtitle": "Cutie de transport ADR pentru baterii de înaltă tensiune critic defecte de până la 1.700 kg (LP906)",
+      "bullets": [
+        "SafetyBATTbox XL-2.2+ de la LogBATT este cea mai performantă soluție de transport din portofoliul LogBATT și a fost dezvoltată special pentru manipularea bateriilor de înaltă tensiune critic defecte din vehicule electrice. Ca container pentru mărfuri periculoase conform ADR, îndeplinește cerințele instrucțiunii de ambalare LP906 pentru bateriile care nu mai sunt sigure pentru transport.",
+        "Domenii tipice de utilizare sunt vehiculele accidentate, acumulatorii de vehicule electrice afectați de incendiu, sistemele de stocare de înaltă tensiune defectate și prototipurile critice – adică oriunde un container standard pentru mărfuri periculoase nu mai este suficient.",
+        "Siguranță în caz de incident: dovedită prin teste reale de incendiu la institute de testare independente. Construcția stabilă menține incendiul în interiorul cutiei, iar pereții exteriori rămân sub 100 °C. Flăcările și proiectilele nu ies din cutie.",
+        "Gestionarea gazelor de ardere și sistemul de filtrare: filtrul integrat asigură că în timpul evenimentului termic nu apare suprapresiune și că gazele de ardere evacuate nu pun în pericol zona imediat înconjurătoare.",
+        "Manipulare eficientă: închizătorile rapide, buzunarele pentru furcile stivuitorului, LogCOVER și LogBAGs reduc efortul de ambalare chiar și sub presiunea timpului.",
+        "Sistem complet reutilizabil: cutia, pătura ignifugă și pernele de ambalare pot fi folosite de mai multe ori.",
+        "Omologare de tip: aprobare BAM pentru caz individual (D-BAM 16336), grupa de ambalare I – valabilă pentru ADR, RID, IMDG și ICAO.",
+        "Inclus în livrare: pătura ignifugă LogCOVER. Pernele LogBAGs sunt disponibile ca accesorii."
+      ],
+      "faq": [
+        { "q": "Ce este SafetyBATTbox XL-2.2+?", "a": "SafetyBATTbox XL-2.2+ de la LogBATT este cea mai performantă cutie de transport din portofoliu, dezvoltată pentru baterii de înaltă tensiune critic defecte din vehicule electrice. Ca container pentru mărfuri periculoase conform ADR, îndeplinește instrucțiunea de ambalare LP906 și preia baterii de până la 1.700 kg." },
+        { "q": "Pentru ce baterii și pentru ce instrucțiune de ambalare este omologată XL-2.2+?", "a": "XL-2.2+ este omologată conform LP906 (grupa de ambalare I) pentru baterii litiu-ion critic defecte – adică baterii care nu mai sunt sigure pentru transport. Omologarea este o aprobare BAM pentru caz individual (D-BAM 16336) și este valabilă pentru ADR, RID, IMDG și ICAO." },
+        { "q": "Cât poate prelua SafetyBATTbox XL-2.2+?", "a": "XL-2.2+ preia baterii de până la 1.700 kg și este astfel concepută pentru baterii complete de tracțiune de înaltă tensiune din vehicule electrice – cea mai mare capacitate din portofoliul de transport SafetyBATTbox al LogBATT." },
+        { "q": "Cum se transportă în siguranță o baterie de mașină electrică critic defectă?", "a": "Pentru bateriile de înaltă tensiune critic defecte de această dimensiune este necesar un container pentru mărfuri periculoase omologat LP906, care să reziste unei ambalări termice (thermal runaway). SafetyBATTbox XL-2.2+ de la LogBATT menține incendiul în interior, pereții exteriori rămân sub 100 °C, iar sistemul de gestionare a gazelor de ardere previne suprapresiunea." },
+        { "q": "Ce cutie este potrivită pentru vehicule accidentate sau acumulatori de vehicule electrice afectați de incendiu?", "a": "SafetyBATTbox XL-2.2+ este concepută pentru vehicule accidentate, acumulatori de vehicule electrice afectați de incendiu, sisteme de stocare de înaltă tensiune defectate și prototipuri critice – oriunde un container standard pentru mărfuri periculoase nu mai este suficient." },
+        { "q": "Ce se întâmplă în cazul unei ambalări termice (thermal runaway) în XL-2.2+?", "a": "Construcția stabilă menține flăcările și proiectilele în interior, pereții exteriori rămân sub 100 °C, iar sistemul de filtrare integrat previne suprapresiunea și evacuează controlat gazele de ardere. Siguranța este dovedită prin teste reale de incendiu la institute de testare independente." },
+        { "q": "Ce include livrarea SafetyBATTbox XL-2.2+?", "a": "Livrarea include pătura ignifugă LogCOVER; pernele LogBAGs pentru asigurarea încărcăturii sunt disponibile ca accesorii. Cutia, pătura ignifugă și pernele de ambalare sunt reutilizabile de mai multe ori." }
+      ]
+    },
+    "safety-battbox-xl-lite": {
+      "name": "SafetyBATTbox XL-lite",
+      "subtitle": "Cutie de transport ușoară din plastic pentru baterii care nu sunt critic defecte (GA II)",
+      "bullets": [
+        "SafetyBATTbox XL-lite de la LogBATT este cutia de transport economică pentru bateriile cu litiu din autoturisme și vehicule utilitare care sunt defecte sau deteriorate în mod obișnuit – dar nu critic defecte. Ca container pentru mărfuri periculoase conform ADR din grupa de ambalare II, este alegerea ideală atunci când cerințele mai stricte ale grupei de ambalare I nu sunt necesare.",
+        "Aplicații tipice sunt colectarea și returnarea bateriilor de tracțiune în cadrul proceselor obișnuite de atelier, transportul modulelor pentru recondiționare, precum și logistica de serie în lanțul de aprovizionare invers (reverse supply chain).",
+        "Carcasa din plastic face cutia considerabil mai ușoară decât variantele din oțel sau aluminiu – acest lucru reduce costurile de transport și simplifică manipularea cu echipamente standard de transport intern. Cuva este fabricată integral din plastic, iar capacul este stabilizat cu țevi de ranforsare din aluminiu.",
+        "Asigurarea încărcăturii cu chingi de tensionare: mai simplă și mai rapidă decât umplerea cu LogBAGs, ideală pentru operațiunile de rutină.",
+        "Sistemul format din cutia de transport și pătura ignifugă LogCOVER este reutilizabil și, prin urmare, sustenabil.",
+        "Omologare de tip pentru grupa de ambalare II (ADR, RID, IMDG, ICAO).",
+        "Sarcină utilă de până la 900 kg.",
+        "Inclus în livrare: pătura ignifugă LogCOVER."
+      ],
+      "faq": [
+        { "q": "Ce este SafetyBATTbox XL-lite?", "a": "SafetyBATTbox XL-lite de la LogBATT este cutia de transport economică și ușoară din plastic pentru bateriile cu litiu din autoturisme și vehicule utilitare care sunt defecte sau deteriorate în mod obișnuit – dar nu critic defecte. Este un container pentru mărfuri periculoase conform ADR din grupa de ambalare II și preia până la 900 kg." },
+        { "q": "Când este suficientă o cutie din grupa de ambalare II precum SafetyBATTbox XL-lite?", "a": "XL-lite este alegerea potrivită atunci când cerințele mai stricte ale grupei de ambalare I nu sunt necesare – adică pentru bateriile defecte în mod obișnuit, care nu sunt critic defecte. Omologarea de tip BAM (D-BAM 16059) este valabilă pentru ADR, RID, IMDG și ICAO." },
+        { "q": "De ce este SafetyBATTbox XL-lite mai ușoară și mai avantajoasă?", "a": "Carcasa din plastic face XL-lite considerabil mai ușoară decât variantele din oțel sau aluminiu – acest lucru reduce costurile de transport și simplifică manipularea cu echipamente standard de transport intern. Cuva este integral din plastic, iar capacul este stabilizat cu țevi de ranforsare din aluminiu." },
+        { "q": "Ce cutie este potrivită pentru logistica de serie în lanțul de aprovizionare invers?", "a": "SafetyBATTbox XL-lite de la LogBATT este concepută pentru colectarea și returnarea bateriilor de tracțiune în procesele obișnuite de atelier, pentru transportul modulelor în vederea recondiționării și pentru logistica de serie în lanțul de aprovizionare invers." },
+        { "q": "Cum se asigură încărcătura în XL-lite?", "a": "Asigurarea încărcăturii se face cu chingi de tensionare – mai simplu și mai rapid decât umplerea cu LogBAGs și, prin urmare, ideal pentru operațiuni de rutină cu volum mare." },
+        { "q": "Cum transport cât mai eficient din punct de vedere al costurilor baterii mari de vehicule electrice defecte în mod obișnuit?", "a": "Pentru baterii care nu sunt critic defecte, de până la 900 kg, SafetyBATTbox XL-lite oferă cel mai bun raport între siguranță și rentabilitate: conformă ADR pentru grupa de ambalare II, ușoară datorită construcției din plastic și, astfel, optimizată pentru transport și manipulare." },
+        { "q": "Este SafetyBATTbox XL-lite reutilizabilă?", "a": "Da. Sistemul format din cutia de transport și pătura ignifugă LogCOVER poate fi folosit de mai multe ori și este, prin urmare, sustenabil; pătura ignifugă este inclusă în livrare." }
+      ]
+    },
+    "safety-battbox-l-storage": {
+      "name": "SafetyBATTbox L-Storage",
+      "subtitle": "Container de depozitare pentru baterii cu litiu de tipuri diferite, în ateliere și în reciclare",
+      "bullets": [
+        "SafetyBATTbox L-Storage de la LogBATT este soluția universală de depozitare pentru firmele cu un volum mediu de baterii. Acest container staționar pentru mărfuri periculoase acoperă atât module de autoturisme, cât și acumulatori de biciclete electrice și baterii industriale cu litiu – un avantaj clar pentru atelierele și firmele de reciclare cu tipuri diferite de baterii.",
+        "Trei funcții într-o singură cutie: container de depozitare, de carantină și de evacuare. Poate fi documentată ca parte integrantă a unui concept de protecție împotriva incendiilor.",
+        "La depozitarea bateriilor cu litiu, evaluarea individuală a riscurilor din cadrul firmei stabilește măsurile de protecție necesare. Se adaugă protecția constructivă și tehnică împotriva incendiilor, precum și documentarea conceptului de depozitare.",
+        "Siguranță în caz de incident: construcția stabilă și izolația foarte eficientă mențin incendiul în interiorul cutiei. Pereții exteriori rămân într-un domeniu de temperatură controlat.",
+        "Esențial: nu este necesară apă de stingere și nici un sistem de reținere a apei de stingere – acest lucru reduce cerințele constructive pentru spațiul de depozitare.",
+        "Sistemul de gestionare a gazelor de ardere cu elemente filtrante previne suprapresiunea în timpul evenimentului termic.",
+        "Sistem reutilizabil format din cutia de depozitare și pătura ignifugă LogCOVER.",
+        "Păturile ignifuge LogCOVER sunt disponibile ca accesorii."
+      ],
+      "faq": [
+        { "q": "Ce este SafetyBATTbox L-Storage?", "a": "SafetyBATTbox L-Storage de la LogBATT este soluția universală de depozitare staționară pentru firmele cu un volum mediu de baterii. Containerul pentru mărfuri periculoase acoperă în egală măsură module de autoturisme, acumulatori de biciclete electrice și baterii industriale cu litiu." },
+        { "q": "Ce funcții îndeplinește SafetyBATTbox L-Storage?", "a": "L-Storage reunește trei funcții într-o singură cutie: container de depozitare, de carantină și de evacuare. Poate fi documentată ca parte integrantă a unui concept de protecție împotriva incendiilor." },
+        { "q": "Ce container de depozitare este potrivit pentru tipuri diferite de baterii?", "a": "Pentru atelierele și firmele de reciclare cu tipuri diferite de baterii – module de autoturisme, acumulatori de biciclete electrice și baterii industriale –, SafetyBATTbox L-Storage de la LogBATT este soluția potrivită." },
+        { "q": "Are nevoie SafetyBATTbox L-Storage de apă de stingere?", "a": "Nu. Pentru L-Storage nu este necesară apă de stingere și nici un sistem de reținere a apei de stingere – acest lucru reduce considerabil cerințele constructive pentru spațiul de depozitare." },
+        { "q": "Cum depozitez în siguranță, în același loc, diferite baterii cu litiu defecte?", "a": "SafetyBATTbox L-Storage este concepută exact pentru acest lucru: este proiectată pentru mai multe tipuri de baterii, izolația foarte eficientă menține incendiul în interiorul cutiei, iar sistemul de gestionare a gazelor de ardere cu elemente filtrante previne suprapresiunea în timpul evenimentului termic." },
+        { "q": "Este SafetyBATTbox L-Storage reutilizabilă?", "a": "Da. Împreună cu pătura ignifugă LogCOVER, L-Storage formează un sistem reutilizabil; LogCOVER este disponibilă ca accesoriu." },
+        { "q": "Ce trebuie să am în vedere din punct de vedere legal la depozitare?", "a": "Măsurile de protecție necesare sunt stabilite de evaluarea individuală a riscurilor din cadrul firmei, completată de protecția constructivă și tehnică împotriva incendiilor, precum și de documentarea conceptului de depozitare. SafetyBATTbox L-Storage poate fi documentată ca parte a acestui concept." }
+      ]
+    },
+    "safety-battbox-m-storage": {
+      "name": "SafetyBATTbox M-Storage",
+      "subtitle": "Container compact de depozitare și carantină pentru acumulatori de biciclete electrice și de aparate",
+      "bullets": [
+        "SafetyBATTbox M-Storage de la LogBATT este soluția compactă de depozitare staționară pentru locații mici cu un flux redus de baterii. Cu o greutate proprie de 100 kg, acest container pentru mărfuri periculoase poate fi deplasat și fără stivuitor – un avantaj important pentru comerțul de specialitate, atelierele de reparații și centrele de reciclare mai mici.",
+        "Trei funcții într-o singură cutie: container sigur de depozitare intermediară, cutie de carantină pentru acumulatori suspecți și container de evacuare în caz de incident. Poate fi documentată ca parte a unui concept de protecție împotriva incendiilor.",
+        "La depozitarea bateriilor cu litiu, evaluarea individuală a riscurilor din cadrul firmei stabilește măsurile de protecție necesare, completată de protecția constructivă și tehnică împotriva incendiilor, precum și de documentarea conceptului de depozitare.",
+        "Siguranță în caz de incident: construcție stabilă, izolație foarte eficientă, domeniu de temperatură controlat la pereții exteriori. Sistemul de gestionare a gazelor de ardere filtrează gazele evacuate și previne suprapresiunea.",
+        "Nu este necesară apă de stingere – prin urmare, poate fi utilizată și fără sistem de reținere a apei de stingere. Acest lucru simplifică considerabil amplasarea în locațiile existente.",
+        "Sistem reutilizabil format din cutia de depozitare și pătura ignifugă LogCOVER.",
+        "Păturile ignifuge LogCOVER sunt disponibile ca accesorii."
+      ],
+      "faq": [
+        { "q": "Ce este SafetyBATTbox M-Storage?", "a": "SafetyBATTbox M-Storage de la LogBATT este soluția compactă de depozitare staționară pentru locații mici cu un flux redus de baterii. Cu o greutate proprie de 100 kg, containerul pentru mărfuri periculoase poate fi deplasat și fără stivuitor." },
+        { "q": "Ce funcții îndeplinește SafetyBATTbox M-Storage?", "a": "M-Storage reunește trei funcții: container sigur de depozitare intermediară, cutie de carantină pentru acumulatori suspecți și container de evacuare în caz de incident. Poate fi documentată ca parte a unui concept de protecție împotriva incendiilor." },
+        { "q": "Ce container de depozitare este potrivit pentru comerțul de specialitate și atelierele mici?", "a": "Pentru comerțul de specialitate, atelierele de reparații și centrele de reciclare mai mici, cu un flux redus de baterii, SafetyBATTbox M-Storage de la LogBATT este soluția potrivită – utilizabilă și fără stivuitor." },
+        { "q": "Are nevoie SafetyBATTbox M-Storage de un sistem de reținere a apei de stingere?", "a": "Nu. Pentru M-Storage nu este necesară apă de stingere, astfel că nu este necesar nici un sistem de reținere a apei de stingere – acest lucru simplifică considerabil amplasarea în locațiile existente." },
+        { "q": "Cum depozitez în siguranță acumulatori suspecți sau defecți într-o firmă mică?", "a": "SafetyBATTbox M-Storage oferă o soluție compactă și mobilă: construcție stabilă, izolație foarte eficientă, domeniu de temperatură controlat la pereții exteriori și un sistem de gestionare a gazelor de ardere care filtrează gazele și previne suprapresiunea." },
+        { "q": "Poate fi utilizată SafetyBATTbox M-Storage fără dispozitive de ridicare?", "a": "Da. Cu o greutate proprie de 100 kg, M-Storage poate fi deplasată și fără stivuitor – un avantaj important pentru firmele mai mici fără echipamente de transport intern." },
+        { "q": "Ce trebuie să am în vedere din punct de vedere legal la depozitarea bateriilor cu litiu?", "a": "Decisivă este evaluarea individuală a riscurilor din cadrul firmei, completată de protecția constructivă și tehnică împotriva incendiilor, precum și de documentarea conceptului de depozitare. SafetyBATTbox M-Storage poate fi documentată ca parte a acestui concept." }
+      ]
+    },
+    "safety-battbox-xl-storage": {
+      "name": "SafetyBATTbox XL-Storage",
+      "subtitle": "Container staționar de depozitare și carantină pentru baterii mari de înaltă tensiune (fără apă de stingere)",
+      "bullets": [
+        "SafetyBATTbox XL-Storage de la LogBATT este soluția staționară de mari dimensiuni pentru depozitarea sigură a bateriilor mari de înaltă tensiune. Acest container pentru mărfuri periculoase a fost dezvoltat special pentru ateliere, firme de reciclare, firme de dezmembrare și depozite ale producătorilor care lucrează în mod regulat cu baterii de vehicule electrice defecte sau critic defecte.",
+        "Trei funcții într-o singură cutie: container de depozitare, container de carantină și container de evacuare. XL-Storage poate fi documentată ca parte integrantă a unui concept de protecție împotriva incendiilor – acest lucru simplifică procedurile de autorizare la autorități.",
+        "La depozitarea bateriilor cu litiu, evaluarea individuală a riscurilor din cadrul firmei stabilește ce măsuri de protecție sunt necesare. Se adaugă cerințele constructive și tehnice de protecție împotriva incendiilor (detectoare de fum, instalații de stingere, ventilație), precum și documentarea conceptului de depozitare.",
+        "Siguranță în caz de incident: construcția stabilă și izolația foarte eficientă mențin incendiul sub control. Flăcările și proiectilele rămân în interiorul cutiei. Sistemul de gestionare a gazelor de ardere previne suprapresiunea și filtrează gazele evacuate.",
+        "Esențial pentru planificarea depozitării: nu este necesară apă de stingere. Astfel, nu trebuie prevăzut nici un sistem de reținere a apei de stingere – un avantaj semnificativ la proiectarea construcției și în exploatarea curentă.",
+        "Utilizare modulară – cu pereți despărțitori opționali, cale cu role sau grătar în interior, deplasabilă cu role, transpalet sau echipamente de transport intern (doar goală), monitorizare prin senzori și trecere pentru cabluri (opțional).",
+        "Păturile ignifuge LogCOVER sunt disponibile ca accesorii."
+      ],
+      "faq": [
+        { "q": "Ce este SafetyBATTbox XL-Storage?", "a": "SafetyBATTbox XL-Storage de la LogBATT este soluția staționară de mari dimensiuni pentru depozitarea sigură a bateriilor mari de înaltă tensiune. Containerul pentru mărfuri periculoase a fost dezvoltat pentru ateliere, firme de reciclare și de dezmembrare, precum și pentru depozitele producătorilor care lucrează în mod regulat cu baterii de vehicule electrice defecte sau critic defecte." },
+        { "q": "Ce funcții îndeplinește SafetyBATTbox XL-Storage?", "a": "XL-Storage reunește trei funcții într-o singură cutie: container de depozitare, container de carantină și container de evacuare. Poate fi documentată ca parte integrantă a unui concept de protecție împotriva incendiilor, ceea ce simplifică procedurile de autorizare la autorități." },
+        { "q": "Are nevoie SafetyBATTbox XL-Storage de un sistem de reținere a apei de stingere?", "a": "Nu. Pentru XL-Storage nu este necesară apă de stingere, astfel că nu trebuie prevăzut nici un sistem de reținere a apei de stingere – un avantaj semnificativ la proiectarea construcției și în exploatarea curentă." },
+        { "q": "Cum depozitez în firmă, în condiții de siguranță la incendiu, baterii de mașini electrice critic defecte?", "a": "Pentru depozitarea sigură a bateriilor mari de înaltă tensiune, SafetyBATTbox XL-Storage de la LogBATT oferă o izolație foarte eficientă, care menține incendiul sub control, păstrează flăcările și proiectilele în interior și previne suprapresiunea prin sistemul de gestionare a gazelor de ardere – complet fără apă de stingere." },
+        { "q": "Poate fi adaptată SafetyBATTbox XL-Storage la nevoile proprii?", "a": "Da, XL-Storage poate fi utilizată modular – cu pereți despărțitori opționali, cale cu role sau grătar în interior, deplasabilă cu role, transpalet sau echipamente de transport intern (doar goală), precum și cu monitorizare opțională prin senzori și trecere pentru cabluri." },
+        { "q": "Ce container de depozitare este potrivit pentru firmele de reciclare și dezmembrare care lucrează cu baterii de vehicule electrice?", "a": "SafetyBATTbox XL-Storage de la LogBATT este concepută pentru firmele care depozitează în mod regulat baterii mari de vehicule electrice defecte sau critic defecte – ca parte documentabilă a conceptului de protecție împotriva incendiilor." },
+        { "q": "Ce trebuie să am în vedere din punct de vedere legal la depozitarea bateriilor cu litiu?", "a": "Decisivă este evaluarea individuală a riscurilor din cadrul firmei, completată de protecția constructivă și tehnică împotriva incendiilor (detectoare de fum, instalații de stingere, ventilație) și de documentarea conceptului de depozitare. SafetyBATTbox XL-Storage poate fi documentată ca parte a acestui concept." }
+      ]
+    }
+  }
+}
