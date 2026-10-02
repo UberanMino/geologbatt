@@ -1,0 +1,96 @@
+{
+  "_comment": "Sprachunabhängige Stammdaten. Technische Daten werden beim Build direkt aus der deutschen Quelldatei (source) gelesen, damit Zahlen nie doppelt gepflegt werden.",
+  "company": {
+    "name": "LogBATT GmbH",
+    "street": "Am Filswehr 2",
+    "city": "73207 Plochingen",
+    "phone": "+49 7153 925080",
+    "email": "info@logbatt.de",
+    "web": "www.logbatt.de"
+  },
+  "products": [
+    {
+      "slug": "safety-battbox-xl-2plus",
+      "category": "transport",
+      "source": "website/de/transportkisten/safety-battbox-xl-2plus.html",
+      "url": "https://www.logbatt.de/transportkisten/safety-batt-box-xl-2plus/",
+      "image": "assets/img/safety-battbox-xl-2plus.jpg",
+      "image_source": "https://www.logbatt.de/wp-content/uploads/sites/10112/2025/11/DSC7496.png"
+    },
+    {
+      "slug": "safety-battbox-xl-2",
+      "category": "transport",
+      "source": "website/de/transportkisten/safety-battbox-xl-2.html",
+      "url": "https://www.logbatt.de/transportkisten/safety-batt-box-xl-2/",
+      "image": "assets/img/safety-battbox-xl-2.jpg",
+      "image_source": "https://www.logbatt.de/wp-content/uploads/sites/10112/2025/11/DSC7492.png"
+    },
+    {
+      "slug": "safety-battbox-xl-lite",
+      "category": "transport",
+      "source": "website/de/transportkisten/safety-battbox-xl-lite.html",
+      "url": "https://www.logbatt.de/transportkisten/safety-batt-box-xl-lite/",
+      "image": "assets/img/safety-battbox-xl-lite.jpg",
+      "image_source": "https://www.logbatt.de/wp-content/uploads/sites/10112/2025/11/DSC07504.png"
+    },
+    {
+      "slug": "safety-battbox-l-2",
+      "category": "transport",
+      "source": "website/de/transportkisten/safety-battbox-l-2.html",
+      "url": "https://www.logbatt.de/transportkisten/safety-batt-box-l-2/",
+      "image": "assets/img/safety-battbox-l-2.jpg",
+      "image_source": "https://www.logbatt.de/wp-content/uploads/sites/10112/2024/04/DSC7451-e1757325054529.png"
+    },
+    {
+      "slug": "safety-battbox-m-2",
+      "category": "transport",
+      "source": "website/de/transportkisten/safety-battbox-m-2.html",
+      "url": "https://www.logbatt.de/transportkisten/safety-batt-box-m-2/",
+      "image": "assets/img/safety-battbox-m-2.jpg",
+      "image_source": "https://www.logbatt.de/wp-content/uploads/sites/10112/2026/06/PULSWERK_DANIELGIMMER_DG1_0163.jpg",
+      "fit": "cover",
+      "position": "50% 60%"
+    },
+    {
+      "slug": "safety-battbox-s-1",
+      "category": "transport",
+      "source": "website/de/transportkisten/safety-battbox-s-1.html",
+      "url": "https://www.logbatt.de/transportkisten/safety-batt-box-s-1/",
+      "image": "assets/img/safety-battbox-s-1.jpg",
+      "image_source": "https://www.logbatt.de/wp-content/uploads/sites/10112/2026/06/PULSWERK_DG1_0107.png"
+    },
+    {
+      "slug": "safety-battbox-s-1-lite",
+      "category": "transport",
+      "source": "website/de/transportkisten/safety-battbox-s-1-lite.html",
+      "url": "https://www.logbatt.de/transportkisten/safety-batt-box-s-1-lite/",
+      "image": "assets/img/safety-battbox-s-1-lite.jpg",
+      "image_source": "https://www.logbatt.de/wp-content/uploads/sites/10112/2026/06/S-1-lite_Schraege.jpg",
+      "fit": "cover"
+    },
+    {
+      "slug": "safety-battbox-xl-storage",
+      "category": "storage",
+      "source": "website/de/lagerbehaelter/safety-battbox-xl-storage.html",
+      "url": "https://www.logbatt.de/lagerbehaelter/safety-battbox-xl-storage/",
+      "image": "assets/img/safety-battbox-xl-storage.jpg",
+      "image_source": "https://www.logbatt.de/wp-content/uploads/sites/10112/2026/06/DSC07445.png"
+    },
+    {
+      "slug": "safety-battbox-l-storage",
+      "category": "storage",
+      "source": "website/de/lagerbehaelter/safety-battbox-l-storage.html",
+      "url": "https://www.logbatt.de/lagerbehaelter/safety-battbox-l-storage/",
+      "image": "assets/img/safety-battbox-l-storage.jpg",
+      "image_source": "https://www.logbatt.de/wp-content/uploads/sites/10112/2026/06/L-Storage_frontal.png"
+    },
+    {
+      "slug": "safety-battbox-m-storage",
+      "category": "storage",
+      "source": "website/de/lagerbehaelter/safety-battbox-m-storage.html",
+      "url": "https://www.logbatt.de/lagerbehaelter/safety-battbox-m-storage/",
+      "image": "assets/img/safety-battbox-m-storage.jpg",
+      "image_source": "https://www.logbatt.de/wp-content/uploads/sites/10112/2026/06/M-Storage_frontal.png"
+    }
+  ]
+}
